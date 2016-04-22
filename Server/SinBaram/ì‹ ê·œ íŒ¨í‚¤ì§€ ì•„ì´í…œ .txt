@@ -1,0 +1,26 @@
+//========= 패키지 캐쉬 아이템============성근추가=====================================================================
+
+{sinBI2|sin01 ,"Bronze Package(3시간)"	,"BI201",ITEMSIZE*1,ITEMSIZE*1,"Premium",ITEM_CLASS_ECORE,"BI201",0,SIN_SOUND_POTION},		
+{sinBI2|sin02 ,"Bronze Package(1일)"    ,"BI202",ITEMSIZE*1,ITEMSIZE*1,"Premium",ITEM_CLASS_ECORE,"BI202",0,SIN_SOUND_POTION},
+{sinBI2|sin03 ,"Bronze Package(7일)"    ,"BI203",ITEMSIZE*1,ITEMSIZE*1,"Premium",ITEM_CLASS_ECORE,"BI203",0,SIN_SOUND_POTION},					
+{sinBI2|sin04 ,"Bronze Package(30일)"   ,"BI204",ITEMSIZE*1,ITEMSIZE*1,"Premium",ITEM_CLASS_ECORE,"BI204",0,SIN_SOUND_POTION},					
+	
+{sinBI2|sin05 ,"Siver Package(3시간)"   ,"BI205",ITEMSIZE*1,ITEMSIZE*1,"Premium",ITEM_CLASS_ECORE,"BI205",0,SIN_SOUND_POTION},					
+{sinBI2|sin06 ,"Siver Package(1일)"     ,"BI206",ITEMSIZE*1,ITEMSIZE*1,"Premium",ITEM_CLASS_ECORE,"BI206",0,SIN_SOUND_POTION},					
+{sinBI2|sin07 ,"Siver Package(7일)"     ,"BI207",ITEMSIZE*1,ITEMSIZE*1,"Premium",ITEM_CLASS_ECORE,"BI207",0,SIN_SOUND_POTION},					
+{sinBI2|sin08 ,"Siver Package(30일)"	,"BI208",ITEMSIZE*1,ITEMSIZE*1,"Premium",ITEM_CLASS_ECORE,"BI208",0,SIN_SOUND_POTION},					
+
+{sinBI2|sin09 ,"Gold Package(3시간)"    ,"BI209",ITEMSIZE*1,ITEMSIZE*1,"Premium",ITEM_CLASS_ECORE,"BI209",0,SIN_SOUND_POTION},					
+{sinBI2|sin10 ,"Gold Package(1일)"      ,"BI210",ITEMSIZE*1,ITEMSIZE*1,"Premium",ITEM_CLASS_ECORE,"BI210",0,SIN_SOUND_POTION},
+{sinBI2|sin11 ,"Gold Package(7일)"      ,"BI211",ITEMSIZE*1,ITEMSIZE*1,"Premium",ITEM_CLASS_ECORE,"BI211",0,SIN_SOUND_POTION},					
+{sinBI2|sin12 ,"Gold Package(30일)"     ,"BI212",ITEMSIZE*1,ITEMSIZE*1,"Premium",ITEM_CLASS_ECORE,"BI212",0,SIN_SOUND_POTION},
+	
+//=====================================================================================================================
+
+//시간 세팅 함수 
+
+//써드 아이즈
+chaPremiumitem.SetThirdEyesTime( 시간 );
+//경험치업 포션
+chaPremiumitem.SetExpUpPotionTime(시간 );
+

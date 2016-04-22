@@ -1,0 +1,21 @@
+
+Code=1
+CClanName=À¸¾Æ¾Ç
+CClanZang=Çã°Æ´ö
+CMem=Çã°Æ´ö
+ 
+joinClanMember() º¸³½°Í ±æÀÌ : 170 ³»¿ë : POST http://clanserver.pristontale.com/ServerMain/clanInsertClanWon.aspx?userid=tjboy&gserver=¾ÆÀ£&chname=Çã°Æ´ö&clName=À¸¾Æ¾Ç&clwon=Å¬·£¹«»ç&clwonUserid=test2000
+
+
+
+ 
+joinClanMember() ¹ÞÀº°Í ±æÀÌ : 238 ³»¿ë : HTTP/1.1 200 OK
+Server: Microsoft-IIS/5.0
+Date: Tue, 18 Mar 2003 06:58:23 GMT
+Set-Cookie: ASP.NET_SessionId=1wjauj55wc3rr055k2ywqi55; path=/
+Cache-Control: private
+Content-Type: text/html; charset=euc-kr
+Content-Length: 7
+
+Code=3
+ 

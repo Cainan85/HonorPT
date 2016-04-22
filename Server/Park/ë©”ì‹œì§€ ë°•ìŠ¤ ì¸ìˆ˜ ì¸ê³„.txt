@@ -1,0 +1,34 @@
+class HoMessage(이클래스를 주로 건들것이다)
+Message창 출력 함수중 가장 중요한 함수는 DrawCharacterMessage함수이다.
+기본적인 메시지 출력을 모두 여기에서 출력이 된다.
+기본적인 인자 설명
+(x, y): 메시지 박스를 찍을 위치(여기에서 위치는 메시지 꼬리표가 있는 위치이다 함수 안에서 보정을 한다.)
+message: 찍을 메시지로 사람이름을 구별하기 위해서 : 문자를 이름 뒤에 붙어서 와야 한다.
+lineSize: 문자열이 출력이 될경우 가로 최대 사이즈이다.
+clanMark: 클랜 마크를 출력을 해야 하는 경우 값을 세팅해 주면 된다. 클랜 마크가 없는 경우는 NULL을 세팅
+          하면 클랜 마크가 출력이 되지 않는다.
+clanName: 클랜 이름이다. 메시지 창위에 표시되는 클랜 이름이다. NULL인경우 출력이 안된다.
+color1:   message로 들어온 문자열중 : 구별되는 사람이름의 색깔값을 지정한다.
+selected: 메시지 박스가 선택이 되었는지 구별하는 인자값이다.
+bellaMarkIndex: 출력할 벨라트라 마크 세가지 세팅하는 값이다. 기본적으로 -1면 아무것두 출력을 하지 않는다.
+
+그다음로 쓰는 함수는 DrawTwoLineMessage 이다
+(x, y): 메시지를 출력할 위치
+message1: 2라인으로 표시되는 문자에서 위쪽에 출력이 되는 문자열이다.
+message2: 2라인으로 표시되는 문자에서 아래쪽에 출력이 되는 문자열이다.
+color1: message1 문자열의 색깔값이다.
+color2: message2 문자열의 색깔값이다.
+clanMark: 클랜마크를 출력을 해야 할 경우 값을 세팅해 주면 된다. 클랜 마크가 없는 경우는 NULL을 세팅
+          하면 클랜 마크가 출력이 되지 않는다.
+selected: 메시지 박스가 선택이 되었는지 구별하는 인자값이다.
+bellaMarkIndex: 출력할 벨라트라 마크 세자지 세팅하는 값이다. 기본적으로 -1면 아무것두 출력을 하지 않는다.
+
+아래 함수는 두개가 반대로 되어있다
+개인 상점 살때 메시지
+void DrawShopSellMessage(int x, int y, char *message, int lineSize = 30, LPDIRECTDRAWSURFACE4 clanMark = NULL,DWORD color1 = RGB(0,0,0), BOOL selected = FALSE);
+
+개인 상점 팔때 메시지
+void DrawShopByeMessage(int x, int y, char *message, int lineSize = 30, LPDIRECTDRAWSURFACE4 clanMark = NULL,DWORD color1 = RGB(0,0,0), BOOL selected = FALSE);
+
+
+

@@ -317,7 +317,7 @@ typedef int (*LPFN_LogITEMRecord)( char *lpszPID, LogITEM *LogItem );
 typedef int (*LPFN_LogITEMTradeRecord)( char *lpszPID, LogITEM_TRADE *LogItem );
 typedef int (*LPFN_LogITEMPostRecord)(char *lpszPID, LogGiftITEM *GiftItem);
 */
-
+// hu3hu3hu3hu3huh3uhu3hu3hurh32uihrui32hru13hui31
 #ifdef _W_SERVER
 
 #include "mini_dump.h"

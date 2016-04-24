@@ -545,7 +545,7 @@ void cCHARSTATUS::LButtonDown(int x, int y)
 		if (x > 251 && x < 269 && y > 565 && y < 583) //체크표시를 누르면 창을 닫는다 
 			OpenFlag = SIN_CLOSE;
 
-		if (GetAsyncKeyState(VK_CONTROL))
+		if (GetAsyncKeyState(VK_CONTROL) & 0x8000)
 		{
 			if (sinChar->StatePoint > 9)
 			{
@@ -626,71 +626,33 @@ void cCHARSTATUS::LButtonDown(int x, int y)
 						if (TempStatePoints.size() < 10)
 							break;
 
-						int LastPoint = 0;
-						int Count = 0;
+						CheckCharForm(); //인증 
 						for (int i = 0; i < 10; i++)
 						{
-							if (LastPoint == 0)
-							{
-								LastPoint = TempStatePoints[(TempStatePoints.size() - 1) - i];
-								Count++;
-							}
-							else if (TempStatePoints[(TempStatePoints.size() - 1) - i] == LastPoint)
-							{
-								Count++;
-							}
-						}
-						if (Count == 10)
-						{
-							for (int i = 0; i < 10; i++)
-							{
-								TempStatePoints.pop_back();
-							}
-							switch (LastPoint)
+							switch (TempStatePoints[(TempStatePoints.size() - 1)])
 							{
 								case POINT_STRENGTH:
-									CheckCharForm(); //인증 
-									sinChar->Strength -= 10;
-									sinChar->StatePoint += 10;
-									ReformCharForm(); //재인증 
-									cInvenTory.SetItemToChar();
-									cInvenTory.CheckDamage(); //서버에 최고데미지를 보낸다
+									sinChar->Strength -= 1;
 									break;
 								case POINT_SPIRIT:
-									CheckCharForm(); //인증 
-									sinChar->Spirit -= 10;
-									sinChar->StatePoint += 10;
-									ReformCharForm(); //재인증 
-									cInvenTory.SetItemToChar();
-									cInvenTory.CheckDamage(); //서버에 최고데미지를 보낸다
+									sinChar->Spirit -= 1;
 									break;
 								case POINT_TALENT:
-									CheckCharForm(); //인증 
-									sinChar->Talent -= 10;
-									sinChar->StatePoint += 10;
-									ReformCharForm(); //재인증 
-									cInvenTory.SetItemToChar();
-									cInvenTory.CheckDamage(); //서버에 최고데미지를 보낸다
+									sinChar->Talent -= 1;
 									break;
 								case POINT_DEXTERITY:
-									CheckCharForm(); //인증 
-									sinChar->Dexterity -= 10;
-									sinChar->StatePoint += 10;
-									ReformCharForm(); //재인증 
-									cInvenTory.SetItemToChar();
-									cInvenTory.CheckDamage(); //서버에 최고데미지를 보낸다
-
+									sinChar->Dexterity -= 1;
 									break;
 								case POINT_HEALTH:
-									CheckCharForm(); //인증 
-									sinChar->Health -= 10;
-									sinChar->StatePoint += 10;
-									ReformCharForm(); //재인증 
-									cInvenTory.SetItemToChar();
-									cInvenTory.CheckDamage(); //서버에 최고데미지를 보낸다
+									sinChar->Health -= 1;
 									break;
 							}
+							sinChar->StatePoint += 1;
+							TempStatePoints.pop_back();
 						}
+						ReformCharForm(); //재인증 
+						cInvenTory.SetItemToChar();
+						cInvenTory.CheckDamage(); //서버에 최고데미지를 보낸다
 					}
 					break;
 				}

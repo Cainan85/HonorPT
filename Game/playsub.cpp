@@ -1919,17 +1919,17 @@ int AddExp(int Exp)
 
 	{
 		char Message[64] = { 0 };
-		if (CurrentExp + Exp >= ExpLevelTable[CHAR_LEVEL_MAX])
+		if (CurrentExp + Exp >= ExpLevelTable[CHAR_LEVEL_MAX - 1])
 		{
-			sprintf_s(Message, "> Ganhou( %d ) exp.", ExpLevelTable[CHAR_LEVEL_MAX] - CurrentExp);
-			CurrentExp = ExpLevelTable[CHAR_LEVEL_MAX];
+			sprintf_s(Message, "> Ganhou( %d ) exp.", ExpLevelTable[CHAR_LEVEL_MAX - 1] - CurrentExp);
+			CurrentExp = ExpLevelTable[CHAR_LEVEL_MAX - 1];
 		}
 		else
 		{
 			sprintf_s(Message, "> Ganhou( %d ) exp.", Exp);
 		}
 
-		AddChatBuff(Message, 0);
+		AddChatBuff(Message, 3);
 	}
 
 	SetExp64(&lpCurPlayer->smCharInfo, CurrentExp);

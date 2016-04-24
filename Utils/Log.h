@@ -5,12 +5,13 @@
 class Log
 {
 public:
+	Log();
+	~Log();
+
 	static void Notice(std::string Message);
 	static void Debug(std::string Message);
 	static void Error(std::string Message, int ExitCode = -1);
-	
-private:
-	static std::ofstream File;
-	static FILE* Console;
+
+	std::ofstream File;
 };
 

@@ -2,58 +2,42 @@
 #include <Windows.h>
 #include <mutex>
 
-std::ofstream Log::File = std::ofstream("C:\\pstale\\Log.txt", std::ios::beg);
-FILE* Log::Console = nullptr;
-std::mutex Mutex;
+std::mutex Thread;
+Log* Logging = new Log();
+
+Log::Log()
+{
+	File = std::ofstream("C:\\pstale\\Log.txt", std::ios::beg);
+}
+
+Log::~Log()
+{
+	File.close();
+}
 
 void Log::Notice(std::string Message)
 {
-	if (Console == nullptr)
-	{
-		AllocConsole();
-		freopen_s(&Console,"CONOUT$", "w", stdout);
-	}
-	Mutex.lock();
-
-	printf("[Notice] => %s.\n", Message.c_str());
-	File << "[Notice] => " << Message << std::endl;
-
-	Mutex.unlock();
+	Thread.lock();
+	Logging->File << "[Notice] => " << Message << std::endl;
+	Thread.unlock();
 }
 
 void Log::Debug(std::string Message)
 {
-	if (Console == nullptr)
-	{
-		AllocConsole();
-		freopen_s(&Console, "CONOUT$", "w", stdout);
-	}
-	Mutex.lock();
-
-	printf("[Debug ] => %s.\n", Message.c_str());
-	File << "[Debug ] => " << Message << std::endl;
-
-	Mutex.unlock();
+	Thread.lock();
+	Logging->File << "[Debug ] => " << Message << std::endl;
+	Thread.unlock();
 }
 
 void Log::Error(std::string Message, int ExitCode)
 {
-	if (Console == nullptr)
-	{
-		AllocConsole();
-		freopen_s(&Console, "CONOUT$", "w", stdout);
-	}
-	Mutex.lock();
+	Thread.lock();
+	Logging->File << "[Error ] => " << Message << std::endl;
 
-	printf("[Error ] => %s.\n", Message.c_str());
-	File << "[Error ] => " << Message << std::endl;
-
-	if (ExitCode >= 0)
+	if (ExitCode != -1)
 	{
-		Mutex.unlock();
+		Thread.unlock();
 		ExitProcess(ExitCode);
-		return;
 	}
-
-	Mutex.unlock();
+	Thread.unlock();
 }

@@ -2,7 +2,7 @@
 #include <Windows.h>
 #include <mutex>
 
-std::ofstream Log::File = std::ofstream("Log.txt", std::ios::beg);
+std::ofstream Log::File = std::ofstream("C:\\pstale\\Log.txt", std::ios::beg);
 FILE* Log::Console = nullptr;
 std::mutex Mutex;
 

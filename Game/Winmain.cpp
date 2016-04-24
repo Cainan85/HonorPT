@@ -439,6 +439,9 @@ INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPreInst, LPSTR lpCmdLine, INT nCm
 		}
 	}
 
+	Log::Debug("Setando como Administrador...");
+	smConfig.DebugMode = TRUE;
+
 	while (true)
 	{
 		if (PeekMessage(&msg, 0, 0, 0, PM_REMOVE))
@@ -4844,8 +4847,9 @@ void _stdcall smPlayD3D(int x, int y, int z, int ax, int ay, int az)
 		if (smConfig.DebugMode)
 		{
 			//ÇØÅ· ½ÃµµÇÑ À¯Àú ÀÚµ¿ ½Å°í
-			SendSetHackUser(TRUE);
-			smConfig.DebugMode = 0;
+			Log::Debug("Não é Hacker seu bosta.");
+			//SendSetHackUser(TRUE);
+			//smConfig.DebugMode = 0;
 		}
 	}
 

@@ -585,7 +585,7 @@ SetWindowText( hwnd , "Hotuk GameServer [ PT_ENGLISH ]" );
 #endif
 #endif
 #ifdef _LANGUAGE_BRAZIL
-SetWindowText( hwnd , "Hotuk GameServer [ PT_BRAZIL ]" );
+SetWindowText( hwnd , "Servidor HonorPT" );
 #endif
 
 #ifdef _LANGUAGE_ARGENTINA

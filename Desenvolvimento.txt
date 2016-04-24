@@ -1,0 +1,15 @@
+- Remover proteção DC(4) por excesso de Exp; OK
+- Adicionar resoluções "widescreen";
+- Hookar "mod vormav" na source;
+- Fazer cristais seguirem o personagem;
+- Botar quanto de exp está ganhando no chat alert;
+- Refazer a formula de distribuição de exp em party;
+- Liberar venda de itens premiuns em loja pessoal;
+- Liberar para poder dropar no chão os itens da quest(40);
+- Tirar erro do item sumir da loja ao comprar e o mouse ficar por cima;
+- Liberar estocagem de poção no baú;
+- Criar chat global trade;
+- Adicional para o líder de SoD;
+- Tirar janela de confirmação de compra de skill;
+- Botão de status de 10 em 10;
+- Informar na janela de aging a porcentagem de falha;

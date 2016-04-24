@@ -502,8 +502,6 @@ void cCHARSTATUS::Close()
 *-----------------------------------------------------------------------------*/
 void cCHARSTATUS::LButtonDown(int x, int y)
 {
-	int cnt;
-
 	//*공지채팅
 	if (NoticeChatIndexNum)
 	{

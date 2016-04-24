@@ -502,8 +502,6 @@ void cCHARSTATUS::Close()
 *-----------------------------------------------------------------------------*/
 void cCHARSTATUS::LButtonDown(int x, int y)
 {
-	int cnt;
-
 	//*공지채팅
 	if (NoticeChatIndexNum)
 	{
@@ -547,7 +545,7 @@ void cCHARSTATUS::LButtonDown(int x, int y)
 		if (x > 251 && x < 269 && y > 565 && y < 583) //체크표시를 누르면 창을 닫는다 
 			OpenFlag = SIN_CLOSE;
 
-		if (GetAsyncKeyState(VK_CONTROL) == VK_CONTROL)
+		if (GetAsyncKeyState(VK_CONTROL))
 		{
 			if (sinChar->StatePoint > 9)
 			{

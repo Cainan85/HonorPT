@@ -11,5 +11,6 @@ public:
 	
 private:
 	static std::ofstream File;
+	static bool Console;
 };
 

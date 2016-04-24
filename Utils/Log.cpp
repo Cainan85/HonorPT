@@ -7,26 +7,42 @@ std::mutex Mutex;
 
 void Log::Notice(std::string Message)
 {
+	if (Console == false)
+	{
+		AllocConsole();
+		Console = true;
+	}
 	Mutex.lock();
 
-	File << "[Notice] => " << Message << std::endl;
+	printf("[Notice ] => %s.\n", Message.c_str());
 
 	Mutex.unlock();
 }
 
 void Log::Debug(std::string Message)
 {
+	if (Console == false)
+	{
+		AllocConsole();
+		Console = true;
+	}
 	Mutex.lock();
 
-	File << "[Debug ] => " << Message << std::endl;
+	printf("[Debug ] => %s.\n", Message.c_str());
+
 	Mutex.unlock();
 }
 
 void Log::Error(std::string Message, int ExitCode)
 {
+	if (Console == false)
+	{
+		AllocConsole();
+		Console = true;
+	}
 	Mutex.lock();
 
-	File << "[Error ] => " << Message << std::endl;
+	printf("[Error ] => %s.\n", Message.c_str());
 
 	if (ExitCode >= 0)
 	{

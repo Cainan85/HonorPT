@@ -1919,7 +1919,9 @@ int AddExp(int Exp)
 
 	{
 		char Message[64] = { 0 };
-		if (CurrentExp + Exp >= ExpLevelTable[CHAR_LEVEL_MAX - 1])
+		CurrentExp += Exp;
+
+		if (CurrentExp >= ExpLevelTable[CHAR_LEVEL_MAX - 1])
 		{
 			sprintf_s(Message, "> Ganhou( %d ) exp.", ExpLevelTable[CHAR_LEVEL_MAX - 1] - CurrentExp);
 			CurrentExp = ExpLevelTable[CHAR_LEVEL_MAX - 1];
@@ -1928,9 +1930,7 @@ int AddExp(int Exp)
 		{
 			sprintf_s(Message, "> Ganhou( %d ) exp.", Exp);
 		}
-
-		CurrentExp += Exp;
-
+		
 		AddChatBuff(Message, 2);
 	}
 

@@ -1243,9 +1243,7 @@ void cSKILL::LButtonUp(int x , int y)
 					///////////////여기서 메세지 박스를 띄워주고 돈을 지불하고 스킬을 올려준다 
 
 					pMasterSkill = &sinSkill.UseSkill[SkillButtonIndex-1];
-					cMessageBox.ShowMessage3(MESSAGE_MASTER_SKILL,sinSkill.UseSkill[SkillButtonIndex-1].Skill_Info.SkillName);
-					ShowSkillUpInfo = 1;
-
+					cMessageBox.CheckOkMessageBox2(MESSAGE_MASTER_SKILL);
 				}
 			}
 		}
@@ -1255,10 +1253,8 @@ void cSKILL::LButtonUp(int x , int y)
 				if(sinSkill.UseSkill[SkillButtonIndex-1].Point < MAX_USE_SKILL_POINT){ //최대 스킬 포인트 치를 못넘는다 
 					///////////////여기서 메세지 박스를 띄워주고 돈을 지불하고 스킬을 올려준다 
 
-					pMasterSkill = &sinSkill.UseSkill[SkillButtonIndex-1];
-					cMessageBox.ShowMessage3(MESSAGE_MASTER_SKILL,sinSkill.UseSkill[SkillButtonIndex-1].Skill_Info.SkillName);
-					ShowSkillUpInfo = 1;
-
+					pMasterSkill = &sinSkill.UseSkill[SkillButtonIndex-1]; 
+					cMessageBox.CheckOkMessageBox2(MESSAGE_MASTER_SKILL);
 				}
 			}
 		}

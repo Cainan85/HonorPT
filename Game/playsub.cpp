@@ -1931,7 +1931,7 @@ int AddExp(int Exp)
 			sprintf_s(Message, "> Ganhou( %d ) exp.", Exp);
 		}
 		
-		AddChatBuff(Message, 2);
+		AddChatBuff(Message, 1);
 	}
 
 	SetExp64(&lpCurPlayer->smCharInfo, CurrentExp);

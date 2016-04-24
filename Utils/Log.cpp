@@ -3,6 +3,7 @@
 #include <mutex>
 
 std::ofstream Log::File = std::ofstream("Log.txt", std::ios::beg);
+bool Log::Console = false;
 std::mutex Mutex;
 
 void Log::Notice(std::string Message)

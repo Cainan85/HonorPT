@@ -1798,7 +1798,7 @@ int GetDeathPenalty()
 
 INT64 ExpLevelTable[] = {
 #include "LevelTable.h"
-	- 1 };
+	1632547885966 };
 
 //int LevelTableSum = 1793134039;
 //INT64 LevelTableSum = -2044845887;
@@ -1961,7 +1961,7 @@ int AddExp(int Exp)
 			{
 				break;
 			}
-			CurrentExp = ExpLevelTable[lpCurPlayer->smCharInfo.Level];
+			LevelExp = ExpLevelTable[lpCurPlayer->smCharInfo.Level];
 		}
 	}
 	ReformCharForm();

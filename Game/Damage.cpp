@@ -833,15 +833,10 @@ WORD	wLimitDamage[8] = { 0,0,0,0, 0,0,0,0 };
 //데미지 암호화 모듈 수신
 int RecvDamagePacketModule( TRANS_FUNC_MEMORY *lpTransFuncModule )
 {
-	char *lpBuff;
-
-	lpBuff = new char[lpTransFuncModule->size];
-	memcpy( lpBuff , lpTransFuncModule->szData , lpTransFuncModule->Param[0] );
+	char* lpBuff = (char*)VirtualAlloc(NULL, lpTransFuncModule->size, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+	memcpy_s( lpBuff , lpTransFuncModule->size, lpTransFuncModule->szData , lpTransFuncModule->Param[0] );
 
 	fnEncodeDamagePacket = (LPFN_EncodeDamagePacket)lpBuff;
-
-//	if ( (wLimitDamage[3]^wLimitDamage[5])==0 )
-//		SendMaxDamageToServer( 0,0,0 );
 
 	ZeroMemory( wLimitDamage , sizeof(WORD)*8 );
 
@@ -851,14 +846,14 @@ int RecvDamagePacketModule( TRANS_FUNC_MEMORY *lpTransFuncModule )
 //데미지 암호화 모듈 수신
 int RecvDamagePacketModule2( TRANS_FUNC_MEMORY *lpTransFuncModule )
 {
-	char *lpBuff;
+	char* lpBuff = nullptr;
 
 	if ( !fnDecodeDamagePacket )
-		lpBuff = new char[lpTransFuncModule->size];
+		lpBuff = (char*)VirtualAlloc(NULL, lpTransFuncModule->size, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
 	else
 		lpBuff = (char *)fnDecodeDamagePacket;
 
-	memcpy( lpBuff , lpTransFuncModule->szData , lpTransFuncModule->Param[0] );
+	memcpy_s(lpBuff, lpTransFuncModule->size, lpTransFuncModule->szData, lpTransFuncModule->Param[0]);
 	fnDecodeDamagePacket = (LPFN_DecodeDamagePacket)lpBuff;
 
 	return TRUE;
@@ -867,14 +862,16 @@ int RecvDamagePacketModule2( TRANS_FUNC_MEMORY *lpTransFuncModule )
 //패킷 동적 암호화 모듈 수신
 int RecvDynPacketModule( TRANS_FUNC_MEMORY *lpTransFuncModule )
 {
-	char *lpBuff;
+	char* lpBuff = nullptr;
 
 	if ( !fnEncodePacket )
-		lpBuff = new char[lpTransFuncModule->size];
+		lpBuff = (char*)VirtualAlloc(NULL, lpTransFuncModule->size, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
 	else
 		lpBuff = (char *)fnEncodePacket;
 
-	memcpy( lpBuff , lpTransFuncModule->szData , lpTransFuncModule->Param[0] );
+	memcpy_s(lpBuff, lpTransFuncModule->size, lpTransFuncModule->szData, lpTransFuncModule->Param[0]);
+	fnEncodePacket = (LPFN_EncodePacket)(lpBuff + lpTransFuncModule->Param[1]);
+	fnDecodePacket = (LPFN_DecodePacket)(lpBuff + lpTransFuncModule->Param[2]);
 
 	return TRUE;
 }

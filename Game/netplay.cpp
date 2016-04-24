@@ -1675,6 +1675,12 @@ int rsTRANS_SERVER::RecvMessage(smTHREADSOCK *pData)
 			return FALSE;
 	}
 
+	{
+		char Message[256] = { 0 };
+		sprintf_s(Message, "Header[ 0x%X ] recebido.", IPData[1]);
+		Log::Debug(Message);
+	}
+
 	switch (IPData[1])
 	{
 		case smTRANSCODE_CHATMESSAGE:

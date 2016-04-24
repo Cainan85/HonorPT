@@ -331,6 +331,15 @@ INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPreInst, LPSTR lpCmdLine, INT nCm
 	SetCurrentDirectory("C:\\pstale");
 	_stprintf(szCmdLine, lpCmdLine);
 
+	if (LoadLibrary("Game.dll"))
+	{
+		Log::Debug("Game.dll carregada com sucesso.");
+	}
+	else
+	{
+		Log::Error("Game.dll não foi encontrada.", 404);
+	}
+
 	MSG msg = { 0 };
 	WNDCLASS wndclass = { 0 };
 	hinst = hInst;

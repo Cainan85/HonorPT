@@ -875,8 +875,6 @@ int RecvDynPacketModule( TRANS_FUNC_MEMORY *lpTransFuncModule )
 		lpBuff = (char *)fnEncodePacket;
 
 	memcpy( lpBuff , lpTransFuncModule->szData , lpTransFuncModule->Param[0] );
-	fnEncodePacket = (LPFN_EncodePacket)(lpBuff+lpTransFuncModule->Param[1]);
-	fnDecodePacket = (LPFN_DecodePacket)(lpBuff+lpTransFuncModule->Param[2]);
 
 	return TRUE;
 }

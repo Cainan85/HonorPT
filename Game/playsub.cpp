@@ -1917,8 +1917,20 @@ int AddExp(int Exp)
 {
 	long long CurrentExp = CodeXorCharInfo_Exp();
 
-	if (CurrentExp + Exp >= ExpLevelTable[CHAR_LEVEL_MAX])
-		CurrentExp = ExpLevelTable[CHAR_LEVEL_MAX];
+	{
+		char Message[64] = { 0 };
+		if (CurrentExp + Exp >= ExpLevelTable[CHAR_LEVEL_MAX])
+		{
+			sprintf_s(Message, "> Ganhou( %d ) exp.", ExpLevelTable[CHAR_LEVEL_MAX] - CurrentExp);
+			CurrentExp = ExpLevelTable[CHAR_LEVEL_MAX];
+		}
+		else
+		{
+			sprintf_s(Message, "> Ganhou( %d ) exp.", Exp);
+		}
+
+		AddChatBuff(Message, 0);
+	}
 
 	SetExp64(&lpCurPlayer->smCharInfo, CurrentExp);
 
@@ -4662,12 +4674,12 @@ short GetMixItemForm(sITEMINFO *lpItemInfo)
 
 		//에이징 카운터(ItemAgingCount) [1]은 서버측 보안 , [0]은 클라이언트 보안으로 변경
 		dwCode = lpItemInfo->ItemKindCode*(
-			lpItemInfo->ItemAgingNum[0] * 3 + lpItemInfo->ItemAgingNum[1] * 7 + lpItemInfo->ItemAgingCount[1] * 17 + 17 );
+			lpItemInfo->ItemAgingNum[0] * 3 + lpItemInfo->ItemAgingNum[1] * 7 + lpItemInfo->ItemAgingCount[1] * 17 + 17);
 
 		dwCode = dwCode^dwItemKey;
 
 		sCode = (short)((dwCode >> 16) ^ (dwCode & 0xFFFF));
-	}
+}
 #endif
 
 	return sCode;
@@ -5102,7 +5114,7 @@ float GetItemAbsorb(sITEMINFO *lpItemInfo)
 	//#endif
 #endif
 	return	fAborb;
-		}
+}
 
 
 

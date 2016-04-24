@@ -1,4 +1,5 @@
 - Remover proteção DC(4) por excesso de Exp; OK
+- Desbloqueio do botão "-" dos status, para corrigir status mal distribuidos; OK
 - Adicionar resoluções "widescreen";
 - Hookar "mod vormav" na source;
 - Fazer cristais seguirem o personagem;

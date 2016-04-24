@@ -328,6 +328,7 @@ Mini_Dump CMiniDump;
 
 INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPreInst, LPSTR lpCmdLine, INT nCmdShow)
 {
+	SetCurrentDirectory("C:\\pstale");
 	_stprintf(szCmdLine, lpCmdLine);
 
 	MSG msg = { 0 };

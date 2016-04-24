@@ -2705,7 +2705,7 @@ int PlayPat3D()
 	}
 #endif
 
-	Check_CodeSafe2();				//프로그램 코드검사
+	//Check_CodeSafe2();				//프로그램 코드검사
 
 	//필드 미니 맵
 	MainFieldMap();

@@ -3379,7 +3379,7 @@ int DecodeItemInfo( char *szItemFile , sDEF_ITEMINFO *lpDefItem  )
 		}
 #endif
 #ifdef _LANGUAGE_BRAZIL
-		if ( lstrcmpi( decode , "*B_NAME" )==0 ) {
+		if ( lstrcmpi( decode , "*J_NAME" )==0 ) {
 			pb=p;p=GetWord(strBuff,p);if(strBuff[0]==34)p=GetString(strBuff,pb);	//단어 찾기
 
 			lstrcpy( lpItem->ItemName , strBuff );
@@ -4379,7 +4379,7 @@ int smCharDecode( char *szCharFile , smCHAR_INFO *lpCharInfo , smCHAR_MONSTER_IN
 		}
 #endif
 #ifdef _LANGUAGE_BRAZIL
-		if ( lstrcmpi( decode , "*B_NAME" )==0 ) {
+		if ( lstrcmpi( decode , "*J_NAME" )==0 ) {
 			pb=p;p=GetWord(strBuff,p);if(strBuff[0]==34)p=GetString(strBuff,pb);	//단어 찾기
 
 			if ( lpMonInfo )

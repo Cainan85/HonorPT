@@ -298,12 +298,9 @@ INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPreInst, LPSTR lpCmdLine, INT nCm
 {
 	_stprintf(szCmdLine, lpCmdLine);
 
-	initSinCos();
 	srand(GetCurrentTime());
 
 	smConfigDecode("hotuk.ini");
-	ReadShotcutMessage("ShortCut.ini");
-	DecodeCmdLine(lpCmdLine);
 
 	InitializeCriticalSection(&cSection);
 	InitializeCriticalSection(&cDrawSection);

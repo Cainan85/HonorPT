@@ -1884,7 +1884,7 @@ void cINVENTORY::RButtonDown(int x, int y)
 				chaPremiumitem.UsePremiumItem(45);
 			//pocao da alegria
 			if (InvenItem[SelectInvenItemIndex - 1].sItemInfo.CODE == (sinBI1 | sin95))
-				chaPremiumitem.UsePremiumItem(134);
+				chaPremiumitem.UsePremiumItem(200);
 
 			//***********************베트남요청 경치 50%============================			
 			// 1일 

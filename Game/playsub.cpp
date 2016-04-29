@@ -1214,7 +1214,7 @@ int ChangeHairModel(int HairCode)
 	if (lstrcmpi(lpChar->smCharInfo.szModelName2, lpSelFace[HairCode]) == 0)
 		return FALSE;
 
-	lstrcpy(lpChar->smCharInfo.szModelName2, lpSelFace[HairCode]);
+	lstrcpy(lpChar->smCharInfo.szModelName2, szModel_FighterFaceName[1][HairCode]);
 	lpChar->smCharInfo.ModelNameCode2 = GetHairSkinCode(FaceCode, HairCode);		//머리변경 코드 저장 (나중에 복구하기 위해서....)
 
 	lpChar->PatLoading = TRUE;

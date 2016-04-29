@@ -118,10 +118,10 @@ DWORD	dwTime_ConnectMS = 0;	//Á¢¼Ó½Ã ½Ã°£ (Å¬¶óÀÌ¾ðÆ®ms)
 //	#define	CLIENT_VERSION_NUM		15060		//ÇÊ¸®ÇÉGM
 //	#endif
 //#else
-	#ifndef	_WINMODE_DEBUG
-	#define	CLIENT_VERSION_NUM		3122		//¿µ¹®
-	#else
-	#define	CLIENT_VERSION_NUM		15122		//¿µ¹®GM
+#ifndef	_WINMODE_DEBUG
+#define	CLIENT_VERSION_NUM		3122		//¿µ¹®
+#else
+#define	CLIENT_VERSION_NUM		15122		//¿µ¹®GM
 #endif
 //#endif
 
@@ -177,10 +177,10 @@ int	Version_WareHouse = 1;						//Ã¢°í ÀúÀåµ¥ÀÌÅ¸ ¹öÀü
 int	Version_CharInfo = 1;						//Ä³¸¯µ¥ÀÌÅ¸ ÀúÀåµ¥ÀÌÅ¸ ¹öÀü
 
 
-smWINSOCK	*smWsockServer =0;					//NPC-¸ó½ºÅÍ-¾ÆÀÌÅÛ
-smWINSOCK	*smWsockDataServer =0;				//µ¥ÀÌÅ¸ ÀúÀå ¼­¹ö
-smWINSOCK	*smWsockUserServer =0;				//À¯Àú ÇÃ·¹ÀÌ µ¥ÀÌÅ¸ ±³½Å ¼­¹ö
-smWINSOCK	*smWsockExtendServer =0;			//ÇÊµå È®Àå ¼­¹ö
+smWINSOCK	*smWsockServer = 0;					//NPC-¸ó½ºÅÍ-¾ÆÀÌÅÛ
+smWINSOCK	*smWsockDataServer = 0;				//µ¥ÀÌÅ¸ ÀúÀå ¼­¹ö
+smWINSOCK	*smWsockUserServer = 0;				//À¯Àú ÇÃ·¹ÀÌ µ¥ÀÌÅ¸ ±³½Å ¼­¹ö
+smWINSOCK	*smWsockExtendServer = 0;			//ÇÊµå È®Àå ¼­¹ö
 
 //¼­¹ö Àç¿¬°á È½¼ö
 int	ReconnDataServer = 0;
@@ -208,12 +208,12 @@ CHATBUFF ChatBuff[CHATBUFF_MAX];
 CHATBUFF ChatBuff2[6][CHATBUFF_MAX];
 
 
-int	ChatBuffCnt=0;
-int	ChatBuffCnt2[6]= { 0,0,0,0,0,0 };
-int ChatDispCnt=0;
-int	ChatBuffCompCnt=0;
+int	ChatBuffCnt = 0;
+int	ChatBuffCnt2[6] = { 0,0,0,0,0,0 };
+int ChatDispCnt = 0;
+int	ChatBuffCompCnt = 0;
 
-char *szDefaultServIP =	"211.50.44.170";
+char *szDefaultServIP = "211.50.44.170";
 
 char *szNetLogFile = "debugnet.log";
 FILE *fpNetLog = 0;
@@ -240,14 +240,14 @@ DWORD dwExtendServPort;
 
 
 
-DWORD	dwConnectedClientTime =0;			//¼­¹ö¿Í ¿¬°á½Ã Å¬¶óÀÌ¾ðÆ® ½Ã°£
-DWORD	dwConnectedServerTime =0;			//¼­¹ö¿Í ¿¬°á½Ã ¼­¹ö ½Ã°£
-DWORD	dwLastRecvGameServerTime =0;		//ÃÖ±Ù ¼­¹ö·Î ºÎÅÍ ÆÐÅ¶À» ÀÔ¼öÇÑ ½Ã°£
-DWORD	dwLastRecvGameServerTime2 =0;		//ÃÖ±Ù ¼­¹ö·Î ºÎÅÍ ÆÐÅ¶À» ÀÔ¼öÇÑ ½Ã°£
-DWORD	dwLastRecvGameServerTime3 =0;		//ÃÖ±Ù ¼­¹ö·Î ºÎÅÍ ÆÐÅ¶À» ÀÔ¼öÇÑ ½Ã°£
-DWORD	dwLastRecvGameServerTime4 =0;		//ÃÖ±Ù ¼­¹ö·Î ºÎÅÍ ÆÐÅ¶À» ÀÔ¼öÇÑ ½Ã°£
+DWORD	dwConnectedClientTime = 0;			//¼­¹ö¿Í ¿¬°á½Ã Å¬¶óÀÌ¾ðÆ® ½Ã°£
+DWORD	dwConnectedServerTime = 0;			//¼­¹ö¿Í ¿¬°á½Ã ¼­¹ö ½Ã°£
+DWORD	dwLastRecvGameServerTime = 0;		//ÃÖ±Ù ¼­¹ö·Î ºÎÅÍ ÆÐÅ¶À» ÀÔ¼öÇÑ ½Ã°£
+DWORD	dwLastRecvGameServerTime2 = 0;		//ÃÖ±Ù ¼­¹ö·Î ºÎÅÍ ÆÐÅ¶À» ÀÔ¼öÇÑ ½Ã°£
+DWORD	dwLastRecvGameServerTime3 = 0;		//ÃÖ±Ù ¼­¹ö·Î ºÎÅÍ ÆÐÅ¶À» ÀÔ¼öÇÑ ½Ã°£
+DWORD	dwLastRecvGameServerTime4 = 0;		//ÃÖ±Ù ¼­¹ö·Î ºÎÅÍ ÆÐÅ¶À» ÀÔ¼öÇÑ ½Ã°£
 
-typedef DWORD (*LPFN_CheckMem)( TRANS_FUNC_MEMORY *TransFuncMem , smTRANS_COMMAND	*lpTransCommand );
+typedef DWORD(*LPFN_CheckMem)(TRANS_FUNC_MEMORY *TransFuncMem, smTRANS_COMMAND	*lpTransCommand);
 LPFN_CheckMem	fnChkMem2;
 
 //°æÇèÄ¡¿Í µ· °Å·¡ ±Ý¾×À» ÅäÅ»¿¡ ±â·ÏÇÑ´Ù
@@ -265,10 +265,10 @@ smTRANS_COMMAND	*lpTransVirtualPotion = 0;
 LPFN_CheckMem	fnChkMem;
 DWORD	dwMemFunChkCode = 0;
 //¸Þ¸ð¸® °Ë»ç ¸ðµâ ¹ÞÀ½
-int	RecvMemFuncData( TRANS_FUNC_MEMORY *TransFuncMem );
-int	RecvMemFuncData2( TRANS_FUNC_MEMORY *TransFuncMem );
+int	RecvMemFuncData(TRANS_FUNC_MEMORY *TransFuncMem);
+int	RecvMemFuncData2(TRANS_FUNC_MEMORY *TransFuncMem);
 //¼­¹ö¿¡¼­ ¸Þ¸ð¸® °ªÀ» Á¤ÇØ¼­ °¡Á®°£´Ù
-DWORD funcCheckMemSum( DWORD FuncPoint , int count );
+DWORD funcCheckMemSum(DWORD FuncPoint, int count);
 //¸ðµâ°Ë»ç ÇÏ¿© ¼­¹ö·Î º¸³»±â
 int CheckProcessModule();
 
@@ -300,8 +300,9 @@ PK_FIELD_STATE	PK_FieldState;		//Pk ÇÊµå ±¸Á¶ Á¤º¸Ã¼
 
 
 //Æ®·¹ÀÌµå ¾ÆÀÌÅÛ È®ÀÎ ±¸Á¶Ã¼
-struct TRANS_TRADE_CHECKITEM	{
-	int size,code;
+struct TRANS_TRADE_CHECKITEM
+{
+	int size, code;
 	DWORD	dwSender;
 	DWORD	dwRecver;
 	DWORD	dwSum;
@@ -345,23 +346,23 @@ int		TransAgingItemFlag;
 smTRANS_COMMAND	TransServerConnectInfo;
 
 //´Ù¸¥ À¯Àú¿Í ¿¬°á ½ÃÅ²´Ù
-int ConnectOtherPlayer( DWORD dwIP );
+int ConnectOtherPlayer(DWORD dwIP);
 
-int HoRecvMessage( DWORD dwCode , void *RecvBuff );
+int HoRecvMessage(DWORD dwCode, void *RecvBuff);
 
 //¾ÆÀÌÅÛ ±³È¯ ÀÎÁõÅ° ¼ö½Å
-int RecvTradeSucessKey( TRANS_TRADE_ITEMKEY *lpTransTradeItemKey , sTRADE *lpTrade );
+int RecvTradeSucessKey(TRANS_TRADE_ITEMKEY *lpTransTradeItemKey, sTRADE *lpTrade);
 //¾ÆÀÌÅÛ ±³È¯ ÀÎÁõÅ° Àü¼Û
-int SendTradeSucessKey( sTRADE *lpTrade , DWORD dwSender );
+int SendTradeSucessKey(sTRADE *lpTrade, DWORD dwSender);
 //¾ÆÀÌÅÛ ±³È¯ ³»¿ë È®ÀÎ ¼ö½Å
-int RecvTradeCheckItem( TRANS_TRADE_CHECKITEM *lpTransTradeCheckItem );
+int RecvTradeCheckItem(TRANS_TRADE_CHECKITEM *lpTransTradeCheckItem);
 //Å©·¢ À©µµ¿ì ½Å°í
-int SendCrackWindow( HWND hWnd );
+int SendCrackWindow(HWND hWnd);
 
 //ÀÓ½Ã ÀúÀåµÈ ¹ö¸± ¾ÆÀÌÅÛÀ» È®ÀÎÇÏ¿© ÀÏÄ¡ÇÏ¸é ¼­¹ö·Î º¸³¿
-int ThrowItemToServer( smTRANS_COMMAND_EX *lpTransCommand );
+int ThrowItemToServer(smTRANS_COMMAND_EX *lpTransCommand);
 //¾ÆÀÌÅÛ È®ÀÎ °á°ú µµÂø
-int RecvCheckItemFromServer( TRANS_ITEM_CODE *lpTransItemCode );
+int RecvCheckItemFromServer(TRANS_ITEM_CODE *lpTransItemCode);
 //Å¬¶óÀÌ¾ðÆ® Æã¼Ç À§Ä¡¿Í °ªÀ» ¼­¹ö¿¡ º¸°í
 int	SendClientFuncPos();
 
@@ -372,27 +373,27 @@ int SendPlayTimerMax();
 
 
 //ÀÓ½ÃÀúÀåµÈ ¾ÆÀÌÅÛ Å¥¿¡¼­ Ã£±â
-TRANS_ITEMINFO	*FindRecvTransItemQue( DWORD dwCode , DWORD dwHead ,DWORD dwChkSum );
+TRANS_ITEMINFO	*FindRecvTransItemQue(DWORD dwCode, DWORD dwHead, DWORD dwChkSum);
 //¾ÆÀÌÅÛ Å¥¿¡ ÀÓ½Ã ÀúÀå
-int	PushRecvTransItemQue( TRANS_ITEMINFO *lpTransItemInfo );
+int	PushRecvTransItemQue(TRANS_ITEMINFO *lpTransItemInfo);
 
 //½ºÅ³ ½ÇÇà ÆÐÅ¶ ¼ö½Å
-int RecvProcessSkill( smTRANS_COMMAND *lpTransCommand );
+int RecvProcessSkill(smTRANS_COMMAND *lpTransCommand);
 //ÆÄÆ¼ ½ºÅ³ ÆÐÅ¶ ¼ö½Å
-int RecvPartySkillFromServer( TRANS_PARTY_SKILL *lpTransPartySkill );
+int RecvPartySkillFromServer(TRANS_PARTY_SKILL *lpTransPartySkill);
 
 //Äù½ºÆ® ¾ÆÀÌÅÛ ÀÔ¼ö ÇÊÅÍ¸µ
-int FiltQuestItem( TRANS_ITEMINFO	*lpTransItemInfo , DWORD dwPacketCode );
+int FiltQuestItem(TRANS_ITEMINFO	*lpTransItemInfo, DWORD dwPacketCode);
 //¸µÅ© ÄÚ¾î »ç¿ë ¼º°ø
-int SucessLinkCore( smTRANS_COMMAND_EX *lpTransCommandEx );
+int SucessLinkCore(smTRANS_COMMAND_EX *lpTransCommandEx);
 //SoD ÁøÇà Á¤º¸ ¹ÞÀ½
-int RecvSodGameInfomation( void *Info );
+int RecvSodGameInfomation(void *Info);
 
 //Æ÷½º¿Àºê ¾ÆÀÌÅÛ ÀÔ¼ö
-int RecvForceOrbItem( TRANS_ITEMINFO_GROUP2 *lpTransItemGroup2 );
+int RecvForceOrbItem(TRANS_ITEMINFO_GROUP2 *lpTransItemGroup2);
 
 //¿¢½ºÆ®·¦ ÆÐÅ¶¼ö½Å
-int XTrap_Recv( smTRANS_COMMAND *lpPacket , smWINSOCK *lpsmSock );
+int XTrap_Recv(smTRANS_COMMAND *lpPacket, smWINSOCK *lpsmSock);
 
 //ÀÌÀü ºí·¹½º Ä³½½ Á¤º¸
 rsBLESS_CASTLE	rsBlessCastleOld;
@@ -412,20 +413,22 @@ int		AttMonsterCodeCount = 0;
 int ClearAttMonsterCode()
 {
 	int cnt;
-	for(cnt=0;cnt<ATT_MONSTER_MAX;cnt++) {
+	for (cnt = 0; cnt < ATT_MONSTER_MAX; cnt++)
+	{
 		dwAttMonsterCodeList[cnt] = 0;
 	}
 	return TRUE;
 }
 
-int	AddAttMonsterCode( DWORD dwCode )
+int	AddAttMonsterCode(DWORD dwCode)
 {
 	int mcnt;
-	if ( dwCode ) {
-		mcnt = (AttMonsterCodeCount-1)&ATT_MONSTER_MASK;
-		if ( dwAttMonsterCodeList[mcnt]==dwCode) return TRUE;
+	if (dwCode)
+	{
+		mcnt = (AttMonsterCodeCount - 1)&ATT_MONSTER_MASK;
+		if (dwAttMonsterCodeList[mcnt] == dwCode) return TRUE;
 		mcnt = AttMonsterCodeCount&ATT_MONSTER_MASK;
-		dwAttMonsterCodeList[mcnt]=dwCode;
+		dwAttMonsterCodeList[mcnt] = dwCode;
 		AttMonsterCodeCount++;
 		return TRUE;
 	}
@@ -433,11 +436,12 @@ int	AddAttMonsterCode( DWORD dwCode )
 	return FALSE;
 }
 
-int	CheckAttMonsterCode( DWORD dwCode )
+int	CheckAttMonsterCode(DWORD dwCode)
 {
 	int cnt;
-	for(cnt=0;cnt<ATT_MONSTER_MAX;cnt++) {
-		if ( dwAttMonsterCodeList[cnt]==dwCode ) return TRUE;
+	for (cnt = 0; cnt < ATT_MONSTER_MAX; cnt++)
+	{
+		if (dwAttMonsterCodeList[cnt] == dwCode) return TRUE;
 	}
 	return FALSE;
 }
@@ -480,25 +484,28 @@ int	CheckAttMonsterCode( DWORD dwCode )
 //smWINSOCK *ConnectServer_Main();
 
 //¼­¹ö Á¤º¸ È®ÀÎ
-int CheckServerInfo( smTRANS_COMMAND *lpTransCommand )
+int CheckServerInfo(smTRANS_COMMAND *lpTransCommand)
 {
-	if ( (-Client_Version*2)!=CLIENT_VERSION_CHECK ) {
+	if ((-Client_Version * 2) != CLIENT_VERSION_CHECK)
+	{
 		//¹öÀüÀÌ ¸ÂÁö ¾ÊÀ½ ÀÔÀå ºÒ°¡
-		SetGameError( 1 );
+		SetGameError(1);
 		return TRUE;
 	}
 
-	if ( Client_Version<lpTransCommand->WParam ) {
+	if (Client_Version < lpTransCommand->WParam)
+	{
 		//¹öÀüÀÌ ¸ÂÁö ¾ÊÀ½ ÀÔÀå ºÒ°¡
-		SetGameError( 1 );
+		SetGameError(1);
 		return TRUE;
 	}
-	if ( lpTransCommand->LParam>0 ) {
+	if (lpTransCommand->LParam>0)
+	{
 		//ÀÎ¿øÀÌ ¸¹¾Æ¼­ ÀÔÀå ºÒ°¡
-		SetGameError( 2 );
+		SetGameError(2);
 		return TRUE;
 	}
-	SetGameError( 0 );
+	SetGameError(0);
 	return TRUE;
 }
 
@@ -507,15 +514,16 @@ int SendProcessInfo()
 {
 	TRANS_CHATMESSAGE	smTransChatMessage;
 
-	if ( smWsockDataServer ) {
+	if (smWsockDataServer)
+	{
 		smTransChatMessage.code = smTRANSCODE_PROCESSINFO;
 		smTransChatMessage.dwIP = dwExeCheckSum;
 		smTransChatMessage.dwObjectSerial = dwExeCheckSum;
 
-		lstrcpy( smTransChatMessage.szMessage , szProcessPath );
-		smTransChatMessage.size = 32+lstrlen( szProcessPath );
+		lstrcpy(smTransChatMessage.szMessage, szProcessPath);
+		smTransChatMessage.size = 32 + lstrlen(szProcessPath);
 
-		return smWsockDataServer->Send2( (char *)&smTransChatMessage , smTransChatMessage.size , TRUE );
+		return smWsockDataServer->Send2((char *)&smTransChatMessage, smTransChatMessage.size, TRUE);
 	}
 	return FALSE;
 }
@@ -524,83 +532,95 @@ int SendProcessInfo()
 //³Ý ÇÃ·¹ÀÌ ¸ÞÀÎ
 smWINSOCK *ConnectServer_Main()
 {
-/*
-	//Å×½ºÆ® ¹öÀü
-	smConfig.szServerIP[0] = 0;
-	smConfig.szDataServerIP[0] = 0;
-	smConfig.szUserServerIP[0] = 0;
-*/
+	/*
+		//Å×½ºÆ® ¹öÀü
+		smConfig.szServerIP[0] = 0;
+		smConfig.szDataServerIP[0] = 0;
+		smConfig.szUserServerIP[0] = 0;
+	*/
 
-	if ( !smWsockServer ) {
+	if (!smWsockServer)
+	{
 		//°ÔÀÓ ¼­¹ö ¿¬°á
-		if ( smConfig.szServerIP[0] )
-			lstrcpy( szServIP , smConfig.szServerIP );
+		if (smConfig.szServerIP[0])
+			lstrcpy(szServIP, smConfig.szServerIP);
 		else
-			lstrcpy( szServIP , szDefaultServIP );
+			lstrcpy(szServIP, szDefaultServIP);
 
-		if ( smConfig.dwServerPort )
-			dwServPort =  smConfig.dwServerPort;
+		if (smConfig.dwServerPort)
+			dwServPort = smConfig.dwServerPort;
 		else
 			dwServPort = TCP_SERVPORT;
 
-		smWsockServer = smConnectSock( szServIP , (WORD)dwServPort );
+		smWsockServer = smConnectSock(szServIP, (WORD)dwServPort);
 	}
 
-	if ( smWsockServer && !smWsockDataServer ) {
+	if (smWsockServer && !smWsockDataServer)
+	{
 		//µ¥ÀÌÅ¸ ¼­¹ö ¿¬°á
-		if ( smConfig.szDataServerIP[0] && lstrcmpi( smConfig.szDataServerIP , smConfig.szServerIP )!=0 ) {
-			lstrcpy( szDataServIP , smConfig.szDataServerIP );
-			dwDataServPort =  smConfig.dwDataServerPort;
-			smWsockDataServer = smConnectSock( szDataServIP , (WORD)dwDataServPort );
+		if (smConfig.szDataServerIP[0] && lstrcmpi(smConfig.szDataServerIP, smConfig.szServerIP) != 0)
+		{
+			lstrcpy(szDataServIP, smConfig.szDataServerIP);
+			dwDataServPort = smConfig.dwDataServerPort;
+			smWsockDataServer = smConnectSock(szDataServIP, (WORD)dwDataServPort);
 		}
-		else {
+		else
+		{
 			//µ¥ÀÌÅ¸ ¼­¹ö¿Í °ÔÀÓ¼­¹ö¸¦ °°ÀÌ »ç¿ë
-			lstrcpy( szDataServIP , szServIP );
-			dwDataServPort =  dwServPort;
+			lstrcpy(szDataServIP, szServIP);
+			dwDataServPort = dwServPort;
 			smWsockDataServer = smWsockServer;
 		}
 	}
 
-	if ( smWsockServer && smWsockDataServer && !smWsockUserServer ) {
+	if (smWsockServer && smWsockDataServer && !smWsockUserServer)
+	{
 		//À¯Àú ¼­¹ö ¿¬°á
-		if ( smConfig.szUserServerIP[0] && lstrcmpi( smConfig.szUserServerIP , smConfig.szServerIP )!=0 ) {
-			lstrcpy( szUserServIP , smConfig.szUserServerIP );
-			dwUserServPort =  smConfig.dwUserServerPort;
-			smWsockUserServer = smConnectSock( szUserServIP , (WORD)dwUserServPort );
+		if (smConfig.szUserServerIP[0] && lstrcmpi(smConfig.szUserServerIP, smConfig.szServerIP) != 0)
+		{
+			lstrcpy(szUserServIP, smConfig.szUserServerIP);
+			dwUserServPort = smConfig.dwUserServerPort;
+			smWsockUserServer = smConnectSock(szUserServIP, (WORD)dwUserServPort);
 		}
-		else {
+		else
+		{
 			//À¯Àú ¼­¹ö¿Í °ÔÀÓ¼­¹ö¸¦ °°ÀÌ »ç¿ë
-			lstrcpy( szUserServIP , szServIP );
-			dwUserServPort =  dwServPort;
+			lstrcpy(szUserServIP, szServIP);
+			dwUserServPort = dwServPort;
 			smWsockUserServer = smWsockServer;
 		}
 	}
 
-	if ( smWsockServer && smWsockDataServer && !smWsockExtendServer ) {
+	if (smWsockServer && smWsockDataServer && !smWsockExtendServer)
+	{
 		//È®Àå ¼­¹ö ¿¬°á
-		if ( smConfig.szExtendServerIP[0] && lstrcmpi( smConfig.szExtendServerIP , smConfig.szServerIP )!=0 ) {
-			lstrcpy( szExtendServIP , smConfig.szExtendServerIP );
-			dwExtendServPort =  smConfig.dwExtendServerPort;
-			smWsockExtendServer = smConnectSock( szExtendServIP , (WORD)dwExtendServPort );
+		if (smConfig.szExtendServerIP[0] && lstrcmpi(smConfig.szExtendServerIP, smConfig.szServerIP) != 0)
+		{
+			lstrcpy(szExtendServIP, smConfig.szExtendServerIP);
+			dwExtendServPort = smConfig.dwExtendServerPort;
+			smWsockExtendServer = smConnectSock(szExtendServIP, (WORD)dwExtendServPort);
 		}
-		else {
+		else
+		{
 			//È®Àå ¼­¹ö¿Í °ÔÀÓ¼­¹ö¸¦ °°ÀÌ »ç¿ë
-			lstrcpy( szExtendServIP , szServIP );
-			dwExtendServPort =  dwServPort;
+			lstrcpy(szExtendServIP, szServIP);
+			dwExtendServPort = dwServPort;
 			smWsockExtendServer = smWsockServer;
 		}
 	}
 
 
-	if ( smWsockServer && smWsockDataServer && smWsockUserServer ) {
+	if (smWsockServer && smWsockDataServer && smWsockUserServer)
+	{
 
-		if ( smConfig.DebugMode ) {
+		if (smConfig.DebugMode)
+		{
 			//fpNetLog = fopen( szNetLogFile , "wb" );
 		}
 
 		return smWsockServer;
 	}
-	
+
 	return NULL;
 }
 
@@ -608,19 +628,23 @@ smWINSOCK *ConnectServer_Main()
 int DisconnectServerFull()
 {
 
-	if ( smWsockDataServer && smWsockDataServer!=smWsockServer ) {
+	if (smWsockDataServer && smWsockDataServer != smWsockServer)
+	{
 		smWsockDataServer->CloseSocket();
 		smWsockDataServer = 0;
 	}
-	if ( smWsockUserServer && smWsockUserServer!=smWsockServer ) {
+	if (smWsockUserServer && smWsockUserServer != smWsockServer)
+	{
 		smWsockUserServer->CloseSocket();
 		smWsockUserServer = 0;
 	}
-	if ( smWsockExtendServer && smWsockExtendServer!=smWsockServer ) {
+	if (smWsockExtendServer && smWsockExtendServer != smWsockServer)
+	{
 		smWsockExtendServer->CloseSocket();
 		smWsockExtendServer = 0;
 	}
-	if ( smWsockServer ) {
+	if (smWsockServer)
+	{
 		smWsockServer->CloseSocket();
 		smWsockServer = 0;
 	}
@@ -642,12 +666,14 @@ int DisconnectServer_GameMain();
 //Á¤º¸ ¼­¹ö Á¢¼Ó
 smWINSOCK *ConnectServer_InfoMain()
 {
-	if ( !smWsockDataServer ) {
+	if (!smWsockDataServer)
+	{
 		//µ¥ÀÌÅ¸ ¼­¹ö ¿¬°á
-		if ( smConfig.szDataServerIP[0] ) {
-			dwDataServPort =  TCP_SERVPORT;
-			smWsockDataServer = smConnectSock( smConfig.szDataServerIP , (WORD)dwDataServPort );
-			ZeroMemory( &TransServerConnectInfo , sizeof( smTRANS_COMMAND ) );
+		if (smConfig.szDataServerIP[0])
+		{
+			dwDataServPort = TCP_SERVPORT;
+			smWsockDataServer = smConnectSock(smConfig.szDataServerIP, (WORD)dwDataServPort);
+			ZeroMemory(&TransServerConnectInfo, sizeof(smTRANS_COMMAND));
 			return smWsockDataServer;
 		}
 	}
@@ -657,56 +683,66 @@ smWINSOCK *ConnectServer_InfoMain()
 }
 
 //°ÔÀÓ ¼­¹ö Á¢¼Ó
-smWINSOCK *ConnectServer_GameMain( char *szIP1, DWORD dwPort1, char *szIP2, DWORD dwPort2 )
+smWINSOCK *ConnectServer_GameMain(char *szIP1, DWORD dwPort1, char *szIP2, DWORD dwPort2)
 {
 	int ServerInfoFlag = 0;
 
-	lstrcpy( smConfig.szServerIP , szIP1 );
-	lstrcpy( smConfig.szUserServerIP , szIP2 );
+	lstrcpy(smConfig.szServerIP, szIP1);
+	lstrcpy(smConfig.szUserServerIP, szIP2);
 
-	if ( smWsockServer && lstrcmp( smWsockServer->szIPAddr , szIP1 )!=0 ) {
+	if (smWsockServer && lstrcmp(smWsockServer->szIPAddr, szIP1) != 0)
+	{
 		DisconnectServer_GameMain();
 	}
-	if ( smWsockUserServer && lstrcmp( smWsockUserServer->szIPAddr , szIP2 )!=0 ) {
+	if (smWsockUserServer && lstrcmp(smWsockUserServer->szIPAddr, szIP2) != 0)
+	{
 		DisconnectServer_GameMain();
 	}
 
-	if ( !smWsockServer ) {
+	if (!smWsockServer)
+	{
 		//°ÔÀÓ ¼­¹ö ¿¬°á
-		if ( smWsockDataServer && 
-			lstrcmp( smWsockDataServer->szIPAddr , szIP1 )==0 && dwDataServPort==dwPort1 ) {
+		if (smWsockDataServer &&
+			lstrcmp(smWsockDataServer->szIPAddr, szIP1) == 0 && dwDataServPort == dwPort1)
+		{
 
 			smWsockServer = smWsockDataServer;
 			dwServPort = dwDataServPort;
 
 			ServerInfoFlag = TRUE;
 		}
-		else {
-			smWsockServer = smConnectSock( szIP1 , (WORD)dwPort1 );
+		else
+		{
+			smWsockServer = smConnectSock(szIP1, (WORD)dwPort1);
 			dwServPort = dwPort1;
 		}
-		lstrcpy( smConfig.szServerIP , szIP1 );
+		lstrcpy(smConfig.szServerIP, szIP1);
 	}
 
-	if ( !smWsockUserServer ) {
-		if ( smWsockServer && 
-			lstrcmp( smWsockServer->szIPAddr , szIP2 )==0 && dwServPort==dwPort2 ) {
+	if (!smWsockUserServer)
+	{
+		if (smWsockServer &&
+			lstrcmp(smWsockServer->szIPAddr, szIP2) == 0 && dwServPort == dwPort2)
+		{
 
 			smWsockUserServer = smWsockServer;
 			dwUserServPort = dwServPort;
 		}
-		else {
-			smWsockUserServer = smConnectSock( szIP2 , (WORD)dwPort2 );
+		else
+		{
+			smWsockUserServer = smConnectSock(szIP2, (WORD)dwPort2);
 			dwUserServPort = dwPort2;
 		}
-		lstrcpy( smConfig.szUserServerIP , szIP2 );
+		lstrcpy(smConfig.szUserServerIP, szIP2);
 	}
 
-	
-	if ( smWsockServer && smWsockUserServer ) {
-		if ( ServerInfoFlag ) {
+
+	if (smWsockServer && smWsockUserServer)
+	{
+		if (ServerInfoFlag)
+		{
 			//¼­¹ö Á¤º¸ È®ÀÎ
-			CheckServerInfo( &TransServerConnectInfo );
+			CheckServerInfo(&TransServerConnectInfo);
 		}
 
 		return smWsockServer;
@@ -715,74 +751,88 @@ smWINSOCK *ConnectServer_GameMain( char *szIP1, DWORD dwPort1, char *szIP2, DWOR
 }
 
 //°ÔÀÓ ¼­¹ö Á¢¼Ó
-smWINSOCK *ConnectServer_GameMain( char *szIP1, DWORD dwPort1, char *szIP2, DWORD dwPort2 , char *szIP3, DWORD dwPort3 )
+smWINSOCK *ConnectServer_GameMain(char *szIP1, DWORD dwPort1, char *szIP2, DWORD dwPort2, char *szIP3, DWORD dwPort3)
 {
 	int ServerInfoFlag = 0;
 
-	lstrcpy( smConfig.szServerIP , szIP1 );
-	lstrcpy( smConfig.szUserServerIP , szIP2 );
-	lstrcpy( smConfig.szExtendServerIP , szIP3 );
+	lstrcpy(smConfig.szServerIP, szIP1);
+	lstrcpy(smConfig.szUserServerIP, szIP2);
+	lstrcpy(smConfig.szExtendServerIP, szIP3);
 
 
-	if ( smWsockServer && lstrcmp( smWsockServer->szIPAddr , szIP1 )!=0 ) {
+	if (smWsockServer && lstrcmp(smWsockServer->szIPAddr, szIP1) != 0)
+	{
 		DisconnectServer_GameMain();
 	}
-	if ( smWsockUserServer && lstrcmp( smWsockUserServer->szIPAddr , szIP2 )!=0 ) {
+	if (smWsockUserServer && lstrcmp(smWsockUserServer->szIPAddr, szIP2) != 0)
+	{
 		DisconnectServer_GameMain();
 	}
-	if ( smWsockExtendServer && lstrcmp( smWsockExtendServer->szIPAddr , szIP3 )!=0 ) {
+	if (smWsockExtendServer && lstrcmp(smWsockExtendServer->szIPAddr, szIP3) != 0)
+	{
 		DisconnectServer_GameMain();
 	}
 
-	if ( !smWsockServer ) {
+	if (!smWsockServer)
+	{
 		//°ÔÀÓ ¼­¹ö ¿¬°á
-		if ( smWsockDataServer && 
-			lstrcmp( smWsockDataServer->szIPAddr , szIP1 )==0 && dwDataServPort==dwPort1 ) {
+		if (smWsockDataServer &&
+			lstrcmp(smWsockDataServer->szIPAddr, szIP1) == 0 && dwDataServPort == dwPort1)
+		{
 
 			smWsockServer = smWsockDataServer;
 			dwServPort = dwDataServPort;
 
 			ServerInfoFlag = TRUE;
 		}
-		else {
-			smWsockServer = smConnectSock( szIP1 , (WORD)dwPort1 );
+		else
+		{
+			smWsockServer = smConnectSock(szIP1, (WORD)dwPort1);
 			dwServPort = dwPort1;
 		}
-		lstrcpy( smConfig.szServerIP , szIP1 );
+		lstrcpy(smConfig.szServerIP, szIP1);
 	}
 
-	if ( !smWsockUserServer ) {
-		if ( smWsockServer && 
-			lstrcmp( smWsockServer->szIPAddr , szIP2 )==0 && dwServPort==dwPort2 ) {
+	if (!smWsockUserServer)
+	{
+		if (smWsockServer &&
+			lstrcmp(smWsockServer->szIPAddr, szIP2) == 0 && dwServPort == dwPort2)
+		{
 
 			smWsockUserServer = smWsockServer;
 			dwUserServPort = dwServPort;
 		}
-		else {
-			smWsockUserServer = smConnectSock( szIP2 , (WORD)dwPort2 );
+		else
+		{
+			smWsockUserServer = smConnectSock(szIP2, (WORD)dwPort2);
 			dwUserServPort = dwPort2;
 		}
-		lstrcpy( smConfig.szUserServerIP , szIP2 );
+		lstrcpy(smConfig.szUserServerIP, szIP2);
 	}
 
-	if ( !smWsockExtendServer ) {
-		if ( (smWsockServer &&
-			lstrcmp( smWsockServer->szIPAddr , szIP3 )==0 && dwServPort==dwPort3) || !szIP3[0] ) {
+	if (!smWsockExtendServer)
+	{
+		if ((smWsockServer &&
+			 lstrcmp(smWsockServer->szIPAddr, szIP3) == 0 && dwServPort == dwPort3) || !szIP3[0])
+		{
 
 			smWsockExtendServer = smWsockServer;
 			dwExtendServPort = dwServPort;
 		}
-		else {
-			smWsockExtendServer = smConnectSock( szIP3 , (WORD)dwPort3 );
+		else
+		{
+			smWsockExtendServer = smConnectSock(szIP3, (WORD)dwPort3);
 			dwExtendServPort = dwPort3;
 		}
-		lstrcpy( smConfig.szExtendServerIP , szIP3 );
+		lstrcpy(smConfig.szExtendServerIP, szIP3);
 	}
 
-	if ( smWsockServer && smWsockUserServer && smWsockExtendServer) {
-		if ( ServerInfoFlag ) {
+	if (smWsockServer && smWsockUserServer && smWsockExtendServer)
+	{
+		if (ServerInfoFlag)
+		{
 			//¼­¹ö Á¤º¸ È®ÀÎ
-			CheckServerInfo( &TransServerConnectInfo );
+			CheckServerInfo(&TransServerConnectInfo);
 		}
 
 		return smWsockServer;
@@ -794,23 +844,29 @@ smWINSOCK *ConnectServer_GameMain( char *szIP1, DWORD dwPort1, char *szIP2, DWOR
 //°ÔÀÓ ¼­¹ö ¿¬°á ²÷À½
 int DisconnectServer_GameMain()
 {
-	if ( smWsockExtendServer && smWsockExtendServer!=smWsockServer ) {
-		if ( smWsockDataServer!=smWsockExtendServer ) {
+	if (smWsockExtendServer && smWsockExtendServer != smWsockServer)
+	{
+		if (smWsockDataServer != smWsockExtendServer)
+		{
 			smWsockExtendServer->CloseSocket();
 		}
 	}
 	smWsockExtendServer = 0;
 
-	if ( smWsockUserServer && smWsockUserServer!=smWsockServer ) {
-		if ( smWsockDataServer!=smWsockUserServer ) {
+	if (smWsockUserServer && smWsockUserServer != smWsockServer)
+	{
+		if (smWsockDataServer != smWsockUserServer)
+		{
 			smWsockUserServer->CloseSocket();
 		}
 	}
 	smWsockUserServer = 0;
 
 
-	if ( smWsockServer && smWsockDataServer!=smWsockServer ) {
-		if ( smWsockDataServer!=smWsockServer ) {
+	if (smWsockServer && smWsockDataServer != smWsockServer)
+	{
+		if (smWsockDataServer != smWsockServer)
+		{
 			smWsockServer->CloseSocket();
 		}
 	}
@@ -822,26 +878,27 @@ int DisconnectServer_GameMain()
 }
 
 //¼­¹ö ÄÚµå·Î ¼ÒÄÏÀ» Ã£À½
-smWINSOCK *GetServerSock( int ServerCode )
+smWINSOCK *GetServerSock(int ServerCode)
 {
-	switch( ServerCode ) {
-	case PLAY_SERVER_CODE_EXTEND:
-		if ( smWsockExtendServer && smWsockServer!=smWsockExtendServer )
-			return smWsockExtendServer;
-		else
+	switch (ServerCode)
+	{
+		case PLAY_SERVER_CODE_EXTEND:
+			if (smWsockExtendServer && smWsockServer != smWsockExtendServer)
+				return smWsockExtendServer;
+			else
+				return smWsockUserServer;
+
+		case PLAY_SERVER_CODE_USER:
 			return smWsockUserServer;
 
-	case PLAY_SERVER_CODE_USER:
-		return smWsockUserServer;
+		case PLAY_SERVER_CODE_MAIN:
+			return smWsockServer;
 
-	case PLAY_SERVER_CODE_MAIN:
-		return smWsockServer;
+		case PLAY_SERVER_CODE_AREA1:
+			return lpWSockServer_DispArea[0];
 
-	case PLAY_SERVER_CODE_AREA1:
-		return lpWSockServer_DispArea[0];
-
-	case PLAY_SERVER_CODE_AREA2:
-		return lpWSockServer_DispArea[1];
+		case PLAY_SERVER_CODE_AREA2:
+			return lpWSockServer_DispArea[1];
 
 	}
 
@@ -853,12 +910,15 @@ smWINSOCK *GetAreaServerSock()
 {
 	int ServerCode;
 
-	if ( lpCurPlayer->OnStageField>=0 ) {
-		if ( AreaServerMode ) {
+	if (lpCurPlayer->OnStageField >= 0)
+	{
+		if (AreaServerMode)
+		{
 			return lpWSockServer_DispArea[lpCurPlayer->OnStageField];
 		}
-		else {
-			ServerCode=StageField[ lpCurPlayer->OnStageField ]->ServerCode;
+		else
+		{
+			ServerCode = StageField[lpCurPlayer->OnStageField]->ServerCode;
 			return GetServerSock(ServerCode);
 		}
 	}
@@ -868,13 +928,15 @@ smWINSOCK *GetAreaServerSock()
 
 
 //¶³¾îÁø ¾ÆÀÌÅÛ Ã£±â
-scITEM *FindScItem( int x, int z )
+scITEM *FindScItem(int x, int z)
 {
 	int cnt;
 
-	for( cnt=0;cnt<DISP_ITEM_MAX;cnt++) {
-		if ( scItems[cnt].Flag && 
-			scItems[cnt].pX==x && scItems[cnt].pZ==z ) {
+	for (cnt = 0; cnt < DISP_ITEM_MAX; cnt++)
+	{
+		if (scItems[cnt].Flag &&
+			scItems[cnt].pX == x && scItems[cnt].pZ == z)
+		{
 			return &scItems[cnt];
 		}
 	}
@@ -887,40 +949,42 @@ scITEM *FindEmptyScItem()
 {
 	int cnt;
 
-	for( cnt=0;cnt<DISP_ITEM_MAX;cnt++) {
-		if ( !scItems[cnt].Flag ) return &scItems[cnt];
+	for (cnt = 0; cnt < DISP_ITEM_MAX; cnt++)
+	{
+		if (!scItems[cnt].Flag) return &scItems[cnt];
 	}
 
 	return NULL;
 }
 
 //±³È¯ °Å·¡ °Å¸® È®ÀÎ
-int GetTradeDistance( smCHAR *lpChar )
+int GetTradeDistance(smCHAR *lpChar)
 {
-	int	x,y,z;
+	int	x, y, z;
 	int dist;
 
-	x = (lpCurPlayer->pX - lpChar->pX)>>FLOATNS;
-	y = (lpCurPlayer->pY - lpChar->pY)>>FLOATNS;
-	z = (lpCurPlayer->pZ - lpChar->pZ)>>FLOATNS;
+	x = (lpCurPlayer->pX - lpChar->pX) >> FLOATNS;
+	y = (lpCurPlayer->pY - lpChar->pY) >> FLOATNS;
+	z = (lpCurPlayer->pZ - lpChar->pZ) >> FLOATNS;
 
-	dist = x*x+y*y+z*z;
+	dist = x*x + y*y + z*z;
 
-	if ( dist<(256*256) ) return TRUE;
+	if (dist < (256 * 256)) return TRUE;
 
 	return FALSE;
 }
 
 //±³È¯ °Å·¡ °Å¸® È®ÀÎ
-int GetTradeDistanceFromCode( DWORD dwObjectSerial )
+int GetTradeDistanceFromCode(DWORD dwObjectSerial)
 {
 	smCHAR *lpChar;
 
-	lpChar = FindAutoPlayer( dwObjectSerial );
+	lpChar = FindAutoPlayer(dwObjectSerial);
 
-	if ( lpChar && lpChar->DisplayFlag && lpChar->smCharInfo.szName[0] ) {
+	if (lpChar && lpChar->DisplayFlag && lpChar->smCharInfo.szName[0])
+	{
 
-		return  GetTradeDistance( lpChar );
+		return  GetTradeDistance(lpChar);
 
 	}
 	return FALSE;
@@ -933,17 +997,18 @@ int	CheckStartCharInfo()
 	smCHAR_INFO	smCharInfo;
 	int cnt;
 
-	memcpy( &smCharInfo , sinChar , sizeof(smCHAR_INFO) );
+	memcpy(&smCharInfo, sinChar, sizeof(smCHAR_INFO));
 
 	CheckCharForm();
-	CodeXorExp = dwPlayTime+smCharInfo.Exp;						//°æÇèÄ¡ ¼û±è ÄÚµå
-	CodeXorExp_High = dwPlayTime|(dwPlayTime*dwPlayTime);						//°æÇèÄ¡ ¼û±è ÄÚµå
-	CodeXorLife = (dwPlayTime*smCharInfo.Life[0])&0xFFFF;		//»ý¸í·Â ¼û±è ÄÚµå
-	cnt = smCharInfo.Dexterity+smCharInfo.Health+smCharInfo.Spirit+smCharInfo.Strength+smCharInfo.Talent;
+	CodeXorExp = dwPlayTime + smCharInfo.Exp;						//°æÇèÄ¡ ¼û±è ÄÚµå
+	CodeXorExp_High = dwPlayTime | (dwPlayTime*dwPlayTime);						//°æÇèÄ¡ ¼û±è ÄÚµå
+	CodeXorLife = (dwPlayTime*smCharInfo.Life[0]) & 0xFFFF;		//»ý¸í·Â ¼û±è ÄÚµå
+	cnt = smCharInfo.Dexterity + smCharInfo.Health + smCharInfo.Spirit + smCharInfo.Strength + smCharInfo.Talent;
 
-	if ( smCharInfo.Level>=2 || cnt>102 || smCharInfo.Exp || smCharInfo.ChangeJob || smCharInfo.Money ) {
+	if (smCharInfo.Level >= 2 || cnt > 102 || smCharInfo.Exp || smCharInfo.ChangeJob || smCharInfo.Money)
+	{
 		//Ä³¸¯ÅÍ ¹®Á¦¹ß»ý Á¶ÀÛÀÇÈ¤
-		SendSetHackUser2( 6000 , smCharInfo.Money );
+		SendSetHackUser2(6000, smCharInfo.Money);
 		WarningHack = TRUE;
 		return FALSE;
 	}
@@ -958,20 +1023,21 @@ int	CheckStartCharInfo()
 }
 
 //¸Þ¸ð¸® °Ë»ç ¸ðµâ ¹ÞÀ½2
-int	RecvMemFuncData2( TRANS_FUNC_MEMORY *TransFuncMem )
+int	RecvMemFuncData2(TRANS_FUNC_MEMORY *TransFuncMem)
 {
 	smTRANS_COMMAND	smTransCommand;
 
 
 	smTransCommand.size = -1;
 	fnChkMem2 = (LPFN_CheckMem)((void *)TransFuncMem->szData);
-	fnChkMem2( TransFuncMem , &smTransCommand );
+	fnChkMem2(TransFuncMem, &smTransCommand);
 
-	ZeroMemory( TransFuncMem , 1500 );
+	ZeroMemory(TransFuncMem, 1500);
 
-	if ( smTransCommand.size>0 && smWsockDataServer ) {
+	if (smTransCommand.size > 0 && smWsockDataServer)
+	{
 		smTransCommand.code = smTRANSCODE_FUNCTION_MEM2;
-		smWsockDataServer->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
+		smWsockDataServer->Send2((char *)&smTransCommand, smTransCommand.size, TRUE);
 	}
 
 	return TRUE;
@@ -988,25 +1054,28 @@ int	SendTotalExpMoney()
 {
 	TRANS_TOTAL_EXPMONEY	TransTotalExpMoney;
 
-	if ( (dwLastSendTotalExpMoenyTime+30000)>dwPlayTime ) return FALSE;
+	if ((dwLastSendTotalExpMoenyTime + 30000) > dwPlayTime) return FALSE;
 
 	TransTotalExpMoney.code = smTRANSCODE_CHECK_EXPMONEY;
-	TransTotalExpMoney.size = sizeof( TRANS_TOTAL_EXPMONEY );
+	TransTotalExpMoney.size = sizeof(TRANS_TOTAL_EXPMONEY);
 
-	if ( smWsockServer ) {
-		memcpy( &TransTotalExpMoney.sServerExp , &sServerExp[0] , sizeof(sSERVER_EXP) );
-		memcpy( &TransTotalExpMoney.sServerMoney , &sServerMoney[0] , sizeof(sSERVER_MONEY) );
-		smWsockServer->Send2( (char *)&TransTotalExpMoney , TransTotalExpMoney.size , TRUE );
+	if (smWsockServer)
+	{
+		memcpy(&TransTotalExpMoney.sServerExp, &sServerExp[0], sizeof(sSERVER_EXP));
+		memcpy(&TransTotalExpMoney.sServerMoney, &sServerMoney[0], sizeof(sSERVER_MONEY));
+		smWsockServer->Send2((char *)&TransTotalExpMoney, TransTotalExpMoney.size, TRUE);
 	}
-	if ( smWsockUserServer && smWsockUserServer!=smWsockServer ) {
-		memcpy( &TransTotalExpMoney.sServerExp , &sServerExp[1] , sizeof(sSERVER_EXP) );
-		memcpy( &TransTotalExpMoney.sServerMoney , &sServerMoney[1] , sizeof(sSERVER_MONEY) );
-		smWsockUserServer->Send2( (char *)&TransTotalExpMoney , TransTotalExpMoney.size , TRUE );
+	if (smWsockUserServer && smWsockUserServer != smWsockServer)
+	{
+		memcpy(&TransTotalExpMoney.sServerExp, &sServerExp[1], sizeof(sSERVER_EXP));
+		memcpy(&TransTotalExpMoney.sServerMoney, &sServerMoney[1], sizeof(sSERVER_MONEY));
+		smWsockUserServer->Send2((char *)&TransTotalExpMoney, TransTotalExpMoney.size, TRUE);
 	}
-	if ( smWsockExtendServer && smWsockExtendServer!=smWsockServer ) {
-		memcpy( &TransTotalExpMoney.sServerExp , &sServerExp[2] , sizeof(sSERVER_EXP) );
-		memcpy( &TransTotalExpMoney.sServerMoney , &sServerMoney[2] , sizeof(sSERVER_MONEY) );
-		smWsockExtendServer->Send2( (char *)&TransTotalExpMoney , TransTotalExpMoney.size , TRUE );
+	if (smWsockExtendServer && smWsockExtendServer != smWsockServer)
+	{
+		memcpy(&TransTotalExpMoney.sServerExp, &sServerExp[2], sizeof(sSERVER_EXP));
+		memcpy(&TransTotalExpMoney.sServerMoney, &sServerMoney[2], sizeof(sSERVER_MONEY));
+		smWsockExtendServer->Send2((char *)&TransTotalExpMoney, TransTotalExpMoney.size, TRUE);
 	}
 
 	dwLastSendTotalExpMoenyTime = dwPlayTime;
@@ -1015,41 +1084,47 @@ int	SendTotalExpMoney()
 }
 
 //¼­¹ö¿¡¼­ µé¾î¿Â µ·ÀÇ ¾ç È®ÀÎ
-int CheckServerMoney( smWINSOCK *lpsmSock , TRANS_ITEMINFO	*lpTransItemInfo )
+int CheckServerMoney(smWINSOCK *lpsmSock, TRANS_ITEMINFO	*lpTransItemInfo)
 {
 	sSERVER_MONEY	*lpServerMoney;
 
 	lpServerMoney = 0;
 
-	if ( lpsmSock==smWsockServer ) {
+	if (lpsmSock == smWsockServer)
+	{
 		lpServerMoney = &sServerMoney[0];
 	}
-	else {
-		if ( lpsmSock==smWsockUserServer ) {
+	else
+	{
+		if (lpsmSock == smWsockUserServer)
+		{
 			lpServerMoney = &sServerMoney[1];
 		}
-		else if ( lpsmSock==smWsockExtendServer ) {
+		else if (lpsmSock == smWsockExtendServer)
+		{
 			lpServerMoney = &sServerMoney[2];
 		}
 	}
 
-	if ( lpServerMoney ) {
+	if (lpServerMoney)
+	{
 		lpServerMoney->InputMoney += lpTransItemInfo->Item.Money;
 		lpServerMoney->Counter++;
 		lpServerMoney->TotalX = lpTransItemInfo->x;
 		lpServerMoney->TotalY = lpTransItemInfo->y;
 		lpServerMoney->TotalZ = lpTransItemInfo->z;
 
-/*
-					TransItemInfo.x = dwPlayServTime;											//ÇØµ¶ Å°
-					TransItemInfo.y = TransItemInfo.Item.ItemHeader.dwChkSum;					//ÇØµ¶ Å°2
-					TransItemInfo.z = rsPlayInfo[cnt].spMoney_Out^(TransItemInfo.x+TransItemInfo.y);	//ÅäÅ» ±â·Ï Àü¼Û
-*/
+		/*
+							TransItemInfo.x = dwPlayServTime;											//ÇØµ¶ Å°
+							TransItemInfo.y = TransItemInfo.Item.ItemHeader.dwChkSum;					//ÇØµ¶ Å°2
+							TransItemInfo.z = rsPlayInfo[cnt].spMoney_Out^(TransItemInfo.x+TransItemInfo.y);	//ÅäÅ» ±â·Ï Àü¼Û
+		*/
 
 		int cnt;
-		cnt = lpServerMoney->TotalZ^(lpServerMoney->TotalX+lpServerMoney->TotalY);
+		cnt = lpServerMoney->TotalZ ^ (lpServerMoney->TotalX + lpServerMoney->TotalY);
 		cnt += 200;
-		if ( cnt<lpServerMoney->InputMoney ) {
+		if (cnt < lpServerMoney->InputMoney)
+		{
 			//SendSetHackUser( 82 );
 		}
 	}
@@ -1059,25 +1134,30 @@ int CheckServerMoney( smWINSOCK *lpsmSock , TRANS_ITEMINFO	*lpTransItemInfo )
 
 
 //¼­¹ö¿¡¼­ µé¾î¿Â °æÇèÄ¡ÀÇ ¾ç È®ÀÎ
-int CheckServerExp( smWINSOCK *lpsmSock , smTRANS_COMMAND	*lpTransCommand )
+int CheckServerExp(smWINSOCK *lpsmSock, smTRANS_COMMAND	*lpTransCommand)
 {
 	sSERVER_EXP	*lpServerExp;
 
 	lpServerExp = 0;
 
-	if ( lpsmSock==smWsockServer ) {
+	if (lpsmSock == smWsockServer)
+	{
 		lpServerExp = &sServerExp[0];
 	}
-	else {
-		if ( lpsmSock==smWsockUserServer ) {
+	else
+	{
+		if (lpsmSock == smWsockUserServer)
+		{
 			lpServerExp = &sServerExp[1];
 		}
-		else if ( lpsmSock==smWsockExtendServer ) {
+		else if (lpsmSock == smWsockExtendServer)
+		{
 			lpServerExp = &sServerExp[2];
 		}
 	}
 
-	if ( lpServerExp ) {
+	if (lpServerExp)
+	{
 		lpServerExp->InputExp += lpTransCommand->WParam;
 		lpServerExp->Counter++;
 		lpServerExp->Total1 = lpTransCommand->SParam;
@@ -1085,9 +1165,10 @@ int CheckServerExp( smWINSOCK *lpsmSock , smTRANS_COMMAND	*lpTransCommand )
 
 		int cnt;
 		// Àåº° - °æÇèÄ¡ ¿¡·¯ À§ÇØ (800000 - > 1600000 = °æÇèÄ¡ 2¹è ÀÌº¥Æ®)
-		cnt = (lpServerExp->Total1^lpServerExp->Total2)+1600000;		//¿ÀÂ÷À² Àû¿ë
-		if ( cnt<lpServerExp->InputExp ) {
-			SendSetHackUser( 83 );
+		cnt = (lpServerExp->Total1^lpServerExp->Total2) + 1600000;		//¿ÀÂ÷À² Àû¿ë
+		if (cnt < lpServerExp->InputExp)
+		{
+			SendSetHackUser(83);
 		}
 
 	}
@@ -1098,17 +1179,18 @@ int CheckServerExp( smWINSOCK *lpsmSock , smTRANS_COMMAND	*lpTransCommand )
 
 
 //´Ù¸¥ ÇÃ·¹ÀÌ¾î¿ÍÀÇ ¿¬°á ¾²·¹µå¸¦ »ý¼º
-int CreateConnectThread( DWORD dwIP );
+int CreateConnectThread(DWORD dwIP);
 //´Ù¸¥ ÇÃ·¹ÀÌ¾î¿ÍÀÇ ¿¬°áÁ¾·á ¾²·¹µå »ý¼º
-int CreateDisconnectThread( smWINSOCK *lpsmSock );
+int CreateDisconnectThread(smWINSOCK *lpsmSock);
 
 //´Ù¸¥ ´Ù¸¥ ÇÃ·¹ÀÌ¾îÀÇ ºó ¿µ¿ªÀ» Ã£À½
 int FindNewOtherPlayer()
 {
 	int cnt;
 
-	for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++) {
-		if ( !chrOtherPlayer[cnt].Flag )
+	for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+	{
+		if (!chrOtherPlayer[cnt].Flag)
 			return cnt;
 	}
 
@@ -1116,12 +1198,14 @@ int FindNewOtherPlayer()
 }
 
 //ÀÚµ¿ ÇÃ·¹ÀÌ¾î¸¦ Ã£´Â´Ù
-smCHAR *FindAutoPlayer( DWORD dwObjectSerial )
+smCHAR *FindAutoPlayer(DWORD dwObjectSerial)
 {
 	int cnt;
 
-	for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++) {
-		if ( chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].dwObjectSerial==dwObjectSerial ) {
+	for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+	{
+		if (chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].dwObjectSerial == dwObjectSerial)
+		{
 			return &chrOtherPlayer[cnt];
 		}
 	}
@@ -1130,15 +1214,17 @@ smCHAR *FindAutoPlayer( DWORD dwObjectSerial )
 }
 
 // À¯Àú¹øÈ£·Î Ã£´Â´Ù
-smCHAR *FindChrPlayer( DWORD dwObjectSerial )
+smCHAR *FindChrPlayer(DWORD dwObjectSerial)
 {
 	int cnt;
 
-	if ( lpCurPlayer->dwObjectSerial==dwObjectSerial ) 
-		return lpCurPlayer ;
+	if (lpCurPlayer->dwObjectSerial == dwObjectSerial)
+		return lpCurPlayer;
 
-	for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++) {
-		if ( chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].dwObjectSerial==dwObjectSerial ) {
+	for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+	{
+		if (chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].dwObjectSerial == dwObjectSerial)
+		{
 			return &chrOtherPlayer[cnt];
 		}
 	}
@@ -1151,23 +1237,27 @@ smCHAR *FindDeadPartyUser()
 {
 	int cnt;
 	smCHAR *lpChar;
-	int dist,x,y,z;
+	int dist, x, y, z;
 	int	NearDist;
 
 	lpChar = 0;
-	NearDist = 300*300;
+	NearDist = 300 * 300;
 
-	for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++) {
-		if ( chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].PartyFlag && chrOtherPlayer[cnt].smCharInfo.State==smCHAR_STATE_USER ) {
-			if (chrOtherPlayer[cnt].MotionInfo->State==CHRMOTION_STATE_DEAD ) {
+	for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+	{
+		if (chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].PartyFlag && chrOtherPlayer[cnt].smCharInfo.State == smCHAR_STATE_USER)
+		{
+			if (chrOtherPlayer[cnt].MotionInfo->State == CHRMOTION_STATE_DEAD)
+			{
 
-				x = (lpCurPlayer->pX-chrOtherPlayer[cnt].pX)>>FLOATNS;
-				y = (lpCurPlayer->pY-chrOtherPlayer[cnt].pY)>>FLOATNS;
-				z = (lpCurPlayer->pZ-chrOtherPlayer[cnt].pZ)>>FLOATNS;
+				x = (lpCurPlayer->pX - chrOtherPlayer[cnt].pX) >> FLOATNS;
+				y = (lpCurPlayer->pY - chrOtherPlayer[cnt].pY) >> FLOATNS;
+				z = (lpCurPlayer->pZ - chrOtherPlayer[cnt].pZ) >> FLOATNS;
 
-				dist = x*x+z*z+y*y;
+				dist = x*x + z*z + y*y;
 
-				if ( dist<NearDist ) {
+				if (dist < NearDist)
+				{
 					lpChar = &chrOtherPlayer[cnt];
 					NearDist = dist;
 				}
@@ -1180,44 +1270,50 @@ smCHAR *FindDeadPartyUser()
 
 
 //ÃÖ±ÙÁ¢ ¸ó½ºÅÍ¸¦ Ã£´Â´Ù
-smCHAR *FindNearMonster( smCHAR *lpCurChar )
+smCHAR *FindNearMonster(smCHAR *lpCurChar)
 {
 	int cnt;
 	smCHAR *lpChar;
-	int dist,x,y,z;
+	int dist, x, y, z;
 	int	NearDist;
 
 	lpChar = 0;
-	NearDist = 300*300;
+	NearDist = 300 * 300;
 
-	if ( !lpCurChar ) return NULL;
+	if (!lpCurChar) return NULL;
 
-	if ( lpCurChar!=lpCurPlayer ) {
-		x = (lpCurChar->pX-lpCurPlayer->pX)>>FLOATNS;
-		y = (lpCurChar->pY-lpCurPlayer->pY)>>FLOATNS;
-		z = (lpCurChar->pZ-lpCurPlayer->pZ)>>FLOATNS;
+	if (lpCurChar != lpCurPlayer)
+	{
+		x = (lpCurChar->pX - lpCurPlayer->pX) >> FLOATNS;
+		y = (lpCurChar->pY - lpCurPlayer->pY) >> FLOATNS;
+		z = (lpCurChar->pZ - lpCurPlayer->pZ) >> FLOATNS;
 
-		dist = x*x+z*z+y*y;
-		if ( dist<NearDist ) {
-			if ( !lpCurChar->smCharInfo.ClassClan || lpCurChar->smCharInfo.ClassClan!=lpCurPlayer->smCharInfo.ClassClan ) {
+		dist = x*x + z*z + y*y;
+		if (dist < NearDist)
+		{
+			if (!lpCurChar->smCharInfo.ClassClan || lpCurChar->smCharInfo.ClassClan != lpCurPlayer->smCharInfo.ClassClan)
+			{
 				lpChar = lpCurPlayer;
 				NearDist = dist;
 			}
 		}
 	}
 
-	for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++) {
-		if ( chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].smCharInfo.State==smCHAR_STATE_ENEMY && lpCurChar!=&chrOtherPlayer[cnt] ) {
-			if (chrOtherPlayer[cnt].smCharInfo.Brood!=smCHAR_MONSTER_USER && chrOtherPlayer[cnt].smCharInfo.Life[0]>0 &&
-				(!chrOtherPlayer[cnt].smCharInfo.ClassClan || chrOtherPlayer[cnt].smCharInfo.ClassClan!=lpCurChar->smCharInfo.ClassClan ) ) 
-			{	
-				x = (lpCurChar->pX-chrOtherPlayer[cnt].pX)>>FLOATNS;
-				y = (lpCurChar->pY-chrOtherPlayer[cnt].pY)>>FLOATNS;
-				z = (lpCurChar->pZ-chrOtherPlayer[cnt].pZ)>>FLOATNS;
+	for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+	{
+		if (chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].smCharInfo.State == smCHAR_STATE_ENEMY && lpCurChar != &chrOtherPlayer[cnt])
+		{
+			if (chrOtherPlayer[cnt].smCharInfo.Brood != smCHAR_MONSTER_USER && chrOtherPlayer[cnt].smCharInfo.Life[0]>0 &&
+				(!chrOtherPlayer[cnt].smCharInfo.ClassClan || chrOtherPlayer[cnt].smCharInfo.ClassClan != lpCurChar->smCharInfo.ClassClan))
+			{
+				x = (lpCurChar->pX - chrOtherPlayer[cnt].pX) >> FLOATNS;
+				y = (lpCurChar->pY - chrOtherPlayer[cnt].pY) >> FLOATNS;
+				z = (lpCurChar->pZ - chrOtherPlayer[cnt].pZ) >> FLOATNS;
 
-				dist = x*x+z*z+y*y;
+				dist = x*x + z*z + y*y;
 
-				if ( dist<NearDist ) {
+				if (dist < NearDist)
+				{
 					lpChar = &chrOtherPlayer[cnt];
 					NearDist = dist;
 				}
@@ -1235,8 +1331,9 @@ smCHAR *FindEmptyChar()
 {
 	int cnt;
 
-	for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++) {
-		if ( !chrOtherPlayer[cnt].Flag )
+	for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+	{
+		if (!chrOtherPlayer[cnt].Flag)
 			return &chrOtherPlayer[cnt];
 	}
 
@@ -1244,115 +1341,27 @@ smCHAR *FindEmptyChar()
 }
 
 //Ã¤ÆÃÃ¢¿¡ ¹®ÀÚ »ðÀÔ
-int AddChatBuff( char *szMsg , DWORD dwIP )
+int AddChatBuff(char *szMsg, DWORD dwIP)
 {
-	int ChatCnt;
-
-	ChatCnt = ChatBuffCnt & CHATBUFF_MASK;
-	ChatBuff[ ChatCnt ].dwIP = dwIP;
-	lstrcpy( ChatBuff[ ChatCnt ].szMessage , szMsg );
-	ChatBuffCnt++;
-	ChatDispCnt = 70*10;
-	if ( ChatScrollPoint ) {
-		ChatScrollPoint++;
-	}
-
-	return ChatBuffCnt;
+	Log::Debug("AddChatBuff : Requisitado porém foi removido.");
+	return NULL;
 }
-//Ã¤ÆÃÃ¢¿¡ ¹®ÀÚ »ðÀÔ
-int AddChatBuff( char *szMsg )
+int AddChatBuff(char *szMsg)
 {
-	return AddChatBuff( szMsg , 0 );
+	Log::Debug("AddChatBuff : Requisitado porém foi removido.");
+	return NULL;
 }
-
-int	ChatBuffFilter( char *szMsg , DWORD dwIP )
+int	ChatBuffFilter(char *szMsg, DWORD dwIP)
 {
-	int cnt,len,cnt2;
-	char	szBuff[256];
-	char	szBuff2[64];
-
-	if ( dwIP>=256 ) return TRUE;
-
-	len = lstrlen( szMsg );
-
-	for ( cnt=0;cnt<len;cnt++ ) {
-		if ( szMsg[cnt]=='>' ) {
-			szBuff[cnt]=0;
-			break;
-		}
-		else {
-			szBuff[cnt] = szMsg[cnt];
-		}
-	}
-
-	if ( cnt<len ) {
-		if ( lstrcmpi( szBuff , "From" )==0 ) {
-			cnt2=0;
-			szBuff[0] = 0;
-			for(cnt=cnt+1;cnt<len;cnt++) {
-				if ( szMsg[cnt]==':' ) {
-					szBuff[cnt2] = 0;
-					break;
-				}
-				else {
-					if ( szMsg[cnt]!=' ' )
-						szBuff[cnt2++] = szMsg[cnt];
-				}
-			}
-			if ( cnt<len  && szBuff[0] ) {
-
-				for(cnt2=0;cnt2<15;cnt2++) {
-					//0~15
-					if ( InterfaceParty.chat_IDs( 2, cnt2, szBuff2 )==TRUE ) {
-						//id¸¦ °¡Á®°£´Ù.(Á¢¼Ó¿©ºÎ¸¦ ¾Ë·ÁÁÖ±â À§ÇÔÀÓ)
-						//±Ó¸» °ÅºÎÀÚ ÀÎÁö È®ÀÎ
-						if ( lstrcmpi( szBuff , szBuff2 )==0 ) {
-							//char *mgRefuseWhisper = "±Ó¸»ÀÌ °ÅºÎµÇ¾ú½À´Ï´Ù";
-							wsprintf( szBuff , "/** %s %s" , szBuff2 , mgRefuseWhisper );
-							SendChatMessageToServer( szBuff );
-							return FALSE;
-						}
-					}
-				}
-
-				InterfaceParty.latest_Insert(szBuff);	//±Ó¼Ó¸»ÇÑ»ç¶÷ÀÇ ¸®½ºÆ® Ãß°¡.
-			}
-
-			return TRUE;
-		}
-
-		if ( lstrcmpi( szBuff , "To" )==0 ) {
-			cnt2=0;
-			szBuff[0] = 0;
-			for(cnt=cnt+1;cnt<len;cnt++) {
-				if ( szMsg[cnt]==':' ) {
-					szBuff[cnt2] = 0;
-					break;
-				}
-				else {
-					if ( szMsg[cnt]!=' ' )
-						szBuff[cnt2++] = szMsg[cnt];
-				}
-			}
-			if ( cnt<len && szBuff[0] ) {
-				InterfaceParty.latest_Insert(szBuff);	//±Ó¼Ó¸»ÇÑ»ç¶÷ÀÇ ¸®½ºÆ® Ãß°¡.
-			}
-			return TRUE;
-		}
-	}
-
-
-
-
-
-	return TRUE;
+	Log::Debug("ChatBuffFilter : Requisitado porém foi removido.");
+	return NULL;
 }
 
 
 //½Ã½ºÅÛ ½Ã°£À» °ÔÀÓ½Ã°£À¸·Î º¯È¯
-DWORD	ConvSysTimeToGameTime(	DWORD dwTime )
+DWORD	ConvSysTimeToGameTime(DWORD dwTime)
 {
-	return dwTime/GAME_WORLDTIME_MIN;
+	return dwTime / GAME_WORLDTIME_MIN;
 }
 
 //DispLoading
@@ -1361,7 +1370,8 @@ DWORD	ConvSysTimeToGameTime(	DWORD dwTime )
 #define RECV_DATA_QUE_MASK		63
 
 
-class	rsTRANS_SERVER {
+class	rsTRANS_SERVER
+{
 	char	TransBuff[smSOCKBUFF_SIZE];
 
 	rsRECORD_DBASE	*lpRecorder;
@@ -1379,14 +1389,14 @@ public:
 
 
 	//Å¬·¡½º ÃÊ±âÈ­
-	int	Init( smWINSOCK *lpsmsock );
+	int	Init(smWINSOCK *lpsmsock);
 	//¼­¹ö·Î ¸Þ¼¼Áö Àü¼Û
-	int SendChat( char *szMessage );
+	int SendChat(char *szMessage);
 	//¼­¹ö·Î ÇÃ·¹ÀÌ¾îÀÇ µ¥ÀÌÅ¸¸¦ À§Ä¡¸¦ Àü¼Û
-	int SendPlayData( smCHAR *lpChar );
+	int SendPlayData(smCHAR *lpChar);
 
 	//¼­¹ö·Î ºÎÅÍ ¹ÞÀº ¸Þ¼¼Áö Ã³¸®
-	int RecvMessage( smTHREADSOCK *SockInfo );
+	int RecvMessage(smTHREADSOCK *SockInfo);
 
 	//¸Þ¼¼Áö Å¥ÀÇ ¸Þ¼¼Áö¸¦ Ã³¸®
 	int RecvMessageQue();
@@ -1413,19 +1423,21 @@ int rsTRANS_SERVER::RecvMessageQue()
 {
 	int cnt;
 
-	if ( RecvDataQuePop>=RecvDataQuePush ) return TRUE;
-	if ( MessageLoading ) return FALSE;
+	if (RecvDataQuePop >= RecvDataQuePush) return TRUE;
+	if (MessageLoading) return FALSE;
 
 	//Å©¸®Æ¼Ä® ¼½¼Ç ¼±¾ð
-	EnterCriticalSection( &cSection );
+	EnterCriticalSection(&cSection);
 
-	while(1) {
-		if ( RecvDataQuePop>=RecvDataQuePush ) break;
+	while (1)
+	{
+		if (RecvDataQuePop >= RecvDataQuePush) break;
 
 		cnt = RecvDataQuePop & RECV_DATA_QUE_MASK;
 
-		if ( RecvDataQue[cnt] ) {
-			RecvMessage( RecvDataQue[cnt] );
+		if (RecvDataQue[cnt])
+		{
+			RecvMessage(RecvDataQue[cnt]);
 
 			delete RecvDataQue[cnt];
 			RecvDataQue[cnt] = 0;
@@ -1435,7 +1447,7 @@ int rsTRANS_SERVER::RecvMessageQue()
 	}
 
 	//Å©¸®Æ¼Ä® ¼½¼Ç ÇØÁ¦
-	LeaveCriticalSection( &cSection );
+	LeaveCriticalSection(&cSection);
 
 	return TRUE;
 }
@@ -1445,2949 +1457,154 @@ int rsTRANS_SERVER::RecvMessageQue()
 DWORD	dwGetCharInfoTime = 0;
 
 //¼­¹ö·Î ºÎÅÍ ¹ÞÀº ¸Þ¼¼Áö Ã³¸®
-int rsTRANS_SERVER::RecvMessage( smTHREADSOCK *pData )
+int rsTRANS_SERVER::RecvMessage(smTHREADSOCK *pData)
 {
-	DWORD *IPData;
-//	smCHAR *lpPlayer;
-
-//	int action;
-//	int DataCnt;
-	int cnt;
-	int x,z;
-	int ServerCode;
-//	int mx,my,mz;
-//	int dDist;
-	smCHAR	*lpChar;
-
-//	smWINSOCK *lpsmFindSock;
-	int ChatCnt;
-//	int	TempBuff[8];
-	int RcvCnt;
-
-
-	TRANS_ITEMINFO				*lpTransItemInfo;
-	//TRANS_AREAINFO_HEADER	*lpAreaInfoHeader;
-//	TRANS_IPLIST			*lpTransIp;
-	smPLAYDATA					*lpPlayData1;
-	smTRANS_COMMAND				TransCommand;
-	smTRANS_COMMAND_EX			TransCommandEx;
-	smTRANS_COMMAND				*lpTransCommand;
-	smTRANS_COMMAND_EX			*lpTransCommandEx;
-	smTRANS_ACITON_ITEM			*lpTransActionItem;
-	smTRANS_CHAR_COMMAND		*lpTransCharCommand;
-	smTRNAS_PLAYERINFO			*lpTransPlayerInfo;
-	TRANS_CHATMESSAGE			*lpTransChatMessage;
-	TRANS_POST_ITEM				*lpTransPostItem;
-
-
-	//smTRANS_SELL_ITEM		*lpTransSellItem;
-	DWORD	dwTime;
-	DWORD	dwDataKey;
-	smCHAR_INFO	*lpCharInfo_MsgBack = 0;
-	int		addExp , addMoney;
-	DWORD	dwEncCode;
-	//char	szBuff[128];
-
-	IPData = (DWORD *)( pData->Buff );
-
-	if ( fpNetLog ) {
-		char szLogMsg[128];
-		wsprintf( szLogMsg , "Recv %x %d\r\n" , IPData[1] , IPData[0] );
-		fwrite( szLogMsg , lstrlen( szLogMsg ) , 1, fpNetLog);
-	}
-
-	if ( MessageLoading ) {
-
-		switch ( IPData[1] ) {
-			//¹«½ÃÇØµµ µÇ´Â µ¥ÀÌÅ¸
-			case smTRANSCODE_ATTACKDATA2:
-			case smTRANSCODE_ATTACKDATA:
-			case smTRANSCODE_PLAYDATA1:
-			case smTRANSCODE_PLAYDATA2:
-			case smTRANSCODE_PLAYDATA3:
-			case smTRANSCODE_TRANSPLAYDATA:
-			case smTRANSCODE_PLAYDATAGROUP:
-			case smTRANSCODE_PLAYITEM:
-				return TRUE;
-		}
-
-		//µ¥ÀÌÅ¸ ·Îµù »óÅÂ / Å¥¿¡ ÀúÀå Çß´Ù°¡ ³ªÁß¿¡ Ã³¸®
-		cnt = RecvDataQuePush-RecvDataQuePop;
-
-		//Å¥ °ø°£ ºÎÁ·
-		if ( cnt>=RECV_DATA_QUE_COUNT ) return FALSE;
-
-		cnt = RecvDataQuePush & RECV_DATA_QUE_MASK;
-
-		if ( !RecvDataQue[cnt] ) {
-			RecvDataQue[cnt] = new smTHREADSOCK;
-			if ( RecvDataQue[cnt] ) {
-				memcpy( RecvDataQue[cnt] , pData , sizeof(smTHREADSOCK) );
-				RecvDataQuePush++;
-				return TRUE;
-			}
-		}
-		return FALSE;
-	}
-
-	dwEncCode = (IPData[1]&0xFFFF0000);
-	if ( dwEncCode==smTRANSCODE_ENCODE_PACKET || dwEncCode==smTRANSCODE_ENCODE_PACKET2 ) {
-		smTHREADSOCK smEncData;
-
-		addExp = 0;
-		addMoney = 0;
-
-		memcpy( &smEncData , pData , sizeof(smTHREADSOCK)-smSOCKBUFF_SIZE );
-
-		if ( dwEncCode==smTRANSCODE_ENCODE_PACKET2 ) {
-			if ( fnDecodePacket )
-				dwDataKey = fnDecodePacket( (BYTE *)pData->Buff , (BYTE *)smEncData.Buff );
-			else
-				return FALSE;
-		}
-		else
-			dwDataKey = DecodePacket( (BYTE *)pData->Buff , (BYTE *)smEncData.Buff );
-
-		if ( !dwDataKey )
-			return FALSE;
-
-		cnt = dwDataKey&0xFFFF;
-
-		if ( pData->smMySock->CheckEncRecvPacket( cnt )==TRUE ) {
-			//µé¾î¿Â µ¥ÀÌÅ¸ ¶Ç µé¾î¿Â °æ¿ì ( ¹®Á¦ ÀÖÀ½ )
-			return FALSE;
-		}
-
-		if ( cnt<(pData->smMySock->EncPacketRecvCount-ENC_PACKET_REC_MAX) ) {
-			//¾ÆÁÖ ¿À·¡µÈ µ¥ÀÌÅ¸°Å³ª ¹®Á¦ÀÖ´Â °æ¿ì
-			return FALSE;
-		}
-		pData->smMySock->PushEncRecvPacket( cnt );			//ÆÐÅ¶ ¹øÈ£ ±â·Ï
-
-
-		pData = &smEncData;
-		IPData = (DWORD *)( pData->Buff );
-
-		lpCharInfo_MsgBack = new smCHAR_INFO;
-		if ( lpCharInfo_MsgBack ) {
-			memcpy( lpCharInfo_MsgBack , &lpCurPlayer->smCharInfo , sizeof(smCHAR_INFO) );
-		}
-	}
-	else {
-		if ( IPData[1]==smTRANSCODE_PUTITEM ||
-			IPData[1]==smTRANSCODE_ADDEXP )
-			return FALSE;
-
-	}
-
-	switch( IPData[1] ) {
-		case smTRANSCODE_CHATMESSAGE:
-			//¼­¹ö·Î ºÎÅÍ Ã¤ÆÃ ¹®ÀÚ¸¦ ¹ÞÀ½
-			ChatCnt = ChatBuffCnt & CHATBUFF_MASK;
-			ChatBuff[ ChatCnt ].dwIP = IPData[2];
-			lstrcpy( ChatBuff[ ChatCnt ].szMessage , &pData->Buff[3*4] );
-			ChatBuffCnt++;
-			ChatDispCnt = 70*10;
-			if ( ChatScrollPoint ) {
-				ChatScrollPoint++;
-			}
-			
-			break;
-
-		case smTRANSCODE_PLAYLIST:
-			/*
-			//Áö¿ªÀÇ PlayerList ¹ÞÀ½
-			lpAreaInfoHeader= (TRANS_AREAINFO_HEADER *)pData->Buff;
-			lpTransIp		= (TRANS_IPLIST *)&pData->Buff[sizeof(TRANS_AREAINFO_HEADER)];
-
-			//¸®½ºÆ®¸¦ ºÐ¼®ÇÔ
-			for(cnt=0;cnt<lpAreaInfoHeader->TransListCnt;cnt++) {
-				//³ª¿ÍÀÇ °Å¸®¸¦ °è»ê
-				mx = (lpCurPlayer->pX - lpTransIp->Pos.x)>>FLOATNS;
-				my = (lpCurPlayer->pY - lpTransIp->Pos.y)>>FLOATNS;
-				mz = (lpCurPlayer->pZ - lpTransIp->Pos.z)>>FLOATNS;
-				dDist = mx*mx + mz*mz;
-				//dDist = mx*mx + my*my + mz*mz;
-
-				if ( dDist<DIST_TRANSLEVEL_CONNECT ) {
-					//±ÙÁ¢ ÇßÀ»°æ¿ì ¿¬°á
-
-					//¼ÒÄÏ¿ë Å©¸®Æ¼Ä® ¼½¼Ç ¼±¾ð
-					smEnterCSectionSocket();
-					lpsmFindSock = smFindSocket2( lpTransIp->dwIP );
-					//¼ÒÄÏ¿ë Å©¸®Æ¼Ä® ¼½¼Ç ÇØÁ¦
-					smLeaveCSectionSocket();
-
-					if ( !lpsmFindSock ) {
-						//¸Þ¼¼Áö ¾²·¹µå¿¡¼­ ¿¬°áÇÏµµ·Ï...¸Þ¼¼Áö º¸³¿
-						//PostMessage( hwnd , SWM_MCONNECT , (WPARAM)lpTransIp->dwIP , 0 );
-						//ConnectOtherPlayer( lpTransIp->dwIP );	//Á÷Á¢¿¬°á
-						CreateConnectThread(lpTransIp->dwIP);		//¾²·¹µå ¸¸µé¾î¼­ ¿¬°á
-					}
-					lpTransIp++;
-				}
-			}
-			//Å©¸®Æ¼Ä® ¼½¼Ç ÇØÁ¦
-			//LeaveCriticalSection( &cServSection );
-
-			if ( lpAreaInfoHeader->Stats==FALSE ) {
-				//°è¼Ó ¹ÞÀ» µ¥ÀÌÅ¸°¡ ÀÖÀ¸¸é ¿ä±¸
-				TempBuff[0] = sizeof( int )*2;
-				TempBuff[1] = smTRANSCODE_CONTINUEDATA;
-				pData->smMySock->Send( TransBuff , TempBuff[0] , TRUE );
-			}
-			*/
-			break;
-
-		case smTRANSCODE_PLAYERINFO:
-			//»ó´ë ÇÃ·¹ÀÌ¾îÀÇ µ¥ÀÌÅ¸ ¼ö½Å ¹ÞÀ½
-			lpTransPlayerInfo = (smTRNAS_PLAYERINFO *)pData->Buff;
-
-			lpChar = FindAutoPlayer( lpTransPlayerInfo->dwObjectSerial );
-
-			if ( lpChar ) {
-				lpChar->RecvPlayData( pData );
-				//Ä³¸¯ÅÍ ÆÄÆ¼ °¡ÀÔ¿©ºÎ È®ÀÎ
-				RequestPartyPlayers( lpChar );
-			}
-
-			//¸ó½ºÅÍ µ¥ÀÌÅ¸ÀÏ °æ¿ì Ä³½Ã¿¡ ÀúÀå
-			if ( lpTransPlayerInfo->smCharInfo.State==smCHAR_STATE_ENEMY && lpTransPlayerInfo->smCharInfo.Brood!=smCHAR_MONSTER_USER )
-				SaveCharInfoCache(lpTransPlayerInfo);
-
-			break;
-
-		case smTRANSCODE_PLAYERINFO_Q:
-			//»ó´ë ÇÃ·¹ÀÌ¾îÀÇ µ¥ÀÌÅ¸ ¼ö½Å ¹ÞÀ½
-			lpChar = FindAutoPlayer( ((smTRNAS_PLAYERINFO_QUICK *)pData->Buff)->dwObjectSerial );
-
-			if ( lpChar ) {
-				lpChar->RecvPlayData( pData );
-				//Ä³¸¯ÅÍ ÆÄÆ¼ °¡ÀÔ¿©ºÎ È®ÀÎ
-				RequestPartyPlayers( lpChar );
-			}
-			break;
-
-		case smTRANSCODE_PLAYDATAGROUP:
-			//ÇÃ·¹ÀÌ¾î ¿òÁ÷ÀÓ Á¤º¸¸¦ ±×·ìÀ¸·Î Àü¼Û ¹ÞÀ½
-
-			smPLAYDATA_GROUP *lpPlayDataGroup;
-			char *lpTransBuff;
-
-			lpPlayDataGroup = (smPLAYDATA_GROUP *)pData->Buff;
-			lpTransBuff = pData->Buff+sizeof(smPLAYDATA_GROUP);
-
-			if ( !(lpPlayDataGroup->dwSendCode&0x80000000) ) {
-				rsRecvUserServer = TRUE;
-			}
-
-			ServerCode = 0;
-			RcvCnt = 0;
-
-			if ( smWsockUserServer==pData->smMySock ) {
-				ServerCode = PLAY_SERVER_CODE_USER;
-			}
-			else {
-				if ( smWsockExtendServer==pData->smMySock ) 
-					ServerCode = PLAY_SERVER_CODE_EXTEND;
-				else
-					ServerCode = PLAY_SERVER_CODE_MAIN;
-			}
-
-			if ( AreaServerMode && ServerCode==PLAY_SERVER_CODE_MAIN ) {
-				if ( lpWSockServer_DispArea[0]==pData->smMySock ) {
-					ServerCode = PLAY_SERVER_CODE_AREA1;
-				}
-				else  if ( lpWSockServer_DispArea[1]==pData->smMySock ) {
-					ServerCode = PLAY_SERVER_CODE_AREA2;
-				}
-			}
-
-			for( cnt=0;cnt<lpPlayDataGroup->PlayDataCnt;cnt++) {
-
-				lpPlayData1 = (smPLAYDATA *)lpTransBuff;
-				lpChar = FindAutoPlayer( lpPlayData1->dwObjectSerial );
-
-				if ( lpChar ) {
-					lpChar->RecvPlayData2( lpTransBuff );
-					if ( lpChar->PlayBuffCnt<(lpChar->PlayBuffPosi_End-70) ) {
-						lpChar->PlayBuffCnt = lpChar->PlayBuffPosi_End-70;
-					}
-				}
-				else {
-					if ( RcvCnt<8 || (RcvCnt<16 && ((int *)lpTransBuff)[1]==smTRANSCODE_TRANSPLAYDATA) ) {
-						RcvCnt++;
-						lpChar = FindEmptyChar();
-						if ( lpChar ) {
-							//Ä³¸¯ÅÍ ½Å±Ô µî·Ï
-							lpChar->Init();
-							lpChar->Flag = TRUE;
-							lpChar->smCharInfo.szName[0]=0;
-							lpChar->ActionPattern = 99;
-							lpChar->Pattern = 0;
-							lpChar->AutoPlayer = TRUE;
-							lpChar->TransSock = 0;
-							lpChar->AutoPlayer = TRUE;
-							lpChar->DisplayFlag = FALSE;
-							lpChar->MotionInfo = 0;
-
-							lpChar->dwObjectSerial = lpPlayData1->dwObjectSerial;
-							lpChar->ServerCode = ServerCode;
-
-							lpChar->ResetAttackTrans();
-
-							//¿©±â´Ù°¡ ¸ðµ¨ ¹× Ä³¸¯ÅÍ ¼³Á¤ Á¤º¸¸¦ º¸³»´Þ¶ó±¸ ¼­¹ö¿¡ ¿ä±¸ÇÏ´Â
-							//°ÍÀ» Ãß°¡ ÇØ¾ßÇÔ
-
-							lpTransPlayerInfo = GetCharInfoCache( lpTransBuff );
-							if ( lpTransPlayerInfo ) {
-								//Ä³½Ã¿¡¼­ ±âÁ¸ µ¥ÀÌÅ¸ ¾òÀ½
-								lpChar->SetTransPlayerInfo( lpTransPlayerInfo );
-
-								//Ä³¸¯ÅÍ ÆÄÆ¼ °¡ÀÔ¿©ºÎ È®ÀÎ
-								RequestPartyPlayers( lpChar );
-							}
-							else {
-								//»õ·Î Ä³¸¯ÅÍ Á¤º¸ ¼­¹ö¿¡ ¿ä±¸ 
-								TransCommand.code = smTRANSCODE_GETPLAYERINFO;
-								TransCommand.size = sizeof( smTRANS_COMMAND );
-								TransCommand.WParam = lpPlayData1->dwObjectSerial;
-
-								if ( pData->smMySock->sock ) {
-									pData->smMySock->Send( (char *)&TransCommand , TransCommand.size , TRUE );
-								}
-							}
-						}
-					}	
-				}
-				lpTransBuff +=lpPlayData1->size;
-			}
-
-			lpTransCommand = (smTRANS_COMMAND *)lpTransBuff;
-			if ( lpTransCommand->code==smTRANSCODE_PLAY_COMMAND && lpTransCommand->WParam==lpCurPlayer->dwObjectSerial ) {
-				//Áö·É Àü´Þ‰çÀ½
-				switch( lpTransCommand->LParam ) {
-					case smCOMMAND_PLAY_BABEL:
-						//¹Ùº§ ÃâÇöÁß
-						dwBabelPlayTime = dwPlayTime+5000;		//¹Ùº§À¯Áö½Ã°£ 5ÃÊ ¼³Á¤
-						BabelPlayField = lpTransCommand->SParam;
-						break;
-/*
-					case smCOMMAND_PLAY_KELVEZU:
-						//ÄÌº£Áê ÃâÇöÁß
-						dwKelvezuPlayTime = dwPlayTime+5000;		//ÄÌº£ÁêÀ¯Áö½Ã°£ 5ÃÊ ¼³Á¤
-						KelvezuPlayField = lpTransCommand->SParam;
-						break;
-*/
-					case smCOMMAND_PLAY_PK_FIELD:
-						//PK Çã¿ë ÇÊµå
-						PK_FieldState.dwPlay_FieldTime = dwPlayTime+10000;		//À¯Áö½Ã°£ 10ÃÊ ¼³Á¤
-						PK_FieldState.FieldCode = lpTransCommand->SParam;
-						break;
-
-					case smCOMMAND_PLAY_BELSS_CASTLE:
-						//ºí·¹½º Ä³½½
-						memcpy( &rsBlessCastleOld , &rsBlessCastle , sizeof( rsBLESS_CASTLE ) );
-
-						lpTransCommandEx = (smTRANS_COMMAND_EX *)lpTransBuff;
-
-						rsBlessCastle.CastleMode = lpTransCommandEx->SParam>>16;
-						rsBlessCastle.DefenceLevel = lpTransCommandEx->SParam&0xFFFF;
-						rsBlessCastle.dwMasterClan = lpTransCommandEx->EParam;
-						((int *)rsBlessCastle.TimeSec)[0] = lpTransCommandEx->WxParam;
-						((int *)rsBlessCastle.bCrystalSolderCount)[0] = lpTransCommandEx->LxParam;
-
-						chaSiege.ShowPlayTime(rsBlessCastle.TimeSec[1]-rsBlessCastle.TimeSec[0]);
-
-						//ºí·¹½ºÄ³½½ µ¥¹ÌÁö ¿Í Å³¸µ Ä«¿îÆ®
-						lpCurPlayer->sBlessCastle_Damage[0] += lpTransCommandEx->SxParam&0xFFFF;
-						lpCurPlayer->sBlessCastle_Damage[1] += lpTransCommandEx->SxParam>>16;
-
-						if ( rsBlessCastle.CastleMode==3 ) {
-							if ( rsBlessCastleOld.CastleMode==1 ) {
-								//ºí·¡½º Ä³½½ Á¾·á Àá½Ã´ë±â
-								RestartPlayCount = 400;		//6ÃÊ µ¿¾È ¹«Àû
-								StopBGM();
-								esPlayContSound( 14 );
-								chaSiege.ShowExitMessage();		//°ø¼ºÀü Á¾·á½Ã ¸Þ¼¼Áö
-
-								if ( rsBlessCastle.dwMasterClan && rsBlessCastle.dwMasterClan==GetClanCode(lpCurPlayer->smCharInfo.ClassClan) ) {
-									lpCurPlayer->SetMotionFromCode(CHRMOTION_STATE_YAHOO);
-								}
-							}
-						}
-						else if ( rsBlessCastleOld.CastleMode && rsBlessCastle.CastleMode==0 ) {
-							//¿ÏÀüÁ¾·á 
-							if ( !lpCurPlayer->smCharInfo.ClassClan || rsBlessCastle.dwMasterClan!=GetClanCode(lpCurPlayer->smCharInfo.ClassClan) ) {
-								//Å¬·£ÁÖÀÎ º¯°æµÆÀ½ ¼º¹ÛÀ¸·Î ³ª°¡±â
-								WarpField2( rsCASTLE_FIELD );
-							}
-						}
-
-						//¼Ó¼ºÁ¤º¸ 1ºÐ °£°ÝÀ¸·Î º¸³¿
-						if ( (dwResistance_SendingTime+1000*60)<dwPlayTime ) {
-							SendResistanceToServer();
-						}
-
-						if ( rsBlessCastle.dwMasterClan!=rsBlessCastleOld.dwMasterClan ) {
-							//¼ºÁÖ ¹Ù²åÀ½
-							//Ä³½½ ¸¶½ºÅÍ ¾÷µ¥ÀÌÆ®
-							UpdateCastleMasterClan( rsBlessCastle.dwMasterClan );
-						}
-
-
-						break;
-				}
-			}
-			break;
-
-		case smTRANSCODE_ATTACKDATA2:
-			if ( fnDecodeDamagePacket ) 
-				fnDecodeDamagePacket( 0 , pData->Buff );
-
-			if ( ((TRANS_ATTACKDATA *)pData->Buff)->dwDamageChkSum!=dm_GetDamgeChkSum_S2V((TRANS_ATTACKDATA *)pData->Buff) ) {
-				SendSetHackUser3( 8580 , ((TRANS_ATTACKDATA *)pData->Buff)->Power , (DWORD)fnDecodeDamagePacket );
-				break;
-			}
-		case smTRANSCODE_ATTACKDATA:
-			CheckInvenItemToServer();		//ÀÎº¥Åä¸®ÀÇ ÀåÂøµÈ ¾ÆÀÌÅÛÀ» ¼­¹ö·Î º¸³»¼­ °Ë»ç
-			Record_RecvDamage( pData->smMySock , ((TRANS_ATTACKDATA *)pData->Buff)->Power ); //¹ÞÀº °ø°Ý·Â ±â·Ï
-
-		case smTRANSCODE_PLAYDATA1:
-		case smTRANSCODE_PLAYDATA2:
-		case smTRANSCODE_PLAYDATA3:
-		case smTRANSCODE_TRANSPLAYDATA:
-			//¿ÀÅä ÇÃ·¹ÀÌ µ¥ÀÌÅ¸ ÀÔ¼ö
-
-			ServerCode = 0;
-
-			if ( smWsockUserServer==pData->smMySock ) {
-				ServerCode = PLAY_SERVER_CODE_USER;
-			}
-			else {
-				if ( smWsockExtendServer!=smWsockServer && smWsockExtendServer==pData->smMySock ) 
-					ServerCode = PLAY_SERVER_CODE_EXTEND;
-				else
-					ServerCode = PLAY_SERVER_CODE_MAIN;
-			}
-
-
-			if ( AreaServerMode && ServerCode==PLAY_SERVER_CODE_MAIN ) {
-				if ( lpWSockServer_DispArea[0]==pData->smMySock ) {
-					ServerCode = PLAY_SERVER_CODE_AREA1;
-				}
-				else  if ( lpWSockServer_DispArea[1]==pData->smMySock ) {
-					ServerCode = PLAY_SERVER_CODE_AREA2;
-				}
-			}
-
-
-			lpPlayData1 = (smPLAYDATA *)pData->Buff;
-			lpChar = FindAutoPlayer( lpPlayData1->dwObjectSerial );
-			if ( lpChar ) {
-				lpChar->RecvPlayData( pData );
-				if ( lpChar->PlayBuffCnt<(lpChar->PlayBuffPosi_End-70) ) {
-					lpChar->PlayBuffCnt = lpChar->PlayBuffPosi_End-70;
-				}
-			}
-/*
-			else {
-				if ( dwGetCharInfoTime && (dwGetCharInfoTime+300)>dwPlayTime ) break;
-
-				dwGetCharInfoTime = dwPlayTime;
-
-				lpChar = FindEmptyChar();
-				if ( lpChar ) {
-					//Ä³¸¯ÅÍ ½Å±Ô µî·Ï
-					lpChar->Init();
-					lpChar->Flag = TRUE;
-					lpChar->smCharInfo.szName[0]=0;
-					lpChar->ActionPattern = 99;
-					lpChar->Pattern = 0;
-					lpChar->AutoPlayer = TRUE;
-					lpChar->TransSock = 0;
-					lpChar->AutoPlayer = TRUE;
-
-					lpChar->dwObjectSerial = lpPlayData1->dwObjectSerial;
-					lpChar->ServerCode = ServerCode;
-
-					//¿©±â´Ù°¡ ¸ðµ¨ ¹× Ä³¸¯ÅÍ ¼³Á¤ Á¤º¸¸¦ º¸³»´Þ¶ó±¸ ¼­¹ö¿¡ ¿ä±¸ÇÏ´Â
-					//°ÍÀ» Ãß°¡ ÇØ¾ßÇÔ
-
-
-//					Send_GetCharInfo( lpPlayData1->dwObjectSerial );
-				}
-
-			}
-*/
-			break;
-
-		case smTRANSCODE_ATTACK_SLASH_LIST:
-			//Æ¨°Ü¼­ ¸Â´Â µ¥¹ÌÁö À¯Àú ¸ñ·Ï µµÂø
-			memcpy( &Trans_SplashCharList , pData->Buff , sizeof(TRANS_SKIL_ATTACKDATA) );
-			break;
-
-
-		case smTRANSCODE_PLAYITEM:
-			//¼­¹ö·Î ºÎÅÍ ¾ÆÀÌÅÛ ¸ñ·Ï ¹ÞÀ½
-			smTRANS_ITEMS	*lpTransItems;
-			scITEM			*lpScItem;
-
-			lpTransItems = (smTRANS_ITEMS *)pData->Buff;
-
-			if ( smWsockUserServer==pData->smMySock ) {
-				ServerCode = PLAY_SERVER_CODE_USER;
-			}
-			else {
-				if ( smWsockExtendServer!=smWsockServer && smWsockExtendServer==pData->smMySock ) 
-					ServerCode = PLAY_SERVER_CODE_EXTEND;
-				else
-					ServerCode = PLAY_SERVER_CODE_MAIN;
-			}
-
-			if ( AreaServerMode && ServerCode==PLAY_SERVER_CODE_MAIN ) {
-				if ( lpWSockServer_DispArea[0]==pData->smMySock ) {
-					ServerCode = PLAY_SERVER_CODE_AREA1;
-				}
-				else  if ( lpWSockServer_DispArea[1]==pData->smMySock ) {
-					ServerCode = PLAY_SERVER_CODE_AREA2;
-				}
-			}
-
-			for( cnt=0;cnt<lpTransItems->Count;cnt++) {
-				lpScItem = FindScItem( lpTransItems->Items[cnt].x , lpTransItems->Items[cnt].z );
-				if ( lpScItem ) {
-					lpScItem->dwLastTransTime = dwPlayTime;
-				}
-				else {
-					//ºó ¾ÆÀÌÅÛ °ø°£Ã£±â
-					lpScItem = FindEmptyScItem();
-					if ( lpScItem )  {
-						lpScItem->SetTransItem( &lpTransItems->Items[cnt] );
-						lpScItem->ServerCode = ServerCode;
-					}
-				}
-			}
-			break;
-
-		case smTRANSCODE_DELITEM:
-			//¾ÆÀÌÅÛ Á¦°Å
-			lpTransActionItem = ( smTRANS_ACITON_ITEM *)pData->Buff;
-			lpScItem = FindScItem( lpTransActionItem->x , lpTransActionItem->z );
-			if ( lpScItem ) {
-	
-				//Å©¸®Æ¼Ä® ¼½¼Ç ¼±¾ð
-				EnterCriticalSection( &cDrawSection );
-				smEnterTextureCriticalSection();
-
-				lpScItem->Close();
-
-				//Å©¸®Æ¼Ä® ¼½¼Ç ÇØÁ¦
-				smLeaveTextureCriticalSection();
-				LeaveCriticalSection( &cDrawSection );
-
-			}
-			break;
-
-		case smTRANSCODE_PUTITEM:
-			//ÁýÀº ¾ÆÀÌÅÛ µ¥ÀÌÅ¸°¡ ¼­¹ö·Î ºÎÅÍ µé¾î¿È
-			lpTransItemInfo = ( TRANS_ITEMINFO *)pData->Buff;
-
-
-			if ( FiltQuestItem( lpTransItemInfo , smTRANSCODE_PUTITEM )==FALSE ) break;		//Äù½ºÆ® ¾ÆÀÌÅÛ ÇÊÅÍ¸µ
-
-
-			//if ( !VRKeyBuff['J'] && PushRecvTransItemQue( lpTransItemInfo )==TRUE ) {
-			if ( PushRecvTransItemQue( lpTransItemInfo )==TRUE ) {
-				//ÀÏ´Ü ¾ÆÀÌÅÛ Å¥¿¡ º¸°üÇÑÈÄ µ¥ÀÌÅ¸ ¼­¹ö¿¡ º¸³¿
-				TransCommandEx.code = smTRANSCODE_GETITEM;
-				TransCommandEx.size = sizeof( smTRANS_COMMAND_EX );
-				TransCommandEx.WParam = lpTransItemInfo->Item.CODE;
-				TransCommandEx.LParam = lpTransItemInfo->Item.ItemHeader.Head;
-				TransCommandEx.SParam = lpTransItemInfo->Item.ItemHeader.dwChkSum;
-				TransCommandEx.EParam = lpTransItemInfo->Item.Money^smTRANSCODE_GETITEM^lpTransItemInfo->Item.ItemHeader.dwChkSum;
-
-				TransCommandEx.WxParam = lpTransItemInfo->dwSeCode[0];
-				TransCommandEx.LxParam = lpTransItemInfo->dwSeCode[1];
-				TransCommandEx.SxParam = lpTransItemInfo->dwSeCode[2];
-				TransCommandEx.ExParam = lpTransItemInfo->dwSeCode[3];
-				if ( smWsockDataServer ) 
-					smWsockDataServer->Send2( (char *)&TransCommandEx , TransCommandEx.size , TRUE );
-
-				break;
-			}
-
-			//¹°¾à°¹¼ö ºñ±³
-			ComparePotion();
-
-			memcpy( &TransRecvItem , lpTransItemInfo , sizeof(TRANS_ITEMINFO) );
-
-			//¾ÆÀÌÅÛ ÀÎÁõ È®ÀÎ
-			if ( CheckItemForm( &lpTransItemInfo->Item )==TRUE ) {
-				if ( lpTransItemInfo->Item.CODE==(sinGG1|sin01) ) {
-					if ( cInvenTory.CheckMoneyLimit(lpTransItemInfo->Item.Money)==TRUE ) {
-						//ÁÖ¿î°Ô µ·ÀÌ´Ù
-						lpCurPlayer->smCharInfo.Money += lpTransItemInfo->Item.Money;
-						ReformCharForm();					//Ä³¸¯ÅÍ Á¤º¸ ÀÎÁõ
-						sinPlaySound( SIN_SOUND_COIN , 400 );
-
-						addMoney = lpTransItemInfo->Item.Money;
-
-						CheckServerMoney( pData->smMySock , lpTransItemInfo );
-
-					}
-					else {	
-						//¾ÆÀÌÅÛ ¹ö¸®±â
-						ThrowPutItem2( &lpTransItemInfo->Item , lpCurPlayer->pX, lpCurPlayer->pY , lpCurPlayer->pZ );
-					}
-				}
-				else {
-					if ( (lpTransItemInfo->Item.CODE&sinITEM_MASK2)==sinQT1 || lpTransItemInfo->Item.ItemKindCode==ITEM_KIND_QUEST_WEAPON ) {
-						//Äù½ºÆ® ¾ÆÀÌÅÛ È¹µæ
-						/*
-						if ( sinQuest_ChangeJob.CODE == SIN_QUEST_CODE_CHANGEJOB ) {		//Äù½ºÆ®ÁøÇàÁß
-							if ( sinSetQuestItem( &lpTransItemInfo->Item )==TRUE ) {
-								SaveGameData();								//°ÔÀÓÀ» ÀúÀå
-							}
-						}
-						*/
-						if ( sinSetQuestItem( &lpTransItemInfo->Item )==TRUE ) {
-							SaveGameData();								//°ÔÀÓÀ» ÀúÀå
-						}
-					}
-					else {
-						sinSetInvenItem( &lpTransItemInfo->Item );
-
-						//°¡°ÝÀÌ 2000¿ø ÀÌ»ó ¾ÆÀÌÅÛÀ» ÁÖ¾ú´Ù ( Àì½Î°Ô ÀúÀå )
-						if ( lpTransItemInfo->Item.Price>=3000 )
-							SaveGameData();						//°ÔÀÓÀ» ÀúÀå
-
-						if ( (lpTransItemInfo->Item.CODE&sinITEM_MASK1)==(sinPM1&sinITEM_MASK1) ) {
-							//¹°¾à °¹¼ö »õ·Î ¼³Á¤
-							ResetPotion2();
-						}
-					}
-				}
-
-			}
-			ZeroMemory( &TransRecvItem , sizeof(TRANS_ITEMINFO) );
-			ResetInvenItemCode();				//ÀÌº¥ ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
-			break;
-
-		case smTRANSCODE_GETITEM:
-			//ÁýÀº ¾ÆÀÌÅÛ µ¥ÀÌÅ¸°¡ ¼­¹ö·Î ºÎÅÍ µé¾î¿È
-			lpTransCommand = ( smTRANS_COMMAND *)pData->Buff;
-
-			lpTransItemInfo = FindRecvTransItemQue( lpTransCommand->WParam , lpTransCommand->LParam , lpTransCommand->SParam );
-
-			if ( !lpTransItemInfo ) break;
-
-			if ( FiltQuestItem( lpTransItemInfo , smTRANSCODE_GETITEM )==FALSE ) break;		//Äù½ºÆ® ¾ÆÀÌÅÛ ÇÊÅÍ¸µ
-
-			//¹°¾à°¹¼ö ºñ±³
-			ComparePotion();
-
-			memcpy( &TransRecvItem , lpTransItemInfo , sizeof(TRANS_ITEMINFO) );
-
-			//¾ÆÀÌÅÛ ÀÎÁõ È®ÀÎ
-			if ( CheckItemForm( &lpTransItemInfo->Item )==TRUE ) {
-				if ( lpTransItemInfo->Item.CODE==(sinGG1|sin01) ) {
-					if ( cInvenTory.CheckMoneyLimit(lpTransItemInfo->Item.Money)==TRUE ) {
-						//ÁÖ¿î°Ô µ·ÀÌ´Ù
-						lpCurPlayer->smCharInfo.Money += lpTransItemInfo->Item.Money;
-						ReformCharForm();					//Ä³¸¯ÅÍ Á¤º¸ ÀÎÁõ
-						sinPlaySound( SIN_SOUND_COIN , 400 );
-
-						addMoney = lpTransItemInfo->Item.Money;
-
-						CheckServerMoney( pData->smMySock , lpTransItemInfo );
-
-					}
-					else {	
-						//¾ÆÀÌÅÛ ¹ö¸®±â
-						ThrowPutItem2( &lpTransItemInfo->Item , lpCurPlayer->pX, lpCurPlayer->pY , lpCurPlayer->pZ );
-					}
-				}
-				else {
-					if ( (lpTransItemInfo->Item.CODE&sinITEM_MASK2)==sinQT1 || lpTransItemInfo->Item.ItemKindCode==ITEM_KIND_QUEST_WEAPON ) {
-						//Äù½ºÆ® ¾ÆÀÌÅÛ È¹µæ
-						/*
-						if ( sinQuest_ChangeJob.CODE == SIN_QUEST_CODE_CHANGEJOB ) {		//Äù½ºÆ®ÁøÇàÁß
-							if ( sinSetQuestItem( &lpTransItemInfo->Item )==TRUE ) {
-								SaveGameData();								//°ÔÀÓÀ» ÀúÀå
-							}
-						}
-						*/
-						if ( sinSetQuestItem( &lpTransItemInfo->Item )==TRUE ) {
-							SaveGameData();								//°ÔÀÓÀ» ÀúÀå
-						}
-					}
-					else {
-						if ( (lpTransItemInfo->Item.CODE&sinITEM_MASK1)==(sinPM1&sinITEM_MASK1) ) {
-							if ( smConfig.DebugMode && VRKeyBuff['P'] && VRKeyBuff['O'] ) {
-								lpTransItemInfo->Item.PotionCount *= 2;
-							}
-						}
-
-						sinSetInvenItem( &lpTransItemInfo->Item );
-
-						//°¡°ÝÀÌ 2000¿ø ÀÌ»ó ¾ÆÀÌÅÛÀ» ÁÖ¾ú´Ù ( Àì½Î°Ô ÀúÀå )
-						if ( lpTransItemInfo->Item.Price>=3000 )
-							SaveGameData();						//°ÔÀÓÀ» ÀúÀå
-
-						if ( (lpTransItemInfo->Item.CODE&sinITEM_MASK1)==(sinPM1&sinITEM_MASK1) ) {
-							//Àá½ÃÅ×½ºÆ®
-							//¹°¾à °¹¼ö »õ·Î ¼³Á¤
-							ResetPotion2();
-						}
-					}
-				}
-
-			}
-			ZeroMemory( &TransRecvItem , sizeof(TRANS_ITEMINFO) );
-			ZeroMemory( lpTransItemInfo , sizeof(TRANS_ITEMINFO) );
-			
-			ResetInvenItemCode();				//ÀÌº¥ ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
-			break;
-
-
-		case smTRANSCODE_MESSAGEBOX:
-			//¸Þ¼¼Áö ¹Ú½º Ãâ·Â ¿ä±¸
-			lpTransChatMessage = (TRANS_CHATMESSAGE *)pData->Buff;
-			cMessageBox.ShowMessageEvent(lpTransChatMessage->szMessage);
-			break;
-
-		case smTRANSCODE_WHISPERMESSAGE:
-			//NPC Ä³¸¯ÅÍ°¡ ´ëÈ­¸¦ ...
-
-			lpTransChatMessage = (TRANS_CHATMESSAGE *)pData->Buff;
-
-			lpChar = FindAutoPlayer( lpTransChatMessage->dwObjectSerial );
-			if ( lpChar && lpTransChatMessage->dwIP!=4 ) { //&& lpChar->smCharInfo.State!=smCHAR_STATE_USER ) {
-				lstrcpy( lpChar->szChatMessage , lpTransChatMessage->szMessage );
-				lpChar->dwChatMessageTimer = dwPlayTime + 1000*5;
-
-				if ( lpChar->smCharInfo.State==smCHAR_STATE_USER ) {
-					//Ã¤ÆÃÃ¢¿¡ ¸Þ¼¼Áö Ãß°¡
-					ChatCnt = ChatBuffCnt & CHATBUFF_MASK;
-					ChatBuff[ ChatCnt ].dwIP = smCHAR_STATE_USER;
-					lstrcpy( ChatBuff[ ChatCnt ].szMessage , lpTransChatMessage->szMessage );
-					ChatBuffCnt++;
-					ChatDispCnt = 70*10;
-					if ( ChatScrollPoint ) {
-						ChatScrollPoint++;
-					}
-
-					if ( chrEachPlayer.Flag && chrEachMaster==lpChar ) {
-						lstrcpy( chrEachPlayer.szChatMessage , lpTransChatMessage->szMessage );
-					}
-				}
-				//######################################################################################
-				//ÀÛ ¼º ÀÚ : ¿À ¿µ ¼®
-				else if( lpChar->smCharInfo.State == smCHAR_STATE_NPC )
-				{
-					if( FindTalkSound( lpChar->szChatMessage ) == FALSE )
-					{
-						StopTalkSound();
-
-						lstrcpy( g_szPlayTalkSoundName, g_szTalkSoundName );
-						g_PlayTalkSoundSum = g_TalkSoundSum;
-
-						/*// À½¼º ÆÄÀÏ À¥¼­¹ö¿¡ ½ÅÃ»ÇÑ´Ù.
-						if( IsErrorWinIntThread() == FALSE )
-						{
-							char szDownName[64];
-							lstrcpy( szDownName, g_szTalkSoundName );
-							SetExtChangeZip( szDownName );
-							WavIntHttpPush( szDownName );
-                            WinIntThreadResume();
-						}*/
-					}
-					
-					lstrcpy( chrEachPlayer.szChatMessage, lpChar->szChatMessage );
-					chrEachPlayer.TalkSoundSum = g_TalkSoundSum;
-				}
-				//######################################################################################
-
-
-			}
-			else {
-				ChatCnt = ChatBuffCnt & CHATBUFF_MASK;
-				ChatBuff[ ChatCnt ].dwIP = lpTransChatMessage->dwIP;
-				lstrcpy( ChatBuff[ ChatCnt ].szMessage , lpTransChatMessage->szMessage );
-	
-				if ( ChatBuffFilter( ChatBuff[ ChatCnt ].szMessage , ChatBuff[ ChatCnt ].dwIP )==TRUE ) {
-					ChatBuffCnt++;
-					ChatDispCnt = 70*10;
-
-					if ( lpTransChatMessage->dwIP==1 || lpTransChatMessage->dwIP==3 ) {
-						//±Í¼Ó¸» µµÂø
-						if ( !cInterFace.ChatFlag ) {
-							//±Ó¸» »µ²Ú ¼Ò¸®
-							esPlaySound( 8, 360 );
-							cInterFace.ChatFlag = 1;
-						}
-					}
-				}
-			}
-
-			break;
-
-		case smTRANSCODE_CONNECTED:
-			//¿¬°á ¼º°ø ( ¼­¹ö·Î ºÎÅÍ °íÀ¯¹øÈ£ ¹ÞÀ½ )
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			//lpCurPlayer->dwObjectSerial = lpTransCommand->WParam;
-
-			SaveCheckSkill();			//½ºÅ³°ª ÀüºÎ È®ÀÎ
-			lpCurPlayer->dwObjectSerial = lpCurPlayer->smCharInfo.dwObjectSerial;
-			ReformSkillInfo();			//½ºÅ³º¸È£°ª ÀüºÎ ÃÊ±âÈ­
-
-			if ( pData->smMySock==smWsockServer ) {
-				//½Ã½ºÅÛ ½Ã°£À» °ÔÀÓ½Ã°£À¸·Î º¯È¯
-				dwGameWorldTime = ConvSysTimeToGameTime(lpTransCommand->LParam);
-				dwGameHour = dwGameWorldTime/60;
-				dwGameHour = dwGameHour-(((int)(dwGameHour/24))*24);			//°ÔÀÓ³»ºÎ¿¡¼­ÀÇ ½Ã
-				dwGameMin = dwGameWorldTime-(((int)(dwGameWorldTime/60))*60);		//°ÔÀÓ³»ºÎ¿¡¼­ÀÇ ºÐ
-
-
-				//¿¬°á ½Ã°£ ±â·Ï
-				dwConnectedClientTime = GetCurrentTime();
-				dwConnectedServerTime = lpTransCommand->LParam;
-				dwLastRecvGameServerTime = dwConnectedClientTime;
-
-				//À¯Àú ¼­¹ö¿¡ ¿ÀºêÁ§Æ® ¹øÈ£ °­Á¦ ¼³Á¤ ( ¼­¹ö ºÐÇÒÀÏ °æ¿ì¸¸ Àû¿ëµÊ )
-				if ( smWsockServer!=smWsockUserServer )
-					SendSetObjectSerial_First( lpCurPlayer->smCharInfo.dwObjectSerial );
-
-					//SendSetObjectSerial( lpTransCommand->WParam );
-
-				//¼­¹ö¿¡ ³×Æ®¿öÅ© Ç®Áú ¸ðµå ¼³Á¤
-				SendNetworkQuality( smConfig.NetworkQuality );
-
-
-				//ÇÁ·Î¼¼½º Á¤º¸ º¸³¿
-				SendProcessInfo();
-
-				//¼­¹ö¿¡ ±ÇÇÑ ¼³Á¤
-				//if ( smConfig.DebugMode ) SendAdminMode( TRUE );
-
-			}
-			//dwGameWorldTime = 0;
-			break;
-
-		case smTRANSCODE_RECORDDATA:
-			//¼­¹ö¿¡ ÀúÀåµÈ Ä³¸¯ÅÍ ¾ÆÀÌÅÛ µ¥ÀÌÅ¸ ÀÔ¼ö
-			if ( !lpRecorder ) {
-				lpRecorder = new rsRECORD_DBASE;
-				lpRecorder->TransLastPartCount = 0;
-				ZeroMemory( lpRecorder->TransDataBlock , 64 );
-			}
-
-			//¼­¹ö·Î ºÎÅÍ Ä³¸¯ÅÍ Á¤º¸ µé¾î¿È
-			if ( lpRecorder->RecvRecordDataFromServer((TRANS_RECORD_DATAS *)pData->Buff)==TRUE ) {
-
-				if ( AdminCharDisable ) {
-					ZeroMemory( cInvenTory.InvenItem , sizeof(sITEM)*INVENTORY_MAXITEM  );
-					ZeroMemory( cInvenTory.InvenItemTemp , sizeof(sITEM)*INVENTORY_MAXITEM );
-
-					lpCurPlayer->SetTool( 0 , hvPOSI_LHAND );
-					lpCurPlayer->SetTool( 0 , hvPOSI_RHAND );
-				}
-
-				lpRecorder->ResotrRecordData( &lpCurPlayer->smCharInfo , cInvenTory.InvenItem ,cInvenTory.InvenItemTemp , &MouseItem );
-
-				if ( smConfig.DebugMode ) AddChatBuff( lpRecorder->TransRecordData.GameSaveInfo.szMasterID );
-
-				delete lpRecorder;
-				lpRecorder = 0;
-
-				dwLoadingTime = 0;
-			
-				//¿©ÀÚ ±âº»°ø°Ý ¹ßÂ÷±â
-				if ( ( lpCurPlayer->smCharInfo.JOB_CODE==3 || lpCurPlayer->smCharInfo.JOB_CODE==5 || lpCurPlayer->smCharInfo.JOB_CODE==7 ) 
-					&& lpCurPlayer->Pattern ) {
-
-					lpCurPlayer->SetPattern( lpCurPlayer->Pattern );
-				}
-
-///////////////////////////////////////////////////////////////////////
-				if ( smConfig.DebugMode && smConfig.szFile_Player[0] ) {
-
-					lstrcpy( lpCurPlayer->smCharInfo.szModelName , smConfig.szFile_Player );
-					lpCurPlayer->smCharInfo.szModelName2[0] = 0;
-
-					CharLower( lpCurPlayer->smCharInfo.szModelName );			//¼Ò¹®ÀÚ º¯È¯
-
-					lpCurPlayer->smCharInfo.State=smCHAR_STATE_USER;						//À¯Àú ¼Ó¼º
-
-					if ( smConfig.szFile_Enemy[0] ) { 
-						if ( strstr( lpCurPlayer->smCharInfo.szModelName , "monster" )!=0 )	//¸ó½ºÅÍ ¼Ó¼º
-							lpCurPlayer->smCharInfo.State=smCHAR_STATE_ENEMY;
-						if ( strstr( lpCurPlayer->smCharInfo.szModelName , "npc" )!=0 )		//NPC ¼Ó¼º
-							lpCurPlayer->smCharInfo.State=smCHAR_STATE_NPC;
-					}
-
-					AddLoaderPattern( lpCurPlayer , lpCurPlayer->smCharInfo.szModelName , lpCurPlayer->smCharInfo.szModelName2 );
-					ReformCharForm();
-
-					//AdminCharDisable = TRUE;
-
-					//SetLoadPattern( lpCurPlayer , smConfig.szFile_Player ,0 , &Posi , &Angle );
-				}
-//////////////////////////////////////////////////////////
-
-				lpCurPlayer->Flag = TRUE;
-
-				if ( !lpCurPlayer->smCharInfo.dwEventTime_T || GetPlayTime_T()>lpCurPlayer->smCharInfo.dwEventTime_T ) {
-					lpCurPlayer->smCharInfo.SizeLevel = 1;
-					lpCurPlayer->smCharInfo.dwEventTime_T = 0;
-				}
-
-				//½ºÅ² ¼³Á¤ ÀçÈ®ÀÎ
-				if ( lpCurPlayer->smCharInfo.SizeLevel>0x1000 && lpCurPlayer->smCharInfo.SizeLevel<=0x1002 ) {
-					ChangeModelSkin( lpCurPlayer , 1 , lpCurPlayer->smCharInfo.SizeLevel+3-0x1000 , 0 , 0 );			//Å×½ºÆ® ( ¾óÅ«ÀÌ )
-					ReformCharForm();
-					cInvenTory.IncreViewDamage ( 15 );		//µ¥¹ÌÁö °¡»óÀ¸·Î ¿Ã·ÁÁØ´Ù
-				}
-				else if(lpCurPlayer->smCharInfo.dwEventTime_T > 0 && lpCurPlayer->smCharInfo.SizeLevel==1) // ¹ÚÀç¿ø - 2010 ¿ùµåÄÅ ÀÌº¥Æ® - Ãà±¸°ø Æ÷¼Ç »ç¿ë(ÀçÁ¢ ÈÄ)
-				{
-					ChangeModelSkin( lpCurPlayer , 0 , 6 , 0 , 0 );	// Ãà±¸°ø ¾´ ¾ó±¼ // ÀçÁ¢ ÈÄ ½Ã°£ÀÌ ³²¾Æ ÀÖÀ»°æ¿ì Ãà±¸°ø ¾ó±¼ º¹±¸
-					ReformCharForm();
-				}
-				else {
-					if ( lpCurPlayer->smCharInfo.ChangeJob>=0 && lpCurPlayer->smCharInfo.ChangeJob<4 ) {
-						ChangeModelSkin( lpCurPlayer , 0 , lpCurPlayer->smCharInfo.ChangeJob , 0 , GetFaceHairSkin(lpCurPlayer) );			//Å×½ºÆ® ( ÀÏ¹Ý¾ó±¼ ) // ¾óÅ«ÀÌ ¿À·ù ¼öÁ¤
-						ReformCharForm();
-					}
-				}
-
-#ifdef  __CLANSUBCHIP__
-				if ( cldata.myPosition==100 || cldata.myPosition==101 || cldata.myPosition==104) {
-#else
-				if ( cldata.myPosition==100 || cldata.myPosition==101 ) {
-#endif
-					//Å¬·£ °¡ÀÔ¿ø
-					lpCurPlayer->smCharInfo.ClassClan = cldata.intClanMark;
-					lpCurPlayer->dwClanManageBit = cldata.CNFlag;
-				}
-				else
-					lpCurPlayer->smCharInfo.ClassClan = 0;
-
-				if ( cldata.myPosition )
-					InitClanMode = cldata.myPosition;
-
-				if ( !AdminCharDisable ) {
-					//´ÙÀ½ ÀúÀå ½Ã°£
-					rsRecorder.dwNextRecordTime = dwPlayTime+RECORD_TIME_STEP;
-
-					lpCurPlayer->SendCharInfo( smWsockServer );			//ÇÃ·¹ÀÌ¾î Á¤º¸ Àü¼Û
-				}
-				else {
-					AddLoaderPattern( lpCurPlayer , lpCurPlayer->smCharInfo.szModelName , lpCurPlayer->smCharInfo.szModelName2 );
-					//Ä³¸¯ÅÍ Á¤º¸ ÀÎÁõ ¹Þ±â
-					ReformCharForm();
-				}
-
-				//¿¡³ÊÁö°¡ 0ÀÎ°æ¿ì ¸¶À»¿¡¼­ ½ÃÀÛ
-				if ( lpCurPlayer->smCharInfo.Life[0]==0 ) {
-					//ÇÊµå ½ÃÀÛ
-					lpCurPlayer->MoveFlag = FALSE;
-					WarpStartField( &x,&z );
-					lpCurPlayer->SetPosi( x,0, z ,0,0,0 );
-					TraceCameraPosi.x = lpCurPlayer->pX;
-					TraceCameraPosi.y = lpCurPlayer->pY;
-					TraceCameraPosi.z = lpCurPlayer->pZ;
-					TraceTargetPosi.x = lpCurPlayer->pX;
-					TraceTargetPosi.y = lpCurPlayer->pY;
-					TraceTargetPosi.z = lpCurPlayer->pZ;
-
-					lpCurPlayer->SetMotionFromCode( CHRMOTION_STATE_RESTART );		//½ÃÀÛ¸ð¼Ç
-					StartEffect( lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ, EFFECT_GAME_START1 );
-					SetDynLight( lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ, 100, 100,100,0, 200 );
-					CharPlaySound( lpCurPlayer );
-					dwBattleTime = 0;
-					dwBattleQuitTime = 0;
-
-					//¹Ù´Ú È®ÀÎ
-					lpCurPlayer->OnStageField = -1;
-					if ( smGameStage[0] ) {
-						cnt = smGameStage[0]->GetFloorHeight( lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ ,lpCurPlayer->Pattern->SizeHeight );	
-						lpCurPlayer->OnStageField = 0;
-					}
-					if ( cnt==CLIP_OUT && smGameStage[1] ) {
-						lpCurPlayer->OnStageField = 1;
-					}
-				}
-
-				//sinSkill.SkillPoint = lpCurPlayer->smCharInfo.Level;
-				cnt = lpCurPlayer->smCharInfo.Life[0];
-				if ( cnt>lpCurPlayer->smCharInfo.Life[1] || cnt<0 ) {
-					//Àß¸øµÈ »ý¸í·Â °­Á¦ º¸Á¤
-					CheckCharForm();
-					lpCurPlayer->smCharInfo.Life[0] = lpCurPlayer->smCharInfo.Life[1]/2;
-					ReformCharForm();
-				}
-
-				CheckCharForm();
-				CodeXorExp = dwPlayTime+lpCurPlayer->smCharInfo.Exp;					//°æÇèÄ¡ ¼û±è ÄÚµå
-				CodeXorExp_High = dwPlayTime|(dwPlayTime*dwPlayTime);						//°æÇèÄ¡ ¼û±è ÄÚµå
-				CodeXorLife = (dwPlayTime*lpCurPlayer->smCharInfo.Life[0])&0xFFFF;		//»ý¸í·Â ¼û±è ÄÚµå
-				lpCurPlayer->smCharInfo.Exp ^= CodeXorExp;
-				lpCurPlayer->smCharInfo.Exp_High ^= CodeXorExp_High;
-				lpCurPlayer->smCharInfo.Life[0] ^= CodeXorLife;
-				ReformCharForm();
-
-				ResetPotion();						//¹°¾à °¹¼ö »õ·Î ¼³Á¤
-				ResetInvenItemCode();				//ÀÌº¥ ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
-
-				ReformSkillInfo();					//½ºÅ³º¸È£°ª ÀüºÎ ÃÊ±âÈ­
-
-				//ÇÁ·Î¼¼½º Á¤º¸ º¸³¿
-				SendProcessInfo();
-
-				//¿¡³ÊÁö ±×·¡ÇÁ Ã½Å© ÃÊ±âÈ­
-				ResetEnergyGraph( 4 );
-
-				//ÀÌº¥Åä¸® µ· °Ë»ç ÃÊ±âÈ­
-				ResetInvenMoney();
-
-				CheckPlaySkill();		//½ºÅ³°¨½Ã
-			}
-
-			break;
-
-		case smTRANSCODE_FAILRECORDDATA:
-			//·Îµù ½ÇÆÐ
-			lpTransCharCommand = (smTRANS_CHAR_COMMAND *)pData->Buff;
-			lpCurPlayer->smCharInfo.dwObjectSerial = lpTransCharCommand->WParam;
-			lpCurPlayer->smCharInfo.dwLoginServerSafeKey = lpTransCharCommand->LParam;		//·Î±×ÀÎ ¼­¹ö ¾ÈÀüÅ° ¼³Ä¡
-
-			if ( !lpCurPlayer->smCharInfo.JOB_CODE && !smConfig.DebugMode ) {
-				//·Îµù ½ÇÆÐ
-				//quit = TRUE;				//ºüÁ® ³ª°¡±â
-				DisconnectFlag = GetCurrentTime();
-				break;
-			}
-
-
-			//ÃÖÃÊ·Î »ý¼º
-			//´ÙÀ½ ÀúÀå ½Ã°£
-			if ( !AdminCharDisable ) {
-
-				//»õ·Î¸¸µç Ä³¸¯Á¤º¸ È®ÀÎ
-				CheckStartCharInfo();
-				rsRecorder.dwNextRecordTime = dwPlayTime+RECORD_TIME_STEP;
-				dwLoadingTime = 0;
-				lpCurPlayer->SendCharInfo( smWsockServer );			//ÇÃ·¹ÀÌ¾î Á¤º¸ Àü¼Û
-
-				InitHelp();											//Ä³¸¯ÅÍ Ã³À½ »ý¼º½Ã µµ¿ò¸»
-				cHelpPet.CheckPetData();							//µµ¿ò¸» Æê ½ÇÇà
-				cPCBANGPet.CheckPetData();
-			}
-			break;
-
-		case smTRANSCODE_RECORDRESULT:
-			//ÀúÀå °á°ú ÀÔ¼ö
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			rsRecorder.dwRecordTime = 0;
-			rsRecorder.dwNextRecordTime = dwPlayTime+RECORD_TIME_STEP;
-			dwLastRecordTime = dwPlayTime;
-			if ( lpTransCommand->WParam ) {
-				RecordFailCount = 0;				//ÀúÀå ¼º°ø ½ÇÆÐ Ä«¿îÅÍ ÃÊ±âÈ­
-				if ( smConfig.DebugMode ) AddChatBuff( "SaveGame Sucess" );
-			}
-			else {
-				RecordFailCount++;					//ÀúÀå ½ÇÆÐ
-				if ( smConfig.DebugMode ) AddChatBuff( "SaveGame Failed" );
-			}
-
-			//ºí·¹½º Ä³½½ ¼¼À²
- 			cSinSiege.SetTaxRate( lpTransCommand->SParam );	//¼¼À² ¼³Á¤
-			//ºí·¹½º Ä³½½ ¸¶½ºÅÍ Å¬·£ ¼³Á¤
-			SetBlessCastleMaster( lpTransCommand->EParam , 0 );
-
-			break;
-
-		case smTRANSCODE_BLESSCASTLE_TAX:
-			//ºí·¹½º Ä³½½ ÇöÀç ¼¼À² ÀÔ¼ö
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
- 			cSinSiege.SetTaxRate( lpTransCommand->SParam );	//¼¼À² ¼³Á¤
-			break;
-
-		case smTRANSCODE_ADDEXP:
-		case smTRANSCODE_ADDEXP_PARTY:
-			//°æÇèÄ¡ È¹µæ
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-
-			lpChar = FindAutoPlayer( lpTransCommand->LParam );
-			if ( lpChar && !lpChar->RecvExp ) {
-				if ( lpTransCommand->SParam==((lpTransCommand->WParam*3 + lpTransCommand->LParam*13)*2002) ) {
-					//°æÇèÄ¡ Ãß°¡
-					CheckServerExp( pData->smMySock , lpTransCommand );
-
-					AddExp( lpTransCommand->WParam );
-					lpChar->RecvExp += lpTransCommand->WParam;
-					addExp = lpTransCommand->WParam;
-
-					if ( IPData[1]==smTRANSCODE_ADDEXP ) {
-						CheckChangeJob3QuestItem( lpChar->smCharInfo.StatePoint );
-					}
-				}
-				else {
-					//ÇØÅ· ½ÃµµÇÑ À¯Àú ÀÚµ¿ ½Å°í ( °æÇèÄ¡ Á¶ÀÛ ¹æÁö )
-					SendSetHackUser2( 1800 , lpTransCommand->WParam );
-				}
-			}
-			else {
-				//ÇØÅ· ½ÃµµÇÑ À¯Àú ÀÚµ¿ ½Å°í ( °æÇèÄ¡ Á¶ÀÛ ¹æÁö )
-				//SendSetHackUser2( 1810 , lpTransCommand->WParam );
-			}
-			break;
-
-
-		case smTRANSCODE_SERVER_INFO:
-			TRANS_SERVER_LIST	*lpTransServerList;
-
-			lpTransServerList = (TRANS_SERVER_LIST *)pData->Buff;
-			sinItemTime = lpTransServerList->dwServerTime_t;			//TIME_T ¼³Á¤
-			dwTime_ServerT = sinItemTime;			//Á¢¼Ó½Ã ½Ã°£ (¼­¹öÃø Time_T )
-			dwTime_ConnectMS = GetCurrentTime();	//Á¢¼Ó½Ã ½Ã°£ (Å¬¶óÀÌ¾ðÆ®ms)
-			///////////////// Å¬·£ ¼­¹ö ¼³Á¤ /////////////////////
-			//lpTransServerList->ClanServerCount 
-
-			cnt = lpTransServerList->ClanServerCount;
-			if ( cnt ) {
-				cnt=lpTransServerList->ServerCount;
-				web_DB_ip_port_init( lpTransServerList->ServerInfo[cnt].szServerIp1 , lpTransServerList->ServerInfo[cnt].dwServerPort1 , 
-					lpTransServerList->ServerInfo[cnt].szServerIp2 , lpTransServerList->ServerInfo[cnt].dwServerPort2 ,
-					lpTransServerList->ClanTicket );
-			}
-			//////////////////////////////////////////////////////
-
-			CheckProcessModule();		//¸ðµâ°Ë»ç ÇÏ¿© ¼­¹ö·Î º¸³»±â
-
-			//////////////////////////////////////////////////////
-			HoRecvMessage( IPData[1] , pData->Buff );
-			break;
-
-		case smTRANSCODE_ID_SETUSERINFO:
-			if ( smConfig.DebugMode ) {
-				//µð¹ö±× ¸ðµå ¿î¿µÀÚ Ä³¸¯ ¿À·ù º¸Á¤
-				TRANS_USERCHAR_INFO	*lpTransUserCharInfo = (TRANS_USERCHAR_INFO	*)pData->Buff;
-				FILE	*fp;
-				for(cnt=0;cnt<lpTransUserCharInfo->PlayUserCount;cnt++) {
-					if ( !lpTransUserCharInfo->CharInfo[cnt].szModelName2[0] ) {
-						fopen_s( &fp, lpTransUserCharInfo->CharInfo[cnt].szModelName,"rb");
-						if( !fp ) {
-							x = lstrlen(lpTransUserCharInfo->CharInfo[cnt].szModelName);
-							lpTransUserCharInfo->CharInfo[cnt].szModelName[x-1]='x';
-							fopen_s( &fp, lpTransUserCharInfo->CharInfo[cnt].szModelName,"rb");
-						}
-						if ( fp ) {
-							fclose(fp);
-						}
-						else {
-							lstrcpy( lpTransUserCharInfo->CharInfo[cnt].szModelName,
-								"char\\monster\\hopy\\hopy.ini" );
-						}
-					}
-				}
-			}
-
-		case smTRANSCODE_ISRECORDDATA:
-		case smTRANSCODE_INSRECORDDATA:
-		case smTRANSCODE_FAILCONNECT:
-			//È£¸Þ¼¼Áö ¸®½Ã¹ö
-			HoRecvMessage( IPData[1] , pData->Buff );
-			break;
-
-		case smTRANSCODE_SHOP_ITEMLIST:
-			//»óÁ¡ ¾ÆÀÌÅÛ ¸ñ·Ï ¹ÞÀ½
-			
-			//¹°¾à°¹¼ö ºñ±³
-			ComparePotion();
-
-			sinRecvMessage( IPData[1] , pData->Buff );
-
-			Send_GetBlessCastleTax();		//¼¼À² Á¤º¸ ¿ä±¸
-/*
-			sITEMINFO *lpItemInfo;
-			BYTE *lpBuff;
-			lpTransSellItem = (smTRANS_SELL_ITEM *)pData->Buff;
-
-			lpItemInfo = new sITEMINFO[ lpTransSellItem->ItemCounter ];
-			lpBuff = (BYTE *)pData->Buff+sizeof(smTRANS_SELL_ITEM);
-			for( cnt=0;cnt<lpTransSellItem->ItemCounter;cnt++) {
-				lpBuff += DecodeCompress( lpBuff , (BYTE *)&lpItemInfo[cnt] );
-			}
-
-			delete lpItemInfo;
-*/
-			break;
-
-		case smTRANSCODE_SKILL_MENU:
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			//½ºÅ³ ¸Þ´º ¿ÀÇÂ ¿ä±¸
-
-			if ( lpCurPlayer->OnStageField>=0 ) {
-
-				if ( dwQuestDelayTime>dwPlayTime ) lpTransCommand->WParam = 0;
-
-				if ( StageField[ lpCurPlayer->OnStageField ]->FieldCode==3 ) {
-					//¸®Ä«¸£ÅÙ
-					if ( lpCurPlayer->smCharInfo.JOB_CODE<5 ) {
-						sinSkillMaster(lpTransCommand->WParam);
-					}
-				}
-				if ( StageField[ lpCurPlayer->OnStageField ]->FieldCode==21 ) {
-					//ÇÊ¶óÀÌ
-					if ( lpCurPlayer->smCharInfo.JOB_CODE>=5 )
-					{
-						sinSkillMaster(lpTransCommand->WParam);
-					}
-				}
-
-				dwQuestDelayTime = dwPlayTime+1000*5;		//5ÃÊ µô·¹ÀÌ
-			}
-
-			//sinSkillMaster(lpTransCommand->WParam);
-			break;
-
-		case smTRANSCODE_VERSION:
-			//¹öÀü È®ÀÎ
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-
-			if ( pData->smMySock==smWsockDataServer ) {
-				//µ¥ÀÌÅ¸ ¼­¹ö Á¤º¸ ±â·Ï
-				memcpy( &TransServerConnectInfo , lpTransCommand , sizeof(smTRANS_COMMAND) );
-			}
-			if ( pData->smMySock==smWsockDataServer || pData->smMySock==smWsockServer ) {
-				//¼­¹ö Á¤º¸ È®ÀÎ
-				CheckServerInfo( lpTransCommand );
-			}
-			break;
-
-		case smTRANSCODE_CHECK_NETSTATE:
-			//µ¥µå¶ô È®ÀÎ ÆÐÅ¶
-
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			//½Ã½ºÅÛ ½Ã°£À» °ÔÀÓ½Ã°£À¸·Î º¯È¯
-			dwTime = ConvSysTimeToGameTime(lpTransCommand->SParam);
-			//½Ã°£Â÷ÀÌ°¡ ¸¹ÀÌ ³ª¸é ½Ã°èº¸Á¤
-			if ( abs((int)(dwGameWorldTime-dwTime))>10 ) 
-				dwGameWorldTime=dwTime;
-
-			dwLastRecvGameServerTime = GetCurrentTime();
-			rsRecvServer = TRUE;
-
-			if ( lpTransCommand->LParam ) 
-			{
-				Log::Debug("NetState : nProtect solicitado.");
-			}
-
-			if ( lpTransCommand->WParam && lpTransCommand->EParam ) {
-				//¼­¹ö¿¡¼­ ¸Þ¸ð¸® °ªÀ» Á¤ÇØ¼­ °¡Á®°£´Ù
-				dwMemFunChkCode = funcCheckMemSum( lpTransCommand->WParam , lpTransCommand->EParam );
-				dwMemFunChkCode = (dwMemFunChkCode<<16)|(lpTransCommand->WParam&0xFFFF);
-			}
-
-			if ( smConfig.DebugMode && DisplayDebug ) AddChatBuff( "Recv(1)" );
-			break;
-
-		case smTRANSCODE_CHECK_NETSTATE2:
-		case smTRANSCODE_CHECK_NETSTATE20:
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			if ( lpTransCommand->LParam )
-			{
-				Log::Debug("NetState20 : nProtect solicitado.");
-			}
-
-			dwLastRecvGameServerTime2 = GetCurrentTime();
-			rsRecvDataServer = TRUE;
-
-			if ( lpTransCommand->WParam && lpTransCommand->EParam ) {
-				//¼­¹ö¿¡¼­ ¸Þ¸ð¸® °ªÀ» Á¤ÇØ¼­ °¡Á®°£´Ù
-				dwMemFunChkCode = funcCheckMemSum( lpTransCommand->WParam , lpTransCommand->EParam );
-				dwMemFunChkCode = (dwMemFunChkCode<<16)|(lpTransCommand->WParam&0xFFFF);
-			}
-
-			if ( smConfig.DebugMode && DisplayDebug ) AddChatBuff( "Recv(2)" );
-			break;
-
-		case smTRANSCODE_CHECK_NETSTATE3:
-			dwLastRecvGameServerTime3 = GetCurrentTime();
-			rsRecvUserServer = TRUE;
-			if ( smConfig.DebugMode && DisplayDebug ) AddChatBuff( "Recv(3)" );
-			break;
-
-		case smTRANSCODE_CHECK_NETSTATE4:
-		case smTRANSCODE_CHECK_NETSTATE5:
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-
-			if ( AreaServerMode ) {
-				if ( lpWSockServer_Area[0] && lpWSockServer_Area[0]==(smWINSOCK *)lpTransCommand->EParam ) {
-					lpWSockServer_Area[0]->dwDeadLockTime = GetCurrentTime();
-					if ( smConfig.DebugMode && DisplayDebug ) AddChatBuff( "Recv(50)" );
-				}
-				if ( lpWSockServer_Area[1] && lpWSockServer_Area[1]==(smWINSOCK *)lpTransCommand->EParam ) {
-					lpWSockServer_Area[1]->dwDeadLockTime = GetCurrentTime();
-					if ( smConfig.DebugMode && DisplayDebug ) AddChatBuff( "Recv(51)" );
-				}
-			}
-			else {
-				dwLastRecvGameServerTime4 = GetCurrentTime();
-				rsRecvExtendServer = TRUE;
-				if ( smConfig.DebugMode && DisplayDebug ) AddChatBuff( "Recv(4)" );
-			}
-			break;
-
-		case smTRANSCODE_WARPFIELD:
-			//º¯°æÇÒ À§Ä¡ ¹ÞÀ½
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-
-			if ( lpTransCommand->WParam==rsSOD_FIELD && 
-				lpCurPlayer->OnStageField>=0 && StageField[lpCurPlayer->OnStageField]->FieldCode==rsSOD_VILLAGE ) {
-					//SOD Àå ÀÔÀå À¯¹« ·ÎµùÈ­¸é Ç¥½Ã
-					if ( !BellatraEffectInitFlag ) {
-						CreateBellatraFontEffect();
-						BellatraEffectInitFlag = TRUE;
-					}
-
-					if ( SoD_SetFontEffect.eBL_Type!=E_BL_LODING ) {
-						SetBellatraFontEffect( E_BL_LODING, &SoD_SetFontEffect );
-						sSodScore.SodNextStageNum = -2;
-						sSodScore.dwSoD_NextStageTime = dwPlayTime+3000;
-						sSodScore.NextRound = 0;
-						StopBGM();
-					}
-			}
-
-
-			CloseEachPlayer();
-
-			WarpFieldNearPos( lpTransCommand->WParam  , lpTransCommand->SParam, lpTransCommand->LParam , &x, &z );
-
-			lpCurPlayer->SetPosi(lpTransCommand->SParam,0, lpTransCommand->LParam  ,0,0,0 );
-			TraceCameraPosi.x = lpCurPlayer->pX;
-			TraceCameraPosi.y = lpCurPlayer->pY;
-			TraceCameraPosi.z = lpCurPlayer->pZ;
-			TraceTargetPosi.x = lpCurPlayer->pX;
-			TraceTargetPosi.y = lpCurPlayer->pY;
-			TraceTargetPosi.z = lpCurPlayer->pZ;
-	
-			//¹Ù´Ú È®ÀÎ
-			lpCurPlayer->OnStageField = -1;
-			if ( smGameStage[0] ) {
-				cnt = smGameStage[0]->GetFloorHeight( lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ ,lpCurPlayer->Pattern->SizeHeight );	
-				lpCurPlayer->OnStageField = 0;
-			}
-			if ( cnt==CLIP_OUT && smGameStage[1] ) {
-				lpCurPlayer->OnStageField = 1;
-			}
-			break;
-
-		case smTRANSCODE_TRADEITEMS:
-			//¾ÆÀÌÅÛ ±³È¯Ã¢ Á¤º¸ ¼ö½Å
-			//±³È¯Ã¢ ¾ÆÀÌÅÛ ¼ö½Å
-			if ( cTrade.OpenFlag && cTrade.TradeCharCode==((TRANS_TRADEITEMS *)pData->Buff)->dwSender ) {
-				RecvTradeItems( (TRANS_TRADEITEMS *)pData->Buff );
-			}
-			break;
-
-		case smTRANSCODE_TRADE_ITEMKEY:
-			//Æ®·¹ÀÌµå ¿Ï·á Å° ¼ö½Å
-			//¾ÆÀÌÅÛ ±³È¯ ÀÎÁõÅ° ¼ö½Å
-			if ( DisconnectFlag ) break;
-			//if ( cTrade.OpenFlag && !TradeRecvItemKeyFlag ) {
-			if ( !TradeRecvItemKeyFlag ) {
-				if ( RecvTradeSucessKey( (TRANS_TRADE_ITEMKEY *)pData->Buff , &sTradeRecv )==TRUE ) {
-					TradeRecvItemKeyFlag = TRUE;
-					//ÀÎÁõ ¼º°ø ¿Ï·á
-					if ( TradeItemSucessFlag ) {
-						if ( sTrade.Money ) AddInvenMoney(-(sTrade.Money-193));			//ÀÎº¥ µ· Ã½Å©
-						if ( sTradeRecv.Money ) AddInvenMoney(sTradeRecv.Money-193);	//ÀÎº¥ µ· Ã½Å©
-
-						memset( sTrade.TradeItem , 0 , sizeof(sITEM)*MAX_TRADE_ITEM );
-						sTrade.Money = 0;
-						ReformTrade( &sTrade );
-
-						CloseEachPlayer();
-						cTrade.CheckOkTradeItem();
-						ResetPotion();						//¹°¾à °¹¼ö »õ·Î ¼³Á¤
-						SaveGameData();						//°ÔÀÓÀ» ÀúÀå
-						ResetInvenItemCode();				//ÀÌº¥ ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
-					}
-				}
-				else {
-					//ÀÎÁõ ½ÇÆÐ
-					cTrade.CancelTradeItem();
-				}
-			}
-			break;
-
-		case smTRANSCODE_TRADE_READYITEM:
-			//¾ÆÀÌÅÛ ±³È¯ ³»¿ë ÃÖÁ¾ È®ÀÎ
-			//if ( cTrade.OpenFlag ) {
-				//if(sTrade.CheckFlag && sTradeRecv.CheckFlag){ //±³È¯!		
-				if ( DisconnectFlag ) break;
-				if ( TradeItemSucessFlag ) break;
-				if ( sTrade.CheckFlag ) {
-					//¾ÆÀÌÅÛ ±³È¯ ³»¿ë È®ÀÎ ¼ö½Å
-					TradeItemSucessFlag = TRUE;
-					sTradeRecv.CheckFlag = TRUE;
-					if ( RecvTradeCheckItem( (TRANS_TRADE_CHECKITEM *)pData->Buff )==TRUE ) {
-						SendTradeSucessKey( ((TRANS_TRADE_CHECKITEM *)pData->Buff)->dwSender );
-
-						if ( TradeRecvItemKeyFlag ) {
-							if ( sTrade.Money ) AddInvenMoney(-(sTrade.Money-193));			//ÀÎº¥ µ· Ã½Å©
-							if ( sTradeRecv.Money ) AddInvenMoney(sTradeRecv.Money-193);	//ÀÎº¥ µ· Ã½Å©
-
-							memset( sTrade.TradeItem , 0 , sizeof(sITEM)*MAX_TRADE_ITEM );
-							sTrade.Money = 0;
-							ReformTrade( &sTrade );
-
-							CloseEachPlayer();
-							cTrade.CheckOkTradeItem();
-							ResetPotion();						//¹°¾à °¹¼ö »õ·Î ¼³Á¤
-							SaveGameData();						//°ÔÀÓÀ» ÀúÀå
-							ResetInvenItemCode();				//ÀÌº¥ ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
-						}
-					}
-					break;
-				}
-				//}
-				//}
-			//}
-			//±³È¯ ¿À·ù ½ÇÆÐ
-			cTrade.CancelTradeItem();
-			break;
-
-		case smTRANSCODE_TRADE_REQUST:
-			//¾ÆÀÌÅÛ ±³È¯ ½ÅÃ»
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			lpChar = FindAutoPlayer( lpTransCommand->SParam );
-
-			if ( lpChar && lpChar->DisplayFlag && lpChar->smCharInfo.szName[0] && 
-				!cWareHouse.OpenFlag && !cCraftItem.OpenFlag &&	!cAging.OpenFlag && !cMyShop.OpenFlag || cMixtureReset.OpenFlag) { // ¼®Áö¿ë - ¹Í½ºÃÄ ¸®¼Â Ã¢ Ãß°¡
-
-				switch( lpTransCommand->LParam ) {
-				case 0:
-					//±³È¯ °Å·¡ °Å¸® È®ÀÎ
-					if ( GetTradeDistance( lpChar )==FALSE ) break;
-
-					if ( lpCurPlayer->smCharInfo.Weight[0]>lpCurPlayer->smCharInfo.Weight[1] ) {
-						cMessageBox.ShowMessageEvent(mgWeightOver);		//¹«°èÃÊ°ú
-						break;
-					}
-
-
-					//°Å·¡ ¿ä±¸ ¼ö½Å
-					if( !cTrade.OpenFlag ) {
-						sinRequestTrade( lpTransCommand->SParam , lpChar->smCharInfo.szName );
-						if ( DispEachMode==0 ) {//chrEachMaster==0 ) {
-							OpenEachPlayer( lpChar );
-							DispEachMode = 0;
-							if ( lpChar ) InterfaceParty.latest_Insert(lpChar->smCharInfo.szName);	//°Å·¡ÇÑ »ç¶÷ ÃÖ±Ù¸ñ·Ï¿¡ µî·Ï
-						}
-					}
-					break;
-				case 1:
-					//±³È¯ °Å·¡ °Å¸® È®ÀÎ
-					if ( GetTradeDistance( lpChar )==FALSE ) break;
-					if ( cShop.OpenFlag ) break;
-
-					if ( lpCurPlayer->smCharInfo.Weight[0]>lpCurPlayer->smCharInfo.Weight[1] ) {
-						cMessageBox.ShowMessageEvent(mgWeightOver);		//¹«°èÃÊ°ú
-						break;
-					}
-
-					//°Å·¡ ½ÂÀÎ ¼ö½Å
-					if( !cTrade.OpenFlag )
-						SendRequestTrade( lpTransCommand->SParam , 2 );
-				case 2:
-					//°Å·¡Ã¢ ¿­±â
-					if( !cTrade.OpenFlag ) {
-						cTrade.OpenFlag = TRUE;
-						cInvenTory.OpenFlag = TRUE;
-						cInterFace.CheckAllBox( SIN_TRADE );
-						cTrade.TradeCharCode = lpTransCommand->SParam;
-						TradeItemSucessFlag = 0;
-						TradeRecvItemKeyFlag = 0;
-						TradeSendSucessFlag = 0;
-						TradeItemCancelCount = 0;
-						TransLastRecvTrade.code = 0;
-						memset(&sTrade,0,sizeof(sTRADE)); 
-						memset(&sTradeRecv,0,sizeof(sTRADE)); 
-						ReformTrade( (void *)&sTrade );
-						ReformTrade( (void *)&sTradeRecv );
-						lstrcpy( cTrade.szTradeCharName , lpChar->smCharInfo.szName );
-
-						if ( lpCurPlayer->MoveFlag ) {
-							//ÀÌµ¿ÁßÀÎ Ä³¸¯ÅÍ Á¤Áö ½ÃÅ°±â
-							CancelAttack();
-							lpCurPlayer->MoveFlag = 0;
-						}
-						EachTradeButton = 0;
-						OpenEachPlayer(lpChar);
-						DispEachMode = TRUE;
-						if ( lpChar ) InterfaceParty.latest_Insert(lpChar->smCharInfo.szName);	//°Å·¡ÇÑ »ç¶÷ ÃÖ±Ù¸ñ·Ï¿¡ µî·Ï
-					}
-					break;
-				case 3:
-					//°Å·¡ Ãë¼Ò
-					if( cTrade.OpenFlag ) {
-						if ( TradeRecvItemKeyFlag ) {
-							memset( sTrade.TradeItem , 0 , sizeof(sITEM)*MAX_TRADE_ITEM );
-							sTrade.Money = 0;
-							ReformTrade( &sTrade );
-						}
-						cTrade.CancelTradeItem();
-					}
-					break;
-				}
-			}
-			break;
-
-		case smTRANSCODE_FINDCRACK:
-			//¼­¹ö·Î ºÎÅÍ Å©·¢ °Ë»ö ¿ä±¸
-			//Å©·¢ Ã½Å©
-			CheckCracker((TRANS_FIND_CRACKER *)pData->Buff );
-			break;
-
-
-		case smTRANSCODE_PARTY_REQUEST:
-			//ÆÄÆ¼ ½ÅÃ» ¹ÞÀ½
-			if ( !cWareHouse.OpenFlag ) {
-				lpTransCharCommand = (smTRANS_CHAR_COMMAND *)pData->Buff;
-				SetInterfaceParty( lpTransCharCommand->szName , lpTransCharCommand->WParam );
-			}
-			break;
-
-		case smTRANSCODE_PARTY_UPDATE:
-			//ÆÄÆ¼Á¤º¸ ¹ÞÀ½
-			TRANS_PARTY_USERS	*lpTransPartyUsers;
-
-			lpTransPartyUsers = (TRANS_PARTY_USERS *)pData->Buff;
-
-			if ( !InterfaceParty.PartyMemberCount ) {
-				//InterfaceParty.PartyPosState = PARTY_START;
-				InterfaceParty.Main_menuSet(1);	//¸ÞÀÎ¸Þ´º Äù½ºÆ®, µ¿·á, Ä£±¸¸¦ ¹Ù²Þ.
-				if ( InterfaceParty.PartyPosState==PARTY_NONE )	ShowParty();
-			}
-
-
-			InterfaceParty.MouseDownPartyMember = -1;
-/*
-			//MAX_PARTY_MEMBER
-			for(cnt=0;cnt<lpTransPartyUsers->PartyUserCount;cnt++) {
-				InterfaceParty.PartyMember[cnt].ChrCode = lpTransPartyUsers->PartyUser[cnt].dwObjectSerial;
-				InterfaceParty.PartyMember[cnt].Life  = (lpTransPartyUsers->PartyUser[cnt].Life[0]*100)/lpTransPartyUsers->PartyUser[cnt].Life[1];
-				InterfaceParty.PartyMember[cnt].Level = lpTransPartyUsers->PartyUser[cnt].Level;
-				InterfaceParty.PartyMember[cnt].CharacterPos.x = lpTransPartyUsers->PartyUser[cnt].x;
-				InterfaceParty.PartyMember[cnt].CharacterPos.z = lpTransPartyUsers->PartyUser[cnt].z;
-				InterfaceParty.PartyMember[cnt].CharacterPos.y = 0;
-				lstrcpy( InterfaceParty.PartyMember[cnt].Name , lpTransPartyUsers->PartyUser[cnt].szName );
-				lstrcpy( InterfaceParty.PartyMember[cnt].ModelName1 , lpTransPartyUsers->PartyUser[cnt].szModelName );
-				lstrcpy( InterfaceParty.PartyMember[cnt].ModelName2 , lpTransPartyUsers->PartyUser[cnt].szModelName2 );
-				InterfaceParty.PartyMember[0].JangFlag = 0;
-			}
-			InterfaceParty.PartyMemberCount = lpTransPartyUsers->PartyUserCount;
-			InterfaceParty.PartyMember[0].JangFlag = TRUE;
-*/
-			//MAX_PARTY_MEMBER
-			for(cnt=0;cnt<lpTransPartyUsers->PartyUserCount;cnt++) {
-
-				hoPartyMember	save_PM;
-				ZeroMemory((void*)&save_PM, sizeof(save_PM));
-
-				save_PM.ChrCode = lpTransPartyUsers->PartyUser[cnt].dwObjectSerial;
-				save_PM.Life  = (lpTransPartyUsers->PartyUser[cnt].Life[0]*100)/lpTransPartyUsers->PartyUser[cnt].Life[1];
-				save_PM.Level = lpTransPartyUsers->PartyUser[cnt].Level;
-				save_PM.CharacterPos.x = lpTransPartyUsers->PartyUser[cnt].x;
-				save_PM.CharacterPos.z = lpTransPartyUsers->PartyUser[cnt].z;
-				save_PM.CharacterPos.y = 0;
-				lstrcpy( save_PM.Name , lpTransPartyUsers->PartyUser[cnt].szName );
-				lstrcpy( save_PM.ModelName1 , lpTransPartyUsers->PartyUser[cnt].szModelName );
-				lstrcpy( save_PM.ModelName2 , lpTransPartyUsers->PartyUser[cnt].szModelName2 );
-				save_PM.JangFlag = 0;
-				if(cnt==0)
-					save_PM.JangFlag = TRUE;
-
-				InterfaceParty.AddMember(&save_PM,cnt);
-			}
-			InterfaceParty.AddMember_memberSu(lpTransPartyUsers->PartyUserCount);
-
-			//¸ðµç Ä³¸¯ÅÍ ÆÄÆ¼ °¡ÀÔ¿©ºÎ È®ÀÎ
-			RequestPartyPlayers( 0 );
-			break;
-
-		case smTRANSCODE_PARTY_PLAYUPDATE:
-			//ÆÄÆ¼ ÇÃ·¹ÀÌ Á¤º¸ ¹ÞÀ½
-			TRANS_PARTY_PLAYINFO	*lpTransPartyPlayInfo;
-			lpTransPartyPlayInfo = (TRANS_PARTY_PLAYINFO *)pData->Buff;
-/*
-			for(cnt=0;cnt<lpTransPartyPlayInfo->PartyUserCount;cnt++) {
-				if ( InterfaceParty.PartyMember[cnt].ChrCode==lpTransPartyPlayInfo->PlayInfo[cnt].dwObjectSerial ) {
-					InterfaceParty.PartyMember[cnt].Life  = (lpTransPartyPlayInfo->PlayInfo[cnt].Life[0]*100)/lpTransPartyPlayInfo->PlayInfo[cnt].Life[1];
-					InterfaceParty.PartyMember[cnt].Level = lpTransPartyPlayInfo->PlayInfo[cnt].Level;
-					InterfaceParty.PartyMember[cnt].CharacterPos.x = lpTransPartyPlayInfo->PlayInfo[cnt].x;
-					InterfaceParty.PartyMember[cnt].CharacterPos.z = lpTransPartyPlayInfo->PlayInfo[cnt].z;
-				}
-			}
-*/
-			for(cnt=0;cnt<lpTransPartyPlayInfo->PartyUserCount;cnt++) {
-
-				hoPartyMember	save_PM;
-				ZeroMemory((void*)&save_PM, sizeof(save_PM));
-
-				save_PM.ChrCode = lpTransPartyPlayInfo->PlayInfo[cnt].dwObjectSerial;
-				save_PM.Life  = (lpTransPartyPlayInfo->PlayInfo[cnt].Life[0]*100)/lpTransPartyPlayInfo->PlayInfo[cnt].Life[1];
-				save_PM.Level = lpTransPartyPlayInfo->PlayInfo[cnt].Level;
-				save_PM.CharacterPos.x = lpTransPartyPlayInfo->PlayInfo[cnt].x;
-				save_PM.CharacterPos.z = lpTransPartyPlayInfo->PlayInfo[cnt].z;
-
-				InterfaceParty.PARTY_PLAYUPDATE(&save_PM,cnt);
-			}
-
-			if ( lpTransPartyPlayInfo->PlayInfo[0].dwObjectSerial==lpCurPlayer->dwObjectSerial ) {
-				//³»°¡ ¹æÀå ( ¸ÞÀÎ¼­¹ö¿¡ ÆÄÆ¼Á¤º¸ ¾÷µ¥ÀÌÆ® )
-				if ( smWsockServer && smWsockServer!=smWsockUserServer ) {
-					smWsockServer->Send( (char *)lpTransPartyPlayInfo , lpTransPartyPlayInfo->size , TRUE );
-				}
-				if ( smWsockExtendServer && smWsockExtendServer!=smWsockServer ) {
-					smWsockExtendServer->Send( (char *)lpTransPartyPlayInfo , lpTransPartyPlayInfo->size , TRUE );
-				}
-			}
-			break;
-
-		case smTRANSCODE_PARTY_RELEASE:
-			//ÆÄÆ¼ Å»Åð ¶Ç´Â ÇØ»ê
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-/*
-			InterfaceParty.PartyMemberCount = 0;
-			InterfaceParty.PartyPosState = PARTY_END;
-			InterfaceParty.MouseDownPartyMember = -1;
-*/
-			InterfaceParty.PARTY_RELEASE();
-
-			//¸ðµç Ä³¸¯ÅÍ ÆÄÆ¼ °¡ÀÔ¿©ºÎ È®ÀÎ
-			RequestPartyPlayers( 0 );
-
-			//¸ÞÀÎ¼­¹ö·Î ÆÄÆ¼ ÇØ»êÁ¤º¸ º¸³¿
-			if ( smWsockServer && smWsockServer!=smWsockUserServer ) {
-				smWsockServer->Send( (char *)lpTransCommand , lpTransCommand->size , TRUE );
-			}
-			//¸ÞÀÎ¼­¹ö·Î ÆÄÆ¼ ÇØ»êÁ¤º¸ º¸³¿
-			if ( smWsockExtendServer && smWsockExtendServer!=smWsockServer ) {
-				smWsockExtendServer->Send( (char *)lpTransCommand , lpTransCommand->size , TRUE );
-			}
-			break;
-
-		case smTRANSCODE_WAREHOUSE:
-			//¾ÆÀÌÅÛ º¸°ü Ã¢°í µ¥ÀÌÅ¸ ÀÔ¼ö
-			//Ã¢°í °¡Á®¿À±â
-			if ( !cWareHouse.OpenFlag && !cTrade.OpenFlag && !cMyShop.OpenFlag ) {
-				if ( LoadWareHouse( (TRANS_WAREHOUSE *)pData->Buff , &sWareHouse )==TRUE ) {
-					cWareHouse.LoadWareHouseItemIamge();
-					cWareHouse.BackUpInvenItem();
-					ResetInvenItemCode();		//ÀÌº¥Åä¸® ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
-					ResetInvenMoney();			//ÀÌº¥Åä¸® µ· °Ë»ç ÃÊ±âÈ­
-				}
-			}
-			break;
-
-		case smTRANSCODE_OPEN_WAREHOUSE:
-			//Ã¢°í µ¥ÀÌÅ¸ ¿ä±¸
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-
-			if ( lpCurPlayer->smCharInfo.Weight[0]>lpCurPlayer->smCharInfo.Weight[1] ) {
-				cMessageBox.ShowMessageEvent(mgWeightOver);		//¹«°èÃÊ°ú
-				break;
-			}
-
-			if ( smWsockDataServer && !cWareHouse.OpenFlag && !cTrade.OpenFlag ) {
-				smWsockDataServer->Send2( (char *)lpTransCommand , lpTransCommand->size , TRUE );
-			}
-			break;
-
-		case smTRANSCODE_OPEN_MIXITEM:
-			//¾ÆÀÌÅÛ Á¶ÇÕÃ¢ ¿­±â
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-
-			if ( lpCurPlayer->smCharInfo.Weight[0]>lpCurPlayer->smCharInfo.Weight[1] ) {
-				cMessageBox.ShowMessageEvent(mgWeightOver);		//¹«°èÃÊ°ú
-				break;
-			}
-
-			if ( lpTransCommand->WParam==200 ) {
-				//¿¬±Ý¼ú»ç
-				cInterFace.CheckAllBox(SIN_CRAFTITEM); 
-				cCraftItem.ForceFlag = 1; 
-			}
-			else
-				cInterFace.CheckAllBox( SIN_CRAFTITEM );		//¾ÆÀÌÅÛ ¹Í½º
-
-			break;
-
-		case smTRANSCODE_OPEN_COLLECT:
-			//½º¸Å½Ì TV ÀÌº¥Æ® ( ¸ó½ºÅÍ Àâ±â )
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			if ( lpTransCommand->WParam==5 ) {
-				//SOD È¸°è Ã³¸®
-				cSinSod2.ShowSod2MessageBox();
-			}
-			else
-				sinShowEventSmashingTV();	//SOD ÀÔÀå
-
-			break;
-
-		case smTRANSCODE_OPEN_EVENTGIFT:
-			//°æÇ° ÀÌº¥Æ®
-			//if ( sinSendEventItem( 0 )==TRUE ) {
-
-			if(sinChar->wVersion[1] == 1)
-				cMessageBox.ShowMessage(MESSAGE_ALREADY_INITSTATE);
-			else
-				cMessageBox.ShowMessage3(  MESSAGE_EVENT_GYUNGFUM , "" );
-			//}
-			break;
-
-		case smTRANSCODE_OPEN_AGING:
-			//¿¡ÀÌÂ¡Ã¢ ¿­±â
-			if ( lpCurPlayer->smCharInfo.Weight[0]>lpCurPlayer->smCharInfo.Weight[1] ) {
-				cMessageBox.ShowMessageEvent(mgWeightOver);		//¹«°èÃÊ°ú
-				break;
-			}
-			cInterFace.CheckAllBox(SIN_AGING );
-			break;
-		case smTRANSCODE_OPEN_SMELTING:
-			// pluto Á¦·Ã
-			if( lpCurPlayer->smCharInfo.Weight[0]>lpCurPlayer->smCharInfo.Weight[1] )
-			{
-				cMessageBox.ShowMessageEvent( mgWeightOver );
-				break;
-			}
-			cInterFace.CheckAllBox( SIN_SMELTING );
-			break;
-		case smTRANSCODE_OPEN_MANUFACTURE:
-			// pluto Á¦ÀÛ
-			if( lpCurPlayer->smCharInfo.Weight[0]>lpCurPlayer->smCharInfo.Weight[1] )
-			{
-				cMessageBox.ShowMessageEvent( mgWeightOver );
-				break;
-			}
-			cInterFace.CheckAllBox( SIN_MANUFACTURE );
-			break;
-		case smTRANSCODE_OPEN_MIXTURE_RESET:	
-			// ¼®Áö¿ë - ¹Í½ºÃÄ ¸®¼Â Ã¢ ¿­±â
-			if( lpCurPlayer->smCharInfo.Weight[0] > lpCurPlayer->smCharInfo.Weight[1] )
-			{
-				cMessageBox.ShowMessageEvent( mgWeightOver );
-				break;
-			}
-			cInterFace.CheckAllBox( SIN_MIXTURE_RESET );
-			break;
-		case smTRANSCODE_SAVETHROWITEM2:
-			//¹ö¸° ¾ÆÀÌÅÛ ±â·Ï È®ÀÎ µµÂø ( ½ÇÁ¦·Î ¹ö¸®¸é µÊ )
-			ThrowItemToServer((smTRANS_COMMAND_EX *)pData->Buff );
-			break;
-
-		case smTRANSCODE_CLOSECLIENT:
-			//¼­¹ö°¡ Å¬¶óÀÌ¾ðÆ® Á¾·á¸í·É
-			DisconnectServerCode = 0;
-			DisconnectFlag = GetCurrentTime();
-			break;
-
-		case smTRANSCODE_PLAYERKILLING:
-			//PKÇÔ,°æÇèÄ¡ ±ïÀ½
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			//Á×¾î¼­ °æÇèÄ¡ ±ïÀÓ
-			if ( DeadPlayerExp( lpCurPlayer )==TRUE ) {
-				//°æÇèÄ¡ ÃÖÇÏÀ§ ( °¨¿ÁÀ¸·Î °£´Ù )
-				//WarpPrisonField( &x,&z );
-				//lpCurPlayer->SetPosi( x,0, z ,0,0,0 );
-				//TraceCameraPosi.x = lpCurPlayer->pX;
-				//TraceCameraPosi.y = lpCurPlayer->pY;
-				//TraceCameraPosi.z = lpCurPlayer->pZ;
-				//TraceTargetPosi.x = lpCurPlayer->pX;
-				//TraceTargetPosi.y = lpCurPlayer->pY;
-				//TraceTargetPosi.z = lpCurPlayer->pZ;
-
-				//lpCurPlayer->SetMotionFromCode( CHRMOTION_STATE_RESTART );		//½ÃÀÛ¸ð¼Ç
-				//StartEffect( lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ, EFFECT_GAME_START1 );
-				//SetDynLight( lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ, 100, 100,100,0, 200 );
-				//CharPlaySound( lpCurPlayer );
-				//dwBattleTime = 0;
-				//dwBattleQuitTime = 0;
-
-				////¹Ù´Ú È®ÀÎ
-				//lpCurPlayer->OnStageField = -1;
-				//if ( smGameStage[0] ) {
-				//	cnt = smGameStage[0]->GetFloorHeight( lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ ,lpCurPlayer->Pattern->SizeHeight );	
-				//	lpCurPlayer->OnStageField = 0;
-				//}
-				//if ( cnt==CLIP_OUT && smGameStage[1] ) {
-				//	lpCurPlayer->OnStageField = 1;
-				//}
-				//if ( smConfig.DebugMode ) {
-				//	lpCurPlayer->smCharInfo.wPlayerKilling[0] = 16*2;			//2ºÐµ¿¾È °¨¿Á¿¡ °¤Èû
-				//}
-				//else {
-				//	lpCurPlayer->smCharInfo.wPlayerKilling[0] = 16*30;			//30ºÐµ¿¾È °¨¿Á¿¡ °¤Èû
-				//}
-			}
-			break;
-
-		case smTRANSCODE_SEND_DATASERVER:
-			//µ¥ÀÌÅ¸ ¼­¹ö·Î ¿¬°á Àü¼Û
-			if ( smWsockDataServer ) {
-				smWsockDataServer->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-			}
-			break;
-
-		case smTRANSCODE_SEND_GAMESERVER:
-			//°ÔÀÓ ¼­¹ö·Î ¿¬°á Àü¼Û
-			if ( smWsockServer ) {
-				smWsockServer->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-			}
-			if ( smWsockUserServer && smWsockUserServer!=smWsockServer ) {
-				smWsockUserServer->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-			}
-			if ( smWsockExtendServer && smWsockExtendServer!=smWsockServer ) {
-				smWsockExtendServer->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-			}
-			break;
-
-		case smTRANSCODE_SEND_AREASERVER:
-			//Áö¿ª¼­¹ö·Î ¿¬°á Àü¼Û
-			lpsmSock = GetAreaServerSock();		//Áö¿ª¼­¹ö ¼ÒÄÏÀ» Ã£À½
-			if ( lpsmSock )
-				lpsmSock->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-			else
-				smWsockServer->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-
-			break;
-
-		case smTRANSCODE_SEND_AGAME_SERVER:
-			//°ÔÀÓ Áö¿ª¼­¹ö ¸ðµÎ Àü¼Û
-			lpsmSock = GetAreaServerSock();		//Áö¿ª¼­¹ö ¼ÒÄÏÀ» Ã£À½
-
-			for( int i = 0 ; i < SINUPKEEPITEM_MAX ; i++ )
-			{
-
-				if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == nsPremiumItem::THIRD_EYES )
-				{
-					if( chaPremiumitem.UpKeepItem[i].IconTime[1] - chaPremiumitem.UpKeepItem[i].IconTime[0] <= 0 )
-					{
-						chaPremiumitem.m_ThirdEyesTime = 0;
-					}
-				}
-
-				else if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == nsPremiumItem::EXPUP_POTION )
-				{
-					if( chaPremiumitem.UpKeepItem[i].IconTime[1] - chaPremiumitem.UpKeepItem[i].IconTime[0] <= 0 )
-					{
-						chaPremiumitem.m_ExpUpPotionTime = 0;
-					}
-				}
-
-				else if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == nsPremiumItem::VAMPIRIC_CUS )
-				{
-					if( chaPremiumitem.UpKeepItem[i].IconTime[1] - chaPremiumitem.UpKeepItem[i].IconTime[0] <= 0 )
-					{
-						chaPremiumitem.m_VampiricCuspidTime = 0;
-					}
-				}
-
-				else if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == nsPremiumItem::MANA_RECHAR_P )
-				{
-					if( chaPremiumitem.UpKeepItem[i].IconTime[1] - chaPremiumitem.UpKeepItem[i].IconTime[0] <= 0 )
-					{
-						chaPremiumitem.m_ManaRechargingPTime = 0;
-					}
-				}
-			}
-
-
-
-			if ( lpsmSock ) {
-				lpsmSock->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-
-				if ( lpsmSock!=smWsockServer )
-					smWsockServer->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-			}
-			else
-				smWsockServer->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-
-			break;
-
-		case smTRANSCODE_FUNCTION_MEM2:
-			//°Ë»ç ¸Þ¸ð¸® Æã¼ÇÀÌ ÅëÃ¤·Î µµÂø2
-			RecvMemFuncData2( (TRANS_FUNC_MEMORY *)pData->Buff );
-			break;
-
-		case smTRANSCODE_CRAFTITEM:
-			//¾ÆÀÌÅÛ ¹Í½ºÃÄ °á°ú ¼ö½Å
-			if ( ((sCRAFTITEM_SERVER *)pData->Buff)->Result==TRUE ) {
-
-				cCraftItem.sinRecvCraftItemResult( (sCRAFTITEM_SERVER *)pData->Buff );
-
-				cInvenTory.DeleteInvenItemToServer( ((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.CODE ,
-					((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.BackUpKey,
-					((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.BackUpChkSum );
-
-
-				//ÀÎº¥Åä¸®ÀÇ ÁöÁ¤ÇÑ ¾ÆÀÌÅÛÀ» Ã£¾Æ °Ë»öÇÏ¿© Ã£´Â´Ù
-				if ( FindInvenItem( ((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.CODE ,
-					((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.BackUpKey,
-					((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.BackUpChkSum )!=0 ) {
-						//ÀÎº¥Åä¸® ¾ÆÀÌÅÛ º¹»ç ¿À·ù
-						SendInvenItemError( 0 , ((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.CODE ,
-							((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.BackUpKey,
-							((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.BackUpChkSum );
-						break;
-					}
-
-				ResetInvenItemCode();				//ÀÌº¥ ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
-				SaveGameData();
-				break;
-
-			}
-			cCraftItem.sinRecvCraftItemResult( (sCRAFTITEM_SERVER *)pData->Buff );
-			ResetInvenItemCode();				//ÀÌº¥ ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
-			SaveGameData();
-			break;
-
-		case smTRANSCODE_AGINGITEM:
-			//¾ÆÀÌÅÛ ¿¡ÀÌÂ¡ °á°ú ¼ö½Å
-			if ( ((sCRAFTITEM_SERVER *)pData->Buff)->Result ) {
-
-				cAging.sinRecvAgingItemResult( (sCRAFTITEM_SERVER *)pData->Buff );
-
-				cInvenTory.DeleteInvenItemToServer( ((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.CODE ,
-					((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.BackUpKey,
-					((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.BackUpChkSum );
-
-
-				//ÀÎº¥Åä¸®ÀÇ ÁöÁ¤ÇÑ ¾ÆÀÌÅÛÀ» Ã£¾Æ °Ë»öÇÏ¿© Ã£´Â´Ù
-				if ( FindInvenItem( ((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.CODE ,
-					((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.BackUpKey,
-					((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.BackUpChkSum )!=0 ) {
-						//ÀÎº¥Åä¸® ¾ÆÀÌÅÛ º¹»ç ¿À·ù
-						SendInvenItemError( 0 , ((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.CODE ,
-							((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.BackUpKey,
-							((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.BackUpChkSum );
-						break;
-					}
-
-				ResetInvenItemCode();				//ÀÌº¥ ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
-				SaveGameData();
-				break;
-
-			}
-			cAging.sinRecvAgingItemResult( (sCRAFTITEM_SERVER *)pData->Buff );
-			ResetInvenItemCode();				//ÀÌº¥ ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
-			SaveGameData();
-			break;
-
-		case smTRANSCODE_AGING_UPGRADE:
-			//¿¡ÀÌÂ¡ ¿Ï·áµÈ ¾ÆÀÌÅÛ ¹Þ±â
-			sinRecvAgingIncreStateItem( &((TRANS_ITEMINFO *)pData->Buff)->Item );
-			TransAgingItemFlag = FALSE;
-			ResetInvenItemCode();				//ÀÌº¥ ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
-			SaveGameData();
-
-			//ÁÖº¯ Ä³¸¯ÅÍ¿¡ ÀÌº¥Æ® ¸í·É ÄÚµå º¸³»±â
-			SendCommandUser( smCOMMNAD_USER_AGINGUP , 0 , 0 , 0 );
-
-			if ( (((TRANS_ITEMINFO *)pData->Buff)->Item).CODE==cInvenTory.InvenItem[ sInven[0].ItemIndex-1 ].CODE &&
-				cInvenTory.InvenItem[ sInven[0].ItemIndex-1 ].sItemInfo.ItemName[0] ) {
-
-				//¿À¸¥¼Õ
-				sinSetCharItem(cInvenTory.InvenItem[ sInven[0].ItemIndex-1 ].CODE , cInvenTory.InvenItem[ sInven[0].ItemIndex-1 ].SetModelPosi , TRUE );
-			}
-			else
-			if ( (((TRANS_ITEMINFO *)pData->Buff)->Item).CODE==cInvenTory.InvenItem[ sInven[1].ItemIndex-1 ].CODE &&
-				cInvenTory.InvenItem[ sInven[1].ItemIndex-1 ].sItemInfo.ItemName[0] ) {
-
-				//¿Þ¼Õ
-				sinSetCharItem(cInvenTory.InvenItem[ sInven[1].ItemIndex-1 ].CODE , cInvenTory.InvenItem[ sInven[1].ItemIndex-1 ].SetModelPosi , TRUE );
-
-			}
-			break;
-
-		case smTRANSCODE_MAKE_LINKCORE:
-			//µî·ÏµÈ ¸µÅ© ÄÚ¾î µµÂø
-			cInvenTory.RecvLinkCore( &((TRANS_ITEMINFO *)pData->Buff)->Item );
-			ResetInvenItemCode();				//ÀÌº¥ ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
-			SaveGameData();
-			break;
-
-		case smTRANSCODE_USE_LINKCORE:
-			//¸µÅ© ÄÚ¾î »ç¿ë ¼º°ø
-			SucessLinkCore( (smTRANS_COMMAND_EX *)pData->Buff );
-			break;
-
-		case smTRANSCODE_WINGITEM:
-			//À® ¾ÆÀÌÅÛ È¹µæ µµÂø
-			/*
-			if ( ((sCRAFTITEM_SERVER *)pData->Buff)->Result!=FALSE ) {
-				wsprintf( szBuff, mgRecvItem , ((sCRAFTITEM_SERVER *)pData->Buff)->DesCraftItem.sItemInfo.ItemName );
-				cMessageBox.ShowMessageEvent( szBuff );
-			}
-			*/
-			RecvWingItem((sCRAFTITEM_SERVER *)pData->Buff);
-			ResetInvenItemCode();				//ÀÌº¥ ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
-			SaveGameData();
-			break;
-
-		case smTRANSCODE_ITEM_FORCEORB:
-			//Æ÷½º¿Àºê ¾ÆÀÌÅÛ È¹µæ µµÂø
-			RecvForceOrbItem( (TRANS_ITEMINFO_GROUP2 *)pData->Buff );
-			ResetInvenItemCode();				//ÀÌº¥ ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
-			SaveGameData();
-			break;
-
-		case smTRANSCODE_SHOPTITEM:
-			//¹°¾à°¹¼ö ºñ±³
-			if ( (((TRANS_BUY_SHOPITEM *)pData->Buff)->sItem.sItemInfo.CODE&sinITEM_MASK1)==(sinPM1&sinITEM_MASK1)) {
-				ComparePotion();
-			}
-
-			//»óÁ¡¿¡¼­ ¾ÆÀÌÅÛ ±¸ÀÔ
-			cShop.RecvBuyItemToServer( &((TRANS_BUY_SHOPITEM *)pData->Buff)->sItem , ((TRANS_BUY_SHOPITEM *)pData->Buff)->ItemCount );
-
-			if ( (((TRANS_BUY_SHOPITEM *)pData->Buff)->sItem.sItemInfo.CODE&sinITEM_MASK1)==(sinPM1&sinITEM_MASK1)){
-				//¹°¾à °¹¼ö »õ·Î ¼³Á¤
-				ResetPotion();
-			}
-
-			ResetInvenItemCode();				//ÀÌº¥ ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
-			break;
-
-		case smTRANSCODE_SHOP_SELLITEM:
-			//¾ÆÀÌÅÛ ÆÇ ´ë±Ý ¹ÞÀ½
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-
-			//ÀÎº¥Åä¸®ÀÇ ÁöÁ¤ÇÑ ¾ÆÀÌÅÛÀ» Ã£¾Æ °Ë»öÇÏ¿© Ã£´Â´Ù
-			if ( FindInvenItem( lpTransCommand->WParam , lpTransCommand->LParam , lpTransCommand->SParam )==0 ) {
-				CheckCharForm();//ÀÎÁõ 
-				sinPlusMoney(lpTransCommand->EParam);
-				ReformCharForm();//ÀçÀÎÁõ 
-				AddInvenMoney( lpTransCommand->EParam );
-			}
-			else {
-				SendInvenItemError( 0 , lpTransCommand->WParam , lpTransCommand->LParam , lpTransCommand->SParam );
-			}
-			break;
-
-		case smTRANSCODE_CHECKITEM:
-		case smTRANSCODE_ERRORITEM:
-		case smTRANSCODE_CLEARPOTION:
-			//¾ÆÀÌÅÛ ¼­¹ö È®ÀÎ ÄÚµå ¹ÞÀ½
-			RecvCheckItemFromServer( (TRANS_ITEM_CODE *)pData->Buff );
-			break;
-
-		case smTRANSCODE_GETCLIENT_FUNCPOS:
-			//Å¬¶óÀÌ¾ðÆ® Æ÷Áö¼Ç°ª ¿ä±¸
-			SendClientFuncPos();
-			break;
-
-		case smTRANSCODE_FUNCTION_MEM:
-			//°Ë»ç ¸Þ¸ð¸® Æã¼ÇÀÌ ÅëÃ¤·Î µµÂø
-			RecvMemFuncData( (TRANS_FUNC_MEMORY *)pData->Buff );
-			break;
-
-		case smTRANSCODE_PARTY_POTION:
-			//µ¿·á È¸º¹
-			SetPartyPosion( (smTRANS_COMMAND *)pData->Buff );
-			break;
-
-		case smTRANSCODE_HEALING:
-		case smTRANSCODE_GRAND_HEALING:
-		case smTRANSCODE_VAMPRIC_CUSPID:
-		case smTRANSCODE_VAMPRIC_CUSPID_EX: // Àåº° - ¹ìÇÇ¸¯ Ä¿½ºÇÍ EX
-		case smTRANSCODE_MANA_RECHARGING:
-			//Ä¡·á ¹Þ±â
-			SetPartyPosion( (smTRANS_COMMAND *)pData->Buff );
-			break;
-
-		case smTRANSCODE_SAVECLIENT:
-			//Å¬¶óÀÌ¾ðÆ® µ¥ÀÌÅ¸ ÀúÀå ¿ä±¸ ¹ÞÀ½
-			SaveGameData();
-			break;
-
-		case smTRANSCODE_DEAD_PLAYER:
-			//Ä³¸¯ÅÍ Á×ÀÌ±â
-			if ( lpCurPlayer->MotionInfo->State!=CHRMOTION_STATE_DEAD ) {
-				lpCurPlayer->SetMotionFromCode( CHRMOTION_STATE_DEAD );
-				sinSetLife( 0 );
-				ReformCharForm();							//Ä³¸¯ÅÍ Á¤º¸ ÀÎÁõ
-				CharPlaySound( lpCurPlayer );
-				DeadPlayerExp( lpCurPlayer );				//Á×¾î¼­ °æÇèÄ¡ ±ïÀÓ (PK´çÇßÀ»¶§´Â Á¦¿Ü)
-				sinCheckQuest85Die();						//Äù½ºÆ® ¼öÇàÁß Á×¾úÀ» °æ¿ì
-				SaveGameData();
-				ResetEnergyGraph( 0 );						//¿¡³ÊÁö ±×·¡ÇÁ Ã½Å© ÃÊ±âÈ­
-			}
-			break;
-
-		case smTRANSCODE_COMMAND_USER:
-			//ÁÖº¯ Ä³¸¯ÅÍ¿ë ÀÌº¥Æ® ¸í·É ÄÚµå
-			RecvCommandUser( (smTRANS_COMMAND_EX *)pData->Buff );
-			break;
-
-		case smTRANSCODE_NPROTECT:
-			//nProtect ¸í·É
-			switch ( ((smTRANS_COMMAND *)pData->Buff)->WParam ) {
-				case 100:
-					Log::Debug("nProtect : nProtect removido.");
-					break;
-			}
-			break;
-
-		case smTRANSCODE_GAMEGUARD_AUTH:
-			//GameGuard º¸¾ÈÃ½Å©
-			npAuth(((smTRANS_COMMAND_DWORD *)pData->Buff)->WParam);
-			break;
-
-		case smTRANSCODE_OPEN_CLANMENU:
-			//Å¬·£ ¸Þ´º ¿­±â
-			void CLANmenu_meetNPC();	//netplay.cpp¿¡¼­ »ç¿ëÇÔ.
-			CLANmenu_meetNPC();
-
-			///////////////// Å×½ºÆ® ¸Ó¸®Ä¿Áö±â //////////////////
-			if ( !lpCurPlayer->smCharInfo.dwEventTime_T && smConfig.DebugMode && VRKeyBuff[VK_CONTROL] ) {
-				ChangeBigHeadMode( (rand()%2)+1 , 60*5 );
-				StartSkill( lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ, 0,0,0, SKILL_UP1 );
-				SkillPlaySound( SKILL_SOUND_LEARN , lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ );			//½ºÅ³ È¿°úÀ½
-			}
-			break;
-
-		case smTRANSCODE_COMIC_SKIN:
-			//ÄÚ¹Í ¸ðµå·Î ÀüÈ¯ ( ¾óÅ«ÀÌ )
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			if ( !lpCurPlayer->smCharInfo.dwEventTime_T ) {
-				ChangeBigHeadMode( lpTransCommand->WParam , lpTransCommand->LParam );
-				StartSkill( lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ, 0,0,0, SKILL_UP1 );
-				SkillPlaySound( SKILL_SOUND_LEARN , lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ );			//½ºÅ³ È¿°úÀ½
-
-				// ¹ÚÀç¿ø - 2010 ¿ùµåÄÅ ÀÌº¥Æ® - Ãà±¸°ø Æ÷¼Ç »ç¿ë
-				if(!lpTransCommand->SParam) // ¾óÅ«ÀÌ Æ÷¼ÇÀ» »ç¿ëÇÒ °æ¿ì¿¡¸¸ µ¥¹ÌÁö¸¦ ¿Ã·ÁÁØ´Ù
-					cInvenTory.IncreViewDamage ( 15 );		//µ¥¹ÌÁö °¡»óÀ¸·Î ¿Ã·ÁÁØ´Ù
-			}
-			break;
-
-		case smTRANSCODE_CLAN_SERVICE:
-			//Å¬·£ °¡ÀÔ ¼­ºñ½º
-			RecvClanJoinService( (smTRANS_CHAR_COMMAND2 *)pData->Buff );
-			break;
-
-
-		case smTRANSCODE_VIRTURAL_POTION:
-			//»ý¸í,±â·Â,±Ù·Â Áõ°¡
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-
-			if ( !lpTransVirtualPotion ) {
-				lpTransVirtualPotion = new smTRANS_COMMAND;
-				if ( lpTransVirtualPotion ) {
-					memcpy( lpTransVirtualPotion , lpTransCommand , sizeof(smTRANS_COMMAND) ); 
-				}
-			}
-			break;
-
-		case smTRANSCODE_PROCESS_SKILL:
-		case smTRANSCODE_PROCESS_SKILL2:
-			//½ºÅ³Ã³¸® ¸®ÅÏ
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			RecvProcessSkill( lpTransCommand );
-			break;
-
-		case smTRANSCODE_PROCESS_CLAN_SKILL:
-			//Å¬·£ ½ºÅ³ Àû¿ë
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			chaSiege.SetClanSkill(lpTransCommand->WParam);
-
-			//Áö¿ª¼­¹ö¿¡ º¸³»¼­ Àû¿ë
-			lpsmSock = GetAreaServerSock();
-			if ( lpsmSock ) lpsmSock->Send2( (char *)lpTransCommand , lpTransCommand->size , TRUE );
-			break;
-
-		case smTRANSCODE_CANCEL_SKILL:
-			//½ºÅ³ Ãë¼Ò
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			switch( lpTransCommand->WParam ) {
-				case SKILL_PLAY_METAL_GOLEM:
-					cnt = SKILL_METAL_GOLEM;
-					break;
-				case SKILL_PLAY_RECALL_WOLVERIN:
-					cnt = SKILL_RECALL_WOLVERIN;
-					break;
-				case SKILL_PLAY_FIRE_ELEMENTAL:
-					cnt = SKILL_FIRE_ELEMENTAL;
-					break;
-			}
-			cSkill.CancelContinueSkill( cnt );
-			break;
-
-		case smTRANSCODE_PARTY_SKILL:
-			//ÆÄÆ¼ ½ºÅ³ ÆÐÅ¶ ¼ö½Å
-			 RecvPartySkillFromServer( (TRANS_PARTY_SKILL *)pData->Buff );
-			 break;
-
-		case smTRANSCODE_CLAN_UPDATE:
-			//Å¬·£ µ¥ÀÌÅ¸ ¾÷µ¥ÀÌÆ®
-			Updatecldata();
-			break;
-
-		case smTRANSCODE_QUEST_MESSAGE:
-			//Äù½ºÆ® ½ÇÇà ¸Þ¼¼Áö
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-
-			if ( lpTransCommand->WParam==SIN_QUEST_CODE_CHANGEJOB4 ) {
-				CancelAttack();
-
-				lpChar = FindAutoPlayer(  lpTransCommand->LParam );
-				if ( lpChar ) {
-					OpenEachPlayer( lpChar );
-					DispEachMode = TRUE;
-				}
-
-				sinBattleNpcResult( 1 );		//3Â÷ Àü¾÷ ¸¶½ºÅÍ¸¦ ÀÌ±è
-			}
-			else if ( lpTransCommand->WParam==HAQUEST_CODE_FURYOFPHANTOM ) {
-				//Ç»¸® ¹èÆ² ½Â¸®
-				chaQuest.RecvBattleNpcResult(1);	
-			}
-			else
-				sinMorayionNpcChangeJob_Two();
-
-			break;
-
- 		case smTRANSCODE_ATTACK_RESULT:
-			//°ø°Ý ½Ãµµ °á°ú ¹ÞÀ½ ( Å©¸®Æ¼ÄÃ ¼º°ø ¿©ºÎ )
-			if ( lpCurPlayer->AttackCritcal>=0 ) {	
-				lpCurPlayer->AttackCritcal = ((smTRANS_COMMAND *)pData->Buff)->WParam;
-			}
-			break;
-
-		case smTRANSCODE_DISP_DAMAGE:
-			//°ø°Ý¹ÞÀº °ª Ãâ·Â¿ë
-			LastAttackDamage = ((smTRANS_COMMAND *)pData->Buff)->WParam;
-			break;
-
-		case smTRANSCODE_DAMAGE_ENCODE_MEM:
-			//µ¥¹ÌÁö ¾ÏÈ£È­ ¸ðµâ ¼ö½Å
-			RecvDamagePacketModule((TRANS_FUNC_MEMORY *)pData->Buff );
-			break;
-
-		case smTRANSCODE_DAMAGE_ENCODE_MEM2:
-			//µ¥¹ÌÁö ¾ÏÈ£È­ ¸ðµâ ¼ö½Å
-			RecvDamagePacketModule2((TRANS_FUNC_MEMORY *)pData->Buff );
-			break;
-
-		case smTRANSCODE_PACKET_DYNFUNC:
-			//ÆÐÅ¶ µ¿Àû ¾ÏÈ£È­ ¸ðµâ ¼ö½Å 
-			RecvDynPacketModule((TRANS_FUNC_MEMORY *)pData->Buff );
-			break;
-
-		case smTRANSCODE_GETPLAYERINFO:
-			//Ä³¸¯ÅÍ Á¤º¸ ¾÷µ¥ÀÌÆ® ¿ä±¸ ( ¾÷µ¥ÀÌÆ® ÆÐÅ¶À» ÀÒ¾î ¹ö¸° °É·Î ÃßÃø - Àç¹ß¼Û )
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			if ( lpTransCommand->LParam!=lpCurPlayer->smCharInfo.bUpdateInfo[0] ) {
-				SendSetObjectSerial( lpCurPlayer->dwObjectSerial );
-			}
-			break;
-
-		case smTRANSCODE_AREA_SERVER_MAP:
-			//Áö¿ª ¼­¹ö¸Ê Á¤º¸ ÀÔ¼ö
-			RecvAreaServerMap( (TRANS_SEVER_MAP *)pData->Buff );
-			break;
-
-		case smTRANSCODE_ITEM_EXPRESS:
-			//¾ÆÀÌÅÛ ¹è´Þ Á¤º¸ ÀÔ¼ö
-			lpTransPostItem = (TRANS_POST_ITEM *)pData->Buff;   
-/*
-			if ( lpTransPostItem->dwItemFlag ) {
-				cInvenTory.SetInvenToItemInfo( (sITEMINFO *)(pData->Buff+sizeof(TRANS_POST_ITEM) ));
-				ResetInvenItemCode();
-			}
-*/
-			if ( lpTransPostItem->dwItemFlag ) {
-				ComparePotion();			//¹°¾à°¹¼ö ºñ±³
-				cInvenTory.SetInvenToItemInfo( (sITEMINFO *)(pData->Buff+sizeof(TRANS_POST_ITEM) ));
-				ResetInvenItemCode();
-
-				if ( (((sITEMINFO *)(pData->Buff+sizeof(TRANS_POST_ITEM) ))->CODE&sinITEM_MASK1)==(sinPM1&sinITEM_MASK1) ) {
-					//¹°¾à °¹¼ö »õ·Î ¼³Á¤
-					ResetPotion2();
-				}
-				SaveGameData();
-			}
-
-			if ( lpCurPlayer->smCharInfo.Weight[0]>lpCurPlayer->smCharInfo.Weight[1] ) {
-				cMessageBox.ShowMessage(MESSAGE_OVER_WEIGHT);    //¹«°ÔÃÊ°ú ¸Þ¼¼Áö
-				break;
-			}
-
-			if ( lpTransPostItem->dwItemCode ) { //¹ÞÀ» ¾ÆÀÌÅÛÀÌ ÀÖÀ»°æ¿ì °ø°£À» Ã¼Å©ÇÑÈÄ ¸Þ¼¼Áö¹Ú½º¸¦¶ç¿î´Ù
-
-				// pluto ÇØ¿Ü ºô¸µ ¾ÆÀÌÅÛ ¹«°Ô
-				if( sinChar->Weight[0] + lpTransPostItem->Weight > sinChar->Weight[1] )
-				{
-					cMessageBox.ShowMessage(MESSAGE_OVER_WEIGHT);    //¹«°ÔÃÊ°ú ¸Þ¼¼Áö
-					break;
-				}
-
-				memset(&sMessageBox_RecvItem.RecvItem,0,sizeof(sITEM));
-				sMessageBox_RecvItem.RecvItem.CODE = lpTransPostItem->dwItemCode;
-				sMessageBox_RecvItem.Flag = 1;
-				sMessageBox_RecvItem.szItem[0] = 0;
-				cInvenTory.OpenFlag = 1;
-				sMessageBox_RecvItem.Param[0] = lpTransPostItem->dwParam[0];
-
-				//µ·ÀÏ °æ¿ì 
-				if(sMessageBox_RecvItem.RecvItem.CODE == (sinGG1|sin01)){
-					cInvenTory.LoadMoneyExpImage(&sMessageBox_RecvItem.RecvItem);
-					sMessageBox_RecvItem.RecvItem.SellPrice =  lpTransPostItem->dwItemJobCode;
-					lstrcpy(sMessageBox_RecvItem.szDoc,lpTransPostItem->szDoc);
-					break;
-
-				}
-				//°æÇèÄ¡ÀÏ °æ¿ì 
-				if(sMessageBox_RecvItem.RecvItem.CODE == (sinGG1|sin02)){
-					cInvenTory.LoadMoneyExpImage(&sMessageBox_RecvItem.RecvItem);
-					sMessageBox_RecvItem.RecvItem.OldX =  lpTransPostItem->dwItemJobCode;
-					lstrcpy(sMessageBox_RecvItem.szDoc,lpTransPostItem->szDoc);
-					break;
-				}
-				//¹°¾àÀÏ°æ¿ì
-				if((sMessageBox_RecvItem.RecvItem.CODE & sinITEM_MASK1) == 	0x04000000){
-					sMessageBox_RecvItem.RecvItem.PotionCount =  lpTransPostItem->dwItemJobCode;
-					cInvenTory.CheckInvenEmpty(&sMessageBox_RecvItem.RecvItem); //ÀÌ¹ÌÁö·Îµå
-					lstrcpy(sMessageBox_RecvItem.szItem,lpTransPostItem->szItemName);
-					lstrcpy(sMessageBox_RecvItem.szDoc,lpTransPostItem->szDoc);
-					break;
-
-				}
-
-				//¾ÆÀÌÅÛ
-				cInvenTory.CheckInvenEmpty(&sMessageBox_RecvItem.RecvItem); //ÀÌ¹ÌÁö·Îµå
-				lstrcpy(sMessageBox_RecvItem.szItem,lpTransPostItem->szItemName);
-				lstrcpy(sMessageBox_RecvItem.szDoc,lpTransPostItem->szDoc);
-			}
-			break;
-
-		case smTRANSCODE_SOD_RESULT:
-			//SoD °á°ú Ãâ·Â
-			cSinHelp.ShowSodRanking((TRANS_SOD_RESULT *)pData->Buff,1);
-			break;
-
-		case smTRANSCODE_SOD_RESULT2:
-			//SoD °á°ú Ãâ·Â ( NPC¶û °°ÀÌ Ãâ·Â )
-			cSinHelp.ShowSodRanking((TRANS_SOD_RESULT *)pData->Buff,0);
-			break;
-
-		case smTRANSCODE_SOD_INFOMATION:
-			//SoD ÁøÇà Á¤º¸ ¹ÞÀ½
-			RecvSodGameInfomation( pData->Buff );
-			break;
-
-
-		case smTRANSCODE_WING_NPC:
-			//Wing Äù½ºÆ® NPC ¸¸³ª´Ù
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-
-			if ( lpTransCommand->LParam ) {
-				//°¡Â¥ ¿öÇÁ°ÔÀÌÆ® (ÅÚ·¹Æ÷Æ®)
-				switch( lpTransCommand->LParam ) {
-				case 1:
-					sinShowTeleportMap();
-					break;
-				case 2:
-					haShowCastleTeleportMap();
-					break;
-				case 3:
-					TeleportDungeon();	// pluto Ãß°¡´øÀüÀ¸·Î ÅÚ·¹Æ÷Æ®
-					break;
-				}
-			}
-
-			switch( lpTransCommand->WParam ) 
-			{
-				case 0:
-				case 1:
-					cInvenTory.sinWingQuestNpc();		//À® Äù½ºÆ®
-					break;
-				case 2:
-					cInvenTory.SendPuzzleNpc();			//ÆÛÁñ¸ÂÃß±â
-					break;
-				case 3:
-					cInvenTory.CheckEventItem();		//¹Ùº§ÀÇ»Ô
-					break;
-				case 4:
-					cInvenTory.CheckFoxEventItem();		//±¸¹ÌÈ£ÀÌº¥Æ®
-					break;
-				case 5:
-					cInvenTory.CheckCristalEventItem();	//Å©¸®½ºÅ» ¸ð¾Æ ÀÌº¥Æ®
-					break;
-				case 8:
-					cInvenTory.CheckWatermelonEventItem();	// ¹ÚÀç¿ø - ¼ö¹Ú ÀÌº¥Æ®(È£¹Ú)  //¹ÚÀç¿ø - ¹ãÇÏ´ÃÀÇ ¼Ò¿ø ÀÌº¥Æ®  
-					break;
-				case 9:
-					cInvenTory.CheckValentineEventItem();	// Àåº° - ¹ß·»Å¸ÀÎ ÀÌº¥Æ®
-					break;
-				case 10:
-					cInvenTory.CheckPristonAlphabetEventItem();	// ¹ÚÀç¿ø - ¾ËÆÄºª Á¶ÇÕ ÀÌº¥Æ®
-					break;
-				case 11:
-					cInvenTory.CheckCandydaysEventItem();	// Àåº° - Äµµðµ¥ÀÌÁî
-				break;
-				case 12:
-					cInvenTory.CheckMagicalGreenEventItem();	// Àåº° - ¸ÅÁöÄÃ±×¸°
-				break;
-
-				case 13:
-					cInvenTory.CheckTearOfKaraEventItem();	// Àåº° - Ä«¶óÀÇ ´«¹°
-				break;
-
-				case 14:
-					cInvenTory.CheckFindinvestigatorEventItem();	// Àåº° - Á¶»ç¿øÀ» Ã£¾Æ¶ó(¸¶·Â ¿¬±¸ÀÚ)
-				break;
-				case 15:
-					cInvenTory.CheckFindinvestigatorKamiuEventItem();	// Àåº° - Á¶»ç¿øÀ» Ã£¾Æ¶ó(Ä«¹ÌÀ¯)
-				break;
-				case 16:
-					cInvenTory.CheckFindinvestigatorEtoEventItem();	// Àåº° - Á¶»ç¿øÀ» Ã£¾Æ¶ó(¿¡Åä)
-				break;
-
-			}
-			break;
-
-		case smTRANSCODE_OPEN_STARPOINT:
-			//º° Æ÷ÀÎÆ® NPC ¸¸³ª´Ù
-			StarShopNPC();
-			break;
-
-		case smTRANSCODE_STARPOINT:
-			//º° Æ÷ÀÎÆ® °ª
-			sinStarPoint( ((smTRANS_COMMAND *)pData->Buff)->WParam );
-			//ÀÎÀÚ WParam ¿¡ ÇöÀç Àû¸³±Ý¾× Ç¥½Ã 
-			break;
-
-		case smTRANSCODE_CLANMONEY:
-			//Å¬·£¸Ó´Ï µ¥ÀÌÅ¸
-			sinRecvClanMoney( ((smTRANS_COMMAND *)pData->Buff)->WParam , ((smTRANS_COMMAND *)pData->Buff)->LParam );
-			break;
-
-		case smTRANSCODE_OPEN_GIVEMONEY:
-			//µ· ±âºÎ NPC ¸¸³ª´Ù
-			cMessageBox.ShowMessage2(MESSAGE_GIVE_MONEY);
-			break;
-
-		case smTRANSCODE_CHANGE_EVENT:
-			//ÀÌº¥Æ® Á¤º¸ º¯°æ
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			if ( sBiInfo ) {
-				sBiInfo->EventPlay[0] = lpTransCommand->WParam&0xFFFF;
-				sBiInfo->EventPlay[1] = (lpTransCommand->WParam>>16)&0xFFFF;
-				sBiInfo->PCRNo = lpTransCommand->LParam;
-				cInvenTory.SetItemToChar();					//¼³Á¤ Àû¿ë
-			}
-
-			if ( lpTransCommand->EParam ) {
-				GoNotice_chking=1;								//¾È³»¸Þ¼¼Áö ½ÇÇà
-			}
-			break;
-
-		case smTRANSCODE_CALL_MYSHOP:
-			//°³ÀÎ»óÁ¡ ¾ÆÀÌÅÛ Á¤º¸ ¿ä±¸
-			if ( lpCurPlayer->dwTradeMsgCode )
-				Send_MyShopItemList( (smTRANS_COMMAND *)pData->Buff );
-			break;
-
-		case smTRANSCODE_MYSHOP_ITEM:
-			//°³ÀÎ»óÁ¡ ¾ÆÀÌÅÛ ¸ñ·Ï ¹ÞÀ½
-			Recv_MyShopItemList((TRANS_TRADEITEMS *)pData->Buff);
-			break;
-
-		case smTRANSCODE_MYSHOP_MESSAGE:
-			//°³ÀÎ»óÁ¡ ¸Þ¼¼Áö ¹ÞÀ½
-			lpTransChatMessage = (TRANS_CHATMESSAGE *)pData->Buff;
-
-			lpChar = FindAutoPlayer( lpTransChatMessage->dwObjectSerial );
-			if ( lpChar && lpChar->dwTradeMsgCode ) {
-
-/*
-//Áß±¹ °³ÀÎ»óÁ¡ Æ¯Á¤¾ð¾î »ç¿ë±ÝÁö
-#ifdef _LANGUAGE_CHINESE
-				ConvertStringTHAI(lpTransChatMessage->szMessage,  strlen(lpTransChatMessage->szMessage));
-#endif
-*/
-				wsprintf( lpChar->szTradeMessage , "%s: %s" , lpChar->smCharInfo.szName , lpTransChatMessage->szMessage );
-			}
-			break;
-
-		case smTRANSCODE_MYSHOP_TRADE:
-			//°³ÀÎ »óÁ¡ ¹°°Ç ±¸ÀÔ
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-
-			cMyShop.RecvMyShopItem( lpTransCommand->SParam ,
-				(sMYSHOP_ITEM_SERVER *)(((smTRANS_COMMAND_BUFF *)pData->Buff)->Buff) );
-
-			break;
-
-		case smTRANSCODE_SUCCESS_EVATION:
-			//Ãß°¡È¸ÇÇ ¼º°ø Á¤º¸
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			//Ãâ·ÂºÎºÐ ÈÄ¿¡ Ãß°¡
-			AddTimeEffect( smTRANSCODE_SUCCESS_EVATION , dwPlayTime+500 , lpTransCommand->WParam ,lpTransCommand->LParam,lpTransCommand->SParam );
-			break;
-
-		case smTRANSCODE_BLESSCASTLE_INFO:
-			//ºí·¡½ºÄ³½½ ¼³Á¤Á¤º¸ ¼ö½Å
-			RecvBlessCastInfo( pData->Buff );
-			break;
-
-		case smTRANSCODE_MEDIA_NPC:
-			//¿µ»ó Àç»ý NPC
-			lpTransChatMessage = (TRANS_CHATMESSAGE *)pData->Buff;			
-			chaSiege.ShowCastlePlayMovie(lpTransChatMessage->szMessage,
-				lpTransChatMessage->szMessage+lstrlen(lpTransChatMessage->szMessage)+1,
-				0 );
-
-			break;
-
-		case smTRANSCODE_EXITINFO_URL:
-			//Á¾·á½Ã À¥ÆäÀÌÁö ¿ÀÇÂ
-			lpTransChatMessage = (TRANS_CHATMESSAGE *)pData->Buff;
-			lstrcpy( szExitInfo_URL , lpTransChatMessage->szMessage );
-			break;
-
-		case smTRANSCODE_PUBLIC_POLLING:
-			//¼³¹®Á¶»ç ½Ç½Ã ÆÐÅ¶
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			cSinHelp.ShowResearchMenu(lpTransCommand->WParam,lpTransCommand->LParam);
-			break;
-
-		case smTRANSCODE_NOTICE_BOX:
-			//¼³¸í ¹®±¸Ã¢ Ç¥½Ã
-			//ÃÊº¸ ¾ÆÀÌÅÛ °¡ÀÌµå ¸»
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			cHelp_Menu.haGuidHelpLevel_1(lpTransCommand->WParam);
-			break;
-
-		case smTRANSCODE_PCBANG_PET:
-			//PC¹æ Æê ½ÇÇö
-			//cPCBANGPet.PetKind = TRUE;
-			//cPCBANGPet.ShowPet();
-			break;
-		case smTRANSCODE_PHENIX_PET:	// pluto Æê(ÇØ¿Ü) ¼öÁ¤
-			//cPCBANGPet.PetKind = TRUE;
-			//cPCBANGPet.ShowPet();
-			break;
-
-		case smTRANSCODE_HELP_PET: // ¹ÚÀç¿ø - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡
-			break;
-
-#ifdef _xTrap_GUARD
-		case smTRANSCODE_XTRAP_PACKET:	//XTrap ÆÐÅ¶¼ö½Å
-			XTrap_Recv( (smTRANS_COMMAND *)pData->Buff , smWsockDataServer );
-			break;
-#endif
-
-		case smTRANSCODE_SMELTINGITEM:	// pluto Á¦·Ã
-			SmeltingItem.sinRecvSmeltingItemResult( (sSMELTINGITEM_SERVER *)pData->Buff );
-			ResetInvenItemCode();
-			SaveGameData();
-			break;
-		case smTRANSCODE_MANUFACTURE:	// pluto Á¦ÀÛ
-			ManufactureItem.RecvManufactureItemResult( (SManufactureItem_Server *)pData->Buff );
-			ResetInvenItemCode();
-			SaveGameData();
-			break;
-		case smTRANSCODE_MIXTURE_RESET_ITEM:
-			// ¼®Áö¿ë - ¹Í½ºÃÄ ¸®¼Â Å¬¶óÀÌ¾ðÆ® Ã³¸®
-			cMixtureReset.sinRecvMixtureItemResetResult( (sMIXTURE_RESET_ITEM_SERVER *)pData->Buff );
-			ResetInvenItemCode();
-			SaveGameData();
-			break;
-		case smTRANSCODE_MANUFACTURE_WEIGHT_PRICE:	// pluto Á¦ÀÛ ¾ÆÀÌÅÛ °¡°Ý, ¹«°Ô Á¤º¸ °¡Á® ¿Ã·Á°í
-            ManufactureItemResultInfo( (SManufacture_ResultItemInfo_Server *)pData->Buff );
-			break;
-		case smTRANSCODE_SEND_AGAME_PRIMEITEM_DATA2:		// pluto ¸¶³ª ¸®µà½º Æ÷¼Ç ¸¶ÀÌÆ® ¿Àºê ¾ÆÀ£
-			//°ÔÀÓ Áö¿ª¼­¹ö ¸ðµÎ Àü¼Û
-			lpsmSock = GetAreaServerSock();		//Áö¿ª¼­¹ö ¼ÒÄÏÀ» Ã£À½
-			for( int i = 0 ; i < SINUPKEEPITEM_MAX ; i++ )
-			{
-				if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == nsPremiumItem::MIGHT_OF_AWELL )	// pluto ¸¶ÀÌÆ® ¿Àºê ¾ÆÀ£	¸¶ÀÌÆ® ¿Àºê ¾ÆÀ£2
-				{
-					if( chaPremiumitem.UpKeepItem[i].IconTime[1] - chaPremiumitem.UpKeepItem[i].IconTime[0] <= 0 )
-					{
-						chaPremiumitem.m_MightofAwellTime = 0;
-						chaPremiumitem.m_MightofAwellWeight = 0;
-					}
-				}
-
-				if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == nsPremiumItem::MANA_REDUCE_P )
-				{
-					if( chaPremiumitem.UpKeepItem[i].IconTime[1] - chaPremiumitem.UpKeepItem[i].IconTime[0] <= 0 )
-					{
-						chaPremiumitem.m_ManaReducePotiontime = 0;
-						chaPremiumitem.m_ManaReducePotionValue = 0;
-					}
-				}
-				else if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == nsPremiumItem::MIGHT_OF_AWELL )	// pluto ¸¶ÀÌÆ® ¿Àºê ¾ÆÀ£	¸¶ÀÌÆ® ¿Àºê ¾ÆÀ£2
-				{
-					if( chaPremiumitem.UpKeepItem[i].IconTime[1] - chaPremiumitem.UpKeepItem[i].IconTime[0] <= 0 )
-					{
-						chaPremiumitem.m_MightofAwellTime = 0;
-						chaPremiumitem.m_MightofAwellWeight = 0;
-					}
-				}
-				else if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == nsPremiumItem::PHENIX_PET )	// pluto Æê(ÇØ¿Ü)
-				{
-					if( chaPremiumitem.UpKeepItem[i].IconTime[1] - chaPremiumitem.UpKeepItem[i].IconTime[0] <= 0 )
-					{
-						chaPremiumitem.m_PhenixPetTime = 0;
-						cPCBANGPet.ClosePet();
-					}
-				}
-			}
-			if ( lpsmSock ) {
-				lpsmSock->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-
-				if ( lpsmSock!=smWsockServer )
-					smWsockServer->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-			}
-			else
-				smWsockServer->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-			break;
-
-			// ¹ÚÀç¿ø - ºô¸µ µµ¿ì¹Ì Æê
-		case smTRANSCODE_SEND_AGAME_PRIMEITEM_DATA3:
-			//°ÔÀÓ Áö¿ª¼­¹ö ¸ðµÎ Àü¼Û
-			lpsmSock = GetAreaServerSock();		//Áö¿ª¼­¹ö ¼ÒÄÏÀ» Ã£À½
-			for( int i = 0 ; i < SINUPKEEPITEM_MAX ; i++ )
-			{
-				if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == nsPremiumItem::HELP_PET_TERRY )	// ¹ÚÀç¿ø - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡
-				{
-					if( chaPremiumitem.UpKeepItem[i].IconTime[1] - chaPremiumitem.UpKeepItem[i].IconTime[0] <= 0 )
-					{
-						// Àåº° - Å×¸® ¼Ó¼º
-						chaPremiumitem.m_TerryTime = 0;
-
-						chaPremiumitem.m_HelpPetTime = 0;
-						sinChar->GravityScroolCheck[1] = 0;
-						cHelpPet.ClosePet();
-					}
-				}
-				else if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == nsPremiumItem::HELP_PET_NEPSYS )	// ¹ÚÀç¿ø - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡
-				{
-					if( chaPremiumitem.UpKeepItem[i].IconTime[1] - chaPremiumitem.UpKeepItem[i].IconTime[0] <= 0 )
-					{
-						chaPremiumitem.m_HelpPetTime = 0;
-						cHelpPet.ClosePet();
-					}
-				}
-				else if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == nsPremiumItem::HELP_PET_IO )	// ¹ÚÀç¿ø - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡
-				{
-					if( chaPremiumitem.UpKeepItem[i].IconTime[1] - chaPremiumitem.UpKeepItem[i].IconTime[0] <= 0 )
-					{
-						chaPremiumitem.m_HelpPetTime = 0;
-						cHelpPet.ClosePet();
-					}
-				}
-				else if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == nsPremiumItem::HELP_PET_MUTE )	// ¹ÚÀç¿ø - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡
-				{
-					if( chaPremiumitem.UpKeepItem[i].IconTime[1] - chaPremiumitem.UpKeepItem[i].IconTime[0] <= 0 )
-					{
-						chaPremiumitem.m_HelpPetTime = 0;
-						sinChar->GravityScroolCheck[1] = 0;
-						cHelpPet.ClosePet();
-					}
-				}
-				else if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == nsPremiumItem::STAMINA_REDUCE_P ) // ¹ÚÀç¿ø - ±Ù·Â ¸®µà½º Æ÷¼Ç
-				{
-					if( chaPremiumitem.UpKeepItem[i].IconTime[1] - chaPremiumitem.UpKeepItem[i].IconTime[0] <= 0 )
-					{
-						chaPremiumitem.m_StaminaReducePotiontime = 0;
-						chaPremiumitem.m_StaminaReducePotionValue = 0;
-						chaPremiumitem.SetStaminaReducePotionTime(chaPremiumitem.m_StaminaReducePotiontime);
-					}
-				}
-
-				else if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == nsPremiumItem::VAMPIRIC_CUS_EX ) // Àåº° - ¹ìÇÇ¸¯ Ä¿½ºÇÍ EX
-				{
-					if( chaPremiumitem.UpKeepItem[i].IconTime[1] - chaPremiumitem.UpKeepItem[i].IconTime[0] <= 0 )
-					{
-						chaPremiumitem.m_VampiricCuspidEXTime = 0;
-					}
-				}
-			}
-            
-			for( int i = 0 ; i < SINUPKEEPITEM_MAX ; i++ )
-			{
-				if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == nsPremiumItem::VAMPIRIC_CUS_EX )
-				{
-					if( chaPremiumitem.UpKeepItem[i].IconTime[1] - chaPremiumitem.UpKeepItem[i].IconTime[0] <= 0 )
-					{
-						chaPremiumitem.m_VampiricCuspidEXTime = 0;
-					}
-				}
-				
-			}
-
-
-			if ( lpsmSock ) {
-				lpsmSock->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-
-				if ( lpsmSock!=smWsockServer )
-					smWsockServer->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-			}
-			else
-				smWsockServer->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-
-			break;
-
-
-			case smTRANSCODE_SEND_AGAME_PRIMEITEM_DATA4:		// Àåº° - ¹ìÇÇ¸¯ Ä¿½ºÇÍ EX
-			//°ÔÀÓ Áö¿ª¼­¹ö ¸ðµÎ Àü¼Û
-			lpsmSock = GetAreaServerSock();		//Áö¿ª¼­¹ö ¼ÒÄÏÀ» Ã£À½
-			for( int i = 0 ; i < SINUPKEEPITEM_MAX ; i++ )
-			{
-				if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == nsPremiumItem::VAMPIRIC_CUS_EX )
-				{
-					if( chaPremiumitem.UpKeepItem[i].IconTime[1] - chaPremiumitem.UpKeepItem[i].IconTime[0] <= 0 )
-					{
-						chaPremiumitem.m_VampiricCuspidEXTime = 0;
-					}
-				}
-				
-			}
-			if ( lpsmSock ) {
-				lpsmSock->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-
-				if ( lpsmSock!=smWsockServer )
-					smWsockServer->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-			}
-			else
-				smWsockServer->Send2( ((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff , ((smTRANS_COMMAND *)(((TRANS_SEND_DATASERVER *)pData->Buff)->szBuff))->size , TRUE );
-			break;
-
-		case smTRANSCODE_COUPLERING:		// pluto Ä¿ÇÃ¸µ
-			{
-				cInvenTory.DeleteCoupleRing();
-			}
-			break;
-
-			//¹ÚÀç¿ø - ºô¸µ ¾ÆÀÌÅÛ ÃÊ±âÈ­ Ä¡Æ®
-		case smTRANSCODE_PREMIUMITEM_INIT:
-			lpTransCommand = (smTRANS_COMMAND *)pData->Buff;
-			for( int i = 0 ; i < SINUPKEEPITEM_MAX ; i++ )
-			{
-				if( chaPremiumitem.UpKeepItem[i].TGAImageNumber == lpTransCommand->WParam)
-				{
-					chaPremiumitem.UpKeepItem[i].IconTime[1] = chaPremiumitem.UpKeepItem[i].IconTime[0];
-					if(lpTransCommand->WParam == 8 || lpTransCommand->WParam == 9 || lpTransCommand->WParam == 10 || lpTransCommand->WParam == 11) // ¹ÚÀç¿ø - µµ¿ì¹Ì Æê ÃÊ±âÈ­
-					{
-						cHelpPet.ClosePet();
-					}
-					else if(lpTransCommand->WParam == 12) // ¹ÚÀç¿ø - ÇÇ´Ð½º Æê ÃÊ±âÈ­
-					{
-						cPCBANGPet.ClosePet();
-					}
-					else if(lpTransCommand->WParam == 6) // ¹ÚÀç¿ø - ¸¶³ª ¸®µà½º Æ÷¼Ç ÃÊ±âÈ­
-					{
-						chaPremiumitem.m_ManaReducePotiontime = 0;
-						chaPremiumitem.SetManaReducePotionTime(chaPremiumitem.m_ManaReducePotiontime);
-					}
-					else if(lpTransCommand->WParam == 7) // ¹ÚÀç¿ø - ±Ù·Â ¸®µà½º Æ÷¼Ç ÃÊ±âÈ­
-					{
-						chaPremiumitem.m_StaminaReducePotiontime = 0;
-						chaPremiumitem.SetStaminaReducePotionTime(chaPremiumitem.m_StaminaReducePotiontime);
-					}
-				}	
-			}
-			break;
-
-#ifdef _XTRAP_GUARD_4_CLIENT
-		case smTRANSCODE_XTRAP_PACKET:	//XTrap ÆÐÅ¶¼ö½Å
-			XTrap_Recv( (smTRANS_COMMAND *)pData->Buff , smWsockDataServer );
-			break;
-#endif
-		
-//¹ÚÀç¿ø - XignCode
-#ifdef _XIGNCODE_CLIENT
-		case smTRANSCODE_XIGNCODE_PACKET:
-			XIGNCODE_PACKET *pack = (XIGNCODE_PACKET *)pData->Buff;
-			Xigncode_Client_Recv(smWsockDataServer, pack);
-			break;
-#endif
-		}
-
-		if ( lpCharInfo_MsgBack ) {
-
-			if ( addExp ) {
-
-				cnt = (lpCurPlayer->smCharInfo.Exp^CodeXorExp)-(lpCharInfo_MsgBack->Exp^CodeXorExp);
-				if ( cnt>addExp ) {
-					memcpy( &lpCurPlayer->smCharInfo ,lpCharInfo_MsgBack, sizeof(smCHAR_INFO) );
-					SaveGameData();						//°ÔÀÓÀ» ÀúÀå
-					lpCurPlayer->smCharInfo.Exp ++;
-				}
-			}
-
-			if ( addMoney ) {
-				cnt = lpCurPlayer->smCharInfo.Money - lpCharInfo_MsgBack->Money;
-
-				if ( cnt>=addMoney ) {
-					if ( addMoney>=2000 )
-						SaveGameData();						//°ÔÀÓÀ» ÀúÀå
-				}
-				else {
-					//µ¥ÀÌÅ¸°¡ Æ²¸²
-					lpCurPlayer->smCharInfo.Money = lpCharInfo_MsgBack->Money;		//º¹±¸½ÃÅ°¸é¼­ ¿¡·¯³ª°ÔÇÔ
-				}
-
-				//ÀÎº¥Åä¸® °Ë»ç¿ëµ· Ãß°¡
-				AddInvenMoney(addMoney );
-
-			}
-
-			delete lpCharInfo_MsgBack;
-		}
-
-	return TRUE;
+	Log::Debug("RecvMessage : Requisitado porém foi removido.");
+	return NULL;
 }
 
 
 
-int rsTRANS_SERVER::Init( smWINSOCK *lpsmsock )
+int rsTRANS_SERVER::Init(smWINSOCK *lpsmsock)
 {
 
 	lpsmSock = lpsmsock;
 	lpRecorder = 0;
 
 	//Å©¸®Æ¼Ä® ¼½¼Ç ÃÊ±âÈ­
-	InitializeCriticalSection( &cServSection );
+	InitializeCriticalSection(&cServSection);
 
 	RecvDataQuePush = 0;
 	RecvDataQuePop = 0;
 
-	ZeroMemory( RecvDataQue , RECV_DATA_QUE_COUNT*4 );
+	ZeroMemory(RecvDataQue, RECV_DATA_QUE_COUNT * 4);
 
 	return TRUE;
 }
 
 
 // °ø¹éÀÇ ¹®ÀÚ¿­À» Àß¶ó³½´Ù
-extern int szSpaceSorting( char *lpString );
+extern int szSpaceSorting(char *lpString);
 
 //Ã¤ÆÃ ¹®ÀÚ¸¦ ¼­¹ö·Î Àü¼Û
-int rsTRANS_SERVER::SendChat( char *szMessage )
+int rsTRANS_SERVER::SendChat(char *szMessage)
 {
 	int len;
 
-	if ( !szMessage || !szMessage[0] ) return FALSE;
+	if (!szMessage || !szMessage[0]) return FALSE;
 
-	if ( szMessage[0]=='/' && ( szMessage[1]==';' || szMessage[1]==':' ) ) {
+	if (szMessage[0] == '/' && (szMessage[1] == ';' || szMessage[1] == ':'))
+	{
 		// °ø¹éÀÇ ¹®ÀÚ¿­À» Àß¶ó³½´Ù
-		szSpaceSorting( szMessage );
+		szSpaceSorting(szMessage);
 	}
 
-	if ( szMessage[0]=='`' && szMessage[1]=='/' ) {
-		len = lstrlen( szMessage+1 ) + 9;
-		lstrcpy( TransBuff+8 , szMessage+1 );
+	if (szMessage[0] == '`' && szMessage[1] == '/')
+	{
+		len = lstrlen(szMessage + 1) + 9;
+		lstrcpy(TransBuff + 8, szMessage + 1);
 		((int *)TransBuff)[0] = len;
 		((int *)TransBuff)[1] = smTRANSCODE_CHATMESSAGE;
-		if ( smWsockDataServer ) smWsockDataServer->Send( TransBuff , len , TRUE );
+		if (smWsockDataServer) smWsockDataServer->Send(TransBuff, len, TRUE);
 		return TRUE;
 	}
 
-	if ( szMessage[0]=='~' && szMessage[1]=='/' ) {
+	if (szMessage[0] == '~' && szMessage[1] == '/')
+	{
 		//¾ç¼­¹ö¿¡ µ¿½Ã¿¡ ¸Þ¼¼Áö º¸³¿ '~'Á¦°Å
-		len = lstrlen( szMessage+1 ) + 9;
-		lstrcpy( TransBuff+8 , szMessage+1 );
+		len = lstrlen(szMessage + 1) + 9;
+		lstrcpy(TransBuff + 8, szMessage + 1);
 		((int *)TransBuff)[0] = len;
 		((int *)TransBuff)[1] = smTRANSCODE_CHATMESSAGE;
-		if ( smWsockServer ) smWsockServer->Send( TransBuff , len , TRUE );
-		if ( smWsockServer!=smWsockUserServer && smWsockUserServer ) smWsockUserServer->Send( TransBuff , len , TRUE );
-		if ( smWsockServer!=smWsockExtendServer && smWsockExtendServer ) smWsockExtendServer->Send( TransBuff , len , TRUE );
-		if ( AreaServerMode ) {
-			if ( lpWSockServer_Area[0] ) lpWSockServer_Area[0]->Send( TransBuff , len , TRUE );
-			if ( lpWSockServer_Area[1] ) lpWSockServer_Area[1]->Send( TransBuff , len , TRUE );
+		if (smWsockServer) smWsockServer->Send(TransBuff, len, TRUE);
+		if (smWsockServer != smWsockUserServer && smWsockUserServer) smWsockUserServer->Send(TransBuff, len, TRUE);
+		if (smWsockServer != smWsockExtendServer && smWsockExtendServer) smWsockExtendServer->Send(TransBuff, len, TRUE);
+		if (AreaServerMode)
+		{
+			if (lpWSockServer_Area[0]) lpWSockServer_Area[0]->Send(TransBuff, len, TRUE);
+			if (lpWSockServer_Area[1]) lpWSockServer_Area[1]->Send(TransBuff, len, TRUE);
 		}
 
 	}
-	else {
+	else
+	{
 
-		if ( szMessage[0]=='@' ) {
+		if (szMessage[0] == '@')
+		{
 			//µ¿·á Ã¤ÆÃ
 
-			wsprintf( TransBuff+8 , "%s: %s" , PlayerName , szMessage+1 );
-			len = lstrlen( TransBuff+8 ) + 9;
+			wsprintf(TransBuff + 8, "%s: %s", PlayerName, szMessage + 1);
+			len = lstrlen(TransBuff + 8) + 9;
 			((int *)TransBuff)[0] = len;
 			((int *)TransBuff)[1] = smTRANSCODE_PARTY_CHATMSG;
 
-			if ( smWsockServer ) smWsockServer->Send( TransBuff , len , TRUE );
-			AddChatBuff( TransBuff+8 , 4 );
+			if (smWsockServer) smWsockServer->Send(TransBuff, len, TRUE);
+			AddChatBuff(TransBuff + 8, 4);
 			return TRUE;
 		}
-		else {
-			lstrcpy( TransBuff+8 , szMessage );
-			len = lstrlen( szMessage ) + 9;
+		else
+		{
+			lstrcpy(TransBuff + 8, szMessage);
+			len = lstrlen(szMessage) + 9;
 
 			((int *)TransBuff)[0] = len;
 			((int *)TransBuff)[1] = smTRANSCODE_CHATMESSAGE;
 		}
 
-		if ( szMessage[0]=='/' ) {
+		if (szMessage[0] == '/')
+		{
 
-			if( szMessage[1]=='c' && szMessage[2]=='o' && szMessage[3]=='u' && szMessage[4]=='p' &&
-				szMessage[5]=='l' && szMessage[6]=='e' )
+			if (szMessage[1] == 'c' && szMessage[2] == 'o' && szMessage[3] == 'u' && szMessage[4] == 'p' &&
+				szMessage[5] == 'l' && szMessage[6] == 'e')
 			{
-				if ( smWsockUserServer && cInvenTory.SearchItemCode( sinSP1|sin15 ) ) smWsockUserServer->Send( TransBuff , len , TRUE );
+				if (smWsockUserServer && cInvenTory.SearchItemCode(sinSP1 | sin15)) smWsockUserServer->Send(TransBuff, len, TRUE);
 				return TRUE;
 			}
 
-			if ( szMessage[1]=='/' ) {
-				if ( smWsockUserServer ) smWsockUserServer->Send( TransBuff , len , TRUE );
+			if (szMessage[1] == '/')
+			{
+				if (smWsockUserServer) smWsockUserServer->Send(TransBuff, len, TRUE);
 			}
-			else {
-				if ( smWsockServer ) smWsockServer->Send( TransBuff , len , TRUE );
+			else
+			{
+				if (smWsockServer) smWsockServer->Send(TransBuff, len, TRUE);
 			}
 
 			return TRUE;
 		}
 
-		if ( AreaServerMode ) {
-			if ( lpCurPlayer->OnStageField>=0 && lpWSockServer_DispArea[lpCurPlayer->OnStageField] ) {
-				lpWSockServer_DispArea[lpCurPlayer->OnStageField]->Send( TransBuff , len , TRUE );
+		if (AreaServerMode)
+		{
+			if (lpCurPlayer->OnStageField >= 0 && lpWSockServer_DispArea[lpCurPlayer->OnStageField])
+			{
+				lpWSockServer_DispArea[lpCurPlayer->OnStageField]->Send(TransBuff, len, TRUE);
 			}
 		}
 		else
-			if ( smWsockUserServer ) smWsockUserServer->Send( TransBuff , len , TRUE );
+			if (smWsockUserServer) smWsockUserServer->Send(TransBuff, len, TRUE);
 
 	}
 	return TRUE;
 }
 //¼­¹ö·Î ÇÃ·¹ÀÌ¾îÀÇ µ¥ÀÌÅ¸¸¦ À§Ä¡¸¦ Àü¼Û
-int rsTRANS_SERVER::SendPlayData( smCHAR *lpChar )
+int rsTRANS_SERVER::SendPlayData(smCHAR *lpChar)
 {
-//	int cnt;
-//	int	*lpTransBuff;
+	//	int cnt;
+	//	int	*lpTransBuff;
 	TRANS_PLAYPOS *lpTransPlayPos;
-	int	dist,x,y,z;
+	int	dist, x, y, z;
 
 	TransPlayPosCount++;
 
-	if ( (TransPlayPosCount&1)==0 ) {
-		x = (TransPlayPosLast.rsPlayPos.x-lpChar->pX)>>FLOATNS;
-		y = (TransPlayPosLast.rsPlayPos.y-lpChar->pY)>>FLOATNS;
-		z = (TransPlayPosLast.rsPlayPos.z-lpChar->pZ)>>FLOATNS;
-		dist = x*x+y*y+z*z;
+	if ((TransPlayPosCount & 1) == 0)
+	{
+		x = (TransPlayPosLast.rsPlayPos.x - lpChar->pX) >> FLOATNS;
+		y = (TransPlayPosLast.rsPlayPos.y - lpChar->pY) >> FLOATNS;
+		z = (TransPlayPosLast.rsPlayPos.z - lpChar->pZ) >> FLOATNS;
+		dist = x*x + y*y + z*z;
 
-		if ( sinGetLife()>0 && dist<(16*16*16) ) {
+		if (sinGetLife() > 0 && dist < (16 * 16 * 16))
+		{
 			//À§Ä¡°¡ º¯ÇÑ°Ô ¾ø´Â °æ¿ì ( 1¹ø¾¿ °É·¯¼­ º¸³¿ )
 			return TRUE;
 		}
@@ -4395,9 +1612,9 @@ int rsTRANS_SERVER::SendPlayData( smCHAR *lpChar )
 
 	lpTransPlayPos = (TRANS_PLAYPOS *)TransBuff;
 	lpTransPlayPos->code = smTRANSCODE_POSITION;
-	lpTransPlayPos->size = sizeof( TRANS_PLAYPOS );
+	lpTransPlayPos->size = sizeof(TRANS_PLAYPOS);
 
-	if ( lpCurPlayer->OnStageField>=0 )
+	if (lpCurPlayer->OnStageField >= 0)
 		lpTransPlayPos->rsPlayPos.Area = StageField[lpCurPlayer->OnStageField]->FieldCode;
 	else
 		lpTransPlayPos->rsPlayPos.Area = -1;
@@ -4406,29 +1623,32 @@ int rsTRANS_SERVER::SendPlayData( smCHAR *lpChar )
 	lpTransPlayPos->rsPlayPos.y = lpChar->pY;
 	lpTransPlayPos->rsPlayPos.z = lpChar->pZ;
 
-	if ( lpCurPlayer->MotionInfo && lpCurPlayer->MotionInfo->State==CHRMOTION_STATE_DEAD )
+	if (lpCurPlayer->MotionInfo && lpCurPlayer->MotionInfo->State == CHRMOTION_STATE_DEAD)
 		lpTransPlayPos->Hp[0] = 0;
 	else
 		lpTransPlayPos->Hp[0] = sinGetLife();
 
 	lpTransPlayPos->Hp[1] = lpChar->smCharInfo.Life[1];
 
-	if ( smWsockServer )
-		smWsockServer->Send2( (char *)lpTransPlayPos , lpTransPlayPos->size , TRUE );
+	if (smWsockServer)
+		smWsockServer->Send2((char *)lpTransPlayPos, lpTransPlayPos->size, TRUE);
 
-	if ( smWsockExtendServer && smWsockExtendServer!=smWsockServer )
-		smWsockExtendServer->Send2( (char *)lpTransPlayPos , lpTransPlayPos->size , TRUE );
+	if (smWsockExtendServer && smWsockExtendServer != smWsockServer)
+		smWsockExtendServer->Send2((char *)lpTransPlayPos, lpTransPlayPos->size, TRUE);
 
 
-	int	MainArea , SubArea;
+	int	MainArea, SubArea;
 
-	if ( AreaServerMode ) {
-		if ( lpCurPlayer->OnStageField>=0 ) {
-			MainArea = (lpCurPlayer->OnStageField)&1;
-			SubArea = (lpCurPlayer->OnStageField+1)&1;
+	if (AreaServerMode)
+	{
+		if (lpCurPlayer->OnStageField >= 0)
+		{
+			MainArea = (lpCurPlayer->OnStageField) & 1;
+			SubArea = (lpCurPlayer->OnStageField + 1) & 1;
 
-			if ( lpWSockServer_DispArea[SubArea] && lpWSockServer_DispArea[MainArea]!=lpWSockServer_DispArea[SubArea] ) {
-				lpWSockServer_DispArea[SubArea]->Send2( (char *)lpTransPlayPos , lpTransPlayPos->size , TRUE );
+			if (lpWSockServer_DispArea[SubArea] && lpWSockServer_DispArea[MainArea] != lpWSockServer_DispArea[SubArea])
+			{
+				lpWSockServer_DispArea[SubArea]->Send2((char *)lpTransPlayPos, lpTransPlayPos->size, TRUE);
 			}
 		}
 	}
@@ -4477,32 +1697,35 @@ int ChatCommandSaveCnt = 0;
 int ChatSaveRecallCnt = 0;
 
 //Ã¤ÆÃ ÄÚ¸Çµå ÀúÀå
-int SaveChatCommand( char *szMessage )
+int SaveChatCommand(char *szMessage)
 {
-	int len,cnt;
+	int len, cnt;
 	int mcnt;
 	char szBuff[256];
 
-	len = lstrlen( szMessage );
-	lstrcpy( szBuff , szMessage );
+	len = lstrlen(szMessage);
+	lstrcpy(szBuff, szMessage);
 
-	for(cnt=0;cnt<len;cnt++) {
-		if ( szBuff[cnt]==' ' ) {
-			szBuff[cnt]=0;
+	for (cnt = 0; cnt < len; cnt++)
+	{
+		if (szBuff[cnt] == ' ')
+		{
+			szBuff[cnt] = 0;
 			break;
 		}
 	}
-	lstrcat( szBuff," " );
+	lstrcat(szBuff, " ");
 
 	//µ¿ÀÏ¹®ÀÚ È®ÀÎ
-	for( cnt=0;cnt<ChatCommandSaveCnt;cnt++) {
-		if ( cnt>=SAVE_CHAT_COMMAND_MAX ) break;
-		if ( lstrcmp( szSaveChatCommands[cnt] , szBuff )==0 ) 
+	for (cnt = 0; cnt < ChatCommandSaveCnt; cnt++)
+	{
+		if (cnt >= SAVE_CHAT_COMMAND_MAX) break;
+		if (lstrcmp(szSaveChatCommands[cnt], szBuff) == 0)
 			return TRUE;
 	}
 
 	mcnt = ChatCommandSaveCnt & SAVE_CHAT_COMMAND_MASK;
-	lstrcpy( szSaveChatCommands[mcnt] , szBuff );
+	lstrcpy(szSaveChatCommands[mcnt], szBuff);
 
 	ChatCommandSaveCnt++;
 	ChatSaveRecallCnt = ChatCommandSaveCnt;
@@ -4511,55 +1734,60 @@ int SaveChatCommand( char *szMessage )
 }
 
 //Ã¤ÆÃ ÀúÀå ÄÚ¸Çµå º¹±¸ 
-int RecallSavedChatCommand( HWND hChatWnd , int Arrow )
+int RecallSavedChatCommand(HWND hChatWnd, int Arrow)
 {
 	int mcnt;
 	int len;
 
-	if ( ChatCommandSaveCnt<=0 ) return FALSE;
+	if (ChatCommandSaveCnt <= 0) return FALSE;
 
-	if ( Arrow ) {
+	if (Arrow)
+	{
 		ChatSaveRecallCnt--;
-		if ( ChatSaveRecallCnt<0 ) {
-			ChatSaveRecallCnt=ChatCommandSaveCnt-1;
+		if (ChatSaveRecallCnt < 0)
+		{
+			ChatSaveRecallCnt = ChatCommandSaveCnt - 1;
 		}
 	}
-	else {
+	else
+	{
 		ChatSaveRecallCnt++;
-		if ( ChatSaveRecallCnt>=ChatCommandSaveCnt ) {
-			ChatSaveRecallCnt=ChatCommandSaveCnt-1;
-			SetWindowText( hChatWnd , "" );
+		if (ChatSaveRecallCnt >= ChatCommandSaveCnt)
+		{
+			ChatSaveRecallCnt = ChatCommandSaveCnt - 1;
+			SetWindowText(hChatWnd, "");
 			return TRUE;
 		}
 	}
 
 	mcnt = ChatSaveRecallCnt & SAVE_CHAT_COMMAND_MASK;
-	SetWindowText( hChatWnd , szSaveChatCommands[mcnt] );
+	SetWindowText(hChatWnd, szSaveChatCommands[mcnt]);
 
 	len = lstrlen(szSaveChatCommands[mcnt]);
-	SendMessage(hChatWnd,EM_SETSEL, len , len );
+	SendMessage(hChatWnd, EM_SETSEL, len, len);
 
 	return TRUE;
 }
 
 // ¹®ÀÚ¿­ ºñ±³ ÂªÀº ¹®ÀåÀÇ ±æÀÌ¸¸Å­ ºñ±³ÇÏ¿© ºñ±³ Á¾·á Æ÷ÀÎÅÍ ¹ÝÈ¯
-int rsCompString( char *src1 , char *src2 )
+int rsCompString(char *src1, char *src2)
 {
 	int cnt;
-	int len1,len2;
+	int len1, len2;
 	int len;
 
-	len1 = lstrlen( src1 );
-	len2 = lstrlen( src2 );
+	len1 = lstrlen(src1);
+	len2 = lstrlen(src2);
 
-	if ( len1<len2 ) len = len1;
+	if (len1 < len2) len = len1;
 	else len = len2;
 
-	if ( !len ) return NULL;
+	if (!len) return NULL;
 
-	for( cnt=0; cnt<len1; cnt++ ) {
-		if ( src1[cnt]==0 ) break;
-		if ( src1[cnt]!=src2[cnt] ) return NULL;
+	for (cnt = 0; cnt < len1; cnt++)
+	{
+		if (src1[cnt] == 0) break;
+		if (src1[cnt] != src2[cnt]) return NULL;
 	}
 
 	return cnt;
@@ -4572,654 +1800,66 @@ DWORD	dwLastChatTime;
 DWORD	dwContiueChatCount = 0;
 #include "CurseFilter.h"		//¿å¼³ÇÊÅÍ
 
-char *rsGetWord(char *q , char *p);		//¼­¹ö¿¡ ¼±¾ðµÈ °ª
+char *rsGetWord(char *q, char *p);		//¼­¹ö¿¡ ¼±¾ðµÈ °ª
 
 extern int WaveCameraMode;
 
 //Ã¤ÆÃ ¹®ÀÚ¸¦ ¼­¹ö·Î Àü¼Û
-int SendChatMessageToServer( char *szChatMessage )
+int SendChatMessageToServer(char *szChatMessage)
 {
-
-	char szMessage[256];
-	char *lpMsg=0;
-	int	 cnt;
-	int	 WhispFlag;
-	char szBuff[256];
-	smWINSOCK	*lpsmSock;
-
-	if ( szChatMessage[0]=='/' && ( szChatMessage[1]==';' || szChatMessage[1]==':' ) ) WhispFlag=TRUE;
-	else WhispFlag=FALSE;
-
-	if ( dwLastChatTime && dwLastChatTime>dwPlayTime ) return FALSE;
-
-	if ( dwLastChatTime && (dwPlayTime-dwLastChatTime)<2000 && WhispFlag==FALSE ) {
-		dwContiueChatCount++;
-		if ( dwContiueChatCount>10 ) {
-
-			wsprintf( szMessage , mgContinueChat , lpCurPlayer->smCharInfo.szName );
-			lstrcpy( lpCurPlayer->szChatMessage , szMessage );
-			lpCurPlayer->dwChatMessageTimer = dwPlayTime + 1000*7;
-
-			dwLastChatTime = lpCurPlayer->dwChatMessageTimer;
-			return FALSE;
-		}
-	}
-	else
-		dwContiueChatCount = 0;
-
-	lstrcpy( szMessage , szChatMessage );
-
-	for(cnt=0;cnt<64;cnt++) {
-		if ( !szMessage[cnt] ) break;
-		if ( szMessage[cnt]==':' && szMessage[cnt+1]==' ' ) {
-			lpMsg = szMessage+cnt+2;
-			break;
-		}
-	}
-
-	//¾ßÈ£!
-	if ( lpMsg && (lstrcmpi( mgYahoo , lpMsg )==0 || lstrcmpi( "yahoo" , lpMsg )==0 )) {
-
-		dwYahooTime = dwPlayTime + 60*1000;		//1ºÐ°£ À¯È¿
-
-		if ( lpCurPlayer && lpCurPlayer->MotionInfo ) {
-			if ( lpCurPlayer->MotionInfo->State<0x100 ) {
-				if ( lpCurPlayer->SetMotionFromCode( CHRMOTION_STATE_YAHOO ) ) {
-					//lpCurPlayer->HideWeapon = TRUE;
-				}
-			}
-		}
-		return TRUE;
-	}
-
-
-	if ( szMessage[0]!='/' && szMessage[0]!='~' && szMessage[0]!='`' && szMessage[0]!='@' ) {
-		AddChatBuff( szMessage , 256 );
-
-#ifdef _LANGUAGE_KOREAN
-		cnt = 0;
-		lpMsg = szMessage;
-		while(1) {
-			if ( !szMessage[cnt] ) break;
-			if ( szMessage[cnt]==':' && szMessage[cnt+1]==' ' ) {
-				lpMsg = &szMessage[cnt+2];
-				break;
-			}
-			cnt++;
-		}
-		ConvertString(lpMsg,lstrlen(lpMsg)+16);
-		////////////////////////////////////
-			//szMessage[78] = 0;
-			//AddChatBuff( szMessage , 0 );	//Å×½ºÆ®¿ë
-		/////////////////////////////////////
-#endif
-#ifdef _LANGUAGE_CHINESE
-		cnt = 0;
-		lpMsg = szMessage;
-		while(1)
-		{
-			if ( !szMessage[cnt] ) break;
-			if ( szMessage[cnt]==':' && szMessage[cnt+1]==' ' )
-			{
-				lpMsg = &szMessage[cnt+2];
-				break;
-			}
-			cnt++;
-		}
-		ConvertStringTHAI(lpMsg,lstrlen(lpMsg)+16);
-		////////////////////////////////////
-			//szMessage[78] = 0;
-			//AddChatBuff( szMessage , 0 );	//Å×½ºÆ®¿ë
-		/////////////////////////////////////
-#endif
-//ÅÂ±¹¼öÁ¤
-#ifdef _LANGUAGE_THAI
-		cnt = 0;
-		lpMsg = szMessage;
-		while(1) {
-			if ( !szMessage[cnt] ) break;
-			if ( szMessage[cnt]==':' && szMessage[cnt+1]==' ' ) {
-				lpMsg = &szMessage[cnt+2];
-				break;
-			}
-			cnt++;
-		}
-		ConvertStringTHAI(lpMsg,lstrlen(lpMsg)+16);
-		////////////////////////////////////
-			//szMessage[78] = 0;
-			//AddChatBuff( szMessage , 0 );	//Å×½ºÆ®¿ë
-		/////////////////////////////////////
-#endif
-		lstrcpy( lpCurPlayer->szChatMessage , szMessage );
-		lpCurPlayer->dwChatMessageTimer = dwPlayTime + 1000*7;
-	}
-	else {
-		if ( szMessage[1]!='*' && szMessage[0]!='@' ) {
-			//Ã¤ÆÃ ÄÚ¸Çµå ÀúÀå
-			SaveChatCommand( szMessage );
-		}
-
-		char *lpBuff;
-		int cnt,len;
-
-
-		if ( szMessage[0]=='/' )
-		{
-#ifndef _LANGUAGE_PHILIPIN
-			//³×Æ®¿÷ ¼³Á¤
-			len = rsCompString( "/latency" , szMessage );
-			if ( !len )	len = rsCompString( "/LATENCY" , szMessage );
-
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				lpBuff = rsGetWord( szBuff , lpBuff );
-				cnt = atoi(szBuff);
-				if ( cnt<0 || cnt>500 || !szBuff[0] ) cnt=30;
-				if ( cnt<10 ) cnt=0;
-				smTransTurbRcvMode = cnt;
-
-				wsprintf( szMessage , ">latency ( %d ms )" , cnt );
-				AddChatBuff( szMessage , 0 );
-
-				return TRUE;
-			}
-#endif
-
-			//Ä«¸Þ¶ó Ãâ··°Å¸²
-			len = rsCompString( "/camera_wave_off" , szMessage );
-			if ( len ) {
-				WaveCameraMode = FALSE;
-				return TRUE;
-			}
-
-			//Ä«¸Þ¶ó Ãâ··°Å¸²
-			len = rsCompString( "/camera_wave_on" , szMessage );
-			if ( len ) {
-				WaveCameraMode = TRUE;
-				return TRUE;
-			}
-
-
-		}
-
-
-#ifdef	_WINMODE_DEBUG
-		int num;//,x,z;
-		int r,g,b;
-
-		if ( smConfig.DebugMode ) {
-
-			//¹è°æ ¹à±â Á¶Àý
-			len = rsCompString( "/dark" , szMessage );
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				lpBuff = rsGetWord( szBuff , lpBuff );
-				cnt = atoi(szBuff);
-				if ( cnt>-256 && cnt<256 ) DarkLevel_Fix = cnt;
-				else DarkLevel_Fix = 0;
-
-				return TRUE;
-			}
-
-			//¹è°æ »ö»ó Á¶Àý
-			len = rsCompString( "/color" , szMessage );
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				lpBuff = rsGetWord( szBuff , lpBuff );
-				cnt = atoi(szBuff);
-				if ( cnt>-110 && cnt<110 ) r = cnt;
-				else return TRUE;
-				lpBuff = rsGetWord( szBuff , lpBuff );
-				cnt = atoi(szBuff);
-				if ( cnt>-110 && cnt<110 ) g = cnt;
-				else return TRUE;
-				lpBuff = rsGetWord( szBuff , lpBuff );
-				cnt = atoi(szBuff);
-				if ( cnt>-110 && cnt<110 ) b = cnt;
-				else return TRUE;
-
-				BackColor_mR = r;
-				BackColor_mG = g;
-				BackColor_mB = b;
-
-				return TRUE;
-			}
-
-			//½Ã°£ Á¶Àý
-			len = rsCompString( "/time_offset" , szMessage );
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				lpBuff = rsGetWord( szBuff , lpBuff );
-				cnt = atoi(szBuff);
-
-				dwGameTimeOffset = cnt;
-				return TRUE;
-			}
-
-			//°æÇèÄ¡ ¾÷
-			len = rsCompString( "/expup" , szMessage );
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				lpBuff = rsGetWord( szBuff , lpBuff );
-				cnt = atoi(szBuff);
-
-				AddExp( cnt );
-
-				wsprintf(szBuff, ">( %d )" , cnt );
-				AddChatBuff( szBuff );
-				return TRUE;
-			}
-
-			//¸ó½ºÅÍ ´ë»ç ÀÔ·Â
-			len = rsCompString( "/talk" , szMessage );
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				len = lstrlen( lpBuff );
-				for(cnt=0;cnt<len;cnt++) {
-					if ( lpBuff[0]==0 ) break;
-					if ( lpBuff[0]!=' ' ) {
-
-						if ( chrEachMaster && chrEachMaster->dwObjectSerial ) {
-							wsprintf( szBuff+8 , "/talk %d %s" , chrEachMaster->dwObjectSerial , lpBuff );
-							len = lstrlen( szBuff+8 )+10;
-							((int *)szBuff)[0] = len;
-							((int *)szBuff)[1] = smTRANSCODE_CHATMESSAGE;
-							lpsmSock = GetAreaServerSock();		//Áö¿ª¼­¹ö ¼ÒÄÏÀ» Ã£À½
-							if ( lpsmSock ) 
-								lpsmSock->Send2( szBuff , len , TRUE );
-						}
-						return TRUE;
-					}
-					lpBuff++;
-				}
-			}
-
-			//¸ó½ºÅÍ Èí¼ö Á¶ÀÛ
-			len = rsCompString( "/set_absorb" , szMessage );
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				len = lstrlen( lpBuff );
-				for(cnt=0;cnt<len;cnt++) {
-					if ( lpBuff[0]==0 ) break;
-					if ( lpBuff[0]!=' ' ) {
-
-						if ( chrEachMaster && chrEachMaster->dwObjectSerial ) {
-							wsprintf( szBuff+8 , "/set_absorb %d %s" , chrEachMaster->dwObjectSerial , lpBuff );
-							len = lstrlen( szBuff+8 )+10;
-							((int *)szBuff)[0] = len;
-							((int *)szBuff)[1] = smTRANSCODE_CHATMESSAGE;
-							lpsmSock = GetAreaServerSock();		//Áö¿ª¼­¹ö ¼ÒÄÏÀ» Ã£À½
-							if ( lpsmSock ) 
-								lpsmSock->Send2( szBuff , len , TRUE );
-						}
-						return TRUE;
-					}
-					lpBuff++;
-				}
-			}
-
-			//ÁÂÇ¥°­Á¦º¯°æ
-			len = rsCompString( "/player_location" , szMessage );
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				lpBuff = rsGetWord( szBuff , lpBuff );
-				lpCurPlayer->pX = atoi(szBuff)*fONE;
-				lpBuff = rsGetWord( szBuff , lpBuff );
-				lpCurPlayer->pY = atoi(szBuff)*fONE;
-				lpBuff = rsGetWord( szBuff , lpBuff );
-				lpCurPlayer->pZ = atoi(szBuff)*fONE;
-				return TRUE;
-			}
-
-
-			//µ¿¿µ»ó Àç»ý
-			len = rsCompString( "/play_movie" , szMessage );
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				len = lstrlen( lpBuff );
-				for(cnt=0;cnt<len;cnt++) {
-					if ( lpBuff[0]==0 ) break;
-					if ( lpBuff[0]!=' ' ) {
-						return Play_ParkPlayer( lpBuff , 200, 200, 320 , 240 , 120 );
-					}
-					lpBuff++;
-				}
-			}
-
-			//µ¿¿µ»ó ÁßÁö
-			len = rsCompString( "/stop_movie" , szMessage );
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				len = lstrlen( lpBuff );
-				for(cnt=0;cnt<len;cnt++) {
-					if ( lpBuff[0]==0 ) break;
-					if ( lpBuff[0]!=' ' ) {
-						return Stop_ParkPlayer();
-					}
-					lpBuff++;
-				}
-			}
-
-
-			//´Ù¸¥ Ä³¸¯ÅÍ ·Îµå
-			len = rsCompString( "/load" , szMessage );
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				len = lstrlen( lpBuff );
-				for(cnt=0;cnt<len;cnt++) {
-					if ( lpBuff[0]==0 ) break;
-					if ( lpBuff[0]!=' ' ) {
-						return SendCopyOtherUser( lpBuff , 0);
-					}
-					lpBuff++;
-				}
-			}
-
-			//¸ö ÆÄÀÏ ¹Ù²Ù±â
-			len = rsCompString( "/body" , szMessage );
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				len = lstrlen( lpBuff );
-				for(cnt=0;cnt<len;cnt++) {
-					if ( lpBuff[0]==0 ) break;
-					if ( lpBuff[0]!=' ' ) {
-						SetPlayerBodyPattern( lpBuff );		//¸ö ÆÄÀÏ ¹Ù²Ù±â
-						return TRUE;
-					}
-					lpBuff++;
-				}
-			}
-
-			//¸ö ÆÄÀÏ ¹Ù²Ù±â
-			len = rsCompString( "/mymodel" , szMessage );
-			if ( len && lpCurPlayer->smCharInfo.Level<=3 ) {
-				lpBuff =  szMessage + len;
-				len = lstrlen( lpBuff );
-				for(cnt=0;cnt<len;cnt++) {
-					if ( lpBuff[0]==0 ) break;
-					if ( lpBuff[0]!=' ' ) {
-						SetPlayerPattern( lpBuff );		//¸ðµ¨ ÆÄÀÏ ¹Ù²Ù±â
-						return TRUE;
-					}
-					lpBuff++;
-				}
-			}
-
-			//¸Ó¸® ÆÄÀÏ ¹Ù²Ù±â
-			len = rsCompString( "/myhairmodel" , szMessage );
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				len = lstrlen( lpBuff );
-				for(cnt=0;cnt<len;cnt++) {
-					if ( lpBuff[0]==0 ) break;
-					if ( lpBuff[0]!=' ' ) {
-						ChangeHairModel( atoi(lpBuff) );
-						return TRUE;
-					}
-					lpBuff++;
-				}
-			}
-
-
-			//Áö¿öÁø Ä³¸¯ÅÍ ·Îµå
-			len = rsCompString( "/deload" , szMessage );
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				len = lstrlen( lpBuff );
-				for(cnt=0;cnt<len;cnt++) {
-					if ( lpBuff[0]==0 ) break;
-					if ( lpBuff[0]!=' ' ) {
-						return SendCopyOtherUser( lpBuff , 1 );
-					}
-					lpBuff++;
-				}
-			}
-
-			//¹é¾÷ Ä³¸¯ÅÍ ·Îµå
-			len = rsCompString( "/baload" , szMessage );
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				len = lstrlen( lpBuff );
-				for(cnt=0;cnt<len;cnt++) {
-					if ( lpBuff[0]==0 ) break;
-					if ( lpBuff[0]!=' ' ) {
-						return SendCopyOtherUser( lpBuff , 2 );
-					}
-					lpBuff++;
-				}
-			}
-
-			//Ä³¸¯ÅÍ ÀÌ¸§ º¯°æ
-			len = rsCompString( "/ren" , szMessage );
-			if ( len && AdminCharDisable ) {
-				lpBuff =  szMessage + len;
-				len = lstrlen( lpBuff );
-				for(cnt=0;cnt<len;cnt++) {
-					if ( lpBuff[0]==0 ) break;
-					if ( lpBuff[0]!=' ' ) {
-						lstrcpy( lpCurPlayer->smCharInfo.szName , lpBuff );
-						ReformCharForm();
-						return TRUE;
-					}
-					lpBuff++;
-				}
-			}
-
-			//´Ù¸¥ ¸ÊÀ¸·Î ÀÌµ¿
-			len = rsCompString( "/ÇÊµåº¯°æ" , szMessage );
-			if (!len)
-				len = rsCompString( "/field" , szMessage );
-
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				len = lstrlen( lpBuff );
-				for(cnt=0;cnt<len;cnt++) {
-					if ( lpBuff[0]==0 ) break;
-					if ( lpBuff[0]!=' ' ) {
-						//return SendCopyOtherUser(lpBuff);
-
-						num = atoi(lpBuff);
-
-						//¿öÇÁ ÇÊµå
-						WarpField2( num );
-
-/*
-						//ÇÊµå ¿öÇÁ
-						if ( WarpField( num , &x,&z ) ) {
-							lpCurPlayer->SetPosi( x,0,z  ,0,0,0 );
-							TraceCameraPosi.x = lpCurPlayer->pX;
-							TraceCameraPosi.y = lpCurPlayer->pY;
-							TraceCameraPosi.z = lpCurPlayer->pZ;
-							TraceTargetPosi.x = lpCurPlayer->pX;
-							TraceTargetPosi.y = lpCurPlayer->pY;
-							TraceTargetPosi.z = lpCurPlayer->pZ;
-	
-							//¹Ù´Ú È®ÀÎ
-							lpCurPlayer->OnStageField = -1;
-							if ( smGameStage[0] ) {
-								cnt = smGameStage[0]->GetFloorHeight( lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ ,lpCurPlayer->Pattern->SizeHeight );	
-								lpCurPlayer->OnStageField = 0;
-							}
-							if ( cnt==CLIP_OUT && smGameStage[1] ) {
-								lpCurPlayer->OnStageField = 1;
-							}
-						}
-*/
-						return TRUE;
-					}
-					lpBuff++;
-				}
-			}
-
-			//if ( AdminCharDisable ) {
-				//°­Á¦ ÀúÀå
-				len = rsCompString( "/save" , szMessage );
-				if ( len ) {
-					cnt = AdminCharDisable;
-					AdminCharDisable = FALSE;
-					SaveGameData();
-					AdminCharDisable = cnt;
-				}
-			//}
-
-			//´Ù¸¥ Ä³¸¯ÅÍ ¸Ó¸®º¯°æ
-			len = rsCompString( "/face_path" , szMessage );
-			if ( len ) {
-				lpBuff =  szMessage + len;
-				len = lstrlen( lpBuff );
-				for(cnt=0;cnt<len;cnt++) {
-					if ( lpBuff[0]==0 ) break;
-					if ( lpBuff[0]!=' ' ) {
-						//return SendCopyOtherUser( lpBuff , 0);
-						//lstrcpy( lpCurPlayer->smCharInfo.szModelName2 , lpBuff );
-
-
-						FILE* fp = nullptr; fopen_s( &fp,  lpBuff , "rb" );
-						if ( !fp ) return FALSE;
-						fclose (fp);
-
-						//¾ó±¼ º¯°æÇÑ°Å Àû¿ë
-						SetJobFace( lpBuff );
-						return TRUE;
-					}
-					lpBuff++;
-				}
-			}
-
-			if ( AreaServerMode ) {
-				len = rsCompString( "/show" , szMessage );
-				if ( !len ) len = rsCompString( "~/show" , szMessage );
-				if ( len ) {
-					ServerHideMode = FALSE;
-				}
-				len = rsCompString( "/hide" , szMessage );
-				if ( !len ) len = rsCompString( "~/hide" , szMessage );
-				if ( len ) {
-					ServerHideMode = TRUE;
-				}
-			}
-
-		}
-#endif
-
-	}
-
-	if ( !smConfig.DebugMode && szMessage[0]!='/' ) {
-		if ( (dwPlayTime-dwLastChatTime)<5000 && lstrcmpi( szLastChatMessage , szMessage )==0 ) {
-			//5ÃÊ ¾È¿¡ °°Àº ¸Þ¼¼Áö ¿¬¼ÓÀ¸·Î º¸³¾¼ö ¾ø°Ô ¸·À½
-			return TRUE;
-		}
-	}
-
-	lstrcpy( szLastChatMessage , szMessage );
-	dwLastChatTime = dwPlayTime;
-
-#ifdef _LANGUAGE_KOREAN
-	if ( (szMessage[0]=='/' && ( szMessage[1]==';' || szMessage[1]==':' )) ||
-		(szMessage[1]=='/' && ( szMessage[2]==';' || szMessage[2]==':' )) ) {
-			//±Ó¸» ÇÊÅÍ¸µ
-
-			cnt = 0;
-			lpMsg = szMessage;
-			while(1) {
-				if ( !szMessage[cnt] ) break;
-				if ( szMessage[cnt]==' ' ) {
-					lpMsg = &szMessage[cnt+1];
-					break;
-				}
-				cnt++;
-			}
-			ConvertString(lpMsg,lstrlen(lpMsg)+16);
-		}
-#endif
-#ifdef _LANGUAGE_CHINESE
-	if ( (szMessage[0]=='/' && ( szMessage[1]==';' || szMessage[1]==':' )) ||
-		(szMessage[1]=='/' && ( szMessage[2]==';' || szMessage[2]==':' )) ) {
-			//±Ó¸» ÇÊÅÍ¸µ
-
-			cnt = 0;
-			lpMsg = szMessage;
-			while(1) {
-				if ( !szMessage[cnt] ) break;
-				if ( szMessage[cnt]==' ' ) {
-					lpMsg = &szMessage[cnt+1];
-					break;
-				}
-				cnt++;
-			}
-			ConvertStringTHAI(lpMsg,lstrlen(lpMsg)+16);
-		}
-#endif
-//ÅÂ±¹¼öÁ¤
-#ifdef _LANGUAGE_THAI
-	if ( (szMessage[0]=='/' && ( szMessage[1]==';' || szMessage[1]==':' )) ||
-		(szMessage[1]=='/' && ( szMessage[2]==';' || szMessage[2]==':' )) ) {
-			//±Ó¸» ÇÊÅÍ¸µ
-
-			cnt = 0;
-			lpMsg = szMessage;
-			while(1) {
-				if ( !szMessage[cnt] ) break;
-				if ( szMessage[cnt]==' ' ) {
-					lpMsg = &szMessage[cnt+1];
-					break;
-				}
-				cnt++;
-			}
-			ConvertStringTHAI(lpMsg,lstrlen(lpMsg)+16);
-		}
-#endif
-
-	szMessage[78] = 0;
-	return rsMainServer.SendChat( szMessage );
+	Log::Debug("SendChatMessageToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 
 //Ã¤ÆÃ ½ºÅ©·Ñ Æ÷ÀÎÆ®
 int ChatScrollPoint = 0;
 
 //Ã¤ÆÃ Á¤º¸ È­¸é¿¡ Ç¥½Ã
-int DisplayChatMessage( HDC hdc , int x, int y , int MaxLine )
+int DisplayChatMessage(HDC hdc, int x, int y, int MaxLine)
 {
 	int cnt;
 	int chatCnt;
 	char *lpString;
-	int start,end;
+	int start, end;
 
-	if ( ChatDispCnt==0 ) return FALSE;
+	if (ChatDispCnt == 0) return FALSE;
 
-	if ( ChatScrollPoint>CHATBUFF_MASK )
-		ChatScrollPoint=CHATBUFF_MASK;
-	if ( ChatScrollPoint<0 )
-		ChatScrollPoint=0;
+	if (ChatScrollPoint > CHATBUFF_MASK)
+		ChatScrollPoint = CHATBUFF_MASK;
+	if (ChatScrollPoint < 0)
+		ChatScrollPoint = 0;
 
-	start = ChatBuffCnt-MaxLine-ChatScrollPoint;
-	end = ChatBuffCnt-ChatScrollPoint;
+	start = ChatBuffCnt - MaxLine - ChatScrollPoint;
+	end = ChatBuffCnt - ChatScrollPoint;
 
-	for( cnt=start;cnt<end;cnt++) {
-		if ( cnt>=0 ) {
+	for (cnt = start; cnt < end; cnt++)
+	{
+		if (cnt >= 0)
+		{
 			chatCnt = cnt & CHATBUFF_MASK;
 			lpString = ChatBuff[chatCnt].szMessage;
 
-			SetTextColor( hdc, RGB(0, 0, 0) );
-			dsTextLineOut( hdc , x+1, y+1 , lpString , lstrlen( lpString ) );
-			if ( ChatBuff[chatCnt].dwIP==dwMyIP ) 
-				SetTextColor( hdc, RGB(255, 128, 96) );
-			else {
-				SetTextColor( hdc, RGB(255, 255, 128) );
+			SetTextColor(hdc, RGB(0, 0, 0));
+			dsTextLineOut(hdc, x + 1, y + 1, lpString, lstrlen(lpString));
+			if (ChatBuff[chatCnt].dwIP == dwMyIP)
+				SetTextColor(hdc, RGB(255, 128, 96));
+			else
+			{
+				SetTextColor(hdc, RGB(255, 255, 128));
 
-				switch(ChatBuff[chatCnt].dwIP) {
-				case 1:
-					SetTextColor( hdc, RGB(255, 128, 96) );
-					break;
-				case 2:
-					SetTextColor( hdc, RGB(96, 256, 255) );
-					break;
+				switch (ChatBuff[chatCnt].dwIP)
+				{
+					case 1:
+						SetTextColor(hdc, RGB(255, 128, 96));
+						break;
+					case 2:
+						SetTextColor(hdc, RGB(96, 256, 255));
+						break;
 				}
 			}
-			dsTextLineOut( hdc , x, y , lpString , lstrlen( lpString ) );
+			dsTextLineOut(hdc, x, y, lpString, lstrlen(lpString));
 		}
-		y+=16;
+		y += 16;
 	}
 
 	return TRUE;
@@ -5234,84 +1874,89 @@ int DisplayChatMessage( HDC hdc , int x, int y , int MaxLine )
 //250 , 60 ,342 , 70
 
 //ÄÆÆ®ÇÒ ¶óÀÎ Ä«¿îÅÍ
-int GetNextLineCount( char *szString , int LineMax )
+int GetNextLineCount(char *szString, int LineMax)
 {
 	int cnt;
 	int len;
 	char *lp;
 
-	len = lstrlen( szString );
-	if ( len<=LineMax ) return 0;
+	len = lstrlen(szString);
+	if (len <= LineMax) return 0;
 
 	lp = szString;
 
 	cnt = 0;
 
-	while(1) {
+	while (1)
+	{
 		//2¹ÙÀÌÆ® ÄÚµå È®ÀÎ
-		if ( CheckCode_2Byte(lp)==2 ) {
-			cnt+=2;
-			lp+=2;
+		if (CheckCode_2Byte(lp) == 2)
+		{
+			cnt += 2;
+			lp += 2;
 		}
-		else {
+		else
+		{
 			cnt++;
 			lp++;
 		}
 
-		if ( cnt>(LineMax-2) ) break;
+		if (cnt > (LineMax - 2)) break;
 	}
 
 
 	return cnt;
 }
 
-int SetIpColor( HDC hdc , DWORD dwIP )
+int SetIpColor(HDC hdc, DWORD dwIP)
 {
 
-	if ( dwIP==dwMyIP ) {
-		SetTextColor( hdc, RGB(255, 128, 96) );
+	if (dwIP == dwMyIP)
+	{
+		SetTextColor(hdc, RGB(255, 128, 96));
 		return TRUE;
 	}
 
-	switch( dwIP ) {
-	case 0:
-		SetTextColor( hdc, RGB(255, 128, 96) );				//¼­¹ö¸Þ¼¼Áö (ºÓÀº±Û¾¾)
-		break;
-	case 1:
-//		SetTextColor( hdc, RGB(255, 190, 150) );
-		SetTextColor( hdc, RGB(150, 190, 255) );			//±Ó¸»
-		break;
-	case 2:
-//		SetTextColor( hdc, RGB(255, 140, 120) );
-		SetTextColor( hdc, RGB(150, 190, 255) );			//
-		break;
-	case 3:
-		SetTextColor( hdc, RGB(230, 160, 255) );			//°øÁö
-		break;
-	case 4:
-		SetTextColor( hdc, RGB(200, 255, 0 ) );				//µ¿·áÃ¤ÆÃ
-		break;
-	case 5:
-		SetTextColor( hdc, RGB(255, 255, 80 ) );			//Å¬·£Ã¤ÆÃ
-		break;
-	case 6:
-		SetTextColor( hdc, RGB(200, 255, 255 ) );			//°Å·¡Ã¤ÆÃ
-		break;
+	switch (dwIP)
+	{
+		case 0:
+			SetTextColor(hdc, RGB(255, 128, 96));				//¼­¹ö¸Þ¼¼Áö (ºÓÀº±Û¾¾)
+			break;
+		case 1:
+			//		SetTextColor( hdc, RGB(255, 190, 150) );
+			SetTextColor(hdc, RGB(150, 190, 255));			//±Ó¸»
+			break;
+		case 2:
+			//		SetTextColor( hdc, RGB(255, 140, 120) );
+			SetTextColor(hdc, RGB(150, 190, 255));			//
+			break;
+		case 3:
+			SetTextColor(hdc, RGB(230, 160, 255));			//°øÁö
+			break;
+		case 4:
+			SetTextColor(hdc, RGB(200, 255, 0));				//µ¿·áÃ¤ÆÃ
+			break;
+		case 5:
+			SetTextColor(hdc, RGB(255, 255, 80));			//Å¬·£Ã¤ÆÃ
+			break;
+		case 6:
+			SetTextColor(hdc, RGB(200, 255, 255));			//°Å·¡Ã¤ÆÃ
+			break;
 
-	case 9:
-		SetTextColor( hdc, RGB(200, 128, 128 ) );			//º¸Á¶ Á¤º¸Ã¢
-		break;
+		case 9:
+			SetTextColor(hdc, RGB(200, 128, 128));			//º¸Á¶ Á¤º¸Ã¢
+			break;
 
-	default:
-//		SetTextColor( hdc, RGB(180, 160, 255) );
-		SetTextColor( hdc, RGB(255, 255, 192) );
+		default:
+			//		SetTextColor( hdc, RGB(180, 160, 255) );
+			SetTextColor(hdc, RGB(255, 255, 192));
 	}
-/*
-	if ( dwIP>=0x010101 ) {
-		//Custom Color
-		SetTextColor( hdc, dwIP );
-	}
-*/
+	/*
+		if ( dwIP>=0x010101 ) {
+			//Custom Color
+			SetTextColor( hdc, dwIP );
+		}
+	*/
 
 	return TRUE;
 }
@@ -5321,13 +1966,14 @@ int	DispChatMsgHeight = 6;			//ÃÖ±Ù Ç¥½ÃµÈ Ã¤ÆÃÃ¢ ÁÙ ³ôÀÌ
 int	DispChatMode = 0;
 
 //Ã¤ÆÃÃ¢ ÇÊÅÍ¸µ
-int	SetChatMsgFilter( int mode )
+int	SetChatMsgFilter(int mode)
 {
 
 	DisplayChatFilter = -1;
 	ChatScrollPoint = 0;
 
-	switch( mode ) {
+	switch (mode)
+	{
 		case 0:			//ÀüÃ¼
 			DisplayChatFilter = -1;
 			break;
@@ -5356,48 +2002,53 @@ int	SetChatMsgFilter( int mode )
 
 int ChatBuffSort()
 {
-	int cnt,cnt2;
-	int mCnt,nCnt;
+	int cnt, cnt2;
+	int mCnt, nCnt;
 	int	Col;
 
-	if ( ChatBuffCnt<=ChatBuffCompCnt ) return FALSE;
+	if (ChatBuffCnt <= ChatBuffCompCnt) return FALSE;
 
-	for( cnt=ChatBuffCompCnt;cnt<ChatBuffCnt;cnt++ ) {
+	for (cnt = ChatBuffCompCnt; cnt < ChatBuffCnt; cnt++)
+	{
 		mCnt = cnt&CHATBUFF_MASK;
 		Col = 0;
-		switch( ChatBuff[mCnt].dwIP ) {
-		case 5:
-			Col = 1;
-			break;
-		case 4:
-			Col = 2;
-			break;
+		switch (ChatBuff[mCnt].dwIP)
+		{
+			case 5:
+				Col = 1;
+				break;
+			case 4:
+				Col = 2;
+				break;
 
-		case 6:
-			Col = 3;
-			break;
-		case 1:
-			Col = 4;
-			break;
+			case 6:
+				Col = 3;
+				break;
+			case 1:
+				Col = 4;
+				break;
 
-		case 9:
-			Col = 5;
-			break;
+			case 9:
+				Col = 5;
+				break;
 		}
-		nCnt = ChatBuffCnt2[Col]&CHATBUFF_MASK;
-		memcpy( &ChatBuff2[Col][nCnt] , &ChatBuff[mCnt] , sizeof(CHATBUFF) );
+		nCnt = ChatBuffCnt2[Col] & CHATBUFF_MASK;
+		memcpy(&ChatBuff2[Col][nCnt], &ChatBuff[mCnt], sizeof(CHATBUFF));
 		ChatBuffCnt2[Col]++;
 
-		if ( Col>0 && Col<5 ) {
-			nCnt = ChatBuffCnt2[0]&CHATBUFF_MASK;
-			memcpy( &ChatBuff2[0][nCnt] , &ChatBuff[mCnt] , sizeof(CHATBUFF) );
+		if (Col > 0 && Col < 5)
+		{
+			nCnt = ChatBuffCnt2[0] & CHATBUFF_MASK;
+			memcpy(&ChatBuff2[0][nCnt], &ChatBuff[mCnt], sizeof(CHATBUFF));
 			ChatBuffCnt2[0]++;
 		}
 
-		if ( Col==0 && ChatBuff[mCnt].dwIP<10 ) {
-			for(cnt2=1;cnt2<5;cnt2++) {
-				nCnt = ChatBuffCnt2[cnt2]&CHATBUFF_MASK;
-				memcpy( &ChatBuff2[cnt2][nCnt] , &ChatBuff[mCnt] , sizeof(CHATBUFF) );
+		if (Col == 0 && ChatBuff[mCnt].dwIP < 10)
+		{
+			for (cnt2 = 1; cnt2 < 5; cnt2++)
+			{
+				nCnt = ChatBuffCnt2[cnt2] & CHATBUFF_MASK;
+				memcpy(&ChatBuff2[cnt2][nCnt], &ChatBuff[mCnt], sizeof(CHATBUFF));
 				ChatBuffCnt2[cnt2]++;
 			}
 		}
@@ -5408,17 +2059,17 @@ int ChatBuffSort()
 	return TRUE;
 }
 //Ã¤ÆÃ Á¤º¸ È­¸é¿¡ Ç¥½Ã ( º¸Á¶ )
-int DisplayChatMessage3( HDC hdc , int x, int y , int StrMax , int LineMax , int Mode )
+int DisplayChatMessage3(HDC hdc, int x, int y, int StrMax, int LineMax, int Mode)
 {
 	int result;
 	int ModeBackup = DispChatMode;
-	int	ScrollBackup = 	ChatScrollPoint;
+	int	ScrollBackup = ChatScrollPoint;
 
 	DispChatMode = Mode;
-	if ( LineMax<=6 )
+	if (LineMax <= 6)
 		ChatScrollPoint = 0;
 
-	result = DisplayChatMessage2( hdc , x, y , StrMax , LineMax );
+	result = DisplayChatMessage2(hdc, x, y, StrMax, LineMax);
 
 	DispChatMode = ModeBackup;
 	ChatScrollPoint = ScrollBackup;
@@ -5426,7 +2077,7 @@ int DisplayChatMessage3( HDC hdc , int x, int y , int StrMax , int LineMax , int
 }
 
 //Ã¤ÆÃ Á¤º¸ È­¸é¿¡ Ç¥½Ã
-int DisplayChatMessage2( HDC hdc , int x, int y , int StrMax , int LineMax )
+int DisplayChatMessage2(HDC hdc, int x, int y, int StrMax, int LineMax)
 {
 	int cnt;
 	int chatCnt;
@@ -5434,10 +2085,10 @@ int DisplayChatMessage2( HDC hdc , int x, int y , int StrMax , int LineMax )
 	int LineCnt;
 	int CutPos;
 	int len;
-	int start,end;
+	int start, end;
 	int fl_Count;
 
-	DWORD shColor = RGB( 74,74,74 );
+	DWORD shColor = RGB(74, 74, 74);
 
 
 	//if ( ChatDispCnt==0 ) return FALSE;
@@ -5445,193 +2096,199 @@ int DisplayChatMessage2( HDC hdc , int x, int y , int StrMax , int LineMax )
 
 	LineCnt = 0;
 
-	if ( ChatScrollPoint>(CHATBUFF_MAX-32) )
-		ChatScrollPoint=(CHATBUFF_MAX-32);
-	if ( ChatScrollPoint<0 )
-		ChatScrollPoint=0;
+	if (ChatScrollPoint > (CHATBUFF_MAX - 32))
+		ChatScrollPoint = (CHATBUFF_MAX - 32);
+	if (ChatScrollPoint < 0)
+		ChatScrollPoint = 0;
 
 	fl_Count = DispChatMode;
-	if ( fl_Count<0 ) fl_Count = 0;
+	if (fl_Count < 0) fl_Count = 0;
 
-	start = ChatBuffCnt2[fl_Count]-1-ChatScrollPoint;
-	end = ChatBuffCnt2[fl_Count]-32-ChatScrollPoint;
+	start = ChatBuffCnt2[fl_Count] - 1 - ChatScrollPoint;
+	end = ChatBuffCnt2[fl_Count] - 32 - ChatScrollPoint;
 
 
-//	for( cnt=ChatBuffCnt-1;cnt>=ChatBuffCnt-32;cnt--) {
+	//	for( cnt=ChatBuffCnt-1;cnt>=ChatBuffCnt-32;cnt--) {
 
 	DispChatMsgHeight = 0;
 
-	for( cnt=start;cnt>=end;cnt--) {
-		if ( cnt>=0 ) {
+	for (cnt = start; cnt >= end; cnt--)
+	{
+		if (cnt >= 0)
+		{
 			chatCnt = cnt & CHATBUFF_MASK;
 
-//#ifdef _LANGUAGE_CHINESE //Áß±¹ Ã¤ÆÃÃ¢ Æ¯Á¤¾ð¾î »ç¿ë±ÝÁö
-//			lpString = ChatBuff2[fl_Count][chatCnt].szMessage;
-//			ConvertStringTHAI(lpString, lstrlen(lpString)+16);
-//#else
+			//#ifdef _LANGUAGE_CHINESE //Áß±¹ Ã¤ÆÃÃ¢ Æ¯Á¤¾ð¾î »ç¿ë±ÝÁö
+			//			lpString = ChatBuff2[fl_Count][chatCnt].szMessage;
+			//			ConvertStringTHAI(lpString, lstrlen(lpString)+16);
+			//#else
 			lpString = ChatBuff2[fl_Count][chatCnt].szMessage;
-//#endif
+			//#endif
 
-			//if ( DisplayChatFilter<0 || DisplayChatFilter==ChatBuff[chatCnt].dwIP || ChatBuff[chatCnt].dwIP==0 || ChatBuff[chatCnt].dwIP==3 ) {
-
-
-				DispChatMsgHeight++;			//³ôÀÌ ÃøÁ¤¿ë
-
-				len = lstrlen( lpString );
-				if ( len>StrMax ) {
-					//ÄÆÆ®ÇÒ ¶óÀÎ Ä«¿îÅÍ
-					CutPos = GetNextLineCount( lpString , StrMax );
-
-					SetTextColor( hdc, shColor );
-					dsTextLineOut( hdc , x-1, y-1 , lpString+CutPos , len-CutPos );
-					SetIpColor( hdc ,  ChatBuff2[fl_Count][chatCnt].dwIP );
-					dsTextLineOut( hdc , x, y , lpString+CutPos , len-CutPos );
-
-					y-=12;
-					LineCnt++;
-					if ( LineCnt>=LineMax ) break;
-
-	#ifdef	_LANGUAGE_ENGLISH
-					//¿µ¹® ÁÙ¹Ù²Þ½Ã '-' Ãß°¡
-					char szStrBuff[256];
-
-					memcpy( szStrBuff , lpString , CutPos );
-					szStrBuff[CutPos] = 0;
+						//if ( DisplayChatFilter<0 || DisplayChatFilter==ChatBuff[chatCnt].dwIP || ChatBuff[chatCnt].dwIP==0 || ChatBuff[chatCnt].dwIP==3 ) {
 
 
-					if ( lpString[CutPos]>' ' && lpString[CutPos+1]>' ' ) {
-						szStrBuff[CutPos] = '-';
-						szStrBuff[CutPos+1] = 0;
-					}
+			DispChatMsgHeight++;			//³ôÀÌ ÃøÁ¤¿ë
 
-					len = lstrlen(szStrBuff);
+			len = lstrlen(lpString);
+			if (len > StrMax)
+			{
+				//ÄÆÆ®ÇÒ ¶óÀÎ Ä«¿îÅÍ
+				CutPos = GetNextLineCount(lpString, StrMax);
 
-					SetTextColor( hdc, shColor );
-					dsTextLineOut( hdc , x-1, y-1 , szStrBuff , len );
-					SetIpColor( hdc ,  ChatBuff2[fl_Count][chatCnt].dwIP );
-					dsTextLineOut( hdc , x, y , szStrBuff , len );
+				SetTextColor(hdc, shColor);
+				dsTextLineOut(hdc, x - 1, y - 1, lpString + CutPos, len - CutPos);
+				SetIpColor(hdc, ChatBuff2[fl_Count][chatCnt].dwIP);
+				dsTextLineOut(hdc, x, y, lpString + CutPos, len - CutPos);
+
+				y -= 12;
+				LineCnt++;
+				if (LineCnt >= LineMax) break;
+
+#ifdef	_LANGUAGE_ENGLISH
+				//¿µ¹® ÁÙ¹Ù²Þ½Ã '-' Ãß°¡
+				char szStrBuff[256];
+
+				memcpy(szStrBuff, lpString, CutPos);
+				szStrBuff[CutPos] = 0;
+
+
+				if (lpString[CutPos] > ' ' && lpString[CutPos + 1] > ' ')
+				{
+					szStrBuff[CutPos] = '-';
+					szStrBuff[CutPos + 1] = 0;
+				}
+
+				len = lstrlen(szStrBuff);
+
+				SetTextColor(hdc, shColor);
+				dsTextLineOut(hdc, x - 1, y - 1, szStrBuff, len);
+				SetIpColor(hdc, ChatBuff2[fl_Count][chatCnt].dwIP);
+				dsTextLineOut(hdc, x, y, szStrBuff, len);
 #else
 #ifdef	_LANGUAGE_ARGENTINA
-					// ¾Æ¸£ÇîÆ¼³ª ÁÙ¹Ù²Þ kyle
-					char szStrBuff[256];
+				// ¾Æ¸£ÇîÆ¼³ª ÁÙ¹Ù²Þ kyle
+				char szStrBuff[256];
 
-					memcpy( szStrBuff , lpString , CutPos );
-					szStrBuff[CutPos] = 0;
+				memcpy(szStrBuff, lpString, CutPos);
+				szStrBuff[CutPos] = 0;
 
 
-					if ( lpString[CutPos]>' ' && lpString[CutPos+1]>' ' ) {
-						szStrBuff[CutPos] = '-';
-						szStrBuff[CutPos+1] = 0;
-					}
-
-					len = lstrlen(szStrBuff);
-
-					SetTextColor( hdc, shColor );
-					dsTextLineOut( hdc , x-1, y-1 , szStrBuff , len );
-					SetIpColor( hdc ,  ChatBuff2[fl_Count][chatCnt].dwIP );
-					dsTextLineOut( hdc , x, y , szStrBuff , len );
-#else
-					SetTextColor( hdc, shColor );
-					dsTextLineOut( hdc , x-1, y-1 , lpString , CutPos );
-					SetIpColor( hdc ,  ChatBuff2[fl_Count][chatCnt].dwIP );
-#ifdef _LANGUAGE_BRAZIL
-					char semi[MAX_PATH],presemi[MAX_PATH],backsemi[MAX_PATH];
-					ZeroMemory(presemi,MAX_PATH);
-					ZeroMemory(backsemi,MAX_PATH);
-					bool bsemi=0;
-					strcpy_s(semi,lpString);
-					int k=0, prelen=0, lenth=0;
-					lenth =strlen(semi);
-					//¹®ÀÚ¿­ Â÷·Ê´ë·Î °Ë»ç
-					for(int i=0; i<lenth;i++)
-					{
-						backsemi[k]=semi[i];
-						k++;
-						if((bsemi==0) && (semi[i]==':'))
-						{
-							strcpy_s(presemi,backsemi);
-							ZeroMemory(backsemi,MAX_PATH);
-							bsemi++;
-							k=0;
-						}
-					}
-					//:ÀÖ¾úÀ¸¸é »ö±òÀ» ¹Ù²ÙÀÚ
-					if(bsemi)
-					{
-						SIZE size;
-						//:¾Õ¹®ÀÚ¿­
-						prelen=strlen(presemi);
-						SetTextColor( hdc, RGB(100,255,50) );
-						dsTextLineOut( hdc , x , y , presemi , prelen );
-						GetTextExtentPoint(hdc, presemi, prelen, &size);
-						//µÚ¹®ÀÚ¿­
-						int j=0;
-						j=x+size.cx;
-						SetIpColor( hdc ,  ChatBuff2[fl_Count][chatCnt].dwIP );
-						dsTextLineOut( hdc , j , y , backsemi , CutPos-prelen );
-					}
-					else dsTextLineOut( hdc , x, y , lpString , CutPos );
-#else
-					dsTextLineOut( hdc , x, y , lpString , CutPos );
-#endif
-#endif
-#endif
-
-					y-=12;
-					LineCnt++;
-					if ( LineCnt>=LineMax ) break;
-					
+				if (lpString[CutPos] > ' ' && lpString[CutPos + 1] > ' ')
+				{
+					szStrBuff[CutPos] = '-';
+					szStrBuff[CutPos + 1] = 0;
 				}
-				else {
 
-					SetTextColor( hdc, shColor );
-					dsTextLineOut( hdc , x-1, y-1 , lpString , len );
-					SetIpColor( hdc ,  ChatBuff2[fl_Count][chatCnt].dwIP );
-#ifdef _LANGUAGE_BRAZIL
-					char semi[MAX_PATH],presemi[MAX_PATH],backsemi[MAX_PATH];
-					ZeroMemory(presemi,MAX_PATH);
-					ZeroMemory(backsemi,MAX_PATH);
-					bool bsemi=0;
-					strcpy_s(semi,lpString);
-					int k=0, prelen=0, lenth=0;
-					lenth =strlen(semi);
-					//¹®ÀÚ¿­ Â÷·Ê´ë·Î °Ë»ç
-					for(int i=0; i<lenth;i++)
-					{
-						backsemi[k]=semi[i];
-						k++;
-						if((bsemi==0) && (semi[i]==':'))
-						{
-							strcpy_s(presemi,backsemi);
-							ZeroMemory(backsemi,MAX_PATH);
-							bsemi++;
-							k=0;
-						}
-					}
-					//:ÀÖ¾úÀ¸¸é »ö±òÀ» ¹Ù²ÙÀÚ
-					if(bsemi)
-					{
-						SIZE size;
-						//:¾Õ¹®ÀÚ¿­
-						prelen=strlen(presemi);
-						SetTextColor( hdc, RGB(100,255,50) );
-						dsTextLineOut( hdc , x , y , presemi , prelen );
-						GetTextExtentPoint(hdc, presemi, prelen, &size);
-						//µÚ¹®ÀÚ¿­
-						int j=0;
-						j=x+size.cx;
-						SetIpColor( hdc ,  ChatBuff2[fl_Count][chatCnt].dwIP );
-						dsTextLineOut( hdc , j , y , backsemi , strlen(backsemi) );
-					}
-					else dsTextLineOut( hdc , x, y , lpString , len );
+				len = lstrlen(szStrBuff);
+
+				SetTextColor(hdc, shColor);
+				dsTextLineOut(hdc, x - 1, y - 1, szStrBuff, len);
+				SetIpColor(hdc, ChatBuff2[fl_Count][chatCnt].dwIP);
+				dsTextLineOut(hdc, x, y, szStrBuff, len);
 #else
-					dsTextLineOut( hdc , x, y , lpString , len );
+				SetTextColor(hdc, shColor);
+				dsTextLineOut(hdc, x - 1, y - 1, lpString, CutPos);
+				SetIpColor(hdc, ChatBuff2[fl_Count][chatCnt].dwIP);
+#ifdef _LANGUAGE_BRAZIL
+				char semi[MAX_PATH], presemi[MAX_PATH], backsemi[MAX_PATH];
+				ZeroMemory(presemi, MAX_PATH);
+				ZeroMemory(backsemi, MAX_PATH);
+				bool bsemi = 0;
+				strcpy_s(semi, lpString);
+				int k = 0, prelen = 0, lenth = 0;
+				lenth = strlen(semi);
+				//¹®ÀÚ¿­ Â÷·Ê´ë·Î °Ë»ç
+				for (int i = 0; i < lenth; i++)
+				{
+					backsemi[k] = semi[i];
+					k++;
+					if ((bsemi == 0) && (semi[i] == ':'))
+					{
+						strcpy_s(presemi, backsemi);
+						ZeroMemory(backsemi, MAX_PATH);
+						bsemi++;
+						k = 0;
+					}
+				}
+				//:ÀÖ¾úÀ¸¸é »ö±òÀ» ¹Ù²ÙÀÚ
+				if (bsemi)
+				{
+					SIZE size;
+					//:¾Õ¹®ÀÚ¿­
+					prelen = strlen(presemi);
+					SetTextColor(hdc, RGB(100, 255, 50));
+					dsTextLineOut(hdc, x, y, presemi, prelen);
+					GetTextExtentPoint(hdc, presemi, prelen, &size);
+					//µÚ¹®ÀÚ¿­
+					int j = 0;
+					j = x + size.cx;
+					SetIpColor(hdc, ChatBuff2[fl_Count][chatCnt].dwIP);
+					dsTextLineOut(hdc, j, y, backsemi, CutPos - prelen);
+				}
+				else dsTextLineOut(hdc, x, y, lpString, CutPos);
+#else
+				dsTextLineOut(hdc, x, y, lpString, CutPos);
+#endif
+#endif
 #endif
 
-					y-=12;
-					LineCnt++;
-					if ( LineCnt>=LineMax ) break;
+				y -= 12;
+				LineCnt++;
+				if (LineCnt >= LineMax) break;
+
+			}
+			else
+			{
+
+				SetTextColor(hdc, shColor);
+				dsTextLineOut(hdc, x - 1, y - 1, lpString, len);
+				SetIpColor(hdc, ChatBuff2[fl_Count][chatCnt].dwIP);
+#ifdef _LANGUAGE_BRAZIL
+				char semi[MAX_PATH], presemi[MAX_PATH], backsemi[MAX_PATH];
+				ZeroMemory(presemi, MAX_PATH);
+				ZeroMemory(backsemi, MAX_PATH);
+				bool bsemi = 0;
+				strcpy_s(semi, lpString);
+				int k = 0, prelen = 0, lenth = 0;
+				lenth = strlen(semi);
+				//¹®ÀÚ¿­ Â÷·Ê´ë·Î °Ë»ç
+				for (int i = 0; i < lenth; i++)
+				{
+					backsemi[k] = semi[i];
+					k++;
+					if ((bsemi == 0) && (semi[i] == ':'))
+					{
+						strcpy_s(presemi, backsemi);
+						ZeroMemory(backsemi, MAX_PATH);
+						bsemi++;
+						k = 0;
+					}
 				}
+				//:ÀÖ¾úÀ¸¸é »ö±òÀ» ¹Ù²ÙÀÚ
+				if (bsemi)
+				{
+					SIZE size;
+					//:¾Õ¹®ÀÚ¿­
+					prelen = strlen(presemi);
+					SetTextColor(hdc, RGB(100, 255, 50));
+					dsTextLineOut(hdc, x, y, presemi, prelen);
+					GetTextExtentPoint(hdc, presemi, prelen, &size);
+					//µÚ¹®ÀÚ¿­
+					int j = 0;
+					j = x + size.cx;
+					SetIpColor(hdc, ChatBuff2[fl_Count][chatCnt].dwIP);
+					dsTextLineOut(hdc, j, y, backsemi, strlen(backsemi));
+				}
+				else dsTextLineOut(hdc, x, y, lpString, len);
+#else
+				dsTextLineOut(hdc, x, y, lpString, len);
+#endif
+
+				y -= 12;
+				LineCnt++;
+				if (LineCnt >= LineMax) break;
+			}
 			//}
 		}
 	}
@@ -5641,108 +2298,117 @@ int DisplayChatMessage2( HDC hdc , int x, int y , int StrMax , int LineMax )
 
 
 //»õ ÇÃ·¹ÀÌ¾î¿Í ¿¬°á
-int ConnectPlayer( smWINSOCK *lpsmSock )
+int ConnectPlayer(smWINSOCK *lpsmSock)
 {
 	int OthPlayerCnt;
 
-	if ( ServerMode )
-		return Serv_ConnectPlayer( lpsmSock );
+	if (ServerMode)
+		return Serv_ConnectPlayer(lpsmSock);
 
 
 	//Å©¸®Æ¼Ä® ¼½¼Ç ¼±¾ð
-	EnterCriticalSection( &cSection );
+	EnterCriticalSection(&cSection);
 
 	OthPlayerCnt = FindNewOtherPlayer();
-	if ( OthPlayerCnt>=0 ) {
+	if (OthPlayerCnt >= 0)
+	{
 		lpsmSock->ExtData1 = (void *)&chrOtherPlayer[OthPlayerCnt];
 		chrOtherPlayer[OthPlayerCnt].Init();
 		chrOtherPlayer[OthPlayerCnt].TransSendWait = 1;
 		chrOtherPlayer[OthPlayerCnt].TransSock = lpsmSock;
-		chrOtherPlayer[OthPlayerCnt].TransLastSendCnt = PlayCounter-70;
+		chrOtherPlayer[OthPlayerCnt].TransLastSendCnt = PlayCounter - 70;
 		chrOtherPlayer[OthPlayerCnt].Flag = 1;
 		chrOtherPlayer[OthPlayerCnt].smCharInfo.szName[0] = 0;
 		chrOtherPlayer[OthPlayerCnt].ActionPattern = 99;
 		chrOtherPlayer[OthPlayerCnt].Pattern = 0;
 		chrOtherPlayer[OthPlayerCnt].AutoPlayer = 0;
 
-		lpCurPlayer->SendCharInfo( lpsmSock );
-//		SendPlayerInfo( lpsmSock );
+		lpCurPlayer->SendCharInfo(lpsmSock);
+		//		SendPlayerInfo( lpsmSock );
 
 	}
 
 	//Å©¸®Æ¼Ä® ¼½¼Ç ÇØÁ¦
-	LeaveCriticalSection( &cSection );
+	LeaveCriticalSection(&cSection);
 
 	return TRUE;
 }
 
 //ÇÃ·¹ÀÌ¾î ¿¬°á ²ö¾îÁü
-int DisconnectPlayer( smWINSOCK *lpsmSock )
+int DisconnectPlayer(smWINSOCK *lpsmSock)
 {
-//	int cnt;
+	//	int cnt;
 	smCHAR *lpPlayer;
 	DWORD	dwTime;
 
 	dwTime = GetCurrentTime();
 
-	if ( ServerMode )
-		return Serv_DisconnectPlayer( lpsmSock );
+	if (ServerMode)
+		return Serv_DisconnectPlayer(lpsmSock);
 
-	if ( smWsockServer && lpsmSock->sock==smWsockServer->sock ){
-		AddChatBuff( "¼­¹ö¿ÍÀÇ ¿¬°áÀÌ ²÷¾î Á³½À´Ï´Ù" );
-		if ( smWsockServer==smWsockDataServer )
+	if (smWsockServer && lpsmSock->sock == smWsockServer->sock)
+	{
+		AddChatBuff("¼­¹ö¿ÍÀÇ ¿¬°áÀÌ ²÷¾î Á³½À´Ï´Ù");
+		if (smWsockServer == smWsockDataServer)
 			smWsockDataServer = 0;
-		if ( smWsockServer==smWsockUserServer )
+		if (smWsockServer == smWsockUserServer)
 			smWsockUserServer = 0;
-		if ( smWsockServer==smWsockExtendServer )
+		if (smWsockServer == smWsockExtendServer)
 			smWsockExtendServer = 0;
 
 		smWsockServer = 0;
 		DisconnectFlag = dwTime;
 		//DisconnectServerCode = 1;
 		//°Å·¡ÁßÀÌ¸é °Å·¡ Ãë¼Ò ½ÃÅ´
-		if ( cTrade.OpenFlag ) {
-			SendRequestTrade( cTrade.TradeCharCode , 3 );			//°Å·¡ Ãë¼Ò ¿ä±¸
+		if (cTrade.OpenFlag)
+		{
+			SendRequestTrade(cTrade.TradeCharCode, 3);			//°Å·¡ Ãë¼Ò ¿ä±¸
 			cTrade.CancelTradeItem();								//°Å·¡Ã¢ ´Ý±â
 		}
 		return TRUE;
 	}
 
-	if ( smWsockDataServer && lpsmSock->sock==smWsockDataServer->sock ){
-		AddChatBuff( "µ¥ÀÌÅ¸ ¼­¹ö¿ÍÀÇ ¿¬°áÀÌ ²÷¾î Á³½À´Ï´Ù" );
+	if (smWsockDataServer && lpsmSock->sock == smWsockDataServer->sock)
+	{
+		AddChatBuff("µ¥ÀÌÅ¸ ¼­¹ö¿ÍÀÇ ¿¬°áÀÌ ²÷¾î Á³½À´Ï´Ù");
 		smWsockDataServer = 0;
 		DisconnectFlag = dwTime;
 		//DisconnectServerCode = 2;
 
 		//°Å·¡ÁßÀÌ¸é °Å·¡ Ãë¼Ò ½ÃÅ´
-		if ( cTrade.OpenFlag ) {
-			SendRequestTrade( cTrade.TradeCharCode , 3 );			//°Å·¡ Ãë¼Ò ¿ä±¸
+		if (cTrade.OpenFlag)
+		{
+			SendRequestTrade(cTrade.TradeCharCode, 3);			//°Å·¡ Ãë¼Ò ¿ä±¸
 			cTrade.CancelTradeItem();								//°Å·¡Ã¢ ´Ý±â
 		}
 		return TRUE;
 	}
 
-	if ( smWsockUserServer && lpsmSock->sock==smWsockUserServer->sock ){
-		AddChatBuff( "¼­¹ö¿ÍÀÇ ¿¬°áÀÌ ²÷¾î Á³½À´Ï´Ù" );
+	if (smWsockUserServer && lpsmSock->sock == smWsockUserServer->sock)
+	{
+		AddChatBuff("¼­¹ö¿ÍÀÇ ¿¬°áÀÌ ²÷¾î Á³½À´Ï´Ù");
 		smWsockUserServer = 0;
 		DisconnectFlag = dwTime;
 		//DisconnectServerCode = 3;
 		//°Å·¡ÁßÀÌ¸é °Å·¡ Ãë¼Ò ½ÃÅ´
-		if ( cTrade.OpenFlag ) {
-			SendRequestTrade( cTrade.TradeCharCode , 3 );			//°Å·¡ Ãë¼Ò ¿ä±¸
+		if (cTrade.OpenFlag)
+		{
+			SendRequestTrade(cTrade.TradeCharCode, 3);			//°Å·¡ Ãë¼Ò ¿ä±¸
 			cTrade.CancelTradeItem();					//°Å·¡Ã¢ ´Ý±â
 		}
 		return TRUE;
 	}
 
-	if ( smWsockExtendServer && lpsmSock->sock==smWsockExtendServer->sock ){
-		AddChatBuff( "¼­¹ö¿ÍÀÇ ¿¬°áÀÌ ²÷¾î Á³½À´Ï´Ù" );
+	if (smWsockExtendServer && lpsmSock->sock == smWsockExtendServer->sock)
+	{
+		AddChatBuff("¼­¹ö¿ÍÀÇ ¿¬°áÀÌ ²÷¾î Á³½À´Ï´Ù");
 		smWsockExtendServer = 0;
 		DisconnectFlag = dwTime;
 		//DisconnectServerCode = 3;
 		//°Å·¡ÁßÀÌ¸é °Å·¡ Ãë¼Ò ½ÃÅ´
-		if ( cTrade.OpenFlag ) {
-			SendRequestTrade( cTrade.TradeCharCode , 3 );		//°Å·¡ Ãë¼Ò ¿ä±¸
+		if (cTrade.OpenFlag)
+		{
+			SendRequestTrade(cTrade.TradeCharCode, 3);		//°Å·¡ Ãë¼Ò ¿ä±¸
 			cTrade.CancelTradeItem();							//°Å·¡Ã¢ ´Ý±â
 		}
 		return TRUE;
@@ -5752,26 +2418,31 @@ int DisconnectPlayer( smWINSOCK *lpsmSock )
 	char szBuff[256];
 
 	//Áö¿¬ ¼­¹ö ¿¬°á ²ö¾îÁü
-	if ( AreaServerMode ) {
-		if ( lpWSockServer_Area[0] && lpWSockServer_Area[0]->sock==lpsmSock->sock ) {
-			if ( smConfig.DebugMode ) {
-				wsprintf( szBuff , "Disconnect Area Server (%s)" , lpWSockServer_Area[0]->szIPAddr );
-				AddChatBuff( szBuff , 0 );
+	if (AreaServerMode)
+	{
+		if (lpWSockServer_Area[0] && lpWSockServer_Area[0]->sock == lpsmSock->sock)
+		{
+			if (smConfig.DebugMode)
+			{
+				wsprintf(szBuff, "Disconnect Area Server (%s)", lpWSockServer_Area[0]->szIPAddr);
+				AddChatBuff(szBuff, 0);
 			}
-			if ( lpWSockServer_Area[0]==lpWSockServer_DispArea[0] ) lpWSockServer_DispArea[0]=0;
-			if ( lpWSockServer_Area[0]==lpWSockServer_DispArea[1] ) lpWSockServer_DispArea[1]=0;
+			if (lpWSockServer_Area[0] == lpWSockServer_DispArea[0]) lpWSockServer_DispArea[0] = 0;
+			if (lpWSockServer_Area[0] == lpWSockServer_DispArea[1]) lpWSockServer_DispArea[1] = 0;
 
 			lpWSockServer_Area[0] = 0;
 			return TRUE;
 		}
-		if ( lpWSockServer_Area[1] && lpWSockServer_Area[1]->sock==lpsmSock->sock ) {
-			if ( smConfig.DebugMode ) {
-				wsprintf( szBuff , "Disconnect Area Server (%s)" , lpWSockServer_Area[1]->szIPAddr );
-				AddChatBuff( szBuff , 0 );
+		if (lpWSockServer_Area[1] && lpWSockServer_Area[1]->sock == lpsmSock->sock)
+		{
+			if (smConfig.DebugMode)
+			{
+				wsprintf(szBuff, "Disconnect Area Server (%s)", lpWSockServer_Area[1]->szIPAddr);
+				AddChatBuff(szBuff, 0);
 			}
 
-			if ( lpWSockServer_Area[1]==lpWSockServer_DispArea[0] ) lpWSockServer_DispArea[0]=0;
-			if ( lpWSockServer_Area[1]==lpWSockServer_DispArea[1] ) lpWSockServer_DispArea[1]=0;
+			if (lpWSockServer_Area[1] == lpWSockServer_DispArea[0]) lpWSockServer_DispArea[0] = 0;
+			if (lpWSockServer_Area[1] == lpWSockServer_DispArea[1]) lpWSockServer_DispArea[1] = 0;
 
 			lpWSockServer_Area[1] = 0;
 			return TRUE;
@@ -5781,15 +2452,16 @@ int DisconnectPlayer( smWINSOCK *lpsmSock )
 
 
 	//Å©¸®Æ¼Ä® ¼½¼Ç ¼±¾ð
-	EnterCriticalSection( &cSection );
+	EnterCriticalSection(&cSection);
 
-	lpPlayer = (smCHAR *)lpsmSock->ExtData1; 
-	if ( lpPlayer ) {
+	lpPlayer = (smCHAR *)lpsmSock->ExtData1;
+	if (lpPlayer)
+	{
 		lpPlayer->Close();
 	}
 
 	//Å©¸®Æ¼Ä® ¼½¼Ç ÇØÁ¦
-	LeaveCriticalSection( &cSection );
+	LeaveCriticalSection(&cSection);
 
 	return TRUE;
 }
@@ -5804,91 +2476,63 @@ DWORD	dwLastSendPlayTime = 0;		//¸¶Áö¸· Àü¼Û ½Ã°£ (¸ð¼Çµ¥ÀÌÅ¸)
 //¼­¹ö·Î ÇÃ·¹ÀÌ¾îÀÇ µ¥ÀÌÅ¸¸¦ À§Ä¡¸¦ Àü¼Û
 int SendPlayDataToServer()
 {
-	/*
-	int cnt;
-	int	*lpTransBuff;
-	rsPLAYPOS *lpTransPlayPos;
-
-	lpTransBuff = (int *)TransBuff;
-	lpTransPlayPos = (rsPLAYPOS *)&lpTransBuff[2];
-	lpTransBuff[0] = sizeof( rsPLAYPOS ) + sizeof( int )*2;
-	lpTransBuff[1] = smTRANSCODE_POSITION;
-
-	lpTransPlayPos->Area = 0;
-	lpTransPlayPos->x = lpCurPlayer->pX;
-	lpTransPlayPos->y = lpCurPlayer->pY;
-	lpTransPlayPos->z = lpCurPlayer->pZ;
-
-	smWsockServer->Send( TransBuff , lpTransBuff[0] );
-
-	return TRUE;
-	*/
-
-/*
-	if ( smWsockServer!=smWsockUserServer && rsRecvServer ) {
-		rsRecvServer = 0;
-		return rsMainServer.SendPlayData( lpCurPlayer );
-	}
-*/
-	if ( smWsockServer!=smWsockUserServer || AreaServerMode ) {
-		return rsMainServer.SendPlayData( lpCurPlayer );
-	}
-
-	return TRUE;
+	Log::Debug("SendPlayDataToServer : Requisitado porém foi removido.");
+	return NULL;
 }
 
-
 //´Ù¸¥ À¯Àú¿Í ¿¬°á ½ÃÅ²´Ù
-int ConnectOtherPlayer( DWORD dwIP )
+int ConnectOtherPlayer(DWORD dwIP)
 {
 	smWINSOCK *lpsmSock;
 	int OthPlayerCnt;
 
 	OthPlayerCnt = FindNewOtherPlayer();
-	if ( OthPlayerCnt>=0 ) {
-		lpsmSock = smConnectSock2( ConvStrIP( dwIP ) , TCP_GAMEPORT );
-		if ( lpsmSock ) {
-			ConnectPlayer( lpsmSock );
+	if (OthPlayerCnt >= 0)
+	{
+		lpsmSock = smConnectSock2(ConvStrIP(dwIP), TCP_GAMEPORT);
+		if (lpsmSock)
+		{
+			ConnectPlayer(lpsmSock);
 			return TRUE;
 		}
 	}
 	return FALSE;
 }
 //´Ù¸¥ ÇÃ·¹ÀÌ¾î¿ÍÀÇ ¿¬°á ¾²·¹µå
-DWORD WINAPI ConnectPlayThreadProc( void *pInfo )
+DWORD WINAPI ConnectPlayThreadProc(void *pInfo)
 {
 
-	ConnectOtherPlayer( (DWORD)pInfo );
+	ConnectOtherPlayer((DWORD)pInfo);
 
-	ExitThread( TRUE );
+	ExitThread(TRUE);
 	return TRUE;
 }
 //´Ù¸¥ ÇÃ·¹ÀÌ¾î¿ÍÀÇ ¿¬°á Á¾·á ¾²·¹µå
-DWORD WINAPI DisconnectPlayThreadProc( void *pInfo )
+DWORD WINAPI DisconnectPlayThreadProc(void *pInfo)
 {
 
-	((smWINSOCK *)pInfo )->CloseSocket();
+	((smWINSOCK *)pInfo)->CloseSocket();
 
-	ExitThread( TRUE );
+	ExitThread(TRUE);
 	return TRUE;
 }
 
 
 
 //´Ù¸¥ ÇÃ·¹ÀÌ¾î¿ÍÀÇ ¿¬°á ¾²·¹µå¸¦ »ý¼º
-int CreateConnectThread( DWORD dwIP )
+int CreateConnectThread(DWORD dwIP)
 {
 	DWORD dwMsgId;
-	CreateThread( NULL , 0, ConnectPlayThreadProc , (void *)dwIP , 0, &dwMsgId );
+	CreateThread(NULL, 0, ConnectPlayThreadProc, (void *)dwIP, 0, &dwMsgId);
 
 	return TRUE;
 }
 
 //´Ù¸¥ ÇÃ·¹ÀÌ¾î¿ÍÀÇ ¿¬°áÁ¾·á ¾²·¹µå »ý¼º
-int CreateDisconnectThread( smWINSOCK *lpsmSock )
+int CreateDisconnectThread(smWINSOCK *lpsmSock)
 {
 	DWORD dwMsgId;
-	CreateThread( NULL , 0, DisconnectPlayThreadProc , (void *)lpsmSock , 0, &dwMsgId );
+	CreateThread(NULL, 0, DisconnectPlayThreadProc, (void *)lpsmSock, 0, &dwMsgId);
 
 	return TRUE;
 }
@@ -5897,37 +2541,42 @@ int CreateDisconnectThread( smWINSOCK *lpsmSock )
 //°Å¸®°¡ ¸Õ ´Ù¸¥ À¯ÀúµéÀÇ ¿¬°áÀ» ²ö´Â´Ù
 int DisconnectFarPlayer()
 {
-	int mx,mz,dDist;
+	int mx, mz, dDist;
 	int cnt;
 	int timeover;
 
-	for(cnt=0;cnt<OTHER_PLAYER_MAX;cnt++) {
+	for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+	{
 		//°Å¸®¸¦ È®ÀÎÇÏ¿© ¸Õ °æ¿ì¿¡´Â ¿¬°áÀ» ²ö¾î¹ö¸°´Ù
-		if ( chrOtherPlayer[cnt].Flag ) {
-			
-			if ((chrOtherPlayer[cnt].dwLastTransTime+DIS_TIME_OVER)<dwPlayTime )
+		if (chrOtherPlayer[cnt].Flag)
+		{
+
+			if ((chrOtherPlayer[cnt].dwLastTransTime + DIS_TIME_OVER) < dwPlayTime)
 				timeover = TRUE;
 			else
 				timeover = FALSE;
 
 			//°Å¸®°è»ê
-			mx = (lpCurPlayer->pX - chrOtherPlayer[cnt].pX)>>FLOATNS;
-			mz = (lpCurPlayer->pZ - chrOtherPlayer[cnt].pZ)>>FLOATNS;
+			mx = (lpCurPlayer->pX - chrOtherPlayer[cnt].pX) >> FLOATNS;
+			mz = (lpCurPlayer->pZ - chrOtherPlayer[cnt].pZ) >> FLOATNS;
 			dDist = mx*mx + mz*mz;
 
-			if ( (chrOtherPlayer[cnt].DisplayFlag && dDist>DIST_TRANSLEVEL_DISCONNECT) || timeover ) {
+			if ((chrOtherPlayer[cnt].DisplayFlag && dDist > DIST_TRANSLEVEL_DISCONNECT) || timeover)
+			{
 				//¿¬°á Á¾·á/ ¼ÒÄÏ ´ÝÀ½
 				chrOtherPlayer[cnt].Flag = 0;
 
-				if ( chrOtherPlayer[cnt].TransSock ) {
+				if (chrOtherPlayer[cnt].TransSock)
+				{
 					chrOtherPlayer[cnt].TransSock->CloseSocket();
 				}
-				else {
+				else
+				{
 					//Å©¸®Æ¼Ä® ¼½¼Ç ¼±¾ð
-					EnterCriticalSection( &cSection );
+					EnterCriticalSection(&cSection);
 					chrOtherPlayer[cnt].Close();
 					//Å©¸®Æ¼Ä® ¼½¼Ç ÇØÁ¦
-					LeaveCriticalSection( &cSection );
+					LeaveCriticalSection(&cSection);
 				}
 			}
 		}
@@ -5942,7 +2591,7 @@ DWORD	dwMainServ_RecvTime = 0;
 DWORD	dwDataServ_RecvTime = 0;
 
 //µ¥ÀÌÅ¸ ÀÔ¼ö
-int RecvPlayData( smTHREADSOCK *pData )
+int RecvPlayData(smTHREADSOCK *pData)
 {
 
 	DWORD *IPData;
@@ -5951,53 +2600,57 @@ int RecvPlayData( smTHREADSOCK *pData )
 	DWORD	dwTime;
 
 	//Å©¸®Æ¼Ä® ¼½¼Ç ¼±¾ð
-	EnterCriticalSection( &cSection );
+	EnterCriticalSection(&cSection);
 
 
-	IPData = (DWORD *)( pData->Buff );
+	IPData = (DWORD *)(pData->Buff);
 
-	
-/*
-	if ( pData->smMySock==smWsockServer || 
-		 pData->smMySock==smWsockUserServer || 
-		 pData->smMySock==smWsockDataServer ||
-		  pData->smMySock==smWsockExtendServer ) {
-*/
-		dwTime = GetCurrentTime();
 
-		if ( pData->smMySock==smWsockDataServer ) {
-			dwRecvDataServerTime = dwTime;
-			dwDataServ_RecvTime = dwTime;
-		}
-		if ( pData->smMySock==smWsockUserServer ) {
-			dwRecvUserServerTime = dwTime;
-			dwUserServ_RecvTime = dwTime;
-			Debug_RecvCount2++;
-		}
-		if ( pData->smMySock==smWsockExtendServer ) {
-			dwRecvExtendServerTime = dwTime;
-			dwExtendServ_RecvTime = dwTime;
-			Debug_RecvCount3++;
-		}
-		if ( pData->smMySock==smWsockServer ) {
-			Debug_RecvCount1++;
-			dwRecvServerTime = dwTime;
-			dwMainServ_RecvTime = dwTime;
-		}
+	/*
+		if ( pData->smMySock==smWsockServer ||
+			 pData->smMySock==smWsockUserServer ||
+			 pData->smMySock==smWsockDataServer ||
+			  pData->smMySock==smWsockExtendServer ) {
+	*/
+	dwTime = GetCurrentTime();
 
-		//¼­¹öÃø µ¥ÀÌÅ¸ Ã³¸®
-		rsMainServer.RecvMessage( pData );
-/*
+	if (pData->smMySock == smWsockDataServer)
+	{
+		dwRecvDataServerTime = dwTime;
+		dwDataServ_RecvTime = dwTime;
 	}
-	else {
-		//Å¬¶óÀÌ¾ðÆ®¿ÍÀÇ ±³½Å..
-
-		lpPlayer = (smCHAR *)pData->smMySock->ExtData1;
-		if ( lpPlayer ) lpPlayer->RecvPlayData( pData );
+	if (pData->smMySock == smWsockUserServer)
+	{
+		dwRecvUserServerTime = dwTime;
+		dwUserServ_RecvTime = dwTime;
+		Debug_RecvCount2++;
 	}
-*/
+	if (pData->smMySock == smWsockExtendServer)
+	{
+		dwRecvExtendServerTime = dwTime;
+		dwExtendServ_RecvTime = dwTime;
+		Debug_RecvCount3++;
+	}
+	if (pData->smMySock == smWsockServer)
+	{
+		Debug_RecvCount1++;
+		dwRecvServerTime = dwTime;
+		dwMainServ_RecvTime = dwTime;
+	}
+
+	//¼­¹öÃø µ¥ÀÌÅ¸ Ã³¸®
+	rsMainServer.RecvMessage(pData);
+	/*
+		}
+		else {
+			//Å¬¶óÀÌ¾ðÆ®¿ÍÀÇ ±³½Å..
+
+			lpPlayer = (smCHAR *)pData->smMySock->ExtData1;
+			if ( lpPlayer ) lpPlayer->RecvPlayData( pData );
+		}
+	*/
 	//Å©¸®Æ¼Ä® ¼½¼Ç ÇØÁ¦
-	LeaveCriticalSection( &cSection );
+	LeaveCriticalSection(&cSection);
 
 	return TRUE;
 }
@@ -6016,7 +2669,7 @@ int SendPlayData( smCHAR *player )
 	int cnt;
 
 	for(cnt=0;cnt<OTHER_PLAYER_MAX;cnt++) {
-		if ( chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].Pattern 
+		if ( chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].Pattern
 			&& chrOtherPlayer[cnt].AutoPlayer==0 ) {
 			chrOtherPlayer[cnt].SendPlayData( player );
 		}
@@ -6036,20 +2689,22 @@ DWORD	NetScoopTime = 2000;
 //³Ý ÇÃ·¹ÀÌ ¸ÞÀÎ
 int NetWorkPlay()
 {
-//	char *szIP;
+	//	char *szIP;
 	int cnt;
 	DWORD	dwTime;
 	DWORD	dwTime2;
 	smWINSOCK	*lpsmSock;
 
 	//¹ÚÀç¿ø - XignCode
-	#ifdef _XIGNCODE_CLIENT
+#ifdef _XIGNCODE_CLIENT
 	ZCWAVE_Init();
-	#endif
+#endif
 
-	if ( NetWorkInitFlag==0 ) {
-		if ( !smWsockServer || !smWsockDataServer || !smWsockUserServer || !smWsockExtendServer ) { 
-			if ( ConnectServer_Main()==NULL )
+	if (NetWorkInitFlag == 0)
+	{
+		if (!smWsockServer || !smWsockDataServer || !smWsockUserServer || !smWsockExtendServer)
+		{
+			if (ConnectServer_Main() == NULL)
 				return FALSE;
 			//smWsockServer = smConnectSock( szServIP , dwServPort );
 		}
@@ -6057,38 +2712,42 @@ int NetWorkPlay()
 		//Sleep( 60*1000*3 );		//3ºÐ ´ë±â
 
 		NetWorkInitFlag = TRUE;
-	
-		rsMainServer.Init( smWsockServer );
+
+		rsMainServer.Init(smWsockServer);
 
 		//¼­¹ö·Î ÇÃ·¹ÀÌ¾îÀÇ µ¥ÀÌÅ¸¸¦ À§Ä¡¸¦ Àü¼Û
 		SendPlayDataToServer();
 
 		//¼­¹ö¿¡ ±ÇÇÑ ¼³Á¤
-		if ( smConfig.DebugMode ) SendAdminMode( TRUE );
+		if (smConfig.DebugMode) SendAdminMode(TRUE);
 
 
-//		if ( smWsockServer )
-//			lpCurPlayer->SendCharInfo( smWsockServer );			//ÇÃ·¹ÀÌ¾î Á¤º¸ Àü¼Û
+		//		if ( smWsockServer )
+		//			lpCurPlayer->SendCharInfo( smWsockServer );			//ÇÃ·¹ÀÌ¾î Á¤º¸ Àü¼Û
 
-		//ÀúÀåµÈ Ä³¸¯ÅÍ µ¥ÀÌÅ¸ ºÒ·¯¿À±â ¿ä±¸
-		if ( smWsockDataServer ) {
+				//ÀúÀåµÈ Ä³¸¯ÅÍ µ¥ÀÌÅ¸ ºÒ·¯¿À±â ¿ä±¸
+		if (smWsockDataServer)
+		{
 
-			SendGetRecordData( lpCurPlayer->smCharInfo.szName );
+			SendGetRecordData(lpCurPlayer->smCharInfo.szName);
 
 			//¼­¹ö IP Ã½Å© ( ±º¼­¹ö¿¡ Á¢¼ÓÇÑ IPÅëº¸ )
-			if ( smWsockServer && smWsockDataServer!=smWsockServer ) {
-				SendCheckIP( 1 , smWsockServer );
+			if (smWsockServer && smWsockDataServer != smWsockServer)
+			{
+				SendCheckIP(1, smWsockServer);
 			}
-			if ( smWsockUserServer && smWsockDataServer!=smWsockUserServer ) {
-				SendCheckIP( 2 , smWsockUserServer );
+			if (smWsockUserServer && smWsockDataServer != smWsockUserServer)
+			{
+				SendCheckIP(2, smWsockUserServer);
 			}
-			if ( smWsockExtendServer && smWsockExtendServer!=smWsockServer && smWsockDataServer!=smWsockExtendServer ) {
-				SendCheckIP( 3 , smWsockExtendServer );
+			if (smWsockExtendServer && smWsockExtendServer != smWsockServer && smWsockDataServer != smWsockExtendServer)
+			{
+				SendCheckIP(3, smWsockExtendServer);
 			}
 		}
 
-		ChatBuffCnt=0;
-		ChatDispCnt=0;
+		ChatBuffCnt = 0;
+		ChatDispCnt = 0;
 
 		Ts_LastSendCounter = PlayCounter;
 		TransThrowItem.code = 0;			//¾ÆÀÌÅÛ ¹ö¸®±â ÃÊ±âÈ­
@@ -6099,11 +2758,11 @@ int NetWorkPlay()
 		TransAgingItemFlag = 0;			//¿¡ÀÌÂ¡ ¿Ï·á ¾ÆÀÌÅÛ Àü¼Û ÇÃ·¢
 
 
-		ZeroMemory( &TransRecvItem , sizeof(TRANS_ITEMINFO) );
+		ZeroMemory(&TransRecvItem, sizeof(TRANS_ITEMINFO));
 
 		Trans_SplashCharList.code = 0;	//½ºÇÃ·¹½Ã °ø°Ý ¹öÆÛ ÃÊ±âÈ­
 
-		ZeroMemory( &PK_FieldState , sizeof(PK_FIELD_STATE) );	//PK ±¸Á¶ ÃÊ±âÈ­
+		ZeroMemory(&PK_FieldState, sizeof(PK_FIELD_STATE));	//PK ±¸Á¶ ÃÊ±âÈ­
 		PK_FieldState.FieldCode = -1;
 
 
@@ -6112,7 +2771,8 @@ int NetWorkPlay()
 
 		Init_RecordDamage();			//°ø°Ý·Â ±â·Ï ÃÊ±âÈ­
 
-		switch( smConfig.NetworkQuality ) {
+		switch (smConfig.NetworkQuality)
+		{
 			case 0:
 				NetScoopTime = 3000;
 				break;
@@ -6129,25 +2789,30 @@ int NetWorkPlay()
 		}
 
 	}
-	else {
+	else
+	{
 
-		if ( cTrade.OpenFlag ) {
+		if (cTrade.OpenFlag)
+		{
 			//¾ÆÀÌÅÛ ±³È¯½Ã ¿Ï·á È®ÀÎ
-			if ( !TradeSendSucessFlag && sTrade.CheckFlag && sTradeRecv.CheckFlag ) {
+			if (!TradeSendSucessFlag && sTrade.CheckFlag && sTradeRecv.CheckFlag)
+			{
 				SendTradeCheckItem(cTrade.TradeCharCode);
 				TradeSendSucessFlag = TRUE;
 			}
 		}
-		if ( dwTradeMaskTime ) {
+		if (dwTradeMaskTime)
+		{
 			//Æ®·¹ÀÌµå ¸¶½ºÅ© Å¸ÀÌ¸Ó ÃÊ±âÈ­
-			if ( dwTradeMaskTime<dwPlayTime ) dwTradeMaskTime = 0;
+			if (dwTradeMaskTime<dwPlayTime) dwTradeMaskTime = 0;
 		}
 
-		dwTime = dwPlayTime -  dwLastSendPosiTime;
+		dwTime = dwPlayTime - dwLastSendPosiTime;
 		dwTime2 = dwPlayTime - dwRecvServerTime;
 
 		//¼­¹ö·ÎÀÇ µ¥ÀÌÅ¸ Àü¼Û
-		if ( (PlayCounter-Ts_LastSendCounter)>PLAYSERVER_SENDCOUNTER ) {//&& dwTime>NET_SENDING_WAIT_TIME &&
+		if ((PlayCounter - Ts_LastSendCounter)>PLAYSERVER_SENDCOUNTER)
+		{//&& dwTime>NET_SENDING_WAIT_TIME &&
 //			dwTime2<NET_SENDING_WAIT_TIME ) {
 			//¼­¹ö·Î ÇÃ·¹ÀÌ¾îÀÇ µ¥ÀÌÅ¸¸¦ À§Ä¡¸¦ Àü¼Û
 			SendPlayDataToServer();
@@ -6159,50 +2824,61 @@ int NetWorkPlay()
 			dwLastSendPosiTime = dwPlayTime;
 		}
 
-//		if ( (xxcnt&0x3)==3 ) SendPlayData( lpCurPlayer );
+		//		if ( (xxcnt&0x3)==3 ) SendPlayData( lpCurPlayer );
 
-		//´Ù¸¥ À¯Àúµé°úÀÇ µ¥ÀÌÅ¸ ±³È¯
-		//SendPlayData( lpCurPlayer );
+				//´Ù¸¥ À¯Àúµé°úÀÇ µ¥ÀÌÅ¸ ±³È¯
+				//SendPlayData( lpCurPlayer );
 
-		if ( smWsockUserServer ) {// && rsRecvUserServer ) {
-			//ÇÃ·¹ÀÌ¾î µ¥ÀÌÅ¸¸¦ ¼­¹ö·Î Àü¼Û (40/70) ÃÊ´ÜÀ§ ±¸ºÐ 
-			//if ( (lpCurPlayer->PlayBuffCnt&0x3F)==0 ) {
+		if (smWsockUserServer)
+		{// && rsRecvUserServer ) {
+//ÇÃ·¹ÀÌ¾î µ¥ÀÌÅ¸¸¦ ¼­¹ö·Î Àü¼Û (40/70) ÃÊ´ÜÀ§ ±¸ºÐ 
+//if ( (lpCurPlayer->PlayBuffCnt&0x3F)==0 ) {
 
-			dwTime = dwPlayTime -  dwLastSendPlayTime;
+			dwTime = dwPlayTime - dwLastSendPlayTime;
 			dwTime2 = dwPlayTime - dwRecvUserServerTime;
 
 
-			if ( (lpCurPlayer->PlayBuffCnt&0x3F)==0 && lpCurPlayer->dwObjectSerial && 
-				dwTime>NET_SENDING_WAIT_TIME ) {//&& dwTime2<NET_SENDING_WAIT_TIME2 ) {
+			if ((lpCurPlayer->PlayBuffCnt & 0x3F) == 0 && lpCurPlayer->dwObjectSerial &&
+				dwTime > NET_SENDING_WAIT_TIME)
+			{//&& dwTime2<NET_SENDING_WAIT_TIME2 ) {
 
-				if ( smConfig.DebugMode && AdminCharDisable ) {
-					if ( smWsockServer==smWsockUserServer ) {
-						rsMainServer.SendPlayData( lpCurPlayer );
+				if (smConfig.DebugMode && AdminCharDisable)
+				{
+					if (smWsockServer == smWsockUserServer)
+					{
+						rsMainServer.SendPlayData(lpCurPlayer);
 					}
 				}
-				else {
-					if ( AreaServerMode ) {
-						if ( lpCurPlayer->OnStageField>=0 ) {
+				else
+				{
+					if (AreaServerMode)
+					{
+						if (lpCurPlayer->OnStageField >= 0)
+						{
 							lpsmSock = lpWSockServer_DispArea[lpCurPlayer->OnStageField];
 						}
 
 					}
-					else {
+					else
+					{
 						lpsmSock = smWsockUserServer;
 					}
 
-					if ( lpsmSock ) {
-						lpCurPlayer->MakeTransPlayData( lpCurPlayer->srTransBuff , 0x40 );
-						if ( ((smTRANS_PLAYDATA *)lpCurPlayer->srTransBuff)->PlayBuffCnt>1 ) {
+					if (lpsmSock)
+					{
+						lpCurPlayer->MakeTransPlayData(lpCurPlayer->srTransBuff, 0x40);
+						if (((smTRANS_PLAYDATA *)lpCurPlayer->srTransBuff)->PlayBuffCnt > 1)
+						{
 							//for(int cnt=0;cnt<40;cnt++) 
-							lpsmSock->Send( lpCurPlayer->srTransBuff , ((smTRANS_PLAYDATA *)lpCurPlayer->srTransBuff)->size , TRUE );
+							lpsmSock->Send(lpCurPlayer->srTransBuff, ((smTRANS_PLAYDATA *)lpCurPlayer->srTransBuff)->size, TRUE);
 							NetStandCnt = 0;
 						}
-						else {
+						else
+						{
 							//¼­ÀÖ´Â µ¿ÀÛ ³×Æ®¿÷ ºÎÇÏ ÃÖ¼Ò ( ÇÑ¹ø Àü¼ÛÈÄ ³×Æ®Ÿp ½½¸³ )
 							//if ( NetStandCnt==0 )
 							//for(int cnt=0;cnt<40;cnt++) 
-							lpsmSock->Send( lpCurPlayer->srTransBuff , ((smTRANS_PLAYDATA *)lpCurPlayer->srTransBuff)->size , TRUE );
+							lpsmSock->Send(lpCurPlayer->srTransBuff, ((smTRANS_PLAYDATA *)lpCurPlayer->srTransBuff)->size, TRUE);
 							NetStandCnt++;
 						}
 					}
@@ -6216,9 +2892,11 @@ int NetWorkPlay()
 		}
 
 		//ÇöÀç °ÔÀÓ ·Îµù Áß
-		if ( dwLoadingTime ) {
+		if (dwLoadingTime)
+		{
 			dwTime = GetCurrentTime();
-			if ( dwTime>(dwLoadingTime+NET_LOADING_WAIT_LIMIT) ) {
+			if (dwTime > (dwLoadingTime + NET_LOADING_WAIT_LIMIT))
+			{
 				//½Ã°£ ÃÊ°ú Á¾·á
 				DisconnectFlag = GetCurrentTime();
 				dwLoadingTime = 0;
@@ -6226,103 +2904,121 @@ int NetWorkPlay()
 		}
 
 
-		cnt = PlayCounter&0x1FF;
-		if ( cnt==0 ) {
+		cnt = PlayCounter & 0x1FF;
+		if (cnt == 0)
+		{
 			//µ¥µå¶ô Ã½Å© ( ¸Þ¼¼Áö°¡ µ¹¾Æ ¿ÀÁö ¾ÊÀ¸¸é ³×Æ®¿÷ ´Ù¿î )
 			TransCheckNetwork();
 		}
-		else if (cnt==0x80 ) {
+		else if (cnt == 0x80)
+		{
 			//ÇÁ·Î¼¼½º ½Ã°£ °¨½ÃÁ¤º¸ ¼­¹ö·Î ¼ÛºÎ
 			SendPlayTimerMax();
 		}
 
 
 
-		if ( (PlayCounter&0x1F)==0 ) {
+		if ((PlayCounter & 0x1F) == 0)
+		{
 			dwTime = GetCurrentTime();
-			if ( GameMode==2 && dwMainServ_RecvTime && smWsockServer && (dwTime-dwMainServ_RecvTime)>3000 ) {
+			if (GameMode == 2 && dwMainServ_RecvTime && smWsockServer && (dwTime - dwMainServ_RecvTime) > 3000)
+			{
 
-				if ( smWsockServer->WaitReadMessage>=0 ) {
-					smWsockServer->WaitReadMessage+=24;
-					if ( smConfig.DebugMode )
-						AddChatBuff( "Scoop Recv Route(Main)" );
+				if (smWsockServer->WaitReadMessage >= 0)
+				{
+					smWsockServer->WaitReadMessage += 24;
+					if (smConfig.DebugMode)
+						AddChatBuff("Scoop Recv Route(Main)");
 				}
-				else {
-					if ( smConfig.DebugMode )
-						AddChatBuff( "Error Server(Main)" );
+				else
+				{
+					if (smConfig.DebugMode)
+						AddChatBuff("Error Server(Main)");
 				}
 			}
-			if ( GameMode==2 && smWsockUserServer && dwUserServ_RecvTime &&
-				smWsockServer!=smWsockUserServer && (dwTime-dwUserServ_RecvTime)>3000 ) {
+			if (GameMode == 2 && smWsockUserServer && dwUserServ_RecvTime &&
+				smWsockServer != smWsockUserServer && (dwTime - dwUserServ_RecvTime) > 3000)
+			{
 				//dwUserServ_RecvTime = dwTime;
-				if ( smWsockUserServer->WaitReadMessage>=0 ) {
-					smWsockUserServer->WaitReadMessage+=24;
-					if ( smConfig.DebugMode )
-						AddChatBuff( "Scoop Recv Route(User)" );
+				if (smWsockUserServer->WaitReadMessage >= 0)
+				{
+					smWsockUserServer->WaitReadMessage += 24;
+					if (smConfig.DebugMode)
+						AddChatBuff("Scoop Recv Route(User)");
 				}
-				else {
-					if ( smConfig.DebugMode )
-						AddChatBuff( "Error Server(User)" );
+				else
+				{
+					if (smConfig.DebugMode)
+						AddChatBuff("Error Server(User)");
 				}
 			}
-			if ( GameMode==2 && smWsockExtendServer && dwExtendServ_RecvTime &&
-				smWsockServer!=smWsockExtendServer && (dwTime-dwExtendServ_RecvTime)>3000 ) {
+			if (GameMode == 2 && smWsockExtendServer && dwExtendServ_RecvTime &&
+				smWsockServer != smWsockExtendServer && (dwTime - dwExtendServ_RecvTime) > 3000)
+			{
 				//dwUserServ_RecvTime = dwTime;
-				if ( smWsockExtendServer->WaitReadMessage>=0 ) {
-					smWsockExtendServer->WaitReadMessage+=24;
-					if ( smConfig.DebugMode )
-						AddChatBuff( "Scoop Recv Route(Extend)" );
+				if (smWsockExtendServer->WaitReadMessage >= 0)
+				{
+					smWsockExtendServer->WaitReadMessage += 24;
+					if (smConfig.DebugMode)
+						AddChatBuff("Scoop Recv Route(Extend)");
 				}
-				else {
-					if ( smConfig.DebugMode )
-						AddChatBuff( "Error Server(Extend)" );
+				else
+				{
+					if (smConfig.DebugMode)
+						AddChatBuff("Error Server(Extend)");
 				}
 			}
 
-//			if ( GameMode==2 && dwLoadingTime && 
-			if ( GameMode==2 && ( (dwTime-dwDataServ_RecvTime)>7000 || dwLoadingTime ) && 
-				smWsockDataServer && smWsockDataServer!=smWsockServer ) {
-				smWsockDataServer->WaitReadMessage+=24;
-				if ( smConfig.DebugMode && DisplayDebug )
-						AddChatBuff( "Scoop Recv Route(Data)" );
+			//			if ( GameMode==2 && dwLoadingTime && 
+			if (GameMode == 2 && ((dwTime - dwDataServ_RecvTime) > 7000 || dwLoadingTime) &&
+				smWsockDataServer && smWsockDataServer != smWsockServer)
+			{
+				smWsockDataServer->WaitReadMessage += 24;
+				if (smConfig.DebugMode && DisplayDebug)
+					AddChatBuff("Scoop Recv Route(Data)");
 			}
 
-			if ( GameMode==2 && AreaServerMode ) {
-				if ( lpWSockServer_Area[0] && lpWSockServer_Area[0]->dwLastRecvTime ) {
-					if ( (dwTime-lpWSockServer_Area[0]->dwLastRecvTime)>2000 ) {
-						lpWSockServer_Area[0]->WaitReadMessage+=24;
-						smCheckWaitMessage( lpWSockServer_Area[0] );
+			if (GameMode == 2 && AreaServerMode)
+			{
+				if (lpWSockServer_Area[0] && lpWSockServer_Area[0]->dwLastRecvTime)
+				{
+					if ((dwTime - lpWSockServer_Area[0]->dwLastRecvTime) > 2000)
+					{
+						lpWSockServer_Area[0]->WaitReadMessage += 24;
+						smCheckWaitMessage(lpWSockServer_Area[0]);
 					}
 				}
-				if ( lpWSockServer_Area[1] && lpWSockServer_Area[1]->dwLastRecvTime ) {
-					if ( (dwTime-lpWSockServer_Area[1]->dwLastRecvTime)>2000 ) {
-						lpWSockServer_Area[1]->WaitReadMessage+=24;
-						smCheckWaitMessage( lpWSockServer_Area[1] );
+				if (lpWSockServer_Area[1] && lpWSockServer_Area[1]->dwLastRecvTime)
+				{
+					if ((dwTime - lpWSockServer_Area[1]->dwLastRecvTime) > 2000)
+					{
+						lpWSockServer_Area[1]->WaitReadMessage += 24;
+						smCheckWaitMessage(lpWSockServer_Area[1]);
 					}
 				}
 
-/*
-	if ( AreaServerMode ) {
-		if ( lpWSockServer_Area[0] ) lpWSockServer_Area[0]->Send2( (char *)&TransPlayerInfo , TransPlayerInfo.size , TRUE );
-		if ( lpWSockServer_Area[1] ) lpWSockServer_Area[1]->Send2( (char *)&TransPlayerInfo , TransPlayerInfo.size , TRUE );
-	}
-*/
+				/*
+					if ( AreaServerMode ) {
+						if ( lpWSockServer_Area[0] ) lpWSockServer_Area[0]->Send2( (char *)&TransPlayerInfo , TransPlayerInfo.size , TRUE );
+						if ( lpWSockServer_Area[1] ) lpWSockServer_Area[1]->Send2( (char *)&TransPlayerInfo , TransPlayerInfo.size , TRUE );
+					}
+				*/
 
 			}
 
-				//dwLastRecvTime
+			//dwLastRecvTime
 
 
 		}
 
-/*
-	for(cnt=start;cnt<CONNECTMAX;cnt+=0x40 ) {
-		if ( rsPlayInfo[cnt].lpsmSock && rsPlayInfo[cnt].dwObjectSerial &&//) {
-			(dwPlayServTime-rsPlayInfo[cnt].dwLastRecvTime)<5000 ) {
-			rsPlayInfo[cnt].lpsmSock->WaitReadMessage++;
-		}
-	}
-*/	
+		/*
+			for(cnt=start;cnt<CONNECTMAX;cnt+=0x40 ) {
+				if ( rsPlayInfo[cnt].lpsmSock && rsPlayInfo[cnt].dwObjectSerial &&//) {
+					(dwPlayServTime-rsPlayInfo[cnt].dwLastRecvTime)<5000 ) {
+					rsPlayInfo[cnt].lpsmSock->WaitReadMessage++;
+				}
+			}
+		*/
 	}
 #ifndef _LANGUAGE_CHINESE	//À©µµ¿ì ¸ðµå
 #ifndef _LANGUAGE_VEITNAM	//À©µµ¿ì ¸ðµå
@@ -6330,12 +3026,14 @@ int NetWorkPlay()
 #ifndef _LANGUAGE_ENGLISH	//À©µµ¿ì ¸ðµå
 	HWND	hWnd;
 
-	if ( (PlayCounter&0x1FF)==0 && !smConfig.DebugMode ) {
+	if ((PlayCounter & 0x1FF) == 0 && !smConfig.DebugMode)
+	{
 		hWnd = WinFocusCrack();
 		//À©µµ¿ì Æ÷Ä¿½º¸¦ °¨½Ã
-		if ( hWnd ) {
+		if (hWnd)
+		{
 			//Å©·¢ À©µµ¿ì ½Å°í
-			SendCrackWindow( hWnd );
+			SendCrackWindow(hWnd);
 		}
 	}
 #endif
@@ -6345,72 +3043,73 @@ int NetWorkPlay()
 
 
 	//°Å·¡ÈÄ È®ÀÎ»ï¾Æ Àç½Ãµµ ( 0.8ÃÊÈÄ )
-	if ( dwLastTransTradeKeyTime && (dwLastTransTradeKeyTime+800)<dwPlayTime ) {
+	if (dwLastTransTradeKeyTime && (dwLastTransTradeKeyTime + 800) < dwPlayTime)
+	{
 
-		if ( smWsockDataServer )
-			smWsockDataServer->Send2( (char *)&LastTransTradeItemKey , LastTransTradeItemKey.size , TRUE ) ;
+		if (smWsockDataServer)
+			smWsockDataServer->Send2((char *)&LastTransTradeItemKey, LastTransTradeItemKey.size, TRUE);
 
 		dwLastTransTradeKeyTime = 0;
 	}
 
 
-	if ( ChatDispCnt>0 ) ChatDispCnt--;
+	if (ChatDispCnt > 0) ChatDispCnt--;
 
 	return TRUE;
 }
 
 
 //¾ÆÀÌÅÛ ¹ö¸®±â
-int ThrowPutItem( sITEM *lpItem , int x, int y , int z )
+int ThrowPutItem(sITEM *lpItem, int x, int y, int z)
 {
 
 	//¼­¹ö »óÅÂ¿¡ ¹®Á¦ ¹ß»ý½Ã ¾ÆÀÌÅÛ ¹ö¸®±â ±ÝÁö ( 4ÃÊ ÀÌ»ó ¼ö½ÅÀÌ ¾ø´Â »óÅÂ )
-	if ( (dwRecvServerTime+4000)<dwPlayTime || QuitSave || TransThrowItem.code ) 
+	if ((dwRecvServerTime + 4000) < dwPlayTime || QuitSave || TransThrowItem.code)
 		return FALSE;
 
-	if ( AdminCharDisable || WarningHack || !smWsockDataServer || !smWsockServer ) return FALSE;
+	if (AdminCharDisable || WarningHack || !smWsockDataServer || !smWsockServer) return FALSE;
 
 	//µ¥ÀÌÅ¸ ¼­¹ö¿¡ ¾ÆÀÌÅÛ ÀúÀå ¿ä±¸ ( º¹»ç ¾ÆÀÌÅÛ ¹æÁö )
-	if ( !SendSaveThrowItem2( &lpItem->sItemInfo ) )
+	if (!SendSaveThrowItem2(&lpItem->sItemInfo))
 		return FALSE;
 
-	TransThrowItem.code =	smTRANSCODE_THROWITEM;
+	TransThrowItem.code = smTRANSCODE_THROWITEM;
 	TransThrowItem.size = sizeof(TRANS_ITEMINFO);
 	TransThrowItem.x = x;
 	TransThrowItem.y = y;
 	TransThrowItem.z = z;
 
-	memcpy( &TransThrowItem.Item , &lpItem->sItemInfo  , sizeof(sITEMINFO) );
+	memcpy(&TransThrowItem.Item, &lpItem->sItemInfo, sizeof(sITEMINFO));
 
 	return TRUE;
 }
 //¾ÆÀÌÅÛ ¹ö¸®±â
-int ThrowPutItem2( sITEMINFO *lpItem , int x, int y , int z )
+int ThrowPutItem2(sITEMINFO *lpItem, int x, int y, int z)
 {
 
 	//¼­¹ö »óÅÂ¿¡ ¹®Á¦ ¹ß»ý½Ã ¾ÆÀÌÅÛ ¹ö¸®±â ±ÝÁö ( 4ÃÊ ÀÌ»ó ¼ö½ÅÀÌ ¾ø´Â »óÅÂ )
-	if ( (dwRecvServerTime+4000)<dwPlayTime || QuitSave || TransThrowItem.code ) 
+	if ((dwRecvServerTime + 4000) < dwPlayTime || QuitSave || TransThrowItem.code)
 		return FALSE;
 
-	if ( AdminCharDisable || WarningHack || !smWsockDataServer || !smWsockServer ) return FALSE;
+	if (AdminCharDisable || WarningHack || !smWsockDataServer || !smWsockServer) return FALSE;
 
 	//µ¥ÀÌÅ¸ ¼­¹ö¿¡ ¾ÆÀÌÅÛ ÀúÀå ¿ä±¸ ( º¹»ç ¾ÆÀÌÅÛ ¹æÁö )
-	if ( !SendSaveThrowItem2( lpItem ) )
+	if (!SendSaveThrowItem2(lpItem))
 		return FALSE;
 
-	TransThrowItem.code =	smTRANSCODE_THROWITEM;
+	TransThrowItem.code = smTRANSCODE_THROWITEM;
 	TransThrowItem.size = sizeof(TRANS_ITEMINFO);
 	TransThrowItem.x = x;
 	TransThrowItem.y = y;
 	TransThrowItem.z = z;
 
-	memcpy( &TransThrowItem.Item , lpItem  , sizeof(sITEMINFO) );
+	memcpy(&TransThrowItem.Item, lpItem, sizeof(sITEMINFO));
 
-/*
-	if ( lpItem->CODE==(sinGG1|sin01) ) {
-		SendSaveMoney();
-	}
-*/
+	/*
+		if ( lpItem->CODE==(sinGG1|sin01) ) {
+			SendSaveMoney();
+		}
+	*/
 	//return smWsockServer->Send( (char *)&TransItemInfo , TransItemInfo.size , TRUE );
 
 	return TRUE;
@@ -6424,521 +3123,18 @@ int ThrowPutItem2( sITEMINFO *lpItem , int x, int y , int z )
 int	ThrowPotionCount = 0;
 
 //ÀÓ½Ã ÀúÀåµÈ ¹ö¸± ¾ÆÀÌÅÛÀ» È®ÀÎÇÏ¿© ÀÏÄ¡ÇÏ¸é ¼­¹ö·Î º¸³¿
-int ThrowItemToServer( smTRANS_COMMAND_EX *lpTransCommand )
+int ThrowItemToServer(smTRANS_COMMAND_EX *lpTransCommand)
 {
-	smTRANS_COMMAND	smTransCommand;
-	smWINSOCK	*lpsmSock;
-	DWORD	dwItemCodeMask;
-	int		cnt;
-
-	if ( TransThrowItem.code && 
-		TransThrowItem.Item.CODE==(DWORD)lpTransCommand->WParam &&
-		TransThrowItem.Item.ItemHeader.Head==(DWORD)lpTransCommand->LParam &&
-		TransThrowItem.Item.ItemHeader.dwChkSum==(DWORD)lpTransCommand->SParam ) {
-
-		if ( (TransThrowItem.Item.CODE&sinITEM_MASK1)!=(sinPM1&sinITEM_MASK1) )	{
-			cInvenTory.DeleteInvenItemToServer(TransThrowItem.Item.CODE , TransThrowItem.Item.ItemHeader.Head , TransThrowItem.Item.ItemHeader.dwChkSum );
-
-			//ÀÎº¥Åä¸®ÀÇ ÁöÁ¤ÇÑ ¾ÆÀÌÅÛÀ» Ã£¾Æ °Ë»öÇÏ¿© Ã£´Â´Ù
-			if ( FindInvenItem( TransThrowItem.Item.CODE , 
-				TransThrowItem.Item.ItemHeader.Head , 
-				TransThrowItem.Item.ItemHeader.dwChkSum )!=0 ) {
-
-					SendInvenItemError( 0 , TransThrowItem.Item.CODE , 
-							TransThrowItem.Item.ItemHeader.Head , 
-							TransThrowItem.Item.ItemHeader.dwChkSum );
-
-					TransThrowItem.code = 0;
-					return TRUE;
-			}
-		}
-		else {
-			if ( (dwPlayTime-dwLastRecordTime)>4000 && TransThrowItem.Item.PotionCount>=10 ) {
-				//¹°¾àÀÌ 10°³ ÀÌ»ó ±×·ìÀ¸·Î ¹ö¸±°æ¿ì (ÀúÀå / ¹°¾àº¹»ç 10°³ÀÌ»ó ¾ÈµÇµµ·Ï )
-				SaveGameData();
-				ThrowPotionCount = 0;
-			}
-			else {
-				ThrowPotionCount += TransThrowItem.Item.PotionCount;
-				if ( ThrowPotionCount>=15 ) {		//¹°¾à ³ª°£ °¹¼ö°¡ 15°³ ÃÊ°ú¸é ÀúÀåÇÏ°í ÇÃ·¢ ÃÊ±âÈ­
-					ThrowPotionCount = 0;
-					SaveGameData();
-				}
-			}
-		}
-
-		if ( (TransThrowItem.Item.CODE&sinITEM_MASK2)==sinBC1 ) {
-
-			if ( TransThrowItem.Item.PotionCount==100 )		//ÀÓ½Ã 100 µé¾î¿À¸é 200À¸·Î ¹Ù²Þ
-				TransThrowItem.Item.PotionCount = 200;
-
-			if 	( TransThrowItem.Item.CODE==(sinBC1|sin04) && TransThrowItem.Item.PotionCount==200) {
-				//ÆÄÆ¼ È¸º¹ ( ¼ÛÆí°ú °°À½ )
-				smTransCommand.size = sizeof(smTRANS_COMMAND);
-				smTransCommand.code = smTRANSCODE_PARTY_POTION;
-				smTransCommand.WParam =	3000;	//»ý¸í·Â
-				smTransCommand.LParam =	3000;	//±â·Â
-				smTransCommand.SParam =	3000;	//±Ù·Â
-				smTransCommand.EParam = lpCurPlayer->dwObjectSerial;
-				
-				if ( smWsockUserServer )
-					smWsockUserServer->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
-
-				SetPartyPosion( &smTransCommand );
-
-				TransThrowItem.code = 0;
-				return TRUE;
-			}
-		}
-
-		if ( !TransThrowItem.Item.SpecialItemFlag[0] ) {		//( º¹»ç ÁõÁ¤¿ë ¾ÆÀÌÅÛÀº »ç¶óÁü )
-			TransThrowItem.dwSeCode[0] = lpTransCommand->WxParam;
-			TransThrowItem.dwSeCode[1] = lpTransCommand->LxParam;
-			TransThrowItem.dwSeCode[2] = lpTransCommand->SxParam;
-			TransThrowItem.dwSeCode[3] = lpTransCommand->ExParam;
-
-			dwItemCodeMask = TransThrowItem.Item.CODE&sinITEM_MASK2;
-
-			// Àåº° - ¼Ò¿ï½ºÅæ
-			if ( ((dwItemCodeMask==sinGP1 || dwItemCodeMask==sinCH1 || dwItemCodeMask==sinFO1 || dwItemCodeMask==sinGP2 ) && TransThrowItem.Item.PotionCount==100) ||
-				(TransThrowItem.Item.CODE==(sinGG1|sin01) && TransThrowItem.Item.ItemKindCode==smTRANSCODE_COLLECTMONEY ) ||
-				( dwItemCodeMask==sinBC1 && TransThrowItem.Item.PotionCount==200) ||
-				( dwItemCodeMask==sinBI1 && TransThrowItem.Item.PotionCount==300) || 
-				( dwItemCodeMask==sinBI2 && TransThrowItem.Item.PotionCount==300) )
-			{
-				lpsmSock = GetAreaServerSock();		//Áö¿ª¼­¹ö ¼ÒÄÏÀ» Ã£À½
-				if ( lpsmSock )
-					lpsmSock->Send2( (char *)&TransThrowItem , TransThrowItem.size , TRUE );
-				else
-					smWsockServer->Send2( (char *)&TransThrowItem , TransThrowItem.size , TRUE );
-
-				if ( dwItemCodeMask==sinFO1 ) {
-					//Æ÷½º¿Àºê ½ÃÀü
-					cnt = (TransThrowItem.Item.CODE&sinITEM_MASK3)>>8;
-					cnt --;
-					if ( cnt>=0 && cnt<12 ) {  // ¹ÚÀç¿ø : ºô¸µ Æ÷½º Ãß°¡·Î Æ÷½º °¹¼ö 12·Î ¿¬Àå
-						lpCurPlayer->dwForceOrbCode = TransThrowItem.Item.CODE;		//Æ÷½º¿Àºê Àû¿ë ÄÚµå
-						lpCurPlayer->dwForceOrbTime = dwPlayTime + ForceOrbUseTime[cnt]*1000;
-						AssaParticle_ShelltomWeapon( lpCurPlayer , ForceOrbUseTime[cnt]*70 , cnt );
-
-						//ÁÖº¯ Ä³¸¯ÅÍ¿¡ ÀÌº¥Æ® ¸í·É ÄÚµå º¸³»±â
-						SendCommandUser( smCOMMNAD_USER_FORCEORB , 0 , 0 , 0 );
-						StartSkill( lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ, 0,0,0, SKILL_UP1 );
-						SkillPlaySound( SKILL_SOUND_LEARN , lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ );			//½ºÅ³ È¿°úÀ½
-					}
-					// ¹ÚÀç¿ø - ¸ÅÁ÷ Æ÷½º Ãß°¡
-					else if ( cnt>=20 && cnt<32 ) {  
-						lpCurPlayer->dwForceOrbCode = TransThrowItem.Item.CODE;		//Æ÷½º¿Àºê Àû¿ë ÄÚµå
-						lpCurPlayer->dwForceOrbTime = dwPlayTime + MagicForceOrbUseTime[cnt-20]*1000;
-						// ¹ÚÀç¿ø - ¸ÅÁ÷ Æ÷½º´Â ÀÏ¹Ý Æ÷½º¿Í °°Àº ÀÌÆåÆ®·Î Àû¿ëÇÑ´Ù.
-						AssaParticle_ShelltomWeapon( lpCurPlayer , MagicForceOrbUseTime[cnt-20]*70 , cnt ); //
-
-						//ÁÖº¯ Ä³¸¯ÅÍ¿¡ ÀÌº¥Æ® ¸í·É ÄÚµå º¸³»±â
-						SendCommandUser( smCOMMNAD_USER_FORCEORB , 0 , 0 , 0 );
-						StartSkill( lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ, 0,0,0, SKILL_UP1 );
-						SkillPlaySound( SKILL_SOUND_LEARN , lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ );			//½ºÅ³ È¿°úÀ½
-					}
-					else if ( cnt>=34 && cnt<37 ) {  
-						lpCurPlayer->dwForceOrbCode = TransThrowItem.Item.CODE;		//Æ÷½º¿Àºê Àû¿ë ÄÚµå
-						lpCurPlayer->dwForceOrbTime = dwPlayTime + BillingMagicForceOrbUseTime[cnt-34]*1000;
-						// ¹ÚÀç¿ø - ºô¸µ ¸ÅÁ÷ Æ÷½º´Â ¹Ì¶óÁö, ÀÎÆä¸£³ª, ÀÌ´Ï±×¸¶¿Í °°Àº ÀÌÆåÆ®·Î Àû¿ëÇÑ´Ù.
-						AssaParticle_ShelltomWeapon( lpCurPlayer , BillingMagicForceOrbUseTime[cnt-34]*70 , cnt ); //
-
-						//ÁÖº¯ Ä³¸¯ÅÍ¿¡ ÀÌº¥Æ® ¸í·É ÄÚµå º¸³»±â
-						SendCommandUser( smCOMMNAD_USER_FORCEORB , 0 , 0 , 0 );
-						StartSkill( lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ, 0,0,0, SKILL_UP1 );
-						SkillPlaySound( SKILL_SOUND_LEARN , lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ );			//½ºÅ³ È¿°úÀ½
-					}
-				}
-
-				//À¯·á ¾ÆÀÌÅÛ »ç¿ë½Ã ½Ã°£ Ç¥½Ã
-				if ( dwItemCodeMask==sinBI1 || dwItemCodeMask==sinBI2 ) {
-					if ( TransThrowItem.Item.CODE==(sinBI1|sin12) ) {
-						chaPremiumitem.SetThirdEyesTime( PRIME_ITEM_TIME_THIRDEYES );
-					}
-					else if ( TransThrowItem.Item.CODE==(sinBI1|sin13) ) {
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_EXPUP );
-					}
-					else if ( TransThrowItem.Item.CODE==(sinBI1|sin14) ) {
-						chaPremiumitem.SetThirdEyesTime( PRIME_ITEM_TIME_THIRDEYESx7 );
-					}
-					else if ( TransThrowItem.Item.CODE==(sinBI1|sin15) ) {
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_EXPUPx7 );
-					}
-					else if ( TransThrowItem.Item.CODE==(sinBI1|sin23) ) {	//ÆøÁ×
-						cnt = (rand()%8192)*2;
-						DWORD	dwTable = GetTableNum( cnt );
-						AddTimeEffect( SKILL_EFFECT_FIREFLOWER , dwPlayTime , (dwTable>>24)&0xFF,0,0, lpCurPlayer );
-						AddTimeEffect( SKILL_EFFECT_FIREFLOWER , dwPlayTime+500 , (dwTable>>16)&0xFF,0,0, lpCurPlayer );
-						AddTimeEffect( SKILL_EFFECT_FIREFLOWER , dwPlayTime+1000 , (dwTable>>8)&0xFF,0,0, lpCurPlayer );
-						AddTimeEffect( SKILL_EFFECT_FIREFLOWER , dwPlayTime+1500 , dwTable&0xFF,0,0, lpCurPlayer );
-						lpCurPlayer->dwNextMotionCode = CHRMOTION_STATE_YAHOO;
-						SendCommandUser( smCOMMNAD_USER_FIREFLOWER , cnt , 0 , 0 );
-					}
-					else if ( TransThrowItem.Item.CODE==(sinBI1|sin24) ) {		//º£Æ®³²¿äÃ»
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_EXPUP );
-					}
-					else if ( TransThrowItem.Item.CODE==(sinBI1|sin25) ) {		//º£Æ®³²¿äÃ»
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_EXPUPx7 );
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin26) )	// pluto ¸¶ÀÌÆ® ¿Àºê ¾ÆÀ£ 7ÀÏ
-					{
-						chaPremiumitem.SetMightOfAwellTime( PRIME_ITEM_TIME_EXPUPx7 );
-						chaPremiumitem.SetMightOfAwellWeight( 300 );
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin27) )	// pluto ¸¶ÀÌÆ® ¿Àºê ¾ÆÀ£ 30ÀÏ
-					{
-						chaPremiumitem.SetMightOfAwellTime( PRIME_ITEM_TIME_PACKAGE4 );
-						chaPremiumitem.SetMightOfAwellWeight( 300 );
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin28) )		// pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 1ÀÏ
-					{
-						chaPremiumitem.SetManaReducePotionTime( PRIME_ITEM_TIME_EXPUP );
-						chaPremiumitem.SetManaReducePotionValue( 30 ); // pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 30% °¨¼Ò
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin29) )		// pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 7ÀÏ
-					{
-						chaPremiumitem.SetManaReducePotionTime( PRIME_ITEM_TIME_EXPUPx7 );
-						chaPremiumitem.SetManaReducePotionValue( 30 ); // pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 30% °¨¼Ò
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin30) )	// pluto ¸¶ÀÌÆ® ¿Àºê ¾ÆÀ£2 7ÀÏ
-					{
-						chaPremiumitem.SetMightOfAwellTime( PRIME_ITEM_TIME_EXPUPx7 );
-						chaPremiumitem.SetMightOfAwellWeight( 500 );
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin31) )	// pluto ¸¶ÀÌÆ® ¿Àºê ¾ÆÀ£2 30ÀÏ
-					{
-						chaPremiumitem.SetMightOfAwellTime( PRIME_ITEM_TIME_PACKAGE4 );
-						chaPremiumitem.SetMightOfAwellWeight( 500 );
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin32) )	// pluto Æê(ÇØ¿Ü)
-					{
-						chaPremiumitem.SetPhenixPetTime( PRIME_ITEM_TIME_EXPUP );
-						cPCBANGPet.PetKind = TRUE;
-						cPCBANGPet.ShowPet();
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin33) )	// pluto Æê(ÇØ¿Ü)
-					{
-						chaPremiumitem.SetPhenixPetTime( PRIME_ITEM_TIME_THIRDEYESx7 );
-						cPCBANGPet.PetKind = TRUE;
-						cPCBANGPet.ShowPet();
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin34) )	// pluto Æê(ÇØ¿Ü)
-					{
-						chaPremiumitem.SetPhenixPetTime( PRIME_ITEM_TIME_VAMPCUSPID );
-						cPCBANGPet.PetKind = TRUE;
-						cPCBANGPet.ShowPet();
-					}
-					else if ( TransThrowItem.Item.CODE==(sinBI1|sin43) ) {		// ¹ÚÀç¿ø - °æÇèÄ¡Áõ°¡ Æ÷¼Ç(100% 1ÀÏ Ãß°¡)
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_EXPUP );
-					}
-					else if ( TransThrowItem.Item.CODE==(sinBI1|sin44) ) {		// ¹ÚÀç¿ø - °æÇèÄ¡Áõ°¡ Æ÷¼Ç(100% 7ÀÏ Ãß°¡)
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_EXPUPx7 );
-					}
-					else if ( TransThrowItem.Item.CODE==(sinBI1|sin50) ) {		// ¹ÚÀç¿ø - °æÇèÄ¡Áõ°¡ Æ÷¼Ç(100% 30ÀÏ Ãß°¡)
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE4 ); // 30ÀÏ
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin51) )	// ¹ÚÀç¿ø - ÇÈ´Ð½º Æê(30ÀÏ) Ãß°¡
-					{
-						chaPremiumitem.SetPhenixPetTime( PRIME_ITEM_TIME_PACKAGE4 );
-						cPCBANGPet.PetKind = TRUE;
-						cPCBANGPet.ShowPet();
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin52) )	// ¹ÚÀç¿ø - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡
-					{
-						chaPremiumitem.SetHelpPetTimeTime( PRIME_ITEM_TIME_PACKAGE4 ); // ¿ì¼± Å×½ºÆ®·Î 1ºÐÀ¸·Î ¼ÂÆÃ(60) 
-
-						// 1:Terry  2:Nepsys  3:Io  4:Mute
-						cHelpPet.PetKind = HoLowLevelPet::Type::Terry + 1;
-						cHelpPet.PetShow = 1;
-						cHelpPet.ShowPet();
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin53) )	// ¹ÚÀç¿ø - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡
-					{
-						chaPremiumitem.SetHelpPetTimeTime( PRIME_ITEM_TIME_PACKAGE4 ); 
-						// 1:Terry  2:Nepsys  3:Io  4:Mute
-						cHelpPet.PetKind = HoLowLevelPet::Type::Nepsys + 1;
-						cHelpPet.PetShow = 1;
-						cHelpPet.ShowPet();
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin54) )	// ¹ÚÀç¿ø - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡
-					{
-						chaPremiumitem.SetHelpPetTimeTime( PRIME_ITEM_TIME_PACKAGE4 );  
-						// 1:Terry  2:Nepsys  3:Io  4:Mute
-						cHelpPet.PetKind = HoLowLevelPet::Type::Io + 1;
-						cHelpPet.PetShow = 1;
-						cHelpPet.ShowPet();
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin55) )	// ¹ÚÀç¿ø - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡
-					{
-						chaPremiumitem.SetHelpPetTimeTime( PRIME_ITEM_TIME_PACKAGE4 ); 
-						// 1:Terry  2:Nepsys  3:Io  4:Mute
-						cHelpPet.PetKind = HoLowLevelPet::Type::Mute + 1;
-						cHelpPet.PetShow = 1;
-						cHelpPet.ShowPet();
-					}
-
-
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin69) )	// Àåº° - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡
-					{
-						chaPremiumitem.SetHelpPetTimeTime( PRIME_ITEM_TIME_PACKAGE2 );
-						
-						// 1:Terry  2:Nepsys  3:Io  4:Mute
-						cHelpPet.PetKind = HoLowLevelPet::Type::Terry + 1;
-						cHelpPet.PetShow = 1;
-						cHelpPet.ShowPet();
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin70) )	// Àåº° - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡
-					{
-						chaPremiumitem.SetHelpPetTimeTime( PRIME_ITEM_TIME_PACKAGE2 ); 
-						// 1:Terry  2:Nepsys  3:Io  4:Mute
-						cHelpPet.PetKind = HoLowLevelPet::Type::Nepsys + 1;
-						cHelpPet.PetShow = 1;
-						cHelpPet.ShowPet();
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin71) )	// Àåº° - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡
-					{
-						chaPremiumitem.SetHelpPetTimeTime( PRIME_ITEM_TIME_PACKAGE2 );  
-						// 1:Terry  2:Nepsys  3:Io  4:Mute
-						cHelpPet.PetKind = HoLowLevelPet::Type::Io + 1;
-						cHelpPet.PetShow = 1;
-						cHelpPet.ShowPet();
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin72) )	// Àåº° - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡
-					{
-						chaPremiumitem.SetHelpPetTimeTime( PRIME_ITEM_TIME_PACKAGE2 ); 
-						// 1:Terry  2:Nepsys  3:Io  4:Mute
-						cHelpPet.PetKind = HoLowLevelPet::Type::Mute + 1;
-						cHelpPet.PetShow = 1;
-						cHelpPet.ShowPet();
-					}
-
-					// Àåº° - °æÇèÄ¡Áõ°¡ Æ÷¼Ç(100% 1½Ã°£)
-					else if ( TransThrowItem.Item.CODE==(sinBI1|sin80) ) {		
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE5 ); // 1½Ã°£
-					}
-
-					// Àåº° - ÇÇ´Ð½ºÆê(1½Ã°£)
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin77) )	// pluto Æê(ÇØ¿Ü)
-					{
-						chaPremiumitem.SetPhenixPetTime( PRIME_ITEM_TIME_PACKAGE5 );
-						cPCBANGPet.PetKind = TRUE;
-						cPCBANGPet.ShowPet();
-					}
-
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin65) )	// Àåº° - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡(Å×¸®) 7ÀÏ
-					{
-						chaPremiumitem.SetHelpPetTimeTime( PRIME_ITEM_TIME_PACKAGE3 );
-						
-						// 1:Terry  2:Nepsys  3:Io  4:Mute
-						cHelpPet.PetKind = HoLowLevelPet::Type::Terry + 1;
-						cHelpPet.PetShow = 1;
-						cHelpPet.ShowPet();
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin66) )	// Àåº° - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡(³Ü½Ã½º)
-					{
-						chaPremiumitem.SetHelpPetTimeTime( PRIME_ITEM_TIME_PACKAGE3 ); 
-						// 1:Terry  2:Nepsys  3:Io  4:Mute
-						cHelpPet.PetKind = HoLowLevelPet::Type::Nepsys + 1;
-						cHelpPet.PetShow = 1;
-						cHelpPet.ShowPet();
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin67) )	// Àåº° - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡(ÀÌ¿À)
-					{
-						chaPremiumitem.SetHelpPetTimeTime( PRIME_ITEM_TIME_PACKAGE3 );  
-						// 1:Terry  2:Nepsys  3:Io  4:Mute
-						cHelpPet.PetKind = HoLowLevelPet::Type::Io + 1;
-						cHelpPet.PetShow = 1;
-						cHelpPet.ShowPet();
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin68) )	// Àåº° - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡(¹«Æ®)
-					{
-						chaPremiumitem.SetHelpPetTimeTime( PRIME_ITEM_TIME_PACKAGE3 ); 
-						// 1:Terry  2:Nepsys  3:Io  4:Mute
-						cHelpPet.PetKind = HoLowLevelPet::Type::Mute + 1;
-						cHelpPet.PetShow = 1;
-						cHelpPet.ShowPet();
-					}
-
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin73) )	// Àåº° - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡(Å×¸® 1½Ã°£) 
-					{
-						chaPremiumitem.SetHelpPetTimeTime( PRIME_ITEM_TIME_PACKAGE5 );
-						
-						// 1:Terry  2:Nepsys  3:Io  4:Mute
-						cHelpPet.PetKind = HoLowLevelPet::Type::Terry + 1;
-						cHelpPet.PetShow = 1;
-						cHelpPet.ShowPet();
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin74) )	// Àåº° - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡(³Ü½Ã½º 1½Ã°£)
-					{
-						chaPremiumitem.SetHelpPetTimeTime( PRIME_ITEM_TIME_PACKAGE5 ); 
-						// 1:Terry  2:Nepsys  3:Io  4:Mute
-						cHelpPet.PetKind = HoLowLevelPet::Type::Nepsys + 1;
-						cHelpPet.PetShow = 1;
-						cHelpPet.ShowPet();
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin75) )	// Àåº° - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡(ÀÌ¿À 1½Ã°£)
-					{
-						chaPremiumitem.SetHelpPetTimeTime( PRIME_ITEM_TIME_PACKAGE5 );  
-						// 1:Terry  2:Nepsys  3:Io  4:Mute
-						cHelpPet.PetKind = HoLowLevelPet::Type::Io + 1;
-						cHelpPet.PetShow = 1;
-						cHelpPet.ShowPet();
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin76) )	// Àåº° - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡(¹«Æ® 1½Ã°£)
-					{
-						chaPremiumitem.SetHelpPetTimeTime( PRIME_ITEM_TIME_PACKAGE5 ); 
-						// 1:Terry  2:Nepsys  3:Io  4:Mute
-						cHelpPet.PetKind = HoLowLevelPet::Type::Mute + 1;
-						cHelpPet.PetShow = 1;
-						cHelpPet.ShowPet();
-					}
-
-					// Àåº° - ½áµå ¾ÆÀÌÁî(1½Ã°£)
-					else if ( TransThrowItem.Item.CODE==(sinBI1|sin78) ) {
-						chaPremiumitem.SetThirdEyesTime( PRIME_ITEM_TIME_PACKAGE5 );
-					}
-
-					// Àåº° - °æÇèÄ¡Áõ°¡Æ÷¼Ç(1½Ã°£)
-					else if ( TransThrowItem.Item.CODE==(sinBI1|sin79) ) 
-					{		
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE5 );
-					}
-
-					// Àåº° - ¸¶³ª ¸®µà½º(1½Ã°£)
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin83) )		
-					{
-						chaPremiumitem.SetManaReducePotionTime( PRIME_ITEM_TIME_PACKAGE5 );
-						chaPremiumitem.SetManaReducePotionValue( 30 ); // pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 30% °¨¼Ò
-					}
-
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin91) )		 // ¹ÚÀç¿ø - ±Ù·Â ¸®µà½º Æ÷¼Ç(1ÀÏ)
-					{
-						chaPremiumitem.SetStaminaReducePotionTime( PRIME_ITEM_TIME_EXPUP ); // PRIME_ITEM_TIME_EXPUP
-						chaPremiumitem.SetStaminaReducePotionValue( 30 );			// ¹ÚÀç¿ø - ±Ù·Â ¸®µà½º Æ÷¼Ç 30% °¨¼Ò
-					}
-					else if( TransThrowItem.Item.CODE == (sinBI1|sin92) )		 // ¹ÚÀç¿ø - ±Ù·Â ¸®µà½º Æ÷¼Ç(7ÀÏ)
-					{
-						chaPremiumitem.SetStaminaReducePotionTime( PRIME_ITEM_TIME_EXPUPx7 ); // PRIME_ITEM_TIME_EXPUPx7
-						chaPremiumitem.SetStaminaReducePotionValue( 30 );			// ¹ÚÀç¿ø - ±Ù·Â ¸®µà½º Æ÷¼Ç 30% °¨¼Ò
-					}
-
-					
-					if( TransThrowItem.Item.CODE == ((sinBI2|sin01))){
-						int test = 1;
-					}
-
-					switch( TransThrowItem.Item.CODE ) 
-					{
-					case (sinBI2|sin01):
-					case (sinBI2|sin05):
-					case (sinBI2|sin09):
-					case (sinBI2|sin23):	// pluto ½´Æä¸®¾î ÆÐÅ°Áö 3½Ã°£
-						chaPremiumitem.SetThirdEyesTime( PRIME_ITEM_TIME_PACKAGE1 );
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE1 );
-						break;
-					case (sinBI2|sin02):
-					case (sinBI2|sin06):
-					case (sinBI2|sin10):
-					case (sinBI2|sin24):	// pluto ½´Æä¸®¾î ÆÐÅ°Áö 1ÀÏ
-						chaPremiumitem.SetThirdEyesTime( PRIME_ITEM_TIME_PACKAGE2 );
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE2 );
-						break;
-					case (sinBI2|sin03):
-					case (sinBI2|sin07):
-					case (sinBI2|sin11):
-					case (sinBI2|sin25):	// pluto ½´Æä¸®¾î ÆÐÅ°Áö 7ÀÏ
-						chaPremiumitem.SetThirdEyesTime( PRIME_ITEM_TIME_PACKAGE3 );
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE3 );
-						break;
-					case (sinBI2|sin04):
-					case (sinBI2|sin08):
-					case (sinBI2|sin12):
-						chaPremiumitem.SetThirdEyesTime( PRIME_ITEM_TIME_PACKAGE4 );
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE4 );
-						break;
-					case (sinBI2|sin26):			// pluto ºê·ÐÁî ÆÐÅ°Áö2 3½Ã°£
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE1 );
-						chaPremiumitem.SetManaReducePotionTime( PRIME_ITEM_TIME_PACKAGE1 );
-						chaPremiumitem.SetManaReducePotionValue( 10 ); // pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 10% °¨¼Ò
-						break;
-					case (sinBI2|sin27):			// pluto ºê·ÐÁî ÆÐÅ°Áö2 1ÀÏ
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE2 );
-						chaPremiumitem.SetManaReducePotionTime( PRIME_ITEM_TIME_PACKAGE2 );
-						chaPremiumitem.SetManaReducePotionValue( 10 ); // pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 10% °¨¼Ò
-						break;
-					case (sinBI2|sin28):			// pluto ºê·ÐÁî ÆÐÅ°Áö2 7ÀÏ
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE3 );
-						chaPremiumitem.SetManaReducePotionTime( PRIME_ITEM_TIME_PACKAGE3 );
-						chaPremiumitem.SetManaReducePotionValue( 10 ); // pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 10% °¨¼Ò
-						break;
-					case (sinBI2|sin29):			// pluto ½Ç¹ö ÆÐÅ°Áö2 3½Ã°£
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE1 );
-						chaPremiumitem.SetManaReducePotionTime( PRIME_ITEM_TIME_PACKAGE1 );
-						chaPremiumitem.SetManaReducePotionValue( 20 ); // pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 20% °¨¼Ò
-						break;
-					case (sinBI2|sin30):			// pluto ½Ç¹ö ÆÐÅ°Áö2 1ÀÏ
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE2 );
-						chaPremiumitem.SetManaReducePotionTime( PRIME_ITEM_TIME_PACKAGE2 );
-						chaPremiumitem.SetManaReducePotionValue( 20 ); // pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 20% °¨¼Ò
-						break;
-					case (sinBI2|sin31):			// pluto ½Ç¹ö ÆÐÅ°Áö2 7ÀÏ
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE3 );
-						chaPremiumitem.SetManaReducePotionTime( PRIME_ITEM_TIME_PACKAGE3 );
-						chaPremiumitem.SetManaReducePotionValue( 20 ); // pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 20% °¨¼Ò
-						break;
-					case (sinBI2|sin32):			// pluto °ñµå ÆÐÅ°Áö2 3½Ã°£
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE1 );
-						chaPremiumitem.SetManaReducePotionTime( PRIME_ITEM_TIME_PACKAGE1 );
-						chaPremiumitem.SetManaReducePotionValue( 30 ); // pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 30% °¨¼Ò
-						break;
-					case (sinBI2|sin33):			// pluto °ñµå ÆÐÅ°Áö2 1ÀÏ
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE2 );
-						chaPremiumitem.SetManaReducePotionTime( PRIME_ITEM_TIME_PACKAGE2 );
-						chaPremiumitem.SetManaReducePotionValue( 30 ); // pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 30% °¨¼Ò
-						break;
-					case (sinBI2|sin34):			// pluto °ñµå ÆÐÅ°Áö2 7ÀÏ
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE3 );
-						chaPremiumitem.SetManaReducePotionTime( PRIME_ITEM_TIME_PACKAGE3 );
-						chaPremiumitem.SetManaReducePotionValue( 30 ); // pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 30% °¨¼Ò
-						break;
-					case (sinBI2|sin35):			// pluto ½´Æä¸®¾î ÆÐÅ°Áö2 3½Ã°£
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE1 );
-						chaPremiumitem.SetManaReducePotionTime( PRIME_ITEM_TIME_PACKAGE1 );
-						chaPremiumitem.SetManaReducePotionValue( 40 ); // pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 40% °¨¼Ò
-						break;
-					case (sinBI2|sin36):			// pluto ½´Æä¸®¾î ÆÐÅ°Áö2 1ÀÏ
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE2 );
-						chaPremiumitem.SetManaReducePotionTime( PRIME_ITEM_TIME_PACKAGE2 );
-						chaPremiumitem.SetManaReducePotionValue( 40 ); // pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 40% °¨¼Ò
-						break;
-					case (sinBI2|sin37):			// pluto ½´Æä¸®¾î ÆÐÅ°Áö2 7ÀÏ
-						chaPremiumitem.SetExpUpPotionTime( PRIME_ITEM_TIME_PACKAGE3 );
-						chaPremiumitem.SetManaReducePotionTime( PRIME_ITEM_TIME_PACKAGE3 );
-						chaPremiumitem.SetManaReducePotionValue( 40 ); // pluto ¸¶³ª ¸®µà½º Æ÷¼Ç 40% °¨¼Ò
-						break;
-					}
-				}
-
-			}
-			else {
-				smWsockServer->Send2( (char *)&TransThrowItem , TransThrowItem.size , TRUE );
-			}
-		}
-
-	}
-
-	TransThrowItem.code = 0;
-	return TRUE;
+	Log::Debug("ThrowItemToServer : Requisitado porém foi removido.");
+	return NULL;
 }
 
-
 //¸ó½ºÅÍ ½ÃÀÛ ÁöÁ¡ Ãß°¡
-int SendAddStartPoint( int x, int z )
+int SendAddStartPoint(int x, int z)
 {
 	smTRANS_COMMAND	TransCommand;
 
-	TransCommand.code =	smTRANSCODE_ADD_STARTPOSI;
+	TransCommand.code = smTRANSCODE_ADD_STARTPOSI;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.LParam = x;
 	TransCommand.WParam = z;
@@ -6946,35 +3142,38 @@ int SendAddStartPoint( int x, int z )
 
 	smWINSOCK *lpsmSock;
 	lpsmSock = GetAreaServerSock();		//Áö¿ª¼­¹ö ¼ÒÄÏÀ» Ã£À½
-	if ( lpsmSock ) {
-		return lpsmSock->Send( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (lpsmSock)
+	{
+		return lpsmSock->Send((char *)&TransCommand, TransCommand.size, TRUE);
 	}
 	return NULL;
 }
 
 //¸ó½ºÅÍ ½ÃÀÛÁöÁ¡ Á¦°Å
-int SendDeleteStartPoint( int x, int z )
+int SendDeleteStartPoint(int x, int z)
 {
 	smTRANS_COMMAND	TransCommand;
 	scITEM	*lpItem;
 	smWINSOCK *lpsmSock;
 
 
-	TransCommand.code =	smTRANSCODE_DEL_STARTPOSI;
+	TransCommand.code = smTRANSCODE_DEL_STARTPOSI;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.LParam = x;
 	TransCommand.WParam = z;
 	TransCommand.SParam = TRUE;
 
 	//¶³¾îÁø ¾ÆÀÌÅÛ Ã£±â
-	lpItem = FindScItem( x, z );
-	if ( lpItem ) {
+	lpItem = FindScItem(x, z);
+	if (lpItem)
+	{
 		lpsmSock = GetServerSock(lpItem->ServerCode);		//Áö¿ª¼­¹ö ¼ÒÄÏÀ» Ã£À½
 		lpItem->Close();
 	}
 
-	if ( lpsmSock ) {
-		return lpsmSock->Send( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (lpsmSock)
+	{
+		return lpsmSock->Send((char *)&TransCommand, TransCommand.size, TRUE);
 	}
 	return NULL;
 }
@@ -6982,17 +3181,17 @@ int SendDeleteStartPoint( int x, int z )
 
 
 //NPC Ä³¸¯ÅÍ Ãß°¡
-int SendAdd_Npc( smCHAR *lpCharSample , int state )
+int SendAdd_Npc(smCHAR *lpCharSample, int state)
 {
 	smTRNAS_PLAYERINFO	smTransPlayerInfo;
 
-	smTransPlayerInfo.code =	smTRANSCODE_ADD_NPC;
+	smTransPlayerInfo.code = smTRANSCODE_ADD_NPC;
 	smTransPlayerInfo.size = sizeof(smTRNAS_PLAYERINFO);
-	memcpy( &smTransPlayerInfo.smCharInfo , &lpCharSample->smCharInfo , sizeof( smCHAR_INFO ) );
+	memcpy(&smTransPlayerInfo.smCharInfo, &lpCharSample->smCharInfo, sizeof(smCHAR_INFO));
 	smTransPlayerInfo.smCharInfo.State = 0;
 
 	//NPC Á¤º¸ÆÄÀÏ À» ¸ðµ¨ÀÌ¸§2¿¡ ³Ö¾î¼­ º¸³¿
-	lstrcpy( smTransPlayerInfo.smCharInfo.szModelName2 , NpcSelectedName );
+	lstrcpy(smTransPlayerInfo.smCharInfo.szModelName2, NpcSelectedName);
 
 	smTransPlayerInfo.smCharInfo.Life[0] = 100;
 	smTransPlayerInfo.smCharInfo.Mana[0] = 100;
@@ -7010,22 +3209,23 @@ int SendAdd_Npc( smCHAR *lpCharSample , int state )
 
 	smWINSOCK *lpsmSock;
 	lpsmSock = GetAreaServerSock();		//Áö¿ª¼­¹ö ¼ÒÄÏÀ» Ã£À½
-	if ( lpsmSock ) {
-		return lpsmSock->Send( (char *)&smTransPlayerInfo , smTransPlayerInfo.size , TRUE );
+	if (lpsmSock)
+	{
+		return lpsmSock->Send((char *)&smTransPlayerInfo, smTransPlayerInfo.size, TRUE);
 	}
 
 	return NULL;
 }
 
 //NPC Ä³¸¯ÅÍ Á¦°Å
-int SendDelete_Npc( smCHAR *lpCharSample )
+int SendDelete_Npc(smCHAR *lpCharSample)
 {
 	smTRNAS_PLAYERINFO	smTransPlayerInfo;
 	smWINSOCK *lpsmSock;
 
-	smTransPlayerInfo.code =	smTRANSCODE_DEL_NPC;
+	smTransPlayerInfo.code = smTRANSCODE_DEL_NPC;
 	smTransPlayerInfo.size = sizeof(smTRNAS_PLAYERINFO);
-	memcpy( &smTransPlayerInfo.smCharInfo , &lpCharSample->smCharInfo , sizeof( smCHAR_INFO ) );
+	memcpy(&smTransPlayerInfo.smCharInfo, &lpCharSample->smCharInfo, sizeof(smCHAR_INFO));
 
 	smTransPlayerInfo.x = lpCharSample->pX;
 	smTransPlayerInfo.y = lpCharSample->pY;
@@ -7040,30 +3240,32 @@ int SendDelete_Npc( smCHAR *lpCharSample )
 	lpsmSock = GetServerSock(lpCharSample->ServerCode);		//Áö¿ª¼­¹ö ¼ÒÄÏÀ» Ã£À½
 	lpCharSample->Close();
 
-	if ( lpsmSock ) {
-		return lpsmSock->Send( (char *)&smTransPlayerInfo , smTransPlayerInfo.size , TRUE );
+	if (lpsmSock)
+	{
+		return lpsmSock->Send((char *)&smTransPlayerInfo, smTransPlayerInfo.size, TRUE);
 	}
 	return NULL;
 }
 
 //ÀúÀåµÈ Ä³¸¯ÅÍ µ¥ÀÌÅ¸ ºÒ·¯¿À±â ¿ä±¸
-int SendGetRecordData( char *szName )
+int SendGetRecordData(char *szName)
 {
 	smTRANS_CHAR_COMMAND	smTransCharCommand;
 
-	if ( smWsockDataServer ) {
+	if (smWsockDataServer)
+	{
 		smTransCharCommand.code = smTRANSCODE_GETRECORDDATA;
-		smTransCharCommand.size = sizeof( smTRANS_CHAR_COMMAND );
+		smTransCharCommand.size = sizeof(smTRANS_CHAR_COMMAND);
 
 		smTransCharCommand.WParam = dwExeCheckSum;					//½ÇÇàÆÄÀÏ Ã¼Å©¼¶
 		smTransCharCommand.LParam = FALSE;
 		smTransCharCommand.SParam = Client_Version;					//Å¬¶óÀÌ¾ðÆ® ¹öÀü
 
-		lstrcpy( smTransCharCommand.szName , szName );
+		lstrcpy(smTransCharCommand.szName, szName);
 
 		dwLoadingTime = GetCurrentTime();			//·Îµù ½Ãµµ ½Ã°£ ±â·Ï
 
-		return smWsockDataServer->Send( (char *)&smTransCharCommand , smTransCharCommand.size , TRUE );
+		return smWsockDataServer->Send((char *)&smTransCharCommand, smTransCharCommand.size, TRUE);
 	}
 
 	return FALSE;
@@ -7080,33 +3282,35 @@ char *szCmdOpenMonster[10] = {
 
 
 //¸ó½ºÅÍ »ý¼º
-int SendOpenMonster( int State )
+int SendOpenMonster(int State)
 {
 
 	smTRANS_CHAR_COMMAND	smTransCharCommand;
 	char *szMonName;
 
 	smTransCharCommand.code = smTRANSCODE_OPENMONSTER;
-	smTransCharCommand.size = sizeof( smTRANS_CHAR_COMMAND );
+	smTransCharCommand.size = sizeof(smTRANS_CHAR_COMMAND);
 	smTransCharCommand.WParam = State;
 	smTransCharCommand.LParam = 0;
 	smTransCharCommand.SParam = 0;
 
-	if ( State>=0 ) {
+	if (State >= 0)
+	{
 		szMonName = smConfig.szCmdOpenMonster[State];
-		if ( !szMonName[0] ) szMonName = szCmdOpenMonster[State];
+		if (!szMonName[0]) szMonName = szCmdOpenMonster[State];
 	}
 
-	if ( State>=0 && szMonName )
-		lstrcpy( smTransCharCommand.szName , szMonName );
+	if (State >= 0 && szMonName)
+		lstrcpy(smTransCharCommand.szName, szMonName);
 	else
 		smTransCharCommand.szName[0];
 
 
 	smWINSOCK *lpsmSock;
 	lpsmSock = GetAreaServerSock();		//Áö¿ª¼­¹ö ¼ÒÄÏÀ» Ã£À½
-	if ( lpsmSock ) {
-		return lpsmSock->Send( (char *)&smTransCharCommand , smTransCharCommand.size , TRUE );
+	if (lpsmSock)
+	{
+		return lpsmSock->Send((char *)&smTransCharCommand, smTransCharCommand.size, TRUE);
 	}
 
 	return FALSE;
@@ -7128,11 +3332,13 @@ int SaveCheckSkill()
 
 	ReformSkillInfo();
 
-	for(int j=1;j < SIN_MAX_USE_SKILL; j++){
-		if(sinSkill.UseSkill[j].Flag && sinSkill.UseSkill[j].Point){
-			if ( cSkill.CheckSkillPointForm( &sinSkill.UseSkill[j] )==FALSE ) 
+	for (int j = 1; j < SIN_MAX_USE_SKILL; j++)
+	{
+		if (sinSkill.UseSkill[j].Flag && sinSkill.UseSkill[j].Point)
+		{
+			if (cSkill.CheckSkillPointForm(&sinSkill.UseSkill[j]) == FALSE)
 				return FALSE;
-			if ( cSkill.CheckSkillMasteryForm( &sinSkill.UseSkill[j] )==FALSE )
+			if (cSkill.CheckSkillMasteryForm(&sinSkill.UseSkill[j]) == FALSE)
 				return FALSE;
 		}
 	}
@@ -7143,9 +3349,10 @@ int SaveCheckSkill()
 //½ºÅ³º¸È£°ª ÀüºÎ ÃÊ±âÈ­
 int ReformSkillInfo()
 {
-	for(int j=1;j < SIN_MAX_USE_SKILL; j++){
-		cSkill.ReformSkillMasteryForm( &sinSkill.UseSkill[j] );
-		cSkill.ReformSkillPointForm( &sinSkill.UseSkill[j] );
+	for (int j = 1; j < SIN_MAX_USE_SKILL; j++)
+	{
+		cSkill.ReformSkillMasteryForm(&sinSkill.UseSkill[j]);
+		cSkill.ReformSkillPointForm(&sinSkill.UseSkill[j]);
 	}
 	return TRUE;
 }
@@ -7153,23 +3360,25 @@ int ReformSkillInfo()
 //°ÔÀÓÀ» ÀúÀå
 int	SaveGameData()
 {
-	if ( smWsockDataServer && !rsRecorder.dwRecordTime && 
+	if (smWsockDataServer && !rsRecorder.dwRecordTime &&
 		lpCurPlayer->smCharInfo.JOB_CODE && !AdminCharDisable && !cTrade.OpenFlag && !cWareHouse.OpenFlag &&
-		!QuitSave ) {
+		!QuitSave)
+	{
 
 		//¹°¾à°¹¼ö ºñ±³
 		//if ( ComparePotion()>0 ) return FALSE;		//¹°¾à ¿À·ù
 
-		if ( !WarningHack && CheckCharForm()!=FALSE && SaveCheckSkill()==TRUE ) {
+		if (!WarningHack && CheckCharForm() != FALSE && SaveCheckSkill() == TRUE)
+		{
 
 			CodeXorCharInfo();
 			ReformCharForm();
 
-			rsRecorder.MakeRecordData( &lpCurPlayer->smCharInfo , cInvenTory.InvenItem ,cInvenTory.InvenItemTemp , &MouseItem  ) ;
-			rsRecorder.SendRecordDataToServer( smWsockDataServer ) ;
+			rsRecorder.MakeRecordData(&lpCurPlayer->smCharInfo, cInvenTory.InvenItem, cInvenTory.InvenItemTemp, &MouseItem);
+			rsRecorder.SendRecordDataToServer(smWsockDataServer);
 			rsRecorder.dwRecordTime = dwPlayTime;					//°ÔÀÓ ÀúÀå ½Ã°£ È®ÀÎ
 
-			if ( smConfig.DebugMode ) AddChatBuff( "GameSave" );
+			if (smConfig.DebugMode) AddChatBuff("GameSave");
 
 			CodeXorCharInfo();
 			ReformCharForm();
@@ -7183,7 +3392,7 @@ int	SaveGameData()
 //°ÔÀÓ ÀúÀå »óÅÂ ( FALSE ÀúÀåÁß ( ¼­¹ö·ÎºÎÅÍ °á°ú¸¦ ¹ÞÁö ¸øÇÔ ) )
 int GetSaveResult()
 {
-	if ( rsRecorder.dwRecordTime ) return FALSE;
+	if (rsRecorder.dwRecordTime) return FALSE;
 
 	return TRUE;
 }
@@ -7221,7 +3430,7 @@ int GetSaveResult()
 smTRANS_COMMAND	smMessageCommandBuff;
 
 //À¯Àú Á¤º¸ °ü·Ã Åë½Å ÄÚ¸àµå ( µ¥ÀÌÅ¸ ¼­¹ö¿ë )
-int	TransUserCommand ( DWORD dwCode , char *szID , char *szName )
+int	TransUserCommand(DWORD dwCode, char *szID, char *szName)
 {
 	smTRANS_CHAR_COMMAND2	TransCharCommand2;
 
@@ -7229,48 +3438,52 @@ int	TransUserCommand ( DWORD dwCode , char *szID , char *szName )
 	TransCharCommand2.size = sizeof(smTRANS_CHAR_COMMAND2);
 
 #ifdef _LANGUAGE_KOREAN
-	if ( dwCode==smTRANSCODE_ID_GETUSERINFO ) {
-		int cnt,len;
+	if (dwCode == smTRANSCODE_ID_GETUSERINFO)
+	{
+		int cnt, len;
 
 		len = lstrlen(szName);
-		for(cnt=0;cnt<len;cnt++) {
-			if ( (szName[cnt]&0x80)!=0 ) {
+		for (cnt = 0; cnt < len; cnt++)
+		{
+			if ((szName[cnt] & 0x80) != 0)
+			{
 				smMessageCommandBuff.code = smTRANSCODE_FAILCONNECT;
-				smMessageCommandBuff.size = sizeof( smTRANS_COMMAND );
+				smMessageCommandBuff.size = sizeof(smTRANS_COMMAND);
 				smMessageCommandBuff.WParam = -19;			//Æ¯¼ö¹®ÀÚ ¿À·ù
 				smMessageCommandBuff.LParam = 0;
 				smMessageCommandBuff.EParam = 2;
-				HoRecvMessage( smTRANSCODE_FAILCONNECT , &smMessageCommandBuff );
+				HoRecvMessage(smTRANSCODE_FAILCONNECT, &smMessageCommandBuff);
 				return FALSE;
 			}
 		}
 	}
 #endif
 
-	if ( szID )
-		lstrcpy( TransCharCommand2.szId , szID );
+	if (szID)
+		lstrcpy(TransCharCommand2.szId, szID);
 
-	if ( szName )
-		lstrcpy( TransCharCommand2.szName , szName );
+	if (szName)
+		lstrcpy(TransCharCommand2.szName, szName);
 
-	return smWsockDataServer->Send2( (char *)&TransCharCommand2 , TransCharCommand2.size , TRUE );
+	return smWsockDataServer->Send2((char *)&TransCharCommand2, TransCharCommand2.size, TRUE);
 }
 
 
 //Ä³¸¯ÅÍ Á¤º¸ Àü¼Û À¯±¸
-int	Send_GetCharInfo( DWORD	dwObjectSerial , int ServerCode )
+int	Send_GetCharInfo(DWORD	dwObjectSerial, int ServerCode)
 {
 	smTRANS_COMMAND			TransCommand;
 	smWINSOCK	*lpsmSock;
 
 	TransCommand.code = smTRANSCODE_GETPLAYERINFO;
-	TransCommand.size = sizeof( smTRANS_COMMAND );
+	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = dwObjectSerial;
 
 	lpsmSock = GetServerSock(ServerCode);		//Áö¿ª¼­¹ö ¼ÒÄÏÀ» Ã£À½
 
-	if ( lpsmSock ) {
-		return lpsmSock->Send( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (lpsmSock)
+	{
+		return lpsmSock->Send((char *)&TransCommand, TransCommand.size, TRUE);
 	}
 	return FALSE;
 }
@@ -7292,12 +3505,12 @@ static int	ReconnectCount = 0;
 int	TransCheckNetwork()
 {
 	smTRANS_COMMAND			TransCommand;
-	DWORD	dwTime,dwTime2;
+	DWORD	dwTime, dwTime2;
 	smWINSOCK	*lpOldSock;
 
 	//return TRUE;
 
-	if ( !dwConnectedServerTime ) return FALSE;
+	if (!dwConnectedServerTime) return FALSE;
 
 	//ÇÁ·Î¼¼½º ½Ã°£ °¨½ÃÇÏ´Â ¾²·¹µå °¡µ¿
 
@@ -7307,43 +3520,45 @@ int	TransCheckNetwork()
 	dwTime = GetCurrentTime();
 	dwTime2 = dwTime;
 
-	if ( (dwTime-dwLastTransCheckTime)<4000 ) return FALSE;
+	if ((dwTime - dwLastTransCheckTime) < 4000) return FALSE;
 
 	dwLastTransCheckTime = dwTime;
 
 	//if ( !smConfig.DebugMode ) {
-	if ( (dwMainServ_RecvTime && (dwMainServ_RecvTime+RECONNECT_LIMIT_TIME)<dwTime) || 
-		(dwLastRecvGameServerTime+DEADLOCK_CHECK_LIMIT_TIME)<dwTime || 
-		!smWsockServer || smWsockServer->WaitReadMessage<0 ) {
+	if ((dwMainServ_RecvTime && (dwMainServ_RecvTime + RECONNECT_LIMIT_TIME) < dwTime) ||
+		(dwLastRecvGameServerTime + DEADLOCK_CHECK_LIMIT_TIME) < dwTime ||
+		!smWsockServer || smWsockServer->WaitReadMessage < 0)
+	{
 		//¿¬°á ²ö¾î Áü ( ¼­¹ö¿ÍÀÇ ±³½Å ºÒ´É )
 
 		dwLastRecvGameServerTime = dwTime;
 
 		lpOldSock = smWsockServer;
 
-		if ( lpOldSock==smWsockDataServer )
+		if (lpOldSock == smWsockDataServer)
 			smWsockDataServer = 0;
-		if ( lpOldSock==smWsockUserServer )
+		if (lpOldSock == smWsockUserServer)
 			smWsockUserServer = 0;
-		if ( lpOldSock==smWsockExtendServer )
+		if (lpOldSock == smWsockExtendServer)
 			smWsockExtendServer = 0;
 
 		smWsockServer = 0;
 		ConnectServer_Main();
 
-		if ( smWsockServer ) {
+		if (smWsockServer)
+		{
 			//Sleep(200);
 			//¼­¹ö¿¡ ÀçÁ¢¼Ó ½Ãµµ
-			SendContinueServer( lpCurPlayer->dwObjectSerial , smWsockServer );
+			SendContinueServer(lpCurPlayer->dwObjectSerial, smWsockServer);
 
 			char szBuff[256];
-			wsprintf( szBuff , "Reconnect Server(Main)" );
-			AddChatBuff( szBuff );
+			wsprintf(szBuff, "Reconnect Server(Main)");
+			AddChatBuff(szBuff);
 
-			if ( dwLastRecvGameServerTime && dwLastRecvGameServerTime<dwTime2 ) dwLastRecvGameServerTime=dwTime2;
-			if ( dwLastRecvGameServerTime2 && dwLastRecvGameServerTime2<dwTime2 ) dwLastRecvGameServerTime2 = dwTime2;
-			if ( dwLastRecvGameServerTime3 && dwLastRecvGameServerTime3<dwTime2 ) dwLastRecvGameServerTime3 = dwTime2;
-			if ( dwLastRecvGameServerTime4 && dwLastRecvGameServerTime4<dwTime2 ) dwLastRecvGameServerTime4 = dwTime2;
+			if (dwLastRecvGameServerTime && dwLastRecvGameServerTime < dwTime2) dwLastRecvGameServerTime = dwTime2;
+			if (dwLastRecvGameServerTime2 && dwLastRecvGameServerTime2 < dwTime2) dwLastRecvGameServerTime2 = dwTime2;
+			if (dwLastRecvGameServerTime3 && dwLastRecvGameServerTime3 < dwTime2) dwLastRecvGameServerTime3 = dwTime2;
+			if (dwLastRecvGameServerTime4 && dwLastRecvGameServerTime4 < dwTime2) dwLastRecvGameServerTime4 = dwTime2;
 			ReconnServer++;		//Àç¿¬°á Ä«¿îÅÍ
 
 			return TRUE;
@@ -7357,56 +3572,61 @@ int	TransCheckNetwork()
 
 
 	//¿¹»ó ¼­¹ö ½Ã°£
-	dwTime = (dwTime-dwConnectedClientTime) + dwConnectedServerTime;
+	dwTime = (dwTime - dwConnectedClientTime) + dwConnectedServerTime;
 
 	TransCommand.code = smTRANSCODE_CHECK_NETSTATE;
-	TransCommand.size = sizeof( smTRANS_COMMAND );
+	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = dwTime;
 	TransCommand.LParam = dwCheckNetCount;
-	TransCommand.SParam = GetSafeCode2()+((dwMemError^dwPlayTime)-8080);
+	TransCommand.SParam = GetSafeCode2() + ((dwMemError^dwPlayTime) - 8080);
 	TransCommand.EParam = dwMemFunChkCode;
 
 	dwCheckNetCount++;
 
-	if ( smWsockServer ) smWsockServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (smWsockServer) smWsockServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 
-	if ( smWsockDataServer && smWsockServer!=smWsockDataServer ) {
+	if (smWsockDataServer && smWsockServer != smWsockDataServer)
+	{
 
-		if ( dwLastRecvGameServerTime2 && (dwLastRecvGameServerTime2+DEADLOCK_CHECK_LIMIT_TIME2)<dwTime2 ) {
+		if (dwLastRecvGameServerTime2 && (dwLastRecvGameServerTime2 + DEADLOCK_CHECK_LIMIT_TIME2) < dwTime2)
+		{
 			DisconnectFlag = GetCurrentTime();
 			DisconnectServerCode = 2;
 			return FALSE;
 		}
-//		else
-//			dwLastRecvGameServerTime2=dwTime;
+		//		else
+		//			dwLastRecvGameServerTime2=dwTime;
 
 
 		TransCommand.code = smTRANSCODE_CHECK_NETSTATE2;
-		smWsockDataServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
-		if ( !dwLastRecvGameServerTime2 ) dwLastRecvGameServerTime2 = dwTime2;
+		smWsockDataServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
+		if (!dwLastRecvGameServerTime2) dwLastRecvGameServerTime2 = dwTime2;
 	}
 
 
-	if ( smWsockUserServer && smWsockServer!=smWsockUserServer ) {
-		if ( (dwLastRecvGameServerTime3 && (dwLastRecvGameServerTime3+DEADLOCK_CHECK_LIMIT_TIME)<dwTime2) ||
-			(dwUserServ_RecvTime && (dwUserServ_RecvTime+RECONNECT_LIMIT_TIME)<dwTime2) ||
-			smWsockUserServer->WaitReadMessage<0 ) {
+	if (smWsockUserServer && smWsockServer != smWsockUserServer)
+	{
+		if ((dwLastRecvGameServerTime3 && (dwLastRecvGameServerTime3 + DEADLOCK_CHECK_LIMIT_TIME) < dwTime2) ||
+			(dwUserServ_RecvTime && (dwUserServ_RecvTime + RECONNECT_LIMIT_TIME) < dwTime2) ||
+			smWsockUserServer->WaitReadMessage < 0)
+		{
 
 			smWsockUserServer = 0;
 			ConnectServer_Main();
 
-			if ( smWsockUserServer ) {
+			if (smWsockUserServer)
+			{
 				//¼­¹ö¿¡ ÀçÁ¢¼Ó ½Ãµµ
 				//Sleep(200);
-				SendContinueServer( lpCurPlayer->dwObjectSerial , smWsockUserServer );
+				SendContinueServer(lpCurPlayer->dwObjectSerial, smWsockUserServer);
 
 				char szBuff[256];
-				wsprintf( szBuff , "Reconnect Server(User)" );
-				AddChatBuff( szBuff );
-				if ( dwLastRecvGameServerTime && dwLastRecvGameServerTime<dwTime2 ) dwLastRecvGameServerTime=dwTime2;
-				if ( dwLastRecvGameServerTime2 && dwLastRecvGameServerTime2<dwTime2 ) dwLastRecvGameServerTime2 = dwTime2;
-				if ( dwLastRecvGameServerTime3 && dwLastRecvGameServerTime3<dwTime2 ) dwLastRecvGameServerTime3 = dwTime2;
-				if ( dwLastRecvGameServerTime4 && dwLastRecvGameServerTime4<dwTime2 ) dwLastRecvGameServerTime4 = dwTime2;
+				wsprintf(szBuff, "Reconnect Server(User)");
+				AddChatBuff(szBuff);
+				if (dwLastRecvGameServerTime && dwLastRecvGameServerTime < dwTime2) dwLastRecvGameServerTime = dwTime2;
+				if (dwLastRecvGameServerTime2 && dwLastRecvGameServerTime2 < dwTime2) dwLastRecvGameServerTime2 = dwTime2;
+				if (dwLastRecvGameServerTime3 && dwLastRecvGameServerTime3 < dwTime2) dwLastRecvGameServerTime3 = dwTime2;
+				if (dwLastRecvGameServerTime4 && dwLastRecvGameServerTime4 < dwTime2) dwLastRecvGameServerTime4 = dwTime2;
 
 				ReconnDataServer++;		//¼­¹ö Àç¿¬°á Ä«¿îÅÍ
 
@@ -7419,29 +3639,32 @@ int	TransCheckNetwork()
 		}
 
 		TransCommand.code = smTRANSCODE_CHECK_NETSTATE3;
-		smWsockUserServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
-		if ( !dwLastRecvGameServerTime3 ) dwLastRecvGameServerTime3 = dwTime2;
+		smWsockUserServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
+		if (!dwLastRecvGameServerTime3) dwLastRecvGameServerTime3 = dwTime2;
 
 	}
 
-	if ( smWsockExtendServer && smWsockServer!=smWsockExtendServer ) {
-		if ( (dwLastRecvGameServerTime4 && (dwLastRecvGameServerTime4+DEADLOCK_CHECK_LIMIT_TIME)<dwTime2) ||
-			(dwExtendServ_RecvTime && (dwExtendServ_RecvTime+RECONNECT_LIMIT_TIME)<dwTime2) ||
-			smWsockExtendServer->WaitReadMessage<0 ) {
+	if (smWsockExtendServer && smWsockServer != smWsockExtendServer)
+	{
+		if ((dwLastRecvGameServerTime4 && (dwLastRecvGameServerTime4 + DEADLOCK_CHECK_LIMIT_TIME) < dwTime2) ||
+			(dwExtendServ_RecvTime && (dwExtendServ_RecvTime + RECONNECT_LIMIT_TIME) < dwTime2) ||
+			smWsockExtendServer->WaitReadMessage < 0)
+		{
 
 			smWsockExtendServer = 0;
 			ConnectServer_Main();
 
-			if ( smWsockExtendServer ) {
-				SendContinueServer( lpCurPlayer->dwObjectSerial , smWsockExtendServer );
+			if (smWsockExtendServer)
+			{
+				SendContinueServer(lpCurPlayer->dwObjectSerial, smWsockExtendServer);
 
 				char szBuff[256];
-				wsprintf( szBuff , "Reconnect Server(Extend)" );
-				AddChatBuff( szBuff );
-				if ( dwLastRecvGameServerTime && dwLastRecvGameServerTime<dwTime2 ) dwLastRecvGameServerTime=dwTime2;
-				if ( dwLastRecvGameServerTime2 && dwLastRecvGameServerTime2<dwTime2 ) dwLastRecvGameServerTime2 = dwTime2;
-				if ( dwLastRecvGameServerTime3 && dwLastRecvGameServerTime3<dwTime2 ) dwLastRecvGameServerTime3 = dwTime2;
-				if ( dwLastRecvGameServerTime4 && dwLastRecvGameServerTime4<dwTime2 ) dwLastRecvGameServerTime4 = dwTime2;
+				wsprintf(szBuff, "Reconnect Server(Extend)");
+				AddChatBuff(szBuff);
+				if (dwLastRecvGameServerTime && dwLastRecvGameServerTime < dwTime2) dwLastRecvGameServerTime = dwTime2;
+				if (dwLastRecvGameServerTime2 && dwLastRecvGameServerTime2 < dwTime2) dwLastRecvGameServerTime2 = dwTime2;
+				if (dwLastRecvGameServerTime3 && dwLastRecvGameServerTime3 < dwTime2) dwLastRecvGameServerTime3 = dwTime2;
+				if (dwLastRecvGameServerTime4 && dwLastRecvGameServerTime4 < dwTime2) dwLastRecvGameServerTime4 = dwTime2;
 
 				//ReconnDataServer++;		//¼­¹ö Àç¿¬°á Ä«¿îÅÍ
 
@@ -7454,40 +3677,47 @@ int	TransCheckNetwork()
 		}
 
 		TransCommand.code = smTRANSCODE_CHECK_NETSTATE4;
-		smWsockExtendServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
-		if ( !dwLastRecvGameServerTime4 ) dwLastRecvGameServerTime4 = dwTime2;
+		smWsockExtendServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
+		if (!dwLastRecvGameServerTime4) dwLastRecvGameServerTime4 = dwTime2;
 
 	}
-	if ( AreaServerMode ) {
+	if (AreaServerMode)
+	{
 		//Áö¿ª¼­¹ö µ¥µå¶ô Ã½Å©
 		int cnt;
-		for(cnt=0;cnt<2;cnt++) {
-			if ( lpWSockServer_Area[cnt] ) {
-				if ( (lpWSockServer_Area[cnt]->dwDeadLockTime+DEADLOCK_CHECK_LIMIT_TIME)<dwTime2 || 
-					lpWSockServer_Area[cnt]->WaitReadMessage<0 ) {
+		for (cnt = 0; cnt < 2; cnt++)
+		{
+			if (lpWSockServer_Area[cnt])
+			{
+				if ((lpWSockServer_Area[cnt]->dwDeadLockTime + DEADLOCK_CHECK_LIMIT_TIME) < dwTime2 ||
+					lpWSockServer_Area[cnt]->WaitReadMessage < 0)
+				{
 
-						lpOldSock = lpWSockServer_Area[cnt];
-						lpWSockServer_Area[cnt] = smConnectSock( lpOldSock->szIPAddr , TCP_SERVPORT );
+					lpOldSock = lpWSockServer_Area[cnt];
+					lpWSockServer_Area[cnt] = smConnectSock(lpOldSock->szIPAddr, TCP_SERVPORT);
 
-						if ( lpWSockServer_Area[cnt] ) {
-							SendContinueServer( lpCurPlayer->dwObjectSerial , lpWSockServer_Area[cnt] );
+					if (lpWSockServer_Area[cnt])
+					{
+						SendContinueServer(lpCurPlayer->dwObjectSerial, lpWSockServer_Area[cnt]);
 
-							char szBuff[256];
-							wsprintf( szBuff , "Reconnect Server Area (%d)", cnt );
-							AddChatBuff( szBuff );
+						char szBuff[256];
+						wsprintf(szBuff, "Reconnect Server Area (%d)", cnt);
+						AddChatBuff(szBuff);
 
-						}
-						else {
-							lpOldSock->CloseSocket();
-						}
 					}
-
-					if ( lpWSockServer_Area[cnt] ) {
-						TransCommand.code = smTRANSCODE_CHECK_NETSTATE5;
-						TransCommand.EParam = (DWORD)lpWSockServer_Area[cnt];
-						lpWSockServer_Area[cnt]->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
-						//lpWSockServer_Area[cnt]->dwDeadLockTime = dwTime2;
+					else
+					{
+						lpOldSock->CloseSocket();
 					}
+				}
+
+				if (lpWSockServer_Area[cnt])
+				{
+					TransCommand.code = smTRANSCODE_CHECK_NETSTATE5;
+					TransCommand.EParam = (DWORD)lpWSockServer_Area[cnt];
+					lpWSockServer_Area[cnt]->Send2((char *)&TransCommand, TransCommand.size, TRUE);
+					//lpWSockServer_Area[cnt]->dwDeadLockTime = dwTime2;
+				}
 			}
 		}
 	}
@@ -7503,92 +3733,92 @@ int	TransCheckNetwork()
 }
 
 //¼­¹ö¿¡ °ü¸®ÀÚ ¸ðµå ¼³Á¤
-int SendAdminMode( DWORD AdminNum )
+int SendAdminMode(DWORD AdminNum)
 {
 	smTRANS_COMMAND	TransCommand;
 
-	TransCommand.code =	smTRANSCODE_ADMINMODE;
+	TransCommand.code = smTRANSCODE_ADMINMODE;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = AdminNum;
 	TransCommand.LParam = 0;
 	TransCommand.SParam = ServerHideMode;
 
-	if ( smWsockDataServer && smWsockServer!=smWsockDataServer )
-		smWsockDataServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (smWsockDataServer && smWsockServer != smWsockDataServer)
+		smWsockDataServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 
-	if ( smWsockUserServer && smWsockServer!=smWsockUserServer && smWsockDataServer!=smWsockUserServer )
-		smWsockUserServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (smWsockUserServer && smWsockServer != smWsockUserServer && smWsockDataServer != smWsockUserServer)
+		smWsockUserServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 
-	if ( smWsockExtendServer && smWsockServer!=smWsockExtendServer && smWsockDataServer!=smWsockExtendServer )
-		smWsockExtendServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (smWsockExtendServer && smWsockServer != smWsockExtendServer && smWsockDataServer != smWsockExtendServer)
+		smWsockExtendServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 
 
-	return smWsockServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	return smWsockServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 }
 
 //¼­¹ö¿¡ °ü¸®ÀÚ ¸ðµå ¼³Á¤
-int SendAdminMode( DWORD AdminNum , smWINSOCK *lpsmSock )
+int SendAdminMode(DWORD AdminNum, smWINSOCK *lpsmSock)
 {
 	smTRANS_COMMAND	TransCommand;
 
-	TransCommand.code =	smTRANSCODE_ADMINMODE;
+	TransCommand.code = smTRANSCODE_ADMINMODE;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = AdminNum;
 	TransCommand.LParam = 0;
 	TransCommand.SParam = ServerHideMode;
 
-	return lpsmSock->Send3( (char *)&TransCommand , TransCommand.size , TRUE );
+	return lpsmSock->Send3((char *)&TransCommand, TransCommand.size, TRUE);
 }
 
 
 //¼­¹ö¿¡ ³×Æ®¿öÅ© Ç®Áú ¸ðµå ¼³Á¤
-int SendNetworkQuality( DWORD NetworkQuality )
+int SendNetworkQuality(DWORD NetworkQuality)
 {
 	smTRANS_COMMAND	TransCommand;
 
-	TransCommand.code =	smTRANSCODE_NETWORK_QUALITY;
+	TransCommand.code = smTRANSCODE_NETWORK_QUALITY;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = NetworkQuality;
 	TransCommand.LParam = 0;
 	TransCommand.SParam = 0;
 
-	if ( smWsockUserServer && smWsockServer!=smWsockUserServer )
-		smWsockUserServer->Send( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (smWsockUserServer && smWsockServer != smWsockUserServer)
+		smWsockUserServer->Send((char *)&TransCommand, TransCommand.size, TRUE);
 
-	if ( smWsockExtendServer && smWsockServer!=smWsockExtendServer )
-		smWsockExtendServer->Send( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (smWsockExtendServer && smWsockServer != smWsockExtendServer)
+		smWsockExtendServer->Send((char *)&TransCommand, TransCommand.size, TRUE);
 
-	return smWsockServer->Send( (char *)&TransCommand , TransCommand.size , TRUE );
+	return smWsockServer->Send((char *)&TransCommand, TransCommand.size, TRUE);
 }
 
 
 //IPÁ¢¼Ó ÁÖ¼Ò¸¦ ±º ¼­¹ö¿¡ º¸³½´Ù
-int SendCheckIP( int Code , smWINSOCK *lpsmSock )
+int SendCheckIP(int Code, smWINSOCK *lpsmSock)
 {
 	smTRANS_CHAR_COMMAND	TransCharCommand;
 
-	TransCharCommand.code =	smTRANSCODE_CHECKIP;
+	TransCharCommand.code = smTRANSCODE_CHECKIP;
 	TransCharCommand.size = sizeof(smTRANS_CHAR_COMMAND);
 	TransCharCommand.WParam = Code;
 	TransCharCommand.LParam = 0;
 	TransCharCommand.SParam = 0;
 
-	lstrcpy( TransCharCommand.szName , lpsmSock->szIPAddr );
+	lstrcpy(TransCharCommand.szName, lpsmSock->szIPAddr);
 
-	return smWsockDataServer->Send2( (char *)&TransCharCommand , TransCharCommand.size , TRUE );
+	return smWsockDataServer->Send2((char *)&TransCharCommand, TransCharCommand.size, TRUE);
 }
 
 
 
 //¼­¹ö¿¡ ¿ÀºêÁ§Æ® ¹øÈ£ ¼³Á¤
-int SendSetObjectSerial( DWORD dwObjectSerial )
+int SendSetObjectSerial(DWORD dwObjectSerial)
 {
 
 	//»õ¹öÀü 
 	smTRNAS_PLAYERINFO	TransPlayerInfo;
 
-	memcpy( &TransPlayerInfo.smCharInfo , &lpCurPlayer->smCharInfo , sizeof( smCHAR_INFO ) );
-	TransPlayerInfo.size = sizeof( smTRNAS_PLAYERINFO );
+	memcpy(&TransPlayerInfo.smCharInfo, &lpCurPlayer->smCharInfo, sizeof(smCHAR_INFO));
+	TransPlayerInfo.size = sizeof(smTRNAS_PLAYERINFO);
 	TransPlayerInfo.code = smTRANSCODE_PLAYERINFO2;
 	TransPlayerInfo.dwObjectSerial = lpCurPlayer->dwObjectSerial;
 
@@ -7596,30 +3826,31 @@ int SendSetObjectSerial( DWORD dwObjectSerial )
 	TransPlayerInfo.y = lpCurPlayer->pY;
 	TransPlayerInfo.z = lpCurPlayer->pZ;
 
-	smWsockServer->Send2( (char *)&TransPlayerInfo , TransPlayerInfo.size , TRUE );
+	smWsockServer->Send2((char *)&TransPlayerInfo, TransPlayerInfo.size, TRUE);
 
-	if ( smWsockServer!=smWsockUserServer )
-		smWsockUserServer->Send2( (char *)&TransPlayerInfo , TransPlayerInfo.size , TRUE );
+	if (smWsockServer != smWsockUserServer)
+		smWsockUserServer->Send2((char *)&TransPlayerInfo, TransPlayerInfo.size, TRUE);
 
-	if ( smWsockServer!=smWsockExtendServer )
-		smWsockExtendServer->Send2( (char *)&TransPlayerInfo , TransPlayerInfo.size , TRUE );
+	if (smWsockServer != smWsockExtendServer)
+		smWsockExtendServer->Send2((char *)&TransPlayerInfo, TransPlayerInfo.size, TRUE);
 
-	if ( AreaServerMode ) {
-		if ( lpWSockServer_Area[0] ) lpWSockServer_Area[0]->Send2( (char *)&TransPlayerInfo , TransPlayerInfo.size , TRUE );
-		if ( lpWSockServer_Area[1] ) lpWSockServer_Area[1]->Send2( (char *)&TransPlayerInfo , TransPlayerInfo.size , TRUE );
+	if (AreaServerMode)
+	{
+		if (lpWSockServer_Area[0]) lpWSockServer_Area[0]->Send2((char *)&TransPlayerInfo, TransPlayerInfo.size, TRUE);
+		if (lpWSockServer_Area[1]) lpWSockServer_Area[1]->Send2((char *)&TransPlayerInfo, TransPlayerInfo.size, TRUE);
 	}
 
 	return TRUE;
 }
 
 //¼­¹ö¿¡ ¿ÀºêÁ§Æ® ¹øÈ£ ¼³Á¤ ( Ã³À½ ÇÑ¹ø¸¸ )
-int SendSetObjectSerial_First( DWORD dwObjectSerial )
+int SendSetObjectSerial_First(DWORD dwObjectSerial)
 {
 
 	smTRNAS_PLAYERINFO	TransPlayerInfo;
 
-	memcpy( &TransPlayerInfo.smCharInfo , &lpCurPlayer->smCharInfo , sizeof( smCHAR_INFO ) );
-	TransPlayerInfo.size = sizeof( smTRNAS_PLAYERINFO );
+	memcpy(&TransPlayerInfo.smCharInfo, &lpCurPlayer->smCharInfo, sizeof(smCHAR_INFO));
+	TransPlayerInfo.size = sizeof(smTRNAS_PLAYERINFO);
 	TransPlayerInfo.code = smTRANSCODE_PLAYERINFO2;
 	TransPlayerInfo.dwObjectSerial = lpCurPlayer->dwObjectSerial;
 
@@ -7629,43 +3860,43 @@ int SendSetObjectSerial_First( DWORD dwObjectSerial )
 
 	//smWsockServer->Send2( (char *)&TransPlayerInfo , TransPlayerInfo.size , TRUE );
 
-	if ( smWsockServer!=smWsockUserServer )
-		smWsockUserServer->Send3( (char *)&TransPlayerInfo , TransPlayerInfo.size , TRUE );
+	if (smWsockServer != smWsockUserServer)
+		smWsockUserServer->Send3((char *)&TransPlayerInfo, TransPlayerInfo.size, TRUE);
 
-	if ( smWsockServer!=smWsockExtendServer )
-		smWsockExtendServer->Send3( (char *)&TransPlayerInfo , TransPlayerInfo.size , TRUE );
+	if (smWsockServer != smWsockExtendServer)
+		smWsockExtendServer->Send3((char *)&TransPlayerInfo, TransPlayerInfo.size, TRUE);
 
 	return TRUE;
 }
 
 
 //¼­¹ö¿¡ ÀçÁ¢¼Ó ½Ãµµ
-int SendContinueServer( DWORD dwObjectSerial , smWINSOCK *lpsmSock )
+int SendContinueServer(DWORD dwObjectSerial, smWINSOCK *lpsmSock)
 {
 	smTRANS_COMMAND	TransCommand;
 
-	TransCommand.code =	smTRANSCODE_CONT_OBJSERIAL;
+	TransCommand.code = smTRANSCODE_CONT_OBJSERIAL;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = dwObjectSerial;
 	TransCommand.LParam = 0;
 	TransCommand.SParam = 0;
 
-	return lpsmSock->Send( (char *)&TransCommand , TransCommand.size , TRUE );
+	return lpsmSock->Send((char *)&TransCommand, TransCommand.size, TRUE);
 }
 
 //ÇØÅ· ½ÃµµÇÑ À¯Àú ÀÚµ¿ ½Å°í
-int SendSetHackUser3( int Type , int LParam , int SParam )
+int SendSetHackUser3(int Type, int LParam, int SParam)
 {
 	smTRANS_COMMAND	TransCommand;
 
-	TransCommand.code =	smTRANSCODE_SET_BLACKLIST2;
+	TransCommand.code = smTRANSCODE_SET_BLACKLIST2;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = Type;
 	TransCommand.LParam = LParam;
 	TransCommand.SParam = SParam;
 
-	if ( smWsockDataServer )
-		smWsockDataServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (smWsockDataServer)
+		smWsockDataServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 
 	return TRUE;
 }
@@ -7680,16 +3911,18 @@ int CheckCracker()
 
 	szName = FindCracker();
 
-	if ( szName ) {
+	if (szName)
+	{
 		//Å©·¢ ¹ß°ß
-		if ( smWsockDataServer ) {
+		if (smWsockDataServer)
+		{
 
-			len = lstrlen( szName ) + 9;
-			lstrcpy( TransBuff+8 , szName );
+			len = lstrlen(szName) + 9;
+			lstrcpy(TransBuff + 8, szName);
 			((int *)TransBuff)[0] = len;
 			((int *)TransBuff)[1] = smTRANSCODE_FINDCRACK;
 
-			smWsockDataServer->Send2( TransBuff , len , TRUE );
+			smWsockDataServer->Send2(TransBuff, len, TRUE);
 		}
 		return TRUE;
 	}
@@ -7704,31 +3937,36 @@ int CheckCracker(TRANS_FIND_CRACKER *lpTransFindCrack)
 	int len;
 	char	*lpBuff;
 
-	if ( lpTransFindCrack )
+	if (lpTransFindCrack)
 		szName = FindCracker(lpTransFindCrack);
 	else
 		szName = FindCrackCont();
 
-	if ( szName ) {
+	if (szName)
+	{
 		//Å©·¢ ¹ß°ß
-		if ( smWsockDataServer ) {
+		if (smWsockDataServer)
+		{
 
-			len = lstrlen( szName ) + 9;
-			lstrcpy( TransBuff+8 , szName );
+			len = lstrlen(szName) + 9;
+			lstrcpy(TransBuff + 8, szName);
 			((int *)TransBuff)[0] = len;
 			((int *)TransBuff)[1] = smTRANSCODE_FINDCRACK;
 
-			smWsockDataServer->Send2( TransBuff , len , TRUE );
+			smWsockDataServer->Send2(TransBuff, len, TRUE);
 		}
 		return TRUE;
 	}
 
-	if ( lpTransFindCrack ) {
-		if ( lpTransFindCrack->size>(lpTransFindCrack->FindCounter*((int)sizeof(_CRACK_NAME))+16) ) {
-			lpBuff = (char *)&lpTransFindCrack->CrackName[ lpTransFindCrack->FindCounter ];
-			if ( lpBuff[0] ) {
+	if (lpTransFindCrack)
+	{
+		if (lpTransFindCrack->size > (lpTransFindCrack->FindCounter*((int)sizeof(_CRACK_NAME)) + 16))
+		{
+			lpBuff = (char *)&lpTransFindCrack->CrackName[lpTransFindCrack->FindCounter];
+			if (lpBuff[0])
+			{
 				//³»¿ë ÀÖÀ½ , °øÁö Ãâ·Â
-				GetNoticeUrl( lpBuff );
+				GetNoticeUrl(lpBuff);
 			}
 		}
 	}
@@ -7737,22 +3975,23 @@ int CheckCracker(TRANS_FIND_CRACKER *lpTransFindCrack)
 }
 
 //Å©·¢ À©µµ¿ì ½Å°í
-int SendCrackWindow( HWND hWnd )
+int SendCrackWindow(HWND hWnd)
 {
 	char *szName;
 	char TransBuff[1024];
 	int len;
 
 	//Å©·¢ ¹ß°ß
-	if ( smWsockServer ) {
+	if (smWsockServer)
+	{
 
-		szName = TransBuff+8;
-		GetWindowText( hWnd , szName , 32 );
-		len = lstrlen( szName ) + 9;
+		szName = TransBuff + 8;
+		GetWindowText(hWnd, szName, 32);
+		len = lstrlen(szName) + 9;
 		((int *)TransBuff)[0] = len;
 		((int *)TransBuff)[1] = smTRANSCODE_FINDCRACK2;
 
-		smWsockServer->Send2( TransBuff , len , TRUE );
+		smWsockServer->Send2(TransBuff, len, TRUE);
 	}
 	return TRUE;
 }
@@ -7760,11 +3999,11 @@ int SendCrackWindow( HWND hWnd )
 
 
 //ÇØÅ· ½ÃµµÇÑ À¯Àú ÀÚµ¿ ½Å°í
-int SendSetHackUser( int StopGame )
+int SendSetHackUser(int StopGame)
 {
 	smTRANS_COMMAND	TransCommand;
 
-	TransCommand.code =	smTRANSCODE_SET_BLACKLIST;
+	TransCommand.code = smTRANSCODE_SET_BLACKLIST;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = StopGame;
 	TransCommand.LParam = 0;
@@ -7772,10 +4011,11 @@ int SendSetHackUser( int StopGame )
 
 	WarningHack = StopGame;		//ÇØÅ· °æ°í
 
-	if ( smWsockDataServer )
-		smWsockDataServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (smWsockDataServer)
+		smWsockDataServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 
-	if ( WarningHack ) {
+	if (WarningHack)
+	{
 		DisconnectServerCode = 4;
 		DisconnectFlag = GetCurrentTime();
 	}
@@ -7784,80 +4024,80 @@ int SendSetHackUser( int StopGame )
 }
 
 //ÇØÅ· ½ÃµµÇÑ À¯Àú ÀÚµ¿ ½Å°í
-int SendSetHackUser2( int Type , int LParam )
+int SendSetHackUser2(int Type, int LParam)
 {
 	smTRANS_COMMAND	TransCommand;
 
-	TransCommand.code =	smTRANSCODE_SET_BLACKLIST;
+	TransCommand.code = smTRANSCODE_SET_BLACKLIST;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = Type;
 	TransCommand.LParam = LParam;
 	TransCommand.SParam = 0;
 
-	if ( smWsockDataServer )
-		smWsockDataServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (smWsockDataServer)
+		smWsockDataServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 
 	return TRUE;
 }
 
 
 //¼­¹ö¿¡ °ü¸®ÀÚ ¸ðµå ¼³Á¤
-int SendAdminMode2( DWORD AdminNum )
+int SendAdminMode2(DWORD AdminNum)
 {
 	smTRANS_COMMAND	TransCommand;
 
-	TransCommand.code =	smTRANSCODE_ADMINMODE2;
+	TransCommand.code = smTRANSCODE_ADMINMODE2;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = AdminNum;
 	TransCommand.LParam = 1;
 	TransCommand.SParam = 0;
 
-	if ( smWsockDataServer )
-		smWsockDataServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (smWsockDataServer)
+		smWsockDataServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 
-	return TRUE; 
+	return TRUE;
 
 }
 
 
 
 //º¹»ç ¾ÆÀÌÅÛÀ» ¼ÒÁöÇÑ »ç¶÷ ½Å°í 
-int SendCopyItemUser( int CopyItemCount )
+int SendCopyItemUser(int CopyItemCount)
 {
 	smTRANS_COMMAND	TransCommand;
 
-	TransCommand.code =	smTRANSCODE_SET_ITEMCOPYLIST;
+	TransCommand.code = smTRANSCODE_SET_ITEMCOPYLIST;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = CopyItemCount;
 	TransCommand.LParam = 0;
 	TransCommand.SParam = 0;
 
-	if ( smWsockDataServer )
-		smWsockDataServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (smWsockDataServer)
+		smWsockDataServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 
 	return TRUE;
 }
 
 
 //µ¥ÀÌÅ¸ ¼­¹ö¿¡ ¾ÆÀÌÅÛ ÀúÀå ¿ä±¸ ( º¹»ç ¾ÆÀÌÅÛ ¹æÁö )
-int SendSaveThrowItem( sITEMINFO *lpItemInfo )
+int SendSaveThrowItem(sITEMINFO *lpItemInfo)
 {
 	smTRANS_COMMAND	TransCommand;
 
 	//¹°¾àÀÎ °æ¿ì¸¸ ÀúÀåÇÏµµ·Ï ¼öÁ¤
-	if ( (lpItemInfo->CODE&sinITEM_MASK1)!=(sinPM1&sinITEM_MASK1) )	return FALSE;
+	if ((lpItemInfo->CODE&sinITEM_MASK1) != (sinPM1&sinITEM_MASK1))	return FALSE;
 
 
-	TransCommand.code =	smTRANSCODE_SAVETHROWITEM;
+	TransCommand.code = smTRANSCODE_SAVETHROWITEM;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
-	TransCommand.WParam = lpItemInfo->CODE ;
+	TransCommand.WParam = lpItemInfo->CODE;
 	TransCommand.LParam = lpItemInfo->ItemHeader.Head;
 	TransCommand.SParam = lpItemInfo->ItemHeader.dwChkSum;
 
-	if ( (lpItemInfo->CODE&sinITEM_MASK1)==(sinPM1&sinITEM_MASK1) )	
+	if ((lpItemInfo->CODE&sinITEM_MASK1) == (sinPM1&sinITEM_MASK1))
 		ComparePotion();	//¹°¾à°¹¼ö ºñ±³
 
-	return smWsockDataServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	return smWsockDataServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 }
 /*
 //µ¥ÀÌÅ¸ ¼­¹ö¿¡ ¾ÆÀÌÅÛ ÀúÀå ¿ä±¸ ÃÖ´ë 32°³ µ¿½Ã ( º¹»ç ¾ÆÀÌÅÛ ¹æÁö )
@@ -7875,23 +4115,25 @@ int	SendSaveThrowItems( TRANS_THROW_ITEMS	*lpTransThrowItems )
 */
 
 //¾ÆÀÌÅÛ °Å·¡³»¿ª ¼­¹ö¿¡ º¸³»±â
-int	SendRecordTradeItems( sTRADE *lpTrade )
+int	SendRecordTradeItems(sTRADE *lpTrade)
 {
 
 	TRANS_RECORD_TRADE_ITEMS	TransRecordTradeItems;
 	int cnt;
 
-	ZeroMemory( &TransRecordTradeItems , sizeof(TRANS_RECORD_TRADE_ITEMS) );
+	ZeroMemory(&TransRecordTradeItems, sizeof(TRANS_RECORD_TRADE_ITEMS));
 
 	TransRecordTradeItems.code = smTRANSCODE_RECORD_TRADE;
-	TransRecordTradeItems.Money = lpTrade->Money-193;
-	lstrcpy( TransRecordTradeItems.szTradeUserName , cTrade.szTradeCharName );
+	TransRecordTradeItems.Money = lpTrade->Money - 193;
+	lstrcpy(TransRecordTradeItems.szTradeUserName, cTrade.szTradeCharName);
 
-	for( cnt=0;cnt<MAX_TRADE_ITEM;cnt++) {
-		if ( lpTrade->TradeItem[cnt].Flag && TransRecordTradeItems.ThrowItemCount<TRADE_RECV_ITEMS_MAX ) { 
+	for (cnt = 0; cnt < MAX_TRADE_ITEM; cnt++)
+	{
+		if (lpTrade->TradeItem[cnt].Flag && TransRecordTradeItems.ThrowItemCount < TRADE_RECV_ITEMS_MAX)
+		{
 			TransRecordTradeItems.Items[TransRecordTradeItems.ThrowItemCount].dwCode = lpTrade->TradeItem[cnt].sItemInfo.CODE;
 			TransRecordTradeItems.Items[TransRecordTradeItems.ThrowItemCount].dwHead = lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.Head;
-			TransRecordTradeItems.Items[TransRecordTradeItems.ThrowItemCount].dwChkSum  = lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum;
+			TransRecordTradeItems.Items[TransRecordTradeItems.ThrowItemCount].dwChkSum = lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum;
 			TransRecordTradeItems.ThrowItemCount++;
 		}
 	}
@@ -7899,35 +4141,35 @@ int	SendRecordTradeItems( sTRADE *lpTrade )
 
 	TransRecordTradeItems.size = TRANS_RECORD_TRADE_DEFSIZE + TransRecordTradeItems.ThrowItemCount * sizeof(_TRANS_RECORD_TRADE_ITEM);
 
-	return smWsockDataServer->Send2( (char *)&TransRecordTradeItems , TransRecordTradeItems.size , TRUE );
+	return smWsockDataServer->Send2((char *)&TransRecordTradeItems, TransRecordTradeItems.size, TRUE);
 }
 
 
 //µ¥ÀÌÅ¸ ¼­¹ö¿¡ ¾ÆÀÌÅÛ ÀúÀå ¿ä±¸ ( º¹»ç ¾ÆÀÌÅÛ ¹æÁö )
-int SendSaveThrowItem2( sITEMINFO *lpItemInfo )
+int SendSaveThrowItem2(sITEMINFO *lpItemInfo)
 {
 	smTRANS_COMMAND_EX	TransCommand;
 
 
-	TransCommand.code =	smTRANSCODE_SAVETHROWITEM2;
+	TransCommand.code = smTRANSCODE_SAVETHROWITEM2;
 	TransCommand.size = sizeof(smTRANS_COMMAND_EX);
-	TransCommand.WParam = lpItemInfo->CODE ;
+	TransCommand.WParam = lpItemInfo->CODE;
 	TransCommand.LParam = lpItemInfo->ItemHeader.Head;
 	TransCommand.SParam = lpItemInfo->ItemHeader.dwChkSum;
 	TransCommand.EParam = lpItemInfo->PotionCount^TransCommand.SParam^TransCommand.code;	//¹°¾à °¹¼ö
 
 	TransCommand.WxParam = lpCurPlayer->smCharInfo.Money;
-	TransCommand.LxParam = EncodeParam( TransCommand.WxParam );
-	TransCommand.SxParam = GetTotalMoney()^TransCommand.LxParam;
+	TransCommand.LxParam = EncodeParam(TransCommand.WxParam);
+	TransCommand.SxParam = GetTotalMoney() ^ TransCommand.LxParam;
 	TransCommand.ExParam = lpItemInfo->Money;
 
-	if ( (lpItemInfo->CODE&sinITEM_MASK1)==(sinPM1&sinITEM_MASK1) )	
+	if ((lpItemInfo->CODE&sinITEM_MASK1) == (sinPM1&sinITEM_MASK1))
 		ComparePotion();	//¹°¾à°¹¼ö ºñ±³
 
 	//ÀÌº¥Åä¸® µ· °Ë»ç ¼³Á¤
 	AddInvenMoney(-lpItemInfo->Money);
 
-	return smWsockDataServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	return smWsockDataServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 }
 
 //µ¥ÀÌÅ¸ ¼­¹ö¿¡ µ· ÀúÀå ¿ä±¸ ( º¹»ç ¾ÆÀÌÅÛ ¹æÁö )
@@ -7935,48 +4177,51 @@ int SendSaveMoney()
 {
 	smTRANS_COMMAND	TransCommand;
 
-	if ( cWareHouse.OpenFlag && CompWareHouseMoney ) return FALSE;
+	if (cWareHouse.OpenFlag && CompWareHouseMoney) return FALSE;
 
-	TransCommand.code =	smTRANSCODE_SAVETHROWMONEY;
+	TransCommand.code = smTRANSCODE_SAVETHROWMONEY;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = lpCurPlayer->smCharInfo.Money;
-	TransCommand.LParam = EncodeParam( TransCommand.WParam );
-	TransCommand.SParam = GetTotalMoney()^TransCommand.LParam;
+	TransCommand.LParam = EncodeParam(TransCommand.WParam);
+	TransCommand.SParam = GetTotalMoney() ^ TransCommand.LParam;
 
-	return smWsockDataServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	return smWsockDataServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 }
 
 //´Ù¸¥ Ä³¸¯ÅÍ Ä«ÇÇ Àü¼Û ¿ä±¸
-int SendCopyOtherUser( char *szName , int Mode )
+int SendCopyOtherUser(char *szName, int Mode)
 {
 	smTRANS_CHAR_COMMAND	TransCharCommand;
-	int cnt,len;
+	int cnt, len;
 
-	TransCharCommand.code =	smTRANSCODE_GETRECORDDATA;
+	TransCharCommand.code = smTRANSCODE_GETRECORDDATA;
 	TransCharCommand.size = sizeof(smTRANS_CHAR_COMMAND);
 	TransCharCommand.WParam = dwExeCheckSum;
 	TransCharCommand.LParam = Mode;
 	TransCharCommand.SParam = 0;
 
 	//20020912
-	if ( Mode==2 ) {
+	if (Mode == 2)
+	{
 		len = lstrlen(szName);
-		for( cnt=0;cnt<len;cnt++ ) {
-			if ( szName[cnt]==' ' ) {
-				TransCharCommand.LParam = atoi( &szName[cnt] );
-				szName[cnt]=0;
-				if ( TransCharCommand.LParam<1000 ) TransCharCommand.LParam = Mode;
+		for (cnt = 0; cnt < len; cnt++)
+		{
+			if (szName[cnt] == ' ')
+			{
+				TransCharCommand.LParam = atoi(&szName[cnt]);
+				szName[cnt] = 0;
+				if (TransCharCommand.LParam < 1000) TransCharCommand.LParam = Mode;
 				break;
 			}
 		}
 	}
 
-	lstrcpy( TransCharCommand.szName , szName );
+	lstrcpy(TransCharCommand.szName, szName);
 
 	AdminCharDisable = TRUE;
 
-	if ( smWsockDataServer ) 
-		return smWsockDataServer->Send( (char *)&TransCharCommand , TransCharCommand.size , TRUE );
+	if (smWsockDataServer)
+		return smWsockDataServer->Send((char *)&TransCharCommand, TransCharCommand.size, TRUE);
 
 	return NULL;
 }
@@ -7988,14 +4233,14 @@ int SendPlayUpdateInfo()
 {
 	smTRANS_COMMAND	TransCommand;
 
-	TransCommand.code =	smTRANSCODE_UPDATE_CINFO;
+	TransCommand.code = smTRANSCODE_UPDATE_CINFO;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = 0;
 	TransCommand.LParam = lpCurPlayer->smCharInfo.Level;			//·¹º§ Á¤º¸
 	TransCommand.SParam = 0;
 	TransCommand.EParam = 0;
 
-	return smWsockServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	return smWsockServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 }
 
 //¼­¹ö¿¡ º¯°æµÈ Å¬·£ Á¤º¸ º¸³¿
@@ -8003,28 +4248,29 @@ int SendUpdateClanInfo()
 {
 	smTRANS_COMMAND	TransCommand;
 
-	TransCommand.code =	smTRANSCODE_UPDATE_CINFO;
+	TransCommand.code = smTRANSCODE_UPDATE_CINFO;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = 1;
 	TransCommand.LParam = lpCurPlayer->smCharInfo.Level;			//·¹º§ Á¤º¸
 	TransCommand.SParam = lpCurPlayer->smCharInfo.ClassClan;
 	TransCommand.EParam = lpCurPlayer->smCharInfo.bUpdateInfo[0];
 
-	if ( smWsockServer ) 
-		smWsockServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (smWsockServer)
+		smWsockServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 
-	if ( smWsockUserServer && smWsockServer!=smWsockUserServer )
-		smWsockUserServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (smWsockUserServer && smWsockServer != smWsockUserServer)
+		smWsockUserServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 
-	if ( smWsockExtendServer && smWsockServer!=smWsockExtendServer )
-		smWsockExtendServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (smWsockExtendServer && smWsockServer != smWsockExtendServer)
+		smWsockExtendServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 
-	if ( smWsockDataServer && smWsockServer!=smWsockDataServer && rsBlessCastle.dwMasterClan==GetClanCode(lpCurPlayer->smCharInfo.ClassClan) )
-		smWsockDataServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (smWsockDataServer && smWsockServer != smWsockDataServer && rsBlessCastle.dwMasterClan == GetClanCode(lpCurPlayer->smCharInfo.ClassClan))
+		smWsockDataServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 
-	if ( AreaServerMode ) {
-		if ( lpWSockServer_Area[0] ) lpWSockServer_Area[0]->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
-		if ( lpWSockServer_Area[1] ) lpWSockServer_Area[1]->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (AreaServerMode)
+	{
+		if (lpWSockServer_Area[0]) lpWSockServer_Area[0]->Send2((char *)&TransCommand, TransCommand.size, TRUE);
+		if (lpWSockServer_Area[1]) lpWSockServer_Area[1]->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 	}
 
 	return TRUE;
@@ -8058,47 +4304,51 @@ struct TRANS_SKIL_ATTACKDATA {
 TRANS_SKIL_ATTACKDATA	Back_TransSkilAttackData;
 
 //¹üÀ§Çü °ø°Ý
-int Skil_RangeAttack( int x, int y, int z , int range , int power , int TargetState )
+int Skil_RangeAttack(int x, int y, int z, int range, int power, int TargetState)
 {
 
 	TRANS_SKIL_ATTACKDATA	TransSkilAttackData;
-	int cnt,mCnt;
+	int cnt, mCnt;
 	//int	accuracy;
 	int	dRange;
-	int dx,dy,dz,dist;
+	int dx, dy, dz, dist;
 	smCHAR	*lpChar;
-	smWINSOCK *lpsmSendSock =0;
+	smWINSOCK *lpsmSendSock = 0;
 
 
 	//Å¬¶óÀÌ¾ðÆ® ·Î±× ÆÄÀÏ ±â·Ï
-	Record_ClinetLogFile( "±¸¹öÀü °ø°ÝÆÐÅ¶ - Skil_RangeAttack " );
+	Record_ClinetLogFile("±¸¹öÀü °ø°ÝÆÐÅ¶ - Skil_RangeAttack ");
 	quit = 1;
 	return TRUE;
 
 
 	mCnt = 0;
 
-	dRange = range>>FLOATNS;
+	dRange = range >> FLOATNS;
 	dRange *= dRange;
 
-	for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++ ) {
-		if ( mCnt>=SKIL_ATTACK_CHAR_MAX ) break;
-		if ( chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].smCharInfo.State==smCHAR_STATE_ENEMY ) {
+	for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+	{
+		if (mCnt >= SKIL_ATTACK_CHAR_MAX) break;
+		if (chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].smCharInfo.State == smCHAR_STATE_ENEMY)
+		{
 			lpChar = &chrOtherPlayer[cnt];
 
-			dx = (x-lpChar->pX)>>FLOATNS;
-			dy = (y-lpChar->pY)>>FLOATNS;
-			dz = (z-lpChar->pZ)>>FLOATNS;
-			dist = dx*dx+dy*dy+dz*dz;
+			dx = (x - lpChar->pX) >> FLOATNS;
+			dy = (y - lpChar->pY) >> FLOATNS;
+			dz = (z - lpChar->pZ) >> FLOATNS;
+			dist = dx*dx + dy*dy + dz*dz;
 
-			if ( dist<dRange ) {
+			if (dist < dRange)
+			{
 				//accuracy = sinGetAccuracy( lpChar->smCharInfo.Level , lpChar->smCharInfo.Defence );
 				//if ( (rand()%100)<accuracy ) {
-				
+
 				TransSkilAttackData.dwTarObjectSerial[mCnt++] = chrOtherPlayer[cnt].dwObjectSerial;
 
 				//Ã³À½ °ø°ÝÇÏ´Â Ä³¸¯ÇÑÅ×¸¸ Ã¼·Â¹Ù Ãâ·Â
-				if ( lpChar->smCharInfo.Life[1] && lpChar->smCharInfo.Life[0]==lpChar->smCharInfo.Life[1] ) {
+				if (lpChar->smCharInfo.Life[1] && lpChar->smCharInfo.Life[0] == lpChar->smCharInfo.Life[1])
+				{
 					lpChar->EnableStateBar = TRUE;
 				}
 				//}
@@ -8109,36 +4359,38 @@ int Skil_RangeAttack( int x, int y, int z , int range , int power , int TargetSt
 	TransSkilAttackData.TargetCount = mCnt;
 
 	TransSkilAttackData.code = smTRANSCODE_SKIL_ATTACKDATA;
-	TransSkilAttackData.size = (sizeof(TRANS_SKIL_ATTACKDATA)-sizeof(DWORD)*SKIL_ATTACK_CHAR_MAX);
-	TransSkilAttackData.size += sizeof(DWORD)*mCnt+16;
+	TransSkilAttackData.size = (sizeof(TRANS_SKIL_ATTACKDATA) - sizeof(DWORD)*SKIL_ATTACK_CHAR_MAX);
+	TransSkilAttackData.size += sizeof(DWORD)*mCnt + 16;
 
 	TransSkilAttackData.x = x;
 	TransSkilAttackData.y = y;
 	TransSkilAttackData.z = z;
 
 	TransSkilAttackData.AttackState = TargetState;
-	TransSkilAttackData.AttackSize  = range;
-	TransSkilAttackData.Power		= power;
+	TransSkilAttackData.AttackSize = range;
+	TransSkilAttackData.Power = power;
 
-	TransSkilAttackData.dwChkSum = TransSkilAttackData.Power*2002 + 
+	TransSkilAttackData.dwChkSum = TransSkilAttackData.Power * 2002 +
 		(TransSkilAttackData.x * TransSkilAttackData.y * TransSkilAttackData.z);// Á¶ÀÛ ¹æÁö ÄÚµå
 
 	LastAttackDamage = power;
 
-	memcpy( &Back_TransSkilAttackData , &TransSkilAttackData , sizeof(TRANS_SKIL_ATTACKDATA) );		//¹é¾÷
+	memcpy(&Back_TransSkilAttackData, &TransSkilAttackData, sizeof(TRANS_SKIL_ATTACKDATA));		//¹é¾÷
 
 	lpsmSendSock = GetAreaServerSock();		//º¸³¾ ¼­¹ö±¸ÇÏ±â
 
-	if ( lpsmSendSock && mCnt>0 ) {
+	if (lpsmSendSock && mCnt > 0)
+	{
 		//º¸³½ °ø°Ý·Â ±â·Ï
-		Record_SendDamage( lpsmSendSock , TransSkilAttackData.Power );
+		Record_SendDamage(lpsmSendSock, TransSkilAttackData.Power);
 
-		lpsmSendSock->Send2( (char *)&TransSkilAttackData , TransSkilAttackData.size , TRUE );
+		lpsmSendSock->Send2((char *)&TransSkilAttackData, TransSkilAttackData.size, TRUE);
 	}
 
-	if ( PkMode ) {
+	if (PkMode)
+	{
 		//¹üÀ§Çü °ø°Ý( À¯Àú¸¸ °ø°Ý )
-		Skil_RangeAttack_User( x, y, z , range , power , TargetState  );
+		Skil_RangeAttack_User(x, y, z, range, power, TargetState);
 	}
 
 	return TRUE;
@@ -8146,33 +4398,36 @@ int Skil_RangeAttack( int x, int y, int z , int range , int power , int TargetSt
 
 
 //¹üÀ§Çü °ø°Ý( À¯Àú¸¸ °ø°Ý )
-int Skil_RangeAttack_User( int x, int y, int z , int range , int power , int TargetState  )
+int Skil_RangeAttack_User(int x, int y, int z, int range, int power, int TargetState)
 {
 	TRANS_SKIL_ATTACKDATA	TransSkilAttackData;
-	int cnt,mCnt;
+	int cnt, mCnt;
 	//int	accuracy;
 	int	dRange;
-	int dx,dy,dz,dist;
+	int dx, dy, dz, dist;
 	smCHAR	*lpChar;
-	smWINSOCK *lpsmSendSock =0;
+	smWINSOCK *lpsmSendSock = 0;
 
 	mCnt = 0;
 
-	dRange = range>>FLOATNS;
+	dRange = range >> FLOATNS;
 	dRange *= dRange;
 
-	for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++ ) {
-		if ( mCnt>=SKIL_ATTACK_CHAR_MAX ) break;
-		if ( chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].smCharInfo.State==smCHAR_STATE_USER ) {
+	for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+	{
+		if (mCnt >= SKIL_ATTACK_CHAR_MAX) break;
+		if (chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].smCharInfo.State == smCHAR_STATE_USER)
+		{
 			lpChar = &chrOtherPlayer[cnt];
 
-			dx = (x-lpChar->pX)>>FLOATNS;
-			dy = (y-lpChar->pY)>>FLOATNS;
-			dz = (z-lpChar->pZ)>>FLOATNS;
-			dist = dx*dx+dy*dy+dz*dz;
+			dx = (x - lpChar->pX) >> FLOATNS;
+			dy = (y - lpChar->pY) >> FLOATNS;
+			dz = (z - lpChar->pZ) >> FLOATNS;
+			dist = dx*dx + dy*dy + dz*dz;
 
-			if ( dist<dRange ) {
-				
+			if (dist < dRange)
+			{
+
 				TransSkilAttackData.dwTarObjectSerial[mCnt++] = chrOtherPlayer[cnt].dwObjectSerial;
 
 			}
@@ -8182,85 +4437,92 @@ int Skil_RangeAttack_User( int x, int y, int z , int range , int power , int Tar
 	TransSkilAttackData.TargetCount = mCnt;
 
 	TransSkilAttackData.code = smTRANSCODE_SKIL_ATTACKUSER;
-	TransSkilAttackData.size = (sizeof(TRANS_SKIL_ATTACKDATA)-sizeof(DWORD)*SKIL_ATTACK_CHAR_MAX);
-	TransSkilAttackData.size += sizeof(DWORD)*mCnt+16;
+	TransSkilAttackData.size = (sizeof(TRANS_SKIL_ATTACKDATA) - sizeof(DWORD)*SKIL_ATTACK_CHAR_MAX);
+	TransSkilAttackData.size += sizeof(DWORD)*mCnt + 16;
 
 	TransSkilAttackData.x = x;
 	TransSkilAttackData.y = y;
 	TransSkilAttackData.z = z;
 
 	TransSkilAttackData.AttackState = TargetState;
-	TransSkilAttackData.AttackSize  = range;
-	TransSkilAttackData.Power		= power;
+	TransSkilAttackData.AttackSize = range;
+	TransSkilAttackData.Power = power;
 
-	TransSkilAttackData.dwChkSum = TransSkilAttackData.Power*2002 + 
+	TransSkilAttackData.dwChkSum = TransSkilAttackData.Power * 2002 +
 		(TransSkilAttackData.x * TransSkilAttackData.y * TransSkilAttackData.z);// Á¶ÀÛ ¹æÁö ÄÚµå
 
 
-	if ( mCnt>0 ) {
+	if (mCnt > 0)
+	{
 		//º¸³½ °ø°Ý·Â ±â·Ï
-		Record_SendDamage( smWsockUserServer , TransSkilAttackData.Power );
+		Record_SendDamage(smWsockUserServer, TransSkilAttackData.Power);
 
-		smWsockUserServer->Send2( (char *)&TransSkilAttackData , TransSkilAttackData.size , TRUE );
+		smWsockUserServer->Send2((char *)&TransSkilAttackData, TransSkilAttackData.size, TRUE);
 	}
 
 
-//	lpsmSendSock = GetAreaServerSock();		//º¸³¾ ¼­¹ö±¸ÇÏ±â
+	//	lpsmSendSock = GetAreaServerSock();		//º¸³¾ ¼­¹ö±¸ÇÏ±â
 
-//	if ( lpsmSendSock ) {
-//		lpsmSendSock->Send2( (char *)&TransSkilAttackData , TransSkilAttackData.size , TRUE );
-//	}
+	//	if ( lpsmSendSock ) {
+	//		lpsmSendSock->Send2( (char *)&TransSkilAttackData , TransSkilAttackData.size , TRUE );
+	//	}
 	return TRUE;
 }
 
 //¹üÀ§Çü °ø°Ý
-int Skil_RangeBoxAttack( smCHAR *lpCurChar , RECT *lpRect , int power , int TargetState , int UseAttackRating )
+int Skil_RangeBoxAttack(smCHAR *lpCurChar, RECT *lpRect, int power, int TargetState, int UseAttackRating)
 {
 
 	TRANS_SKIL_ATTACKDATA	TransSkilAttackData;
-	int cnt,mCnt;
-	int dx,dy,dz;
-	int Attack,accuracy;
+	int cnt, mCnt;
+	int dx, dy, dz;
+	int Attack, accuracy;
 	smCHAR	*lpChar;
-	smWINSOCK *lpsmSendSock =0;
+	smWINSOCK *lpsmSendSock = 0;
 
 
 	//Å¬¶óÀÌ¾ðÆ® ·Î±× ÆÄÀÏ ±â·Ï
-	Record_ClinetLogFile( "±¸¹öÀü °ø°ÝÆÐÅ¶ - Skil_RangeBoxAttack " );
+	Record_ClinetLogFile("±¸¹öÀü °ø°ÝÆÐÅ¶ - Skil_RangeBoxAttack ");
 	quit = 1;
 	return TRUE;
 
 
 	mCnt = 0;
 
-	for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++ ) {
-		if ( mCnt>=SKIL_ATTACK_CHAR_MAX ) break;
-		if ( chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].smCharInfo.State==smCHAR_STATE_ENEMY ) {
+	for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+	{
+		if (mCnt >= SKIL_ATTACK_CHAR_MAX) break;
+		if (chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].smCharInfo.State == smCHAR_STATE_ENEMY)
+		{
 			lpChar = &chrOtherPlayer[cnt];
 
-			dx = (lpChar->pX-lpCurChar->pX)>>FLOATNS;
-			dy = (lpChar->pY-lpCurChar->pY)>>FLOATNS;
-			dz = (lpChar->pZ-lpCurChar->pZ)>>FLOATNS;
+			dx = (lpChar->pX - lpCurChar->pX) >> FLOATNS;
+			dy = (lpChar->pY - lpCurChar->pY) >> FLOATNS;
+			dz = (lpChar->pZ - lpCurChar->pZ) >> FLOATNS;
 
 			// ÀÌµ¿µÈ Áö¿ª ÁÂÇ¥°ªÀ» ±¸ÇÏ´Â °ÍÀÌ±¸³ª! ³î¶ø´Ù.
-			GetMoveLocation( dx, dy, dz, 0, (-lpCurChar->Angle.y)&ANGCLIP , 0 );
+			GetMoveLocation(dx, dy, dz, 0, (-lpCurChar->Angle.y)&ANGCLIP, 0);
 
-			if ( GeoResult_X>lpRect->left && GeoResult_X<lpRect->right  &&
-				GeoResult_Z>lpRect->top && GeoResult_Z<lpRect->bottom && abs(dy)<256 ) {
+			if (GeoResult_X > lpRect->left && GeoResult_X<lpRect->right  &&
+				GeoResult_Z>lpRect->top && GeoResult_Z < lpRect->bottom && abs(dy) < 256)
+			{
 
 				Attack = TRUE;
 
-				if ( UseAttackRating ) {
-					accuracy = sinGetAccuracy( chrOtherPlayer[cnt].smCharInfo.Level , chrOtherPlayer[cnt].smCharInfo.Defence );
-					if ( (rand()%100)>accuracy ) 
+				if (UseAttackRating)
+				{
+					accuracy = sinGetAccuracy(chrOtherPlayer[cnt].smCharInfo.Level, chrOtherPlayer[cnt].smCharInfo.Defence);
+					if ((rand() % 100) > accuracy)
 						Attack = FALSE;
 				}
 
-				if ( Attack ) {
+				if (Attack)
+				{
 					TransSkilAttackData.dwTarObjectSerial[mCnt++] = chrOtherPlayer[cnt].dwObjectSerial;
 
 					//Ã³À½ °ø°ÝÇÏ´Â Ä³¸¯ÇÑÅ×¸¸ Ã¼·Â¹Ù Ãâ·Â
-					if ( lpChar->smCharInfo.Life[1] && lpChar->smCharInfo.Life[0]==lpChar->smCharInfo.Life[1] ) {
+					if (lpChar->smCharInfo.Life[1] && lpChar->smCharInfo.Life[0] == lpChar->smCharInfo.Life[1])
+					{
 						lpChar->EnableStateBar = TRUE;
 					}
 				}
@@ -8272,63 +4534,67 @@ int Skil_RangeBoxAttack( smCHAR *lpCurChar , RECT *lpRect , int power , int Targ
 	TransSkilAttackData.TargetCount = mCnt;
 
 	TransSkilAttackData.code = smTRANSCODE_SKIL_ATTACKDATA;
-	TransSkilAttackData.size = (sizeof(TRANS_SKIL_ATTACKDATA)-sizeof(DWORD)*SKIL_ATTACK_CHAR_MAX);
-	TransSkilAttackData.size += sizeof(DWORD)*mCnt+16;
+	TransSkilAttackData.size = (sizeof(TRANS_SKIL_ATTACKDATA) - sizeof(DWORD)*SKIL_ATTACK_CHAR_MAX);
+	TransSkilAttackData.size += sizeof(DWORD)*mCnt + 16;
 
 	TransSkilAttackData.x = lpCurChar->pX;
 	TransSkilAttackData.y = lpCurChar->pY;
 	TransSkilAttackData.z = lpCurChar->pZ;
 
 	TransSkilAttackData.AttackState = TargetState;
-	TransSkilAttackData.AttackSize  = 0;
-	TransSkilAttackData.Power		= power;
+	TransSkilAttackData.AttackSize = 0;
+	TransSkilAttackData.Power = power;
 
 	LastAttackDamage = power;
 
-	TransSkilAttackData.dwChkSum = TransSkilAttackData.Power*2002 + 
+	TransSkilAttackData.dwChkSum = TransSkilAttackData.Power * 2002 +
 		(TransSkilAttackData.x * TransSkilAttackData.y * TransSkilAttackData.z);// Á¶ÀÛ ¹æÁö ÄÚµå
 
 
-	memcpy( &Back_TransSkilAttackData , &TransSkilAttackData , sizeof(TRANS_SKIL_ATTACKDATA) );		//¹é¾÷
+	memcpy(&Back_TransSkilAttackData, &TransSkilAttackData, sizeof(TRANS_SKIL_ATTACKDATA));		//¹é¾÷
 
 	lpsmSendSock = GetAreaServerSock();		//º¸³¾ ¼­¹ö±¸ÇÏ±â
 
-	if ( lpsmSendSock && mCnt>0 ) {
+	if (lpsmSendSock && mCnt > 0)
+	{
 		//º¸³½ °ø°Ý·Â ±â·Ï
-		Record_SendDamage( lpsmSendSock , TransSkilAttackData.Power );
+		Record_SendDamage(lpsmSendSock, TransSkilAttackData.Power);
 
-		lpsmSendSock->Send2( (char *)&TransSkilAttackData , TransSkilAttackData.size , TRUE );
+		lpsmSendSock->Send2((char *)&TransSkilAttackData, TransSkilAttackData.size, TRUE);
 	}
 	return TRUE;
 }
 
 
-int Skill_CharRangeEffect( DWORD dwSkillCode , smCHAR *lpCurChar , smCHAR *lpCharTarget , int point )
+int Skill_CharRangeEffect(DWORD dwSkillCode, smCHAR *lpCurChar, smCHAR *lpCharTarget, int point)
 {
-	int time,rs;
+	int time, rs;
 
-	switch( dwSkillCode ) {
+	switch (dwSkillCode)
+	{
 		case SKILL_PLAY_ROAR:
-			time = Roar_Time[point-1];
+			time = Roar_Time[point - 1];
 
 			rs = lpCharTarget->smCharInfo.Resistance[sITEMINFO_BIONIC];
-			if ( rs<0 ) rs = 0;
-			if ( rs>=100 ) rs=100;
-			rs = 100-rs;
-			time = (time*rs)/100;
+			if (rs < 0) rs = 0;
+			if (rs >= 100) rs = 100;
+			rs = 100 - rs;
+			time = (time*rs) / 100;
 
-			if ( time ) {
-				if ( time>2 ) time=2;
-				AssaParticle_Stune( lpCharTarget , time );
+			if (time)
+			{
+				if (time > 2) time = 2;
+				AssaParticle_Stune(lpCharTarget, time);
 				return TRUE;
 			}
 			break;
 
 		case SKILL_PLAY_SOUL_SUCKER:
-			if ( lpCharTarget->smCharInfo.Brood!=smCHAR_MONSTER_UNDEAD &&
-				((lpCharTarget->smCharInfo.Life[1]*50)/100)<lpCharTarget->smCharInfo.Life[0] ) {
+			if (lpCharTarget->smCharInfo.Brood != smCHAR_MONSTER_UNDEAD &&
+				((lpCharTarget->smCharInfo.Life[1] * 50) / 100) < lpCharTarget->smCharInfo.Life[0])
+			{
 
-				sinSkillEffect_Soul_Sucker( lpCurChar , lpCharTarget );
+				sinSkillEffect_Soul_Sucker(lpCurChar, lpCharTarget);
 				return TRUE;
 			}
 			break;
@@ -8339,35 +4605,39 @@ int Skill_CharRangeEffect( DWORD dwSkillCode , smCHAR *lpCurChar , smCHAR *lpCha
 
 
 //¹üÀ§Çü °ø°Ý ÀÌÆåÆ® ¿¬Ãâ
-int Skil_RangeBoxEffect( smCHAR *lpCurChar , RECT *lpRect , DWORD dwSkillCode , int TargetState )
+int Skil_RangeBoxEffect(smCHAR *lpCurChar, RECT *lpRect, DWORD dwSkillCode, int TargetState)
 {
 
-	int cnt,mCnt;
-	int dx,dy,dz;
+	int cnt, mCnt;
+	int dx, dy, dz;
 	smCHAR	*lpChar;
 
 	mCnt = 0;
 
-	for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++ ) {
-		if ( mCnt>=SKIL_ATTACK_CHAR_MAX ) break;
-		if ( chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].smCharInfo.State==smCHAR_STATE_ENEMY &&
-			lpCurChar!=&chrOtherPlayer[cnt]	) {
+	for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+	{
+		if (mCnt >= SKIL_ATTACK_CHAR_MAX) break;
+		if (chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].smCharInfo.State == smCHAR_STATE_ENEMY &&
+			lpCurChar != &chrOtherPlayer[cnt])
+		{
 
 			lpChar = &chrOtherPlayer[cnt];
 
-			dx = (lpChar->pX-lpCurChar->pX)>>FLOATNS;
-			dy = (lpChar->pY-lpCurChar->pY)>>FLOATNS;
-			dz = (lpChar->pZ-lpCurChar->pZ)>>FLOATNS;
+			dx = (lpChar->pX - lpCurChar->pX) >> FLOATNS;
+			dy = (lpChar->pY - lpCurChar->pY) >> FLOATNS;
+			dz = (lpChar->pZ - lpCurChar->pZ) >> FLOATNS;
 
 			// ÀÌµ¿µÈ Áö¿ª ÁÂÇ¥°ªÀ» ±¸ÇÏ´Â °ÍÀÌ±¸³ª! ³î¶ø´Ù.
-			GetMoveLocation( dx, dy, dz, 0, (-lpCurChar->Angle.y)&ANGCLIP , 0 );
+			GetMoveLocation(dx, dy, dz, 0, (-lpCurChar->Angle.y)&ANGCLIP, 0);
 
-			if ( GeoResult_X>lpRect->left && GeoResult_X<lpRect->right  &&
-				GeoResult_Z>lpRect->top && GeoResult_Z<lpRect->bottom && abs(dy)<256 ) {
+			if (GeoResult_X > lpRect->left && GeoResult_X<lpRect->right  &&
+				GeoResult_Z>lpRect->top && GeoResult_Z < lpRect->bottom && abs(dy) < 256)
+			{
 
-					if ( Skill_CharRangeEffect( dwSkillCode , lpCurChar , &chrOtherPlayer[cnt] ,0 )==TRUE ) {
-						mCnt++;
-					}
+				if (Skill_CharRangeEffect(dwSkillCode, lpCurChar, &chrOtherPlayer[cnt], 0) == TRUE)
+				{
+					mCnt++;
+				}
 			}
 
 		}
@@ -8377,11 +4647,11 @@ int Skil_RangeBoxEffect( smCHAR *lpCurChar , RECT *lpRect , DWORD dwSkillCode , 
 }
 
 //¹üÀ§Çü °ø°Ý ÀÌÆåÆ® ¿¬Ãâ
-int Skil_RangeEffect( smCHAR *lpCurChar , int Range , DWORD dwSkillCode , int TargetState , int point )
+int Skil_RangeEffect(smCHAR *lpCurChar, int Range, DWORD dwSkillCode, int TargetState, int point)
 {
 
-	int cnt,mCnt;
-	int dx,dy,dz;
+	int cnt, mCnt;
+	int dx, dy, dz;
 	smCHAR	*lpChar;
 	int	dRange;
 
@@ -8389,19 +4659,23 @@ int Skil_RangeEffect( smCHAR *lpCurChar , int Range , DWORD dwSkillCode , int Ta
 
 	mCnt = 0;
 
-	for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++ ) {
-		if ( mCnt>=SKIL_ATTACK_CHAR_MAX ) break;
-		if ( chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].smCharInfo.State==smCHAR_STATE_ENEMY &&
-			lpCurChar!=&chrOtherPlayer[cnt]	) {
+	for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+	{
+		if (mCnt >= SKIL_ATTACK_CHAR_MAX) break;
+		if (chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].smCharInfo.State == smCHAR_STATE_ENEMY &&
+			lpCurChar != &chrOtherPlayer[cnt])
+		{
 
 			lpChar = &chrOtherPlayer[cnt];
 
-			dx = (lpChar->pX-lpCurChar->pX)>>FLOATNS;
-			dy = (lpChar->pY-lpCurChar->pY)>>FLOATNS;
-			dz = (lpChar->pZ-lpCurChar->pZ)>>FLOATNS;
+			dx = (lpChar->pX - lpCurChar->pX) >> FLOATNS;
+			dy = (lpChar->pY - lpCurChar->pY) >> FLOATNS;
+			dz = (lpChar->pZ - lpCurChar->pZ) >> FLOATNS;
 
-			if ( (dx*dx+dy*dy+dz*dz)<dRange ) {
-				if ( Skill_CharRangeEffect( dwSkillCode , lpCurChar , &chrOtherPlayer[cnt] , point )==TRUE ) {
+			if ((dx*dx + dy*dy + dz*dz) < dRange)
+			{
+				if (Skill_CharRangeEffect(dwSkillCode, lpCurChar, &chrOtherPlayer[cnt], point) == TRUE)
+				{
 					mCnt++;
 				}
 			}
@@ -8416,27 +4690,27 @@ int Skil_RangeEffect( smCHAR *lpCurChar , int Range , DWORD dwSkillCode , int Ta
 
 
 //ÄÚµå ¾ÏÈ£ Ã½Å©¼¶ ¸¸µé±â
-DWORD EncodeParam( DWORD Param )
+DWORD EncodeParam(DWORD Param)
 {
-	return (Param+(Param<<4))*2002;
+	return (Param + (Param << 4)) * 2002;
 }
 
 
 
 //»ó´ë Ä³¸¯ÅÍ¿¡ °ø°Ý °¡ÇÔ 
-int QuickSendTransAttack( smCHAR *lpChar , int power , int AttackState , int Resistance )
+int QuickSendTransAttack(smCHAR *lpChar, int power, int AttackState, int Resistance)
 {
 	TRANS_ATTACKDATA	TransAttackData;
-	smWINSOCK *lpsmSendSock =0;
+	smWINSOCK *lpsmSendSock = 0;
 	int pow;
 
 	//Å¬¶óÀÌ¾ðÆ® ·Î±× ÆÄÀÏ ±â·Ï
-	Record_ClinetLogFile( "±¸¹öÀü °ø°ÝÆÐÅ¶ - QuickSendTransAttack " );
+	Record_ClinetLogFile("±¸¹öÀü °ø°ÝÆÐÅ¶ - QuickSendTransAttack ");
 	quit = 1;
 	return TRUE;
 
 
-	if ( RestartPlayCount!=0 ) return FALSE;
+	if (RestartPlayCount != 0) return FALSE;
 
 	TransAttackData.code = smTRANSCODE_ATTACKDATA;
 	TransAttackData.size = sizeof(TRANS_ATTACKDATA);
@@ -8446,80 +4720,85 @@ int QuickSendTransAttack( smCHAR *lpChar , int power , int AttackState , int Res
 	TransAttackData.z = lpChar->pZ;
 
 	TransAttackData.AttackState = AttackState;
-	TransAttackData.AttackSize  = 48*fONE;
-	TransAttackData.Power		= power;
+	TransAttackData.AttackSize = 48 * fONE;
+	TransAttackData.Power = power;
 
-	if ( Resistance ) {
-		TransAttackData.AttackState |= (Resistance<<16);
-		pow = Resistance>>4;
-		if ( pow>0 && pow<512 ) {
+	if (Resistance)
+	{
+		TransAttackData.AttackState |= (Resistance << 16);
+		pow = Resistance >> 4;
+		if (pow > 0 && pow < 512)
+		{
 			TransAttackData.Power += pow;			//¼Ó¼º °ø°Ý·Â Ãß°¡ ( ¼­¹ö¿¡¼­ Ãß°¡µÈ °ø°Ý·Â µû·Î °è»ê )
 		}
 	}
 
 	TransAttackData.dwDestObjectSerial = lpCurPlayer->dwObjectSerial;
 	TransAttackData.dwTarObjectSerial = lpChar->dwObjectSerial;
-	TransAttackData.dwChkSum = TransAttackData.Power*2002 + 
+	TransAttackData.dwChkSum = TransAttackData.Power * 2002 +
 		(TransAttackData.x * TransAttackData.y * TransAttackData.z);// Á¶ÀÛ ¹æÁö ÄÚµå
 
 	LastAttackDamage = TransAttackData.Power;
 
 	//Ã³À½ °ø°ÝÇÏ´Â Ä³¸¯ÇÑÅ×¸¸ Ã¼·Â¹Ù Ãâ·Â
-	if ( lpChar->smCharInfo.Life[1] && lpChar->smCharInfo.Life[0]==lpChar->smCharInfo.Life[1] ) {
+	if (lpChar->smCharInfo.Life[1] && lpChar->smCharInfo.Life[0] == lpChar->smCharInfo.Life[1])
+	{
 		lpChar->EnableStateBar = TRUE;
 	}
 
-	if ( lpChar->ServerCode ) {
+	if (lpChar->ServerCode)
+	{
 		lpsmSendSock = GetServerSock(lpChar->ServerCode);		//¼­¹ö ÄÚµå ±¸ÇÏ±â
 	}
 
 
-	if ( lpsmSendSock ) {
+	if (lpsmSendSock)
+	{
 		//º¸³½ °ø°Ý·Â ±â·Ï
-		Record_SendDamage( lpsmSendSock , TransAttackData.Power );
+		Record_SendDamage(lpsmSendSock, TransAttackData.Power);
 
-		return lpsmSendSock->Send2( (char *)&TransAttackData , TransAttackData.size , TRUE );
+		return lpsmSendSock->Send2((char *)&TransAttackData, TransAttackData.size, TRUE);
 	}
 
 	return NULL;
 }
 
 //»ó´ë Ä³¸¯ÅÍ¿¡ °ø°Ý °¡ÇÔ 
-int QuickSendTransAttack( smCHAR *lpChar , int power )
+int QuickSendTransAttack(smCHAR *lpChar, int power)
 {
-	return QuickSendTransAttack( lpChar , power , 1 , 0 );
+	return QuickSendTransAttack(lpChar, power, 1, 0);
 }
 //»ó´ë Ä³¸¯ÅÍ¿¡ °ø°Ý °¡ÇÔ 
-int QuickSendTransAttack( smCHAR *lpChar , int power , int Resistance )
+int QuickSendTransAttack(smCHAR *lpChar, int power, int Resistance)
 {
-	return QuickSendTransAttack( lpChar , power , 1 , Resistance );
+	return QuickSendTransAttack(lpChar, power, 1, Resistance);
 }
 
 ///////////////////////// Æ®·¹ÀÌµå °ü·Ã //////////////////////////////
 /*
-sTRADE sTrade;	   //º¸³¾ Á¤º¸ 	
-sTRADE sTradeRecv; //¹ÞÀº Á¤º¸ 
+sTRADE sTrade;	   //º¸³¾ Á¤º¸
+sTRADE sTradeRecv; //¹ÞÀº Á¤º¸
 */
 
 //¾ÆÀÌÅÛ ±³È¯ ½ÅÃ»
-int SendRequestTrade( int dwObjectSerial , int Flag )
+int SendRequestTrade(int dwObjectSerial, int Flag)
 {
 	smTRANS_COMMAND	TransCommand;
 
-	TransCommand.code =	smTRANSCODE_TRADE_REQUST;
+	TransCommand.code = smTRANSCODE_TRADE_REQUST;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = dwObjectSerial;
 	TransCommand.LParam = Flag;
 	TransCommand.SParam = lpCurPlayer->dwObjectSerial;
 
 	if (smWsockUserServer)
-		return smWsockUserServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+		return smWsockUserServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 
 	return FALSE;
 }
 
 //¾ÆÀÌÅÛ ±³È¯ Á¤º¸ Àü¼Û
-int SendTradeItem( sTRADE *lpTrade , DWORD dwSender ) 
+int SendTradeItem(sTRADE *lpTrade, DWORD dwSender)
 {
 	int cnt;
 	int len;
@@ -8530,36 +4809,41 @@ int SendTradeItem( sTRADE *lpTrade , DWORD dwSender )
 	len = 0;
 
 	//Æ®·¹ÀÌµå Á¤º¸ ÀÎÁõ È®ÀÎ
-	if ( CheckTrade( (void *)lpTrade )==FALSE ) {
-		SendRequestTrade( dwSender , 3 );			//°Å·¡ Ãë¼Ò ¿ä±¸
+	if (CheckTrade((void *)lpTrade) == FALSE)
+	{
+		SendRequestTrade(dwSender, 3);			//°Å·¡ Ãë¼Ò ¿ä±¸
 		cTrade.CancelTradeItem();					//°Å·¡Ã¢ ´Ý±â
 		return FALSE;
 	}
 
-	memcpy( &sTradeBuff , lpTrade , sizeof( sTRADE ) );
+	memcpy(&sTradeBuff, lpTrade, sizeof(sTRADE));
 
 	//¹°¾à°¹¼ö ºñ±³
 	PotionError = ComparePotion();
 
-	for( cnt=0;cnt<MAX_TRADE_ITEM;cnt++) {
-		if ( !sTradeBuff.TradeItem[cnt].Flag ) {
-			ZeroMemory( &sTradeBuff.TradeItem[cnt] , sizeof(sITEM) );
+	for (cnt = 0; cnt < MAX_TRADE_ITEM; cnt++)
+	{
+		if (!sTradeBuff.TradeItem[cnt].Flag)
+		{
+			ZeroMemory(&sTradeBuff.TradeItem[cnt], sizeof(sITEM));
 		}
-		else {
+		else
+		{
 			sTradeBuff.TradeItem[cnt].sItemInfo.ItemHeader.Head = 0;		//Å°°ª Áö¿ò
-			if ( PotionError )	{
-				sTradeBuff.TradeItem[cnt].sItemInfo.PotionCount = sTradeBuff.TradeItem[cnt].sItemInfo.ItemHeader.Head+1;	//¹°¾à°¹¼ö ¿À·ù½Ã ¸ðµç Æ÷¼ÇÄ«¿îÆ®¸¦ 1·Î ¹Ù²Û´Ù
+			if (PotionError)
+			{
+				sTradeBuff.TradeItem[cnt].sItemInfo.PotionCount = sTradeBuff.TradeItem[cnt].sItemInfo.ItemHeader.Head + 1;	//¹°¾à°¹¼ö ¿À·ù½Ã ¸ðµç Æ÷¼ÇÄ«¿îÆ®¸¦ 1·Î ¹Ù²Û´Ù
 			}
 			len++;
 		}
 	}
 
 	//µ¥ÀÌÅ¸ ¾ÐÃà ( Z/NZ ¹æ½Ä )
-	len = EecodeCompress( (BYTE *)&sTradeBuff , TransTradeItems.TradeBuff , sizeof(sTRADE) );
-	if ( len>TRANS_TRADE_BUFF_SIZE ) return FALSE;
+	len = EecodeCompress((BYTE *)&sTradeBuff, TransTradeItems.TradeBuff, sizeof(sTRADE));
+	if (len > TRANS_TRADE_BUFF_SIZE) return FALSE;
 
 	TransTradeItems.code = smTRANSCODE_TRADEITEMS;
-	TransTradeItems.size = len+48;
+	TransTradeItems.size = len + 48;
 	TransTradeItems.dwSum = 0;
 	TransTradeItems.dwSender = lpCurPlayer->dwObjectSerial;
 	TransTradeItems.dwRecver = dwSender;
@@ -8568,56 +4852,60 @@ int SendTradeItem( sTRADE *lpTrade , DWORD dwSender )
 	TransTradeItems.Temp[2] = 0;
 	TransTradeItems.Temp[3] = 0;
 
-	if ( smWsockUserServer )
-		return smWsockServer->Send2( (char *)&TransTradeItems , TransTradeItems.size , TRUE ) ;
+	if (smWsockUserServer)
+		return smWsockServer->Send2((char *)&TransTradeItems, TransTradeItems.size, TRUE);
 
 	return FALSE;
 }
 
 //¾ÆÀÌÅÛ ±³È¯ Á¤º¸ ¼ö½Å 
-int RecvTradeItems( TRANS_TRADEITEMS *lpTransTradeItems , sTRADE *lpTrade )
+int RecvTradeItems(TRANS_TRADEITEMS *lpTransTradeItems, sTRADE *lpTrade)
 {
 	//¾ÐÃà µ¥ÀÌÅ¸ ÇØµ¶ ( Z/NZ ¹æ½Ä )
-	DecodeCompress( lpTransTradeItems->TradeBuff , (BYTE *)lpTrade );
-	memcpy( &TransLastRecvTrade , lpTransTradeItems , lpTransTradeItems->size );		//¹ÞÀº Æ®·¹ÀÌµå µ¥ÀÌÅ¸ ÀÓ½Ã º¹»ç
+	DecodeCompress(lpTransTradeItems->TradeBuff, (BYTE *)lpTrade);
+	memcpy(&TransLastRecvTrade, lpTransTradeItems, lpTransTradeItems->size);		//¹ÞÀº Æ®·¹ÀÌµå µ¥ÀÌÅ¸ ÀÓ½Ã º¹»ç
 	return TRUE;
 }
 
 //±³È¯Ã¢ ¾ÆÀÌÅÛ ¼Û½Å
-int SendTradeItem( DWORD dwSender )
+int SendTradeItem(DWORD dwSender)
 {
-	return SendTradeItem( &sTrade , dwSender );
+	return SendTradeItem(&sTrade, dwSender);
 }
 //±³È¯Ã¢ ¾ÆÀÌÅÛ ¼ö½Å
-int RecvTradeItems( TRANS_TRADEITEMS *lpTransTradeItems )
+int RecvTradeItems(TRANS_TRADEITEMS *lpTransTradeItems)
 {
 	int res;
 
-	res = RecvTradeItems( lpTransTradeItems , &sTradeRecv ); 
+	res = RecvTradeItems(lpTransTradeItems, &sTradeRecv);
 	cTrade.LoadTradeItemIamge();
 	cTrade.CheckTradeButtonOk();
 
 	ItemPickUpFlag = 1;
 
 	//Æ®·¹ÀÌµå Á¤º¸ ÀÎÁõ È®ÀÎ
-	if ( CheckTrade( &sTradeRecv )==FALSE ) {
-		SendRequestTrade( lpTransTradeItems->dwSender , 3 );	//±³È¯ Ãë¼Ò
+	if (CheckTrade(&sTradeRecv) == FALSE)
+	{
+		SendRequestTrade(lpTransTradeItems->dwSender, 3);	//±³È¯ Ãë¼Ò
 		cTrade.CancelTradeItem();
 		return FALSE;
 	}
 
-	if ( sTrade.CheckFlag && !sTradeRecv.CheckFlag ) {
+	if (sTrade.CheckFlag && !sTradeRecv.CheckFlag)
+	{
 		sTrade.CheckFlag = 0;
 		TradeItemCancelCount++;
-		if ( TradeItemCancelCount>=3 ) {
+		if (TradeItemCancelCount >= 3)
+		{
 			//3¹ø Ãë¼Ò ´çÇÔ
-			SendRequestTrade( lpTransTradeItems->dwSender , 3 );	//±³È¯ Ãë¼Ò
+			SendRequestTrade(lpTransTradeItems->dwSender, 3);	//±³È¯ Ãë¼Ò
 			cTrade.CancelTradeItem();
 			return FALSE;
 		}
-		else {
-			cMessageBox.ShowMessage( MESSAGE_MOVE_TRADE_ITEM );
-			SendTradeItem( lpTransTradeItems->dwSender );
+		else
+		{
+			cMessageBox.ShowMessage(MESSAGE_MOVE_TRADE_ITEM);
+			SendTradeItem(lpTransTradeItems->dwSender);
 		}
 	}
 
@@ -8625,10 +4913,10 @@ int RecvTradeItems( TRANS_TRADEITEMS *lpTransTradeItems )
 }
 
 //¾ÆÀÌÅÛ ±³È¯ ÀÎÁõÅ° Àü¼Û
-int SendTradeSucessKey( DWORD dwSender)
+int SendTradeSucessKey(DWORD dwSender)
 {
 	//¾ÆÀÌÅÛ ±³È¯ ÀÎÁõÅ° Àü¼Û
-	return SendTradeSucessKey( &sTrade , dwSender );
+	return SendTradeSucessKey(&sTrade, dwSender);
 }
 
 
@@ -8636,14 +4924,14 @@ int SendTradeSucessKey( DWORD dwSender)
 //-------> ÀÌÇÔ¼ö°¡ °ÅÀÇ ÅëÃ¤·Î ¸¹ÀÌ ¹Ù²åÀ¸´Ï ±¸¹öÀü Àû¿ë½Ã È®ÀÎ //////////////
 
 //¾ÆÀÌÅÛ ±³È¯ ÀÎÁõÅ° Àü¼Û
-int SendTradeSucessKey( sTRADE *lpTrade , DWORD dwSender )
+int SendTradeSucessKey(sTRADE *lpTrade, DWORD dwSender)
 {
 
 	TRANS_TRADE_ITEMKEY	TransTradeItemKey;
 	int cnt;
 	int	TradeOpenFlag, CancelFlag;
 
-	if ( DisconnectFlag ) return FALSE;
+	if (DisconnectFlag) return FALSE;
 
 	TransTradeItemKey.code = smTRANSCODE_TRADE_ITEMKEY;
 	TransTradeItemKey.size = sizeof(TRANS_TRADE_ITEMKEY);
@@ -8656,33 +4944,38 @@ int SendTradeSucessKey( sTRADE *lpTrade , DWORD dwSender )
 	cTrade.OpenFlag = 0;
 	CancelFlag = 0;
 
-	for( cnt=0;cnt<MAX_TRADE_ITEM;cnt++) {
-		if ( lpTrade->TradeItem[cnt].Flag ) {
+	for (cnt = 0; cnt < MAX_TRADE_ITEM; cnt++)
+	{
+		if (lpTrade->TradeItem[cnt].Flag)
+		{
 			TransTradeItemKey.dwItemCode[cnt] = lpTrade->TradeItem[cnt].sItemInfo.CODE;
 			TransTradeItemKey.dwItemKey[cnt] = lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.Head;
 			TransTradeItemKey.dwItemSum[cnt] = lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum;
 
-			if ( FindInvenItem( lpTrade->TradeItem[cnt].sItemInfo.CODE , 
-				lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.Head , 
-				lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum )!=0 ) {
-					//º¸³¾ ¾ÆÀÌÅÛÀÌ ÀÎº¥¿¡ ³²¾Æ ÀÖÀ½À» ¹ß°ß
-					CancelFlag = TRUE;
+			if (FindInvenItem(lpTrade->TradeItem[cnt].sItemInfo.CODE,
+							  lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.Head,
+							  lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum) != 0)
+			{
+				//º¸³¾ ¾ÆÀÌÅÛÀÌ ÀÎº¥¿¡ ³²¾Æ ÀÖÀ½À» ¹ß°ß
+				CancelFlag = TRUE;
 
-					//ÀÎº¥Åä¸® ¾ÆÀÌÅÛ º¹»ç ¿À·ù
-					SendInvenItemError( 1 , lpTrade->TradeItem[cnt].sItemInfo.CODE , 
-						lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.Head , 
-						lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum );
-				}
+				//ÀÎº¥Åä¸® ¾ÆÀÌÅÛ º¹»ç ¿À·ù
+				SendInvenItemError(1, lpTrade->TradeItem[cnt].sItemInfo.CODE,
+								   lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.Head,
+								   lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum);
+			}
 
-			if ( (TransTradeItemKey.dwItemCode[cnt]&sinITEM_MASK1)==(sinPM1&sinITEM_MASK1) ) {
+			if ((TransTradeItemKey.dwItemCode[cnt] & sinITEM_MASK1) == (sinPM1&sinITEM_MASK1))
+			{
 				//¹°¾àÀÌ´Ù! ( ¾ÆÀÌÅÛ Ã¼Å©¼¶¿¡ ¹°¾à°¹¼ö¸¦ ¼³Á¤ )
-				TransTradeItemKey.dwItemSum[cnt] = lpTrade->TradeItem[cnt].sItemInfo.PotionCount&0xFFFF;
-				TransTradeItemKey.dwItemSum[cnt] |= (lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum)<<16;
-				TransTradeItemKey.dwItemSum[cnt] ^= (TransTradeItemKey.dwItemSum[cnt]>>16)^0x5cbc;
+				TransTradeItemKey.dwItemSum[cnt] = lpTrade->TradeItem[cnt].sItemInfo.PotionCount & 0xFFFF;
+				TransTradeItemKey.dwItemSum[cnt] |= (lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum) << 16;
+				TransTradeItemKey.dwItemSum[cnt] ^= (TransTradeItemKey.dwItemSum[cnt] >> 16) ^ 0x5cbc;
 			}
 
 		}
-		else {
+		else
+		{
 			TransTradeItemKey.dwItemCode[cnt] = 0;
 			TransTradeItemKey.dwItemKey[cnt] = 0;
 			TransTradeItemKey.dwItemSum[cnt] = 0;
@@ -8691,100 +4984,111 @@ int SendTradeSucessKey( sTRADE *lpTrade , DWORD dwSender )
 
 	cTrade.OpenFlag = TradeOpenFlag;
 
-	if ( !CancelFlag ) {
+	if (!CancelFlag)
+	{
 
-/*
-		TRANS_THROW_ITEMS	TransThrowItems;
-		
-		TransThrowItems.ThrowItemCount = 0;
+		/*
+				TRANS_THROW_ITEMS	TransThrowItems;
 
-		for( cnt=0;cnt<MAX_TRADE_ITEM;cnt++) {
-			if ( lpTrade->TradeItem[cnt].Flag ) {
-				TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwCode   = lpTrade->TradeItem[cnt].sItemInfo.CODE;
-				TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwHead   = lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.Head;
-				TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwChkSum = lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum;
-				TransThrowItems.ThrowItemCount++;
-				//SendSaveThrowItem( &lpTrade->TradeItem[cnt].sItemInfo );
-			}
-		}
-		//µ¥ÀÌÅ¸ ¼­¹ö¿¡ ¾ÆÀÌÅÛ ÀúÀå ¿ä±¸ ÃÖ´ë 32°³ µ¿½Ã ( º¹»ç ¾ÆÀÌÅÛ ¹æÁö )
-		SendSaveThrowItems( &TransThrowItems );
+				TransThrowItems.ThrowItemCount = 0;
 
-		if ( smWsockServer )
-			smWsockServer->Send2( (char *)&TransTradeItemKey , TransTradeItemKey.size , TRUE ) ;
+				for( cnt=0;cnt<MAX_TRADE_ITEM;cnt++) {
+					if ( lpTrade->TradeItem[cnt].Flag ) {
+						TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwCode   = lpTrade->TradeItem[cnt].sItemInfo.CODE;
+						TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwHead   = lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.Head;
+						TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwChkSum = lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum;
+						TransThrowItems.ThrowItemCount++;
+						//SendSaveThrowItem( &lpTrade->TradeItem[cnt].sItemInfo );
+					}
+				}
+				//µ¥ÀÌÅ¸ ¼­¹ö¿¡ ¾ÆÀÌÅÛ ÀúÀå ¿ä±¸ ÃÖ´ë 32°³ µ¿½Ã ( º¹»ç ¾ÆÀÌÅÛ ¹æÁö )
+				SendSaveThrowItems( &TransThrowItems );
 
-		if ( smWsockUserServer && smWsockServer!=smWsockUserServer )
-			smWsockUserServer->Send2( (char *)&TransTradeItemKey , TransTradeItemKey.size , TRUE ) ;
-*/
-		if ( smWsockDataServer )
-			smWsockDataServer->Send2( (char *)&TransTradeItemKey , TransTradeItemKey.size , TRUE ) ;
+				if ( smWsockServer )
+					smWsockServer->Send2( (char *)&TransTradeItemKey , TransTradeItemKey.size , TRUE ) ;
+
+				if ( smWsockUserServer && smWsockServer!=smWsockUserServer )
+					smWsockUserServer->Send2( (char *)&TransTradeItemKey , TransTradeItemKey.size , TRUE ) ;
+		*/
+		if (smWsockDataServer)
+			smWsockDataServer->Send2((char *)&TransTradeItemKey, TransTradeItemKey.size, TRUE);
 
 
 		//¾ÆÀÌÅÛ ±³È¯Å°
-		memcpy( &LastTransTradeItemKey , &TransTradeItemKey , sizeof(TRANS_TRADE_ITEMKEY) );
+		memcpy(&LastTransTradeItemKey, &TransTradeItemKey, sizeof(TRANS_TRADE_ITEMKEY));
 		dwLastTransTradeKeyTime = dwPlayTime;
 	}
 
-	dwTradeMaskTime = dwPlayTime+3000;
+	dwTradeMaskTime = dwPlayTime + 3000;
 
 	return TRUE;
 }
 
 
 //¾ÆÀÌÅÛ ±³È¯ ÀÎÁõÅ° ¼ö½Å
-int RecvTradeSucessKey( TRANS_TRADE_ITEMKEY *lpTransTradeItemKey , sTRADE *lpTrade )
+int RecvTradeSucessKey(TRANS_TRADE_ITEMKEY *lpTransTradeItemKey, sTRADE *lpTrade)
 {
 	int cnt;
 	sTRADE sChkTrade;
-	DWORD	dwChkSum1,dwChkSum2;
+	DWORD	dwChkSum1, dwChkSum2;
 	int	ItemFlag;
 
-	dwTradeMaskTime = dwPlayTime+3000;
+	dwTradeMaskTime = dwPlayTime + 3000;
 
-	if ( TransLastRecvTrade.code ) {
+	if (TransLastRecvTrade.code)
+	{
 		//¸¶Áö¸· ¹ÞÀº µ¥ÀÌÅ¸·Î ¾ÐÃà µ¥ÀÌÅ¸ ´Ù½Ã ÇØµ¶ ( Z/NZ ¹æ½Ä )
-		DecodeCompress( TransLastRecvTrade.TradeBuff , (BYTE *)&sChkTrade );
-		for( cnt=0;cnt<MAX_TRADE_ITEM;cnt++) {
-			memcpy( &lpTrade->TradeItem[cnt].sItemInfo , &sChkTrade.TradeItem[cnt].sItemInfo , sizeof(sITEMINFO) );
+		DecodeCompress(TransLastRecvTrade.TradeBuff, (BYTE *)&sChkTrade);
+		for (cnt = 0; cnt < MAX_TRADE_ITEM; cnt++)
+		{
+			memcpy(&lpTrade->TradeItem[cnt].sItemInfo, &sChkTrade.TradeItem[cnt].sItemInfo, sizeof(sITEMINFO));
 		}
 	}
 	//cTrade.LoadTradeItemIamge();
 
-	for( cnt=0;cnt<MAX_TRADE_ITEM;cnt++) {
-		if ( lpTrade->TradeItem[cnt].Flag ) {
+	for (cnt = 0; cnt < MAX_TRADE_ITEM; cnt++)
+	{
+		if (lpTrade->TradeItem[cnt].Flag)
+		{
 
 			dwChkSum1 = lpTransTradeItemKey->dwItemSum[cnt];
 			dwChkSum2 = lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum;
-			if ( (lpTrade->TradeItem[cnt].sItemInfo.CODE&sinITEM_MASK1)==(sinPM1&sinITEM_MASK1) ) {
+			if ((lpTrade->TradeItem[cnt].sItemInfo.CODE&sinITEM_MASK1) == (sinPM1&sinITEM_MASK1))
+			{
 				//¹°¾àÀÎ°æ¿ì
 				ItemFlag = 1;
-				dwChkSum1 = dwChkSum1>>16;
-				dwChkSum2 = dwChkSum2&0xFFFF;
+				dwChkSum1 = dwChkSum1 >> 16;
+				dwChkSum2 = dwChkSum2 & 0xFFFF;
 			}
 			else
 				ItemFlag = 0;
 
-			if ( lpTransTradeItemKey->dwItemCode[cnt]==lpTrade->TradeItem[cnt].sItemInfo.CODE && dwChkSum1==dwChkSum2 ) {
-//			lpTransTradeItemKey->dwItemSum[cnt]==lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum ) {
+			if (lpTransTradeItemKey->dwItemCode[cnt] == lpTrade->TradeItem[cnt].sItemInfo.CODE && dwChkSum1 == dwChkSum2)
+			{
+				//			lpTransTradeItemKey->dwItemSum[cnt]==lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum ) {
 
 				lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.Head = lpTransTradeItemKey->dwItemKey[cnt];
 
 				//Àß¸øµÈ ¾ÆÀÌÅÛ ¼ö½Å
-				if ( !lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.Head )
+				if (!lpTrade->TradeItem[cnt].sItemInfo.ItemHeader.Head)
 					lpTrade->TradeItem[cnt].Flag = 0;
-				else {
-					if ( ItemFlag==1 ) {
+				else
+				{
+					if (ItemFlag == 1)
+					{
 						//¹°¾à ÀçÀÎÁõ
-						ReformItem( &lpTrade->TradeItem[cnt].sItemInfo );
+						ReformItem(&lpTrade->TradeItem[cnt].sItemInfo);
 					}
 				}
 			}
-			else {
+			else
+			{
 				return FALSE;
 			}
 		}
-		else {
-			if ( lpTransTradeItemKey->dwItemCode[cnt] ) 
+		else
+		{
+			if (lpTransTradeItemKey->dwItemCode[cnt])
 				return FALSE;
 
 		}
@@ -8798,113 +5102,127 @@ int RecvTradeSucessKey( TRANS_TRADE_ITEMKEY *lpTransTradeItemKey , sTRADE *lpTra
 
 
 //¾ÆÀÌÅÛ ±³È¯ ³»¿ë È®ÀÎ
-int SendTradeCheckItem( DWORD dwSender )
+int SendTradeCheckItem(DWORD dwSender)
 {
 
 	TRANS_TRADE_CHECKITEM	TransTradeCheckItem;
 	int cnt;
 
-	if ( DisconnectFlag ) return FALSE;
+	if (DisconnectFlag) return FALSE;
 
 	TransTradeCheckItem.code = smTRANSCODE_TRADE_READYITEM;
 	TransTradeCheckItem.size = sizeof(TRANS_TRADE_CHECKITEM);
 	TransTradeCheckItem.dwSender = lpCurPlayer->dwObjectSerial;
 	TransTradeCheckItem.dwRecver = dwSender;
 
-	if ( sTrade.Money ) {
+	if (sTrade.Money)
+	{
 		SendSaveMoney();			//µ· ÀúÀå ( º¹»ç¹æÁö )
 	}
 
-	for( cnt=0;cnt<MAX_TRADE_ITEM;cnt++) {
-		if ( sTrade.TradeItem[cnt].Flag ) {
+	for (cnt = 0; cnt < MAX_TRADE_ITEM; cnt++)
+	{
+		if (sTrade.TradeItem[cnt].Flag)
+		{
 			TransTradeCheckItem.dwSendItemCode[cnt] = sTrade.TradeItem[cnt].sItemInfo.CODE;
 			TransTradeCheckItem.dwSendItemSum[cnt] = sTrade.TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum;
 
 			//SendSaveThrowItem( &sTrade.TradeItem[cnt].sItemInfo );		//¾ÆÀÌÅÛ º¹»ç ¹æÁö
 
 			//¾ÆÀÌÅÛ ÀÎÁõ È®ÀÎ
-			if ( CheckItemForm( &sTrade.TradeItem[cnt].sItemInfo )==FALSE ) 
+			if (CheckItemForm(&sTrade.TradeItem[cnt].sItemInfo) == FALSE)
 				return FALSE;		//Àß¸øµÈ ¾ÆÀÌÅÛ 
 
 		}
-		else {
+		else
+		{
 			TransTradeCheckItem.dwSendItemCode[cnt] = 0;
 			TransTradeCheckItem.dwSendItemSum[cnt] = 0;
 		}
 	}
 
 
-	for( cnt=0;cnt<MAX_TRADE_ITEM;cnt++) {
-		if ( sTradeRecv.TradeItem[cnt].Flag ) {
+	for (cnt = 0; cnt < MAX_TRADE_ITEM; cnt++)
+	{
+		if (sTradeRecv.TradeItem[cnt].Flag)
+		{
 			TransTradeCheckItem.dwRecvItemCode[cnt] = sTradeRecv.TradeItem[cnt].sItemInfo.CODE;
 			TransTradeCheckItem.dwRecvItemSum[cnt] = sTradeRecv.TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum;
 		}
-		else {
+		else
+		{
 			TransTradeCheckItem.dwRecvItemCode[cnt] = 0;
 			TransTradeCheckItem.dwRecvItemSum[cnt] = 0;
 		}
 	}
-/*
-	TRANS_THROW_ITEMS	TransThrowItems;
-	TransThrowItems.ThrowItemCount = 0;
-	for( cnt=0;cnt<MAX_TRADE_ITEM;cnt++) {
-		if ( sTrade.TradeItem[cnt].Flag ) {
-			TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwCode   = sTrade.TradeItem[cnt].sItemInfo.CODE;
-			TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwHead   = sTrade.TradeItem[cnt].sItemInfo.ItemHeader.Head;
-			TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwChkSum = sTrade.TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum;
-			TransThrowItems.ThrowItemCount++;
+	/*
+		TRANS_THROW_ITEMS	TransThrowItems;
+		TransThrowItems.ThrowItemCount = 0;
+		for( cnt=0;cnt<MAX_TRADE_ITEM;cnt++) {
+			if ( sTrade.TradeItem[cnt].Flag ) {
+				TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwCode   = sTrade.TradeItem[cnt].sItemInfo.CODE;
+				TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwHead   = sTrade.TradeItem[cnt].sItemInfo.ItemHeader.Head;
+				TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwChkSum = sTrade.TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum;
+				TransThrowItems.ThrowItemCount++;
+			}
 		}
-	}
-	//µ¥ÀÌÅ¸ ¼­¹ö¿¡ ¾ÆÀÌÅÛ ÀúÀå ¿ä±¸ ÃÖ´ë 32°³ µ¿½Ã ( º¹»ç ¾ÆÀÌÅÛ ¹æÁö )
-	SendSaveThrowItems( &TransThrowItems );
-*/
+		//µ¥ÀÌÅ¸ ¼­¹ö¿¡ ¾ÆÀÌÅÛ ÀúÀå ¿ä±¸ ÃÖ´ë 32°³ µ¿½Ã ( º¹»ç ¾ÆÀÌÅÛ ¹æÁö )
+		SendSaveThrowItems( &TransThrowItems );
+	*/
 
-	if ( smWsockServer )
-		smWsockServer->Send2( (char *)&TransTradeCheckItem , TransTradeCheckItem.size , TRUE ) ;
+	if (smWsockServer)
+		smWsockServer->Send2((char *)&TransTradeCheckItem, TransTradeCheckItem.size, TRUE);
 
-	if ( smWsockUserServer && smWsockServer!=smWsockUserServer )
-		smWsockUserServer->Send2( (char *)&TransTradeCheckItem , TransTradeCheckItem.size , TRUE ) ;
+	if (smWsockUserServer && smWsockServer != smWsockUserServer)
+		smWsockUserServer->Send2((char *)&TransTradeCheckItem, TransTradeCheckItem.size, TRUE);
 
-	dwTradeMaskTime = dwPlayTime+3000;
+	dwTradeMaskTime = dwPlayTime + 3000;
 
 	return TRUE;
 }
 
 //¾ÆÀÌÅÛ ±³È¯ ³»¿ë È®ÀÎ ¼ö½Å
-int RecvTradeCheckItem( TRANS_TRADE_CHECKITEM *lpTransTradeCheckItem )
+int RecvTradeCheckItem(TRANS_TRADE_CHECKITEM *lpTransTradeCheckItem)
 {
 	int cnt;
 
-	dwTradeMaskTime = dwPlayTime+3000;
+	dwTradeMaskTime = dwPlayTime + 3000;
 
-	if ( DisconnectFlag ) return FALSE;
+	if (DisconnectFlag) return FALSE;
 
-	for( cnt=0;cnt<MAX_TRADE_ITEM;cnt++) {
-		if ( sTrade.TradeItem[cnt].Flag ) { 
-			if ( lpTransTradeCheckItem->dwRecvItemCode[cnt]!=sTrade.TradeItem[cnt].sItemInfo.CODE ||
-			( (lpTransTradeCheckItem->dwRecvItemCode[cnt]&sinITEM_MASK1)!=(sinPM1&sinITEM_MASK1) &&			
-			lpTransTradeCheckItem->dwRecvItemSum[cnt]!=sTrade.TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum) ) {
-
-				return FALSE;
-
-			}
-		}
-		else {
-			if ( lpTransTradeCheckItem->dwRecvItemCode[cnt] ) 
-				return FALSE;
-		}
-
-		if ( sTradeRecv.TradeItem[cnt].Flag ) { 
-			if ( lpTransTradeCheckItem->dwSendItemCode[cnt]!=sTradeRecv.TradeItem[cnt].sItemInfo.CODE ||
-			( (lpTransTradeCheckItem->dwSendItemCode[cnt]&sinITEM_MASK1)!=(sinPM1&sinITEM_MASK1) &&			
-			lpTransTradeCheckItem->dwSendItemSum[cnt]!=sTradeRecv.TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum ) ) {
+	for (cnt = 0; cnt < MAX_TRADE_ITEM; cnt++)
+	{
+		if (sTrade.TradeItem[cnt].Flag)
+		{
+			if (lpTransTradeCheckItem->dwRecvItemCode[cnt] != sTrade.TradeItem[cnt].sItemInfo.CODE ||
+				((lpTransTradeCheckItem->dwRecvItemCode[cnt] & sinITEM_MASK1) != (sinPM1&sinITEM_MASK1) &&
+				 lpTransTradeCheckItem->dwRecvItemSum[cnt] != sTrade.TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum))
+			{
 
 				return FALSE;
 
 			}
 		}
-		else {
-			if ( lpTransTradeCheckItem->dwSendItemCode[cnt] ) 
+		else
+		{
+			if (lpTransTradeCheckItem->dwRecvItemCode[cnt])
+				return FALSE;
+		}
+
+		if (sTradeRecv.TradeItem[cnt].Flag)
+		{
+			if (lpTransTradeCheckItem->dwSendItemCode[cnt] != sTradeRecv.TradeItem[cnt].sItemInfo.CODE ||
+				((lpTransTradeCheckItem->dwSendItemCode[cnt] & sinITEM_MASK1) != (sinPM1&sinITEM_MASK1) &&
+				 lpTransTradeCheckItem->dwSendItemSum[cnt] != sTradeRecv.TradeItem[cnt].sItemInfo.ItemHeader.dwChkSum))
+			{
+
+				return FALSE;
+
+			}
+		}
+		else
+		{
+			if (lpTransTradeCheckItem->dwSendItemCode[cnt])
 				return FALSE;
 		}
 	}
@@ -8919,48 +5237,49 @@ int RecvTradeCheckItem( TRANS_TRADE_CHECKITEM *lpTransTradeCheckItem )
 
 
 //ÆÄÆ¼ Çã¶ô 
-int SendJoinPartyUser( DWORD dwObjectCode )
+int SendJoinPartyUser(DWORD dwObjectCode)
 {
 	smTRANS_COMMAND	TransCommand;
 
-	TransCommand.code =	smTRANSCODE_PARTY_JOIN;
+	TransCommand.code = smTRANSCODE_PARTY_JOIN;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = dwObjectCode;
 	TransCommand.LParam = 0;
 	TransCommand.SParam = 0;
 
-	return smWsockUserServer->Send( (char *)&TransCommand , TransCommand.size , TRUE );
+	return smWsockUserServer->Send((char *)&TransCommand, TransCommand.size, TRUE);
 }
 
 //ÆÄÆ¼ ÀÎÅÍÆäÀÌ½º ¹öÆ°ÀÔ·Â 
-int	PartyButton( int Num , int Button )
+int	PartyButton(int Num, int Button)
 {
 	// Num ÆÄÆ¼¿ø ¹øÈ£
 	// Button  0-ÀÌÀÓ 1-ÇØ»ê 2-Ãß¹æ 3-Å»Åð
 	DWORD	dwCode;
 	smTRANS_COMMAND	smTransCommand;
 
-	if ( !InterfaceParty.PartyMemberCount ) return FALSE;
-	
+	if (!InterfaceParty.PartyMemberCount) return FALSE;
+
 	dwCode = 0;
 
-	if ( Num>=0 ) 
+	if (Num >= 0)
 		dwCode = InterfaceParty.PartyMember[Num].ChrCode;
-	else 
+	else
 		dwCode = 0;
 
-	smTransCommand.size = sizeof( smTRANS_COMMAND );
+	smTransCommand.size = sizeof(smTRANS_COMMAND);
 	smTransCommand.code = smTRANSCODE_PARTY_COMMAND;
 	smTransCommand.WParam = dwCode;
 	smTransCommand.LParam = Button;
 	smTransCommand.SParam = 0;
 
-	if ( Button<3 && InterfaceParty.PartyMember[0].ChrCode!=lpCurPlayer->dwObjectSerial ) {
+	if (Button < 3 && InterfaceParty.PartyMember[0].ChrCode != lpCurPlayer->dwObjectSerial)
+	{
 		//ÆÄÆ¼Àå ±ÇÇÑ
 		return FALSE;
 	}
 
-	return smWsockUserServer->Send( (char *)&smTransCommand , smTransCommand.size , TRUE );
+	return smWsockUserServer->Send((char *)&smTransCommand, smTransCommand.size, TRUE);
 }
 
 
@@ -8969,28 +5288,28 @@ int	PartyButton( int Num , int Button )
 
 ////////////////////////// µ·°ú °æÇèÄ¡ ÀÌµ¿ ±â·Ï ///////////////
 
-int	SetTotalSubMoney( int Money )
+int	SetTotalSubMoney(int Money)
 {
 	TotalSubMoney += Money;
 
 	return TRUE;
 }
 
-int	SetTotalAddMoney( int Money )
+int	SetTotalAddMoney(int Money)
 {
 	TotalAddMoney += Money;
 
 	return TRUE;
 }
 
-int	SetTotalAddExp( int Exp )
+int	SetTotalAddExp(int Exp)
 {
 	TotalAddExp += Exp;
 
 	return TRUE;
 }
 
-int	SetTotalSubExp( int Exp )
+int	SetTotalSubExp(int Exp)
 {
 	TotalSubExp += Exp;
 
@@ -9001,7 +5320,7 @@ int	GetTotalMoney()
 {
 	int m;
 
-	m = sServerMoney[0].InputMoney+sServerMoney[1].InputMoney+sServerMoney[2].InputMoney+WareHouseSubMoney+TotalAddMoney-TotalSubMoney;
+	m = sServerMoney[0].InputMoney + sServerMoney[1].InputMoney + sServerMoney[2].InputMoney + WareHouseSubMoney + TotalAddMoney - TotalSubMoney;
 
 	return m;
 }
@@ -9010,7 +5329,7 @@ int GetTotalSubExp()
 {
 	int m;
 
-	m = (sServerExp[0].InputExp+sServerExp[1].InputExp+sServerExp[2].InputExp)-(TotalAddExp-TotalSubExp);
+	m = (sServerExp[0].InputExp + sServerExp[1].InputExp + sServerExp[2].InputExp) - (TotalAddExp - TotalSubExp);
 
 	return m;
 }
@@ -9019,13 +5338,13 @@ int GetTotalExp()
 {
 	int m;
 
-	m = sServerExp[0].InputExp+sServerExp[1].InputExp+sServerExp[2].InputExp+TotalAddExp-TotalSubExp;
+	m = sServerExp[0].InputExp + sServerExp[1].InputExp + sServerExp[2].InputExp + TotalAddExp - TotalSubExp;
 
 	return m;
 }
 
 //Ã¢°í ÀúÀå
-int	SaveWareHouse( sWAREHOUSE *lpWareHouse , TRANS_WAREHOUSE *lpTransWareHouse )
+int	SaveWareHouse(sWAREHOUSE *lpWareHouse, TRANS_WAREHOUSE *lpTransWareHouse)
 {
 	TRANS_WAREHOUSE	TransWareHouse;
 	//TRANS_THROW_ITEMS	TransThrowItems;
@@ -9036,76 +5355,82 @@ int	SaveWareHouse( sWAREHOUSE *lpWareHouse , TRANS_WAREHOUSE *lpTransWareHouse )
 	char	*szComp1, *szComp2;
 	int	flag;
 
-	if ( lpTransWareHouse ) flag = 1;
+	if (lpTransWareHouse) flag = 1;
 	else flag = 0;
 
-	if ( !flag && QuitSave )	return FALSE;
+	if (!flag && QuitSave)	return FALSE;
 
-	for( cnt=0;cnt<100;cnt++) {
-		if ( !lpWareHouse->WareHouseItem[cnt].Flag ) {
-			ZeroMemory( &lpWareHouse->WareHouseItem[cnt] , sizeof(sITEM ) );
+	for (cnt = 0; cnt < 100; cnt++)
+	{
+		if (!lpWareHouse->WareHouseItem[cnt].Flag)
+		{
+			ZeroMemory(&lpWareHouse->WareHouseItem[cnt], sizeof(sITEM));
 		}
 	}
 
 
-	CompSize = EecodeCompress( (BYTE *)lpWareHouse , (BYTE *)TransWareHouse.Data , sizeof(sWAREHOUSE) , sizeof( sITEM )*100 );
+	CompSize = EecodeCompress((BYTE *)lpWareHouse, (BYTE *)TransWareHouse.Data, sizeof(sWAREHOUSE), sizeof(sITEM) * 100);
 
 
 	//¿ë·® Ã½Å©
-	if ( !flag && CompSize>(smSOCKBUFF_SIZE-256) ) 
+	if (!flag && CompSize > (smSOCKBUFF_SIZE - 256))
 		return FALSE;
 
-	if ( flag && CompSize>(smSOCKBUFF_SIZE-140) ) 
+	if (flag && CompSize > (smSOCKBUFF_SIZE - 140))
 		return FALSE;
 
 
-	DecodeCompress( (BYTE *)TransWareHouse.Data , (BYTE *)&WareHouseCheck , sizeof(sWAREHOUSE) );
+	DecodeCompress((BYTE *)TransWareHouse.Data, (BYTE *)&WareHouseCheck, sizeof(sWAREHOUSE));
 
 	szComp1 = (char *)lpWareHouse;
 	szComp2 = (char *)&WareHouseCheck;
 
 	dwChkSum = 0;
 
-	for( cnt=0;cnt<sizeof(sWAREHOUSE);cnt++ ) {
-		if ( szComp1[cnt]!=szComp2[cnt] ) {
+	for (cnt = 0; cnt < sizeof(sWAREHOUSE); cnt++)
+	{
+		if (szComp1[cnt] != szComp2[cnt])
+		{
 			return FALSE;
 		}
-		else {
-			dwChkSum += szComp1[cnt]*(cnt+1);
+		else
+		{
+			dwChkSum += szComp1[cnt] * (cnt + 1);
 		}
 	}
 
 
 	//Ã¢°í°¡ ¿­·ÈÀ»¶§¿Í ´ÝÇûÀ»¶§ÀÇ µ·ÀÇ Â÷¸¦ °Ë»çÇÏ±â À§ÇÑ º¯¼ö
-	WareHouseSubMoney += (CompWareHouseMoney-lpWareHouse->Money);
+	WareHouseSubMoney += (CompWareHouseMoney - lpWareHouse->Money);
 	CompWareHouseMoney = 0;
-/*
-	if ( !flag ) {
-		//µ¥ÀÌÅ¸ ¼­¹ö¿¡ ¾ÆÀÌÅÛ ÀúÀå ¿ä±¸ ( º¹»ç ¾ÆÀÌÅÛ ¹æÁö )
-		SendSaveMoney();				//µ·
+	/*
+		if ( !flag ) {
+			//µ¥ÀÌÅ¸ ¼­¹ö¿¡ ¾ÆÀÌÅÛ ÀúÀå ¿ä±¸ ( º¹»ç ¾ÆÀÌÅÛ ¹æÁö )
+			SendSaveMoney();				//µ·
 
-		TransThrowItems.ThrowItemCount = 0;
-		for( cnt=0;cnt<THROW_ITEMS_MAX;cnt++) {
-			if ( lpWareHouse->WareHouseItem[cnt].Flag ) {
-				TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwCode   = lpWareHouse->WareHouseItem[cnt].sItemInfo.CODE;
-				TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwHead   = lpWareHouse->WareHouseItem[cnt].sItemInfo.ItemHeader.Head;
-				TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwChkSum = lpWareHouse->WareHouseItem[cnt].sItemInfo.ItemHeader.dwChkSum;
-				TransThrowItems.ThrowItemCount++;
+			TransThrowItems.ThrowItemCount = 0;
+			for( cnt=0;cnt<THROW_ITEMS_MAX;cnt++) {
+				if ( lpWareHouse->WareHouseItem[cnt].Flag ) {
+					TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwCode   = lpWareHouse->WareHouseItem[cnt].sItemInfo.CODE;
+					TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwHead   = lpWareHouse->WareHouseItem[cnt].sItemInfo.ItemHeader.Head;
+					TransThrowItems.ThrowItems[TransThrowItems.ThrowItemCount].dwChkSum = lpWareHouse->WareHouseItem[cnt].sItemInfo.ItemHeader.dwChkSum;
+					TransThrowItems.ThrowItemCount++;
+				}
 			}
+			//µ¥ÀÌÅ¸ ¼­¹ö¿¡ ¾ÆÀÌÅÛ ÀúÀå ¿ä±¸ ÃÖ´ë 32°³ µ¿½Ã ( º¹»ç ¾ÆÀÌÅÛ ¹æÁö )
+			SendSaveThrowItems( &TransThrowItems );
 		}
-		//µ¥ÀÌÅ¸ ¼­¹ö¿¡ ¾ÆÀÌÅÛ ÀúÀå ¿ä±¸ ÃÖ´ë 32°³ µ¿½Ã ( º¹»ç ¾ÆÀÌÅÛ ¹æÁö )
-		SendSaveThrowItems( &TransThrowItems );
-	}
-*/
+	*/
 
 	TransWareHouse.code = smTRANSCODE_WAREHOUSE;
-	TransWareHouse.size = sizeof(TRANS_WAREHOUSE)-(sizeof(sWAREHOUSE)-CompSize);
+	TransWareHouse.size = sizeof(TRANS_WAREHOUSE) - (sizeof(sWAREHOUSE) - CompSize);
 	TransWareHouse.DataSize = CompSize;
 	TransWareHouse.dwChkSum = dwChkSum;
 	TransWareHouse.wVersion[0] = Version_WareHouse;
 	TransWareHouse.wVersion[1] = 0;
 
-	if ( !flag ) {
+	if (!flag)
+	{
 		//µ· ÀúÀå ( ¼­¹ö¿¡¼­ »ç¿ëÇÒ ³»¿ë / ºÒ·¯¿Ã¶§´Â ¼­¹ö¿¡¼­ ÃÊ±âÈ­ ÇØÁà¾ß ÇÔ )
 		TransWareHouse.WareHouseMoney = lpWareHouse->Money ^ (dwChkSum^smTRANSCODE_WAREHOUSE);
 		TransWareHouse.UserMoney = lpCurPlayer->smCharInfo.Money ^ (dwChkSum^smTRANSCODE_WAREHOUSE);
@@ -9119,15 +5444,17 @@ int	SaveWareHouse( sWAREHOUSE *lpWareHouse , TRANS_WAREHOUSE *lpTransWareHouse )
 
 	dwLastWareHouseChkSum = dwChkSum;				//ÃÖÁ¾ ÀúÀå Ã¢°í ÄÚµå
 
-	if ( flag ) {
-		memcpy( lpTransWareHouse , &TransWareHouse , sizeof(TRANS_WAREHOUSE) );
+	if (flag)
+	{
+		memcpy(lpTransWareHouse, &TransWareHouse, sizeof(TRANS_WAREHOUSE));
 		return TRUE;
 	}
 
-	if ( TransWareHouse.size>smSOCKBUFF_SIZE ) TransWareHouse.size = smSOCKBUFF_SIZE;
+	if (TransWareHouse.size > smSOCKBUFF_SIZE) TransWareHouse.size = smSOCKBUFF_SIZE;
 
-	if ( smWsockDataServer ) {
-		smWsockDataServer->Send2( (char *)&TransWareHouse , TransWareHouse.size , TRUE );
+	if (smWsockDataServer)
+	{
+		smWsockDataServer->Send2((char *)&TransWareHouse, TransWareHouse.size, TRUE);
 
 		SaveGameData();						//°ÔÀÓÀ» ÀúÀå
 		return TRUE;
@@ -9136,13 +5463,13 @@ int	SaveWareHouse( sWAREHOUSE *lpWareHouse , TRANS_WAREHOUSE *lpTransWareHouse )
 	return FALSE;
 }
 //Ã¢°í ÀúÀå
-int	SaveWareHouse( sWAREHOUSE *lpWareHouse  )
+int	SaveWareHouse(sWAREHOUSE *lpWareHouse)
 {
-	return SaveWareHouse( lpWareHouse , 0 );
+	return SaveWareHouse(lpWareHouse, 0);
 }
 
 //Ã¢°í °¡Á®¿À±â
-int	LoadWareHouse( TRANS_WAREHOUSE *lpTransWareHouse , sWAREHOUSE *lpWareHouse , int flag )
+int	LoadWareHouse(TRANS_WAREHOUSE *lpTransWareHouse, sWAREHOUSE *lpWareHouse, int flag)
 {
 	sWAREHOUSE	WareHouseCheck;
 	int cnt;
@@ -9150,70 +5477,79 @@ int	LoadWareHouse( TRANS_WAREHOUSE *lpTransWareHouse , sWAREHOUSE *lpWareHouse ,
 	char	*szComp;
 	char	szMsgBuff[128];
 
-	if ( lpTransWareHouse->DataSize==0 ) {
+	if (lpTransWareHouse->DataSize == 0)
+	{
 		//ÃÊ±â°ª ¾Æ¹«°Íµµ ¾øÀ½
-		ZeroMemory( lpWareHouse , sizeof(sWAREHOUSE) );
+		ZeroMemory(lpWareHouse, sizeof(sWAREHOUSE));
 		lpWareHouse->Money = 2023;
 		lpWareHouse->Weight[0] = 197;
 		CompWareHouseMoney = lpWareHouse->Money;	//Ã¢°í°¡ ¿­·ÈÀ»¶§¿Í ´ÝÇûÀ»¶§ÀÇ µ·ÀÇ Â÷¸¦ °Ë»çÇÏ±â À§ÇÑ º¯¼ö
 		return TRUE;
 	}
 
-	DecodeCompress( (BYTE *)lpTransWareHouse->Data , (BYTE *)&WareHouseCheck );
+	DecodeCompress((BYTE *)lpTransWareHouse->Data, (BYTE *)&WareHouseCheck);
 
 	dwChkSum = 0;
 
 	szComp = (char *)&WareHouseCheck;
 
-	for( cnt=0;cnt<sizeof(sWAREHOUSE);cnt++ ) {
-		dwChkSum += szComp[cnt]*(cnt+1);
+	for (cnt = 0; cnt < sizeof(sWAREHOUSE); cnt++)
+	{
+		dwChkSum += szComp[cnt] * (cnt + 1);
 	}
-	if ( dwChkSum==lpTransWareHouse->dwChkSum ) {
+	if (dwChkSum == lpTransWareHouse->dwChkSum)
+	{
 
-		if ( !flag && dwLastWareHouseChkSum && dwLastWareHouseChkSum!=lpTransWareHouse->dwChkSum && !smConfig.DebugMode ) {
+		if (!flag && dwLastWareHouseChkSum && dwLastWareHouseChkSum != lpTransWareHouse->dwChkSum && !smConfig.DebugMode)
+		{
 			//¸¶Áö¸· ÀúÀåÇÑ Ã¢°í µ¥ÀÌÅ¸¿Í ½Å±Ô ·Îµå µ¥ÀÌÅ¸ÀÇ ÄÚµå°¡ Æ²¸²
 			return FALSE;
 		}
 
-		memcpy( lpWareHouse , &WareHouseCheck , sizeof(sWAREHOUSE) );
+		memcpy(lpWareHouse, &WareHouseCheck, sizeof(sWAREHOUSE));
 
 		CompWareHouseMoney = lpWareHouse->Money;	//Ã¢°í°¡ ¿­·ÈÀ»¶§¿Í ´ÝÇûÀ»¶§ÀÇ µ·ÀÇ Â÷¸¦ °Ë»çÇÏ±â À§ÇÑ º¯¼ö
 
-		for( cnt=0;cnt<100;cnt++) {
-			if ( lpWareHouse->WareHouseItem[cnt].Flag ) {
+		for (cnt = 0; cnt < 100; cnt++)
+		{
+			if (lpWareHouse->WareHouseItem[cnt].Flag)
+			{
 
 				//2Â÷ º¸¾È °ª
-				if ( !lpWareHouse->WareHouseItem[cnt].sItemInfo.Temp0 )
-					lpWareHouse->WareHouseItem[cnt].sItemInfo.Temp0 = lpWareHouse->WareHouseItem[cnt].sItemInfo.ItemHeader.dwChkSum+lpWareHouse->WareHouseItem[cnt].sItemInfo.CODE;
+				if (!lpWareHouse->WareHouseItem[cnt].sItemInfo.Temp0)
+					lpWareHouse->WareHouseItem[cnt].sItemInfo.Temp0 = lpWareHouse->WareHouseItem[cnt].sItemInfo.ItemHeader.dwChkSum + lpWareHouse->WareHouseItem[cnt].sItemInfo.CODE;
 
 				//CheckCopyItem( &lpWareHouse->WareHouseItem[cnt].sItemInfo );		//º¹»ç ¶Ç´Â ºÒ·®¾ÆÀÌÅÛ °Ë»ç
 
-				if ( !lpWareHouse->WareHouseItem[cnt].sItemInfo.ItemHeader.dwTime ) {
+				if (!lpWareHouse->WareHouseItem[cnt].sItemInfo.ItemHeader.dwTime)
+				{
 					//ÄÚµå À§Àå
-					lpWareHouse->WareHouseItem[cnt].sItemInfo.ItemHeader.dwTime = 
-						(lpWareHouse->WareHouseItem[cnt].sItemInfo.ItemHeader.Head>>2)^(lpWareHouse->WareHouseItem[cnt].sItemInfo.ItemHeader.dwChkSum<<2);
+					lpWareHouse->WareHouseItem[cnt].sItemInfo.ItemHeader.dwTime =
+						(lpWareHouse->WareHouseItem[cnt].sItemInfo.ItemHeader.Head >> 2) ^ (lpWareHouse->WareHouseItem[cnt].sItemInfo.ItemHeader.dwChkSum << 2);
 				}
 
 				//¼ÛÆí È®ÀÎ
-				if ( (lpWareHouse->WareHouseItem[cnt].sItemInfo.CODE&sinITEM_MASK2) == sinSP1){
+				if ((lpWareHouse->WareHouseItem[cnt].sItemInfo.CODE&sinITEM_MASK2) == sinSP1)
+				{
 					//¼ÛÆí ( Æ÷¼ÇÄ«¿îÅÍ°¡ ÀÖÀ¸¸é ¹®Á¦ÀÖ´Â ¼ÛÆí )
-					if ( lpWareHouse->WareHouseItem[cnt].sItemInfo.PotionCount>1 )	lpWareHouse->WareHouseItem[cnt].Flag =0;
+					if (lpWareHouse->WareHouseItem[cnt].sItemInfo.PotionCount > 1)	lpWareHouse->WareHouseItem[cnt].Flag = 0;
 
 					// Àåº° - SP1 ¾ÆÀÌÅÛ Ã¢°í¿¡¼­ »ç¶óÁö´Â ¹®Á¦
 					/*
 					//»ý¼º±â°£ È®ÀÎ
-					if ( lpWareHouse->WareHouseItem[cnt].sItemInfo.dwCreateTime<(sinItemTime-(60*60*24*12)) || 
+					if ( lpWareHouse->WareHouseItem[cnt].sItemInfo.dwCreateTime<(sinItemTime-(60*60*24*12)) ||
 						lpWareHouse->WareHouseItem[cnt].sItemInfo.dwCreateTime>(sinItemTime+(60*60*24*7)) ) {
 							lpWareHouse->WareHouseItem[cnt].Flag =0;
 						}
 						*/
 				}
 
-				if ( DeleteEventItem_TimeOut( &lpWareHouse->WareHouseItem[cnt].sItemInfo )==TRUE ) {
+				if (DeleteEventItem_TimeOut(&lpWareHouse->WareHouseItem[cnt].sItemInfo) == TRUE)
+				{
 					//ÀÌº¥Æ® ¾ÆÀÌÅÛ ³¯Â¥¸ÂÃç Á¦°Å
 					lpWareHouse->WareHouseItem[cnt].Flag = 0;
-					wsprintf( szMsgBuff , mgItemTimeOut , lpWareHouse->WareHouseItem[cnt].sItemInfo.ItemName );
-					AddChatBuff( szMsgBuff , 0 );
+					wsprintf(szMsgBuff, mgItemTimeOut, lpWareHouse->WareHouseItem[cnt].sItemInfo.ItemName);
+					AddChatBuff(szMsgBuff, 0);
 				}
 			}
 		}
@@ -9224,44 +5560,47 @@ int	LoadWareHouse( TRANS_WAREHOUSE *lpTransWareHouse , sWAREHOUSE *lpWareHouse ,
 }
 
 //Ã¢°í °¡Á®¿À±â
-int	LoadWareHouse( TRANS_WAREHOUSE *lpTransWareHouse , sWAREHOUSE *lpWareHouse )
+int	LoadWareHouse(TRANS_WAREHOUSE *lpTransWareHouse, sWAREHOUSE *lpWareHouse)
 {
-	return LoadWareHouse( lpTransWareHouse , lpWareHouse , 0 );
+	return LoadWareHouse(lpTransWareHouse, lpWareHouse, 0);
 }
 
 //ÀÌº¥Æ® Âü°¡ºñ º¸³¿
-int SendCollectMoney( int Money )
+int SendCollectMoney(int Money)
 {
-/*
-	smTRANS_COMMAND	TransCommand;
+	/*
+		smTRANS_COMMAND	TransCommand;
 
-	TransCommand.code =	smTRANSCODE_COLLECTMONEY;
-	TransCommand.size = sizeof(smTRANS_COMMAND);
-	TransCommand.WParam = Money;							//±âºÎÇÑ µ·
-	TransCommand.LParam = lpCurPlayer->smCharInfo.Money;		//º¸À¯ÇÑ µ·
-	TransCommand.SParam = 0;
+		TransCommand.code =	smTRANSCODE_COLLECTMONEY;
+		TransCommand.size = sizeof(smTRANS_COMMAND);
+		TransCommand.WParam = Money;							//±âºÎÇÑ µ·
+		TransCommand.LParam = lpCurPlayer->smCharInfo.Money;		//º¸À¯ÇÑ µ·
+		TransCommand.SParam = 0;
 
-	AddInvenMoney( -Money );				//ÀÎº¥ µ· È®ÀÎ
+		AddInvenMoney( -Money );				//ÀÎº¥ µ· È®ÀÎ
 
-	if ( smWsockServer ) {
-		return smWsockServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
-	}
-*/
+		if ( smWsockServer ) {
+			return smWsockServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+		}
+	*/
 
 	sITEM	sItemMoney;
 	int j;
 
 
-	memset(&sItemMoney,0,sizeof(sITEM));
-	sItemMoney.sItemInfo.CODE = sinGG1|sin01;
-	for(j=0 ; j < MAX_ITEM ; j++){
-		if(sItem[j].CODE == sItemMoney.sItemInfo.CODE){ //ÄÚÀÎÀÌ¸é 
-			memcpy(&sItemMoney,&sItem[j],sizeof(sITEM));
+	memset(&sItemMoney, 0, sizeof(sITEM));
+	sItemMoney.sItemInfo.CODE = sinGG1 | sin01;
+	for (j = 0; j < MAX_ITEM; j++)
+	{
+		if (sItem[j].CODE == sItemMoney.sItemInfo.CODE)
+		{ //ÄÚÀÎÀÌ¸é 
+			memcpy(&sItemMoney, &sItem[j], sizeof(sITEM));
 			sItemMoney.sItemInfo.Money = Money;			//±Ý¾×À» ³Ñ°ÜÁØ´Ù 
 			sItemMoney.sItemInfo.ItemKindCode = smTRANSCODE_COLLECTMONEY;
-			ReformItem( &sItemMoney.sItemInfo );		//ÀÎÁõ 
-			if(sinThrowItemToFeild(&sItemMoney)){
-				AddInvenMoney( -Money );				//ÀÎº¥ µ· È®ÀÎ
+			ReformItem(&sItemMoney.sItemInfo);		//ÀÎÁõ 
+			if (sinThrowItemToFeild(&sItemMoney))
+			{
+				AddInvenMoney(-Money);				//ÀÎº¥ µ· È®ÀÎ
 				return TRUE;
 			}
 		}
@@ -9271,18 +5610,19 @@ int SendCollectMoney( int Money )
 }
 
 //PK´çÇØ¼­ Á×À½
-int PlayerKilling( DWORD dwObjectSerial )
+int PlayerKilling(DWORD dwObjectSerial)
 {
 	smTRANS_COMMAND	TransCommand;
 
-	TransCommand.code =	smTRANSCODE_PLAYERKILLING;
+	TransCommand.code = smTRANSCODE_PLAYERKILLING;
 	TransCommand.size = sizeof(smTRANS_COMMAND);
 	TransCommand.WParam = dwObjectSerial;				//»ó´ë¹æ ÄÚµå
 	TransCommand.LParam = lpCurPlayer->dwObjectSerial;		//³» ÄÚµå
 	TransCommand.SParam = 0;
 
-	if ( smWsockUserServer ) {
-		return smWsockUserServer->Send2( (char *)&TransCommand , TransCommand.size , TRUE );
+	if (smWsockUserServer)
+	{
+		return smWsockUserServer->Send2((char *)&TransCommand, TransCommand.size, TRUE);
 	}
 	return FALSE;
 }
@@ -9290,138 +5630,78 @@ int PlayerKilling( DWORD dwObjectSerial )
 
 
 //¹Í½ºÃÄ µ¥ÀÌÅ¸¸¦ ¼­¹ö·Î º¸³¿
-int SendCraftItemToServer( void *lpsCraftItem_Send )
+int SendCraftItemToServer(void *lpsCraftItem_Send)
 {
-
-	sCRAFTITEM_SERVER	*lpCraftItem_Send = (sCRAFTITEM_SERVER *)lpsCraftItem_Send;
-
-	lpCraftItem_Send->size = sizeof(sCRAFTITEM_SERVER);
-	lpCraftItem_Send->code = smTRANSCODE_CRAFTITEM;
-
-	if ( smWsockDataServer ) {
-		return smWsockDataServer->Send2( (char *)lpCraftItem_Send , lpCraftItem_Send->size , TRUE );
-	}
-
-	return FALSE;
+	Log::Debug("SendCraftItemToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 //À§ÇÁ¿ë À® ¾ÆÀÌÅÛ µ¥ÀÌÅ¸¸¦ ¼­¹ö·Î º¸³¿
-int SendWingItemToServer( void *lpsCraftItem_Send )
+int SendWingItemToServer(void *lpsCraftItem_Send)
 {
-
-	sCRAFTITEM_SERVER	*lpCraftItem_Send = (sCRAFTITEM_SERVER *)lpsCraftItem_Send;
-
-	lpCraftItem_Send->size = sizeof(sCRAFTITEM_SERVER);
-	lpCraftItem_Send->code = smTRANSCODE_WINGITEM;
-
-	if ( smWsockDataServer ) {
-		return smWsockDataServer->Send2( (char *)lpCraftItem_Send , lpCraftItem_Send->size , TRUE );
-	}
-
-	return FALSE;
+	Log::Debug("SendWingItemToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 
 //¿¡ÀÌÂ¡ µ¥ÀÌÅ¸¸¦ ¼­¹ö·Î º¸³¿
-int SendAgingItemToServer( void *lpsCraftItem_Send )
+int SendAgingItemToServer(void *lpsCraftItem_Send)
 {
-
-	sCRAFTITEM_SERVER	*lpCraftItem_Send = (sCRAFTITEM_SERVER *)lpsCraftItem_Send;
-
-	lpCraftItem_Send->size = sizeof(sCRAFTITEM_SERVER);
-	lpCraftItem_Send->code = smTRANSCODE_AGINGITEM;
-
-	if ( smWsockDataServer ) {
-		return smWsockDataServer->Send2( (char *)lpCraftItem_Send , lpCraftItem_Send->size , TRUE );
-	}
-
-	return FALSE;
+	Log::Debug("SendAgingItemToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 //¸µÅ©ÄÚ¾î µî·Ï º¸³¿
-int SendLinkCoreToServer( sITEMINFO *lpItem )
+int SendLinkCoreToServer(sITEMINFO *lpItem)
 {
-	TRANS_ITEMINFO	TransItemInfo;
-	int len;
-
-	TransItemInfo.size = sizeof(TRANS_ITEMINFO);
-	TransItemInfo.code = smTRANSCODE_MAKE_LINKCORE;
-	memcpy( &TransItemInfo.Item , lpItem , sizeof( sITEMINFO ) );
-
-	TransItemInfo.x = lpCurPlayer->pX;
-	TransItemInfo.y = lpCurPlayer->pY;
-	TransItemInfo.z = lpCurPlayer->pZ;
-
-	TransItemInfo.dwSeCode[0] = 0;
-	TransItemInfo.dwSeCode[1] = 0;
-	TransItemInfo.dwSeCode[2] = 0;
-	TransItemInfo.dwSeCode[3] = 0;
-
-	len = lstrlen(lpItem->ItemName);
-	if ( lpItem->ItemName[len+1] ) {
-		TransItemInfo.code = smTRANSCODE_USE_LINKCORE;
-
-		if ( lpCurPlayer->OnStageField>=0 && StageField[lpCurPlayer->OnStageField]->State==FIELD_STATE_ROOM ) {
-			//¹æ¿¡¼­´Â ±ÍÈ¯¾ÆÀÌÅÛ »ç¿ë ºÒ°¡
-			return FALSE;
-		}
-
-		if ( smWsockServer )
-			return smWsockServer->Send2( (char *)&TransItemInfo , TransItemInfo.size , TRUE );
-	}
-
-	if ( smWsockDataServer ) {
-		return smWsockDataServer->Send2( (char *)&TransItemInfo , TransItemInfo.size , TRUE );
-	}
-
-	return FALSE;
+	Log::Debug("SendLinkCoreToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
-int SucessLinkCore( smTRANS_COMMAND_EX *lpTransCommandEx )
+int SucessLinkCore(smTRANS_COMMAND_EX *lpTransCommandEx)
 {
-	int x,z,cnt;
+	int x, z, cnt;
 
 	sITEMINFO	*lpItem;
 
 	//ÀÎº¥Åä¸®ÀÇ ÁöÁ¤ÇÑ ¾ÆÀÌÅÛÀ» Ã£¾Æ °Ë»öÇÏ¿© Ã£´Â´Ù ( ¸µÅ© ÄÚ¾î Á¦°Å )
-	lpItem = FindInvenItem( lpTransCommandEx->WxParam , lpTransCommandEx->LxParam , lpTransCommandEx->SxParam );
+	lpItem = FindInvenItem(lpTransCommandEx->WxParam, lpTransCommandEx->LxParam, lpTransCommandEx->SxParam);
 
-	if ( lpItem ) {
-		SendUseItemCodeToServer( lpItem );
-		cInvenTory.DeleteInvenItemToServer(lpTransCommandEx->WxParam , lpTransCommandEx->LxParam , lpTransCommandEx->SxParam);
+	if (lpItem)
+	{
+		SendUseItemCodeToServer(lpItem);
+		cInvenTory.DeleteInvenItemToServer(lpTransCommandEx->WxParam, lpTransCommandEx->LxParam, lpTransCommandEx->SxParam);
 		ResetInvenItemCode();				//ÀÌº¥ ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
 
-		if ( FindInvenItem( lpTransCommandEx->WxParam , lpTransCommandEx->LxParam , lpTransCommandEx->SxParam )!=0 ) return FALSE;
+		if (FindInvenItem(lpTransCommandEx->WxParam, lpTransCommandEx->LxParam, lpTransCommandEx->SxParam) != 0) return FALSE;
 
 	}
 	else
 		return FALSE;
 
 
-    CloseEachPlayer();
+	CloseEachPlayer();
 
-	WarpFieldNearPos( lpTransCommandEx->EParam  , lpTransCommandEx->WParam, lpTransCommandEx->SParam , &x, &z );
+	WarpFieldNearPos(lpTransCommandEx->EParam, lpTransCommandEx->WParam, lpTransCommandEx->SParam, &x, &z);
 
-	lpCurPlayer->SetPosi(lpTransCommandEx->WParam, lpTransCommandEx->LParam, lpTransCommandEx->SParam  ,0,0,0 );
+	lpCurPlayer->SetPosi(lpTransCommandEx->WParam, lpTransCommandEx->LParam, lpTransCommandEx->SParam, 0, 0, 0);
 	TraceCameraPosi.x = lpCurPlayer->pX;
 	TraceCameraPosi.y = lpCurPlayer->pY;
 	TraceCameraPosi.z = lpCurPlayer->pZ;
 	TraceTargetPosi.x = lpCurPlayer->pX;
 	TraceTargetPosi.y = lpCurPlayer->pY;
 	TraceTargetPosi.z = lpCurPlayer->pZ;
-	
+
 	//¹Ù´Ú È®ÀÎ
 	lpCurPlayer->OnStageField = -1;
-	if ( smGameStage[0] ) {
-		cnt = smGameStage[0]->GetFloorHeight( lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ ,lpCurPlayer->Pattern->SizeHeight );	
+	if (smGameStage[0])
+	{
+		cnt = smGameStage[0]->GetFloorHeight(lpCurPlayer->pX, lpCurPlayer->pY, lpCurPlayer->pZ, lpCurPlayer->Pattern->SizeHeight);
 		lpCurPlayer->OnStageField = 0;
 	}
-	if ( cnt==CLIP_OUT && smGameStage[1] ) {
+	if (cnt == CLIP_OUT && smGameStage[1])
+	{
 		lpCurPlayer->OnStageField = 1;
 	}
 
-	StartEffect( lpCurPlayer->pX,lpCurPlayer->pY+48*fONE,lpCurPlayer->pZ, EFFECT_RETURN1 );
-	SkillPlaySound( SKILL_SOUND_LEARN , lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ );			//½ºÅ³ È¿°úÀ½
+	StartEffect(lpCurPlayer->pX, lpCurPlayer->pY + 48 * fONE, lpCurPlayer->pZ, EFFECT_RETURN1);
+	SkillPlaySound(SKILL_SOUND_LEARN, lpCurPlayer->pX, lpCurPlayer->pY, lpCurPlayer->pZ);			//½ºÅ³ È¿°úÀ½
 	RestartPlayCount = 350;		//5ÃÊ µ¿¾È ¹«Àû
 
 	return TRUE;
@@ -9429,28 +5709,11 @@ int SucessLinkCore( smTRANS_COMMAND_EX *lpTransCommandEx )
 
 
 //¿¡ÀÌÂ¡ ¿Ï·áµÈ ¾ÆÀÌÅÛÀ» ¼­¹ö·Î º¸³¿
-int SendAgingUpgradeItemToServer( sITEMINFO *lpItem )
+int SendAgingUpgradeItemToServer(sITEMINFO *lpItem)
 {
-	TRANS_ITEMINFO	TransItemInfo;
-
-	if ( TransAgingItemFlag ) return FALSE;
-
-	TransItemInfo.code = smTRANSCODE_AGING_UPGRADE;
-	TransItemInfo.size = sizeof(TRANS_ITEMINFO);
-	TransItemInfo.x = 0;
-	TransItemInfo.y = 0;
-	TransItemInfo.z = 0;
-	memcpy( &TransItemInfo.Item , lpItem , sizeof( sITEMINFO ) );
-
-	if ( smWsockDataServer ) {
-		if ( smWsockDataServer->Send2( (char *)&TransItemInfo , TransItemInfo.size , TRUE )==TRUE ) {
-			TransAgingItemFlag = TRUE;
-			return TRUE;
-		}
-	}
-	return FALSE;
+	Log::Debug("SendAgingUpgradeItemToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 /*
 //¾ÆÀÌÅÛ È®ÀÎ
 #define smTRANSCODE_CHECKITEM			0x50320300
@@ -9489,27 +5752,34 @@ int ClearInvenPotionCount()
 {
 	int cnt;
 
-	for( cnt=0;cnt<INVENTORY_MAXITEM ; cnt++){ 
-		if( cInvenTory.InvenItem[cnt].Flag && (cInvenTory.InvenItem[cnt].sItemInfo.CODE&sinITEM_MASK1)==(sinPM1&sinITEM_MASK1) ){
+	for (cnt = 0; cnt < INVENTORY_MAXITEM; cnt++)
+	{
+		if (cInvenTory.InvenItem[cnt].Flag && (cInvenTory.InvenItem[cnt].sItemInfo.CODE&sinITEM_MASK1) == (sinPM1&sinITEM_MASK1))
+		{
 			cInvenTory.InvenItem[cnt].sItemInfo.PotionCount = 1;
 		}
 	}
 
-	for( cnt=0;cnt<INVENTORY_MAXITEM ; cnt++){ 
-		if( cInvenTory.InvenItemTemp[cnt].Flag && (cInvenTory.InvenItemTemp[cnt].sItemInfo.CODE&sinITEM_MASK1)==(sinPM1&sinITEM_MASK1) ){
+	for (cnt = 0; cnt < INVENTORY_MAXITEM; cnt++)
+	{
+		if (cInvenTory.InvenItemTemp[cnt].Flag && (cInvenTory.InvenItemTemp[cnt].sItemInfo.CODE&sinITEM_MASK1) == (sinPM1&sinITEM_MASK1))
+		{
 			cInvenTory.InvenItemTemp[cnt].sItemInfo.PotionCount = 1;
 		}
 	}
 
-	if ( cTrade.OpenFlag ) {
-		for( cnt=0;cnt<MAX_TRADE_ITEM;cnt++) {
-			if ( sTrade.TradeItem[cnt].Flag && (sTrade.TradeItem[cnt].sItemInfo.CODE&sinITEM_MASK1)==(sinPM1&sinITEM_MASK1) ) {
+	if (cTrade.OpenFlag)
+	{
+		for (cnt = 0; cnt < MAX_TRADE_ITEM; cnt++)
+		{
+			if (sTrade.TradeItem[cnt].Flag && (sTrade.TradeItem[cnt].sItemInfo.CODE&sinITEM_MASK1) == (sinPM1&sinITEM_MASK1))
+			{
 				sTrade.TradeItem[cnt].sItemInfo.PotionCount = 1;
 			}
 		}
 	}
 
-	if ( MouseItem.Flag && (MouseItem.sItemInfo.CODE&sinITEM_MASK1)==(sinPM1&sinITEM_MASK1) )
+	if (MouseItem.Flag && (MouseItem.sItemInfo.CODE&sinITEM_MASK1) == (sinPM1&sinITEM_MASK1))
 		MouseItem.sItemInfo.PotionCount = 1;
 
 	cInvenTory.ReFormPotionNum();
@@ -9520,17 +5790,21 @@ int ClearInvenPotionCount()
 }
 
 //ÀÎº¥Åä¸®ÀÇ ¾ÆÀÌÅÛ Ã£±â (ÄÚµå)
-sITEMINFO *FindItemFromCode( DWORD dwItemCode )
+sITEMINFO *FindItemFromCode(DWORD dwItemCode)
 {
 	int cnt;
 
-	for( cnt=0;cnt<INVENTORY_MAXITEM ; cnt++){ 
-		if( cInvenTory.InvenItem[cnt].Flag && cInvenTory.InvenItem[cnt].sItemInfo.CODE==dwItemCode ){
+	for (cnt = 0; cnt < INVENTORY_MAXITEM; cnt++)
+	{
+		if (cInvenTory.InvenItem[cnt].Flag && cInvenTory.InvenItem[cnt].sItemInfo.CODE == dwItemCode)
+		{
 			return &cInvenTory.InvenItem[cnt].sItemInfo;
 		}
 	}
-	for( cnt=0;cnt<INVENTORY_MAXITEM ; cnt++){ 
-		if( cInvenTory.InvenItemTemp[cnt].Flag && cInvenTory.InvenItemTemp[cnt].sItemInfo.CODE==dwItemCode ){
+	for (cnt = 0; cnt < INVENTORY_MAXITEM; cnt++)
+	{
+		if (cInvenTory.InvenItemTemp[cnt].Flag && cInvenTory.InvenItemTemp[cnt].sItemInfo.CODE == dwItemCode)
+		{
 			return &cInvenTory.InvenItemTemp[cnt].sItemInfo;
 		}
 	}
@@ -9543,133 +5817,34 @@ sITEMINFO *FindItemFromCode( DWORD dwItemCode )
 DWORD	dwLastCheckItemTime = 0;
 
 //¾ÆÀÌÅÛÀ» ¼­¹ö¿¡ º¸³»¼­ È®ÀÎ
-int	SendCheckItemToServer( sITEMINFO *lpItem )
+int	SendCheckItemToServer(sITEMINFO *lpItem)
 {
-
-	TRANS_ITEMINFO	TransItemInfo;
-
-	//return FALSE;
-
-	if ( (dwLastCheckItemTime+10000)>dwPlayTime ) {
-		//º¸³½Áö 10ÃÊ ¹Ì¸¸
-		return FALSE;
-	}
-	//if ( !lpItem->ItemName[0] ) return FALSE;
-
-	TransItemInfo.code = smTRANSCODE_CHECKITEM;
-	TransItemInfo.size = sizeof(TRANS_ITEMINFO);
-
-	memcpy( &TransItemInfo.Item , lpItem , sizeof(sITEMINFO) );
-
-	TransItemInfo.x = 0;
-	TransItemInfo.y = 0;
-	TransItemInfo.z = 0;
-
-	if ( smWsockUserServer ) {
-		smWsockUserServer->Send2( (char *)&TransItemInfo , TransItemInfo.size , TRUE );
-	}
-	dwLastCheckItemTime = dwPlayTime;
-
-	return TRUE;
+	Log::Debug("SendCheckItemToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 //¾ÆÀÌÅÛ È®ÀÎ °á°ú µµÂø
-int RecvCheckItemFromServer( TRANS_ITEM_CODE *lpTransItemCode )
+int RecvCheckItemFromServer(TRANS_ITEM_CODE *lpTransItemCode)
 {
-
-	switch( lpTransItemCode->code ) {
-		case smTRANSCODE_CHECKITEM:
-			//¾ÆÀÌÅÛ ¼­¹ö È®ÀÎ ÄÚµå ¹ÞÀ½
-			//cInvenTory.ResetInvenItemToServer( lpTransItemCode->dwItemCode , lpTransItemCode->dwHead ,
-			//	lpTransItemCode->dwChkSum , lpTransItemCode->dwTime );
-			break;
-
-		case smTRANSCODE_ERRORITEM:
-			//¾ÆÀÌÅÛ ¼­¹öÈ®ÀÎ ÄÚµå ¿À·ù ( ¾ÆÀÌÅÛ Á¦°Å )
-			cInvenTory.DeleteInvenItemToServer(lpTransItemCode->dwItemCode , lpTransItemCode->dwHead , lpTransItemCode->dwChkSum );
-
-			//ÀÎº¥Åä¸®ÀÇ ÁöÁ¤ÇÑ ¾ÆÀÌÅÛÀ» Ã£¾Æ °Ë»öÇÏ¿© Ã£´Â´Ù
-			if ( FindInvenItem( lpTransItemCode->dwItemCode , lpTransItemCode->dwHead , lpTransItemCode->dwChkSum )==0 ) {
-
-				SendInvenItemError( 0 , lpTransItemCode->dwItemCode , lpTransItemCode->dwHead , lpTransItemCode->dwChkSum );
-				ResetInvenItemCode();				//ÀÌº¥ ¾ÆÀÌÅÛ ÄÚµå ÃÊ±âÈ­
-			}
-
-			break;
-
-		case smTRANSCODE_CLEARPOTION:
-			//ÀÎº¥Åä¸®ÀÇ ¹°¾à°¹¼ö¸¦ ÀüºÎ 1·Î ¼¼ÆÃ
-			ClearInvenPotionCount();
-			break;
-	}
-
-	return TRUE;
+	Log::Debug("RecvCheckItemFromServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 //ÆÇ¸ÅÇÒ ¾ÆÀÌÅÛÀ» ¼­¹ö·Î º¸³¿
-int	SellItemToServer( sITEMINFO *lpItem , int Count )
+int	SellItemToServer(sITEMINFO *lpItem, int Count)
 {
-
-	TRANS_ITEMINFO	TransItemInfo;
-
-	TransItemInfo.code = smTRANSCODE_SHOP_SELLITEM;
-	TransItemInfo.size = sizeof(TRANS_ITEMINFO);
-
-	memcpy( &TransItemInfo.Item , lpItem , sizeof(sITEMINFO) );
-
-#ifdef _TEST_SERVER
-	//Ä¡Æ® ½Ã¹°·¹ÀÌ¼Ç
-	if ( smConfig.DebugMode && VRKeyBuff[VK_CONTROL] && VRKeyBuff['N'] && VRKeyBuff['B'] ) {
-		//TransItemInfo.Item.Price  = 100000000;
-		lpItem->Durability[0] = lpItem->Durability[1]*100;
-	}
-#endif
-
-	TransItemInfo.x = Count;
-	TransItemInfo.y = lpCurPlayer->smCharInfo.Money;
-	TransItemInfo.z = 0;
-
-	if ( smWsockDataServer ) {
-		return smWsockDataServer->Send2( (char *)&TransItemInfo , TransItemInfo.size , TRUE );
-	}
-
-	return FALSE;
+	Log::Debug("SellItemToServer : Requisitado porém foi removido.");
+	return NULL;
 }
 
 
 
-
-
-int Chk_InventPosCount  = 1;
+int Chk_InventPosCount = 1;
 DWORD	dwCheckInvenItemTime = 0;
 
 //ÀÎº¥Åä¸®ÀÇ ÀåÂøµÈ ¾ÆÀÌÅÛÀ» ¼­¹ö·Î º¸³»¼­ °Ë»ç
 int CheckInvenItemToServer()
 {
-	int cnt;
-
-	if ( dwCheckInvenItemTime>dwPlayTime ) return TRUE;
-
-	for( cnt=0;cnt<INVENTORY_MAXITEM ; cnt++){ 
-		if(cInvenTory.InvenItem[cnt].ItemPosition==Chk_InventPosCount ){
-			//¾ÆÀÌÅÛÀ» ¼­¹ö¿¡ º¸³»¼­ È®ÀÎ
-			SendCheckItemToServer( &cInvenTory.InvenItem[cnt].sItemInfo );
-		}
-	}
-
-	for( cnt=0;cnt<INVENTORY_MAXITEM ; cnt++){ 
-		if(cInvenTory.InvenItemTemp[cnt].ItemPosition==Chk_InventPosCount ){
-			//¾ÆÀÌÅÛÀ» ¼­¹ö¿¡ º¸³»¼­ È®ÀÎ
-			SendCheckItemToServer( &cInvenTory.InvenItemTemp[cnt].sItemInfo );
-		}
-	}
-
-	Chk_InventPosCount++;
-	dwCheckInvenItemTime = dwPlayTime+55*1000;
-
-	if ( Chk_InventPosCount>=11 || Chk_InventPosCount<1 ) Chk_InventPosCount = 1;
-
-	return TRUE;
+	Log::Debug("CheckInvenItemToServer : Requisitado porém foi removido.");
+	return NULL;
 }
 
 ////////////////////////////// ¸Þ¸ð¸® Å¸ÀÓ Ã½Å© ¾²·¹µå ///////////////////////////////
@@ -9677,7 +5852,7 @@ int CheckInvenItemToServer()
 HANDLE	hTimeCheckThread = 0;
 int		TimeCheckCounter;
 
-DWORD WINAPI TimeCheckThread( void *pInfo )
+DWORD WINAPI TimeCheckThread(void *pInfo)
 {
 	HANDLE	hThread;
 	DWORD	dwTime;
@@ -9689,16 +5864,17 @@ DWORD WINAPI TimeCheckThread( void *pInfo )
 	dwLastTime = dwTime;
 	TimeCheckCounter = 0;
 
-	while(1) {
+	while (1)
+	{
 		dwTime = GetCurrentTime();
-		cnt = dwTime-dwLastTime;
-		if ( cnt>PlayTimerMax ) PlayTimerMax = cnt;
+		cnt = dwTime - dwLastTime;
+		if (cnt > PlayTimerMax) PlayTimerMax = cnt;
 		dwLastTime = dwTime;
 		TimeCheckCounter++;
-		Sleep( 800 );
+		Sleep(800);
 	}
 
-	ExitThread( TRUE );
+	ExitThread(TRUE);
 	return TRUE;
 }
 
@@ -9708,8 +5884,9 @@ int OpenTimeCheckThread()
 {
 	DWORD	dwTimeCheckThreadID;
 
-	if ( !hTimeCheckThread ) {
-		hTimeCheckThread = CreateThread( NULL , 0, TimeCheckThread , 0 , 0, &dwTimeCheckThreadID );
+	if (!hTimeCheckThread)
+	{
+		hTimeCheckThread = CreateThread(NULL, 0, TimeCheckThread, 0, 0, &dwTimeCheckThreadID);
 	}
 
 	return TRUE;
@@ -9722,22 +5899,23 @@ int SendPlayTimerMax()
 
 	smTRANS_COMMAND	smTransCommand;
 
-	if ( PlayTimerMax>=10000 || (PlayTimerMax_SendingCount&0x7)==0 ) {
+	if (PlayTimerMax >= 10000 || (PlayTimerMax_SendingCount & 0x7) == 0)
+	{
 
-		smTransCommand.size = sizeof( smTRANS_COMMAND );
+		smTransCommand.size = sizeof(smTRANS_COMMAND);
 		smTransCommand.code = smTRANSCODE_PROCESS_TIMEMAX;
 		smTransCommand.WParam = PlayTimerMax;
 		smTransCommand.LParam = TimeCheckCounter;
 		smTransCommand.SParam = 0;
 		smTransCommand.EParam = 0;
 
-		if ( smWsockDataServer ) 
-			smWsockDataServer->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
+		if (smWsockDataServer)
+			smWsockDataServer->Send2((char *)&smTransCommand, smTransCommand.size, TRUE);
 
 		PlayTimerMax = 0;
 	}
 
-	PlayTimerMax_SendingCount ++;
+	PlayTimerMax_SendingCount++;
 
 	return TRUE;
 }
@@ -9749,7 +5927,7 @@ int SendPlayTimerMax()
 
 
 //¼­¹ö¿¡¼­ ¸Þ¸ð¸® °ªÀ» Á¤ÇØ¼­ °¡Á®°£´Ù
-DWORD funcCheckMemSum( DWORD FuncPoint , int count )
+DWORD funcCheckMemSum(DWORD FuncPoint, int count)
 {
 	int cnt;
 	DWORD dwSum;
@@ -9762,9 +5940,10 @@ DWORD funcCheckMemSum( DWORD FuncPoint , int count )
 	dwSum = 0;
 	xcnt = 1;
 
-	for( cnt=0;cnt<count;cnt++ ) {
+	for (cnt = 0; cnt < count; cnt++)
+	{
 		xcnt += cnt;
-		dwSum += lpGetPrtectPoint[cnt]*xcnt;
+		dwSum += lpGetPrtectPoint[cnt] * xcnt;
 	}
 
 	return dwSum;
@@ -9787,17 +5966,17 @@ DWORD funcCheckMemSum( DWORD FuncPoint , int count )
 ///////////////////////////////////////////////////////////////////////////////
 
 DWORD	dwFuncList[][2] = {
-	{ (DWORD)funcCheckMemSum<<1				,	(DWORD)512		},
-	{ (DWORD)Check_PlaySubReleaseFunc<<1	,	(DWORD)512		},
-	{ (DWORD)PlayPat3D<<1					,	(DWORD)2048	},
-	{ (DWORD)Check_CodeSafe<<1				,	(DWORD)1024	},
-	{ (DWORD)AddExp<<1						,	(DWORD)512		},
-	{ (DWORD)sinSetLife<<1					,	(DWORD)512		},
-	{ (DWORD)NetWorkPlay<<1					,	(DWORD)2800	},
+	{ (DWORD)funcCheckMemSum << 1				,	(DWORD)512		},
+	{ (DWORD)Check_PlaySubReleaseFunc << 1	,	(DWORD)512		},
+	{ (DWORD)PlayPat3D << 1					,	(DWORD)2048	},
+	{ (DWORD)Check_CodeSafe << 1				,	(DWORD)1024	},
+	{ (DWORD)AddExp << 1						,	(DWORD)512		},
+	{ (DWORD)sinSetLife << 1					,	(DWORD)512		},
+	{ (DWORD)NetWorkPlay << 1					,	(DWORD)2800	},
 
-	{ (DWORD)E_Shield_BlockRate<<1			,	(DWORD)((Meteo_UseMana-E_Shield_BlockRate)+10) },		//½ºÅ³ Å×ÀÌºí º¸¾È
+	{ (DWORD)E_Shield_BlockRate << 1			,	(DWORD)((Meteo_UseMana - E_Shield_BlockRate) + 10) },		//½ºÅ³ Å×ÀÌºí º¸¾È
 
-	{ (DWORD)Code_VRamBuffOpen<<1			,	(DWORD)3600	},			//¸¶Áö¸· ²¨´Â º°µµ Ã½Å© ÇÑ´Ù
+	{ (DWORD)Code_VRamBuffOpen << 1			,	(DWORD)3600	},			//¸¶Áö¸· ²¨´Â º°µµ Ã½Å© ÇÑ´Ù
 	{ (DWORD)0								,	(DWORD)0 }
 };
 
@@ -9811,27 +5990,28 @@ int	SendClientFuncPos()
 	int cnt;
 
 
-	ZeroMemory( &TransClientFuncPos , sizeof(TRANS_CLIENT_FUNPOS) );
+	ZeroMemory(&TransClientFuncPos, sizeof(TRANS_CLIENT_FUNPOS));
 
 	TransClientFuncPos.code = smTRANSCODE_CLIENT_FUNCPOS;
 	TransClientFuncPos.size = sizeof(TRANS_CLIENT_FUNPOS);
 	TransClientFuncPos.ClientVersion = Client_Version;
 
 	cnt = 0;
-	TransClientFuncPos.dwFunc_CheckMemSum = dwFuncList[cnt][0]>>1;
-	TransClientFuncPos.dwFuncValue[cnt].dwFunc = dwFuncList[cnt][0]>>1;
+	TransClientFuncPos.dwFunc_CheckMemSum = dwFuncList[cnt][0] >> 1;
+	TransClientFuncPos.dwFuncValue[cnt].dwFunc = dwFuncList[cnt][0] >> 1;
 	TransClientFuncPos.dwFuncValue[cnt].dwLen = dwFuncList[cnt][1];
-	TransClientFuncPos.dwFuncValue[cnt].dwChkSum = funcCheckMemSum( TransClientFuncPos.dwFuncValue[cnt].dwFunc , TransClientFuncPos.dwFuncValue[cnt].dwLen );
+	TransClientFuncPos.dwFuncValue[cnt].dwChkSum = funcCheckMemSum(TransClientFuncPos.dwFuncValue[cnt].dwFunc, TransClientFuncPos.dwFuncValue[cnt].dwLen);
 	//TransClientFuncPos.dwFuncValue[cnt].dwChkSum = fnChkMem( TransClientFuncPos.dwFuncValue[cnt].dwFunc , TransClientFuncPos.dwFuncValue[cnt].dwLen );
 
-	while(1) {
+	while (1)
+	{
 
-		if ( dwFuncList[cnt][0]==0 ) break;
-		if ( cnt>=dwFUNC_VALUE_MAX )  break;
+		if (dwFuncList[cnt][0] == 0) break;
+		if (cnt >= dwFUNC_VALUE_MAX)  break;
 
-		TransClientFuncPos.dwFuncValue[cnt].dwFunc = dwFuncList[cnt][0]>>1;
+		TransClientFuncPos.dwFuncValue[cnt].dwFunc = dwFuncList[cnt][0] >> 1;
 		TransClientFuncPos.dwFuncValue[cnt].dwLen = dwFuncList[cnt][1];
-		TransClientFuncPos.dwFuncValue[cnt].dwChkSum = funcCheckMemSum( TransClientFuncPos.dwFuncValue[cnt].dwFunc , TransClientFuncPos.dwFuncValue[cnt].dwLen );
+		TransClientFuncPos.dwFuncValue[cnt].dwChkSum = funcCheckMemSum(TransClientFuncPos.dwFuncValue[cnt].dwFunc, TransClientFuncPos.dwFuncValue[cnt].dwLen);
 
 		cnt++;
 	}
@@ -9839,8 +6019,9 @@ int	SendClientFuncPos()
 	TransClientFuncPos.FuncCount = cnt;
 
 	//¼­¹ö¿¡ º¸°í
-	if ( smWsockDataServer ) {
-		return smWsockDataServer->Send2( (char *)&TransClientFuncPos , TransClientFuncPos.size , TRUE );
+	if (smWsockDataServer)
+	{
+		return smWsockDataServer->Send2((char *)&TransClientFuncPos, TransClientFuncPos.size, TRUE);
 	}
 
 	return FALSE;
@@ -9848,7 +6029,7 @@ int	SendClientFuncPos()
 
 
 //¸Þ¸ð¸® °Ë»ç ¸ðµâ ¹ÞÀ½
-int	RecvMemFuncData( TRANS_FUNC_MEMORY *TransFuncMem )
+int	RecvMemFuncData(TRANS_FUNC_MEMORY *TransFuncMem)
 {
 	smTRANS_COMMAND	smTransCommand;
 
@@ -9856,10 +6037,10 @@ int	RecvMemFuncData( TRANS_FUNC_MEMORY *TransFuncMem )
 
 	smTransCommand.size = 0;
 
-	fnChkMem( TransFuncMem , &smTransCommand );
+	fnChkMem(TransFuncMem, &smTransCommand);
 
-	if ( smWsockDataServer && smTransCommand.size>0 ) 
-		smWsockDataServer->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
+	if (smWsockDataServer && smTransCommand.size > 0)
+		smWsockDataServer->Send2((char *)&smTransCommand, smTransCommand.size, TRUE);
 
 	return TRUE;
 }
@@ -9876,34 +6057,36 @@ int	RecvTransItemQue_Push = 0;
 int	RecvTransItemQue_Pop = 0;
 
 //¾ÆÀÌÅÛ Å¥¿¡ ÀÓ½Ã ÀúÀå
-int	PushRecvTransItemQue( TRANS_ITEMINFO *lpTransItemInfo )
+int	PushRecvTransItemQue(TRANS_ITEMINFO *lpTransItemInfo)
 {
 	int mCnt;
 
 	mCnt = RecvTransItemQue_Push & RECV_TRANSITEM_QUE_MASK;
 
-	memcpy( &Recv_TransItemInfo_Que[mCnt] , lpTransItemInfo , sizeof(TRANS_ITEMINFO) );
+	memcpy(&Recv_TransItemInfo_Que[mCnt], lpTransItemInfo, sizeof(TRANS_ITEMINFO));
 	RecvTransItemQue_Push++;
-	RecvTransItemQue_Pop = RecvTransItemQue_Push-RECV_TRANSITEM_QUE_MASK;
-	if ( RecvTransItemQue_Pop<0 ) RecvTransItemQue_Pop = 0;
+	RecvTransItemQue_Pop = RecvTransItemQue_Push - RECV_TRANSITEM_QUE_MASK;
+	if (RecvTransItemQue_Pop < 0) RecvTransItemQue_Pop = 0;
 
 	return TRUE;
 }
 
 //ÀÓ½ÃÀúÀåµÈ ¾ÆÀÌÅÛ Å¥¿¡¼­ Ã£±â
-TRANS_ITEMINFO	*FindRecvTransItemQue( DWORD dwCode , DWORD dwHead ,DWORD dwChkSum )
+TRANS_ITEMINFO	*FindRecvTransItemQue(DWORD dwCode, DWORD dwHead, DWORD dwChkSum)
 {
-	int cnt,mCnt;
+	int cnt, mCnt;
 
-	for(cnt=RecvTransItemQue_Pop;cnt<RecvTransItemQue_Push;cnt++) {
+	for (cnt = RecvTransItemQue_Pop; cnt < RecvTransItemQue_Push; cnt++)
+	{
 		mCnt = cnt&RECV_TRANSITEM_QUE_MASK;
 
-		if ( Recv_TransItemInfo_Que[mCnt].Item.CODE==dwCode &&
-			Recv_TransItemInfo_Que[mCnt].Item.ItemHeader.Head==dwHead &&
-			Recv_TransItemInfo_Que[mCnt].Item.ItemHeader.dwChkSum==dwChkSum ) {
+		if (Recv_TransItemInfo_Que[mCnt].Item.CODE == dwCode &&
+			Recv_TransItemInfo_Que[mCnt].Item.ItemHeader.Head == dwHead &&
+			Recv_TransItemInfo_Que[mCnt].Item.ItemHeader.dwChkSum == dwChkSum)
+		{
 
-				return &Recv_TransItemInfo_Que[mCnt];
-			}
+			return &Recv_TransItemInfo_Que[mCnt];
+		}
 	}
 
 	return NULL;
@@ -9912,103 +6095,93 @@ TRANS_ITEMINFO	*FindRecvTransItemQue( DWORD dwCode , DWORD dwHead ,DWORD dwChkSu
 //ÀÓ½ÃÀúÀåµÈ ¾ÆÀÌÅÛ Å¥¿¡ ¾ÆÀÌÅÛ ´ë±âÁßÀÎÁö °Ë»ç
 int CheckRecvTrnsItemQue()
 {
-	int cnt,mCnt;
+	int cnt, mCnt;
 
-	for(cnt=RecvTransItemQue_Pop;cnt<RecvTransItemQue_Push;cnt++) {
+	for (cnt = RecvTransItemQue_Pop; cnt < RecvTransItemQue_Push; cnt++)
+	{
 		mCnt = cnt&RECV_TRANSITEM_QUE_MASK;
-		if ( Recv_TransItemInfo_Que[mCnt].Item.CODE ) return FALSE;
+		if (Recv_TransItemInfo_Que[mCnt].Item.CODE) return FALSE;
 	}
 
 	return TRUE;
 }
 
 //»ç¿ëÇÑ ¾ÆÀÌÅÛ ÄÚµå ¼­¹ö·Î º¸³¿
-int SendUseItemCodeToServer( sITEMINFO *lpItem )
+int SendUseItemCodeToServer(sITEMINFO *lpItem)
 {
-	smTRANS_COMMAND_EX	smTransCommandEx;
-
-	smTransCommandEx.code =	smTRANSCODE_USEITEM_CODE;
-	smTransCommandEx.size = sizeof(smTRANS_COMMAND);
-	smTransCommandEx.WParam = lpItem->CODE;
-	smTransCommandEx.LParam = lpItem->ItemHeader.Head;
-	smTransCommandEx.SParam = lpItem->ItemHeader.dwChkSum;
-	smTransCommandEx.EParam = lpItem->PotionCount;
-
-	smTransCommandEx.WxParam = 0;
-	smTransCommandEx.LxParam = 0;
-	smTransCommandEx.SxParam = 0;
-	smTransCommandEx.ExParam = 0;
-
-	if ( smWsockDataServer ) {
-		return smWsockDataServer->Send2( (char *)&smTransCommandEx , smTransCommandEx.size , TRUE );
-	}
-
-	return FALSE;
+	Log::Debug("SendUseItemCodeToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 //ÁÖº¯ Ä³¸¯ÅÍ¿ë ÀÌº¥Æ® ¸í·É ÄÚµå
-int RecvCommandUser( smTRANS_COMMAND_EX *lpTransCommandEx )
+int RecvCommandUser(smTRANS_COMMAND_EX *lpTransCommandEx)
 {
 	smCHAR *lpChar;
 	smCHAR *lpChar2;
 
-	switch( lpTransCommandEx->WParam ) {
+	switch (lpTransCommandEx->WParam)
+	{
 		case smCOMMNAD_USER_WARP:
 			//¿öÇÁ ÀÌÆåÆ® Ç¥½Ã
-			StartEffect( lpTransCommandEx->LParam,lpTransCommandEx->SParam,lpTransCommandEx->EParam, EFFECT_RETURN1 );
-			SkillPlaySound( SKILL_SOUND_LEARN , lpTransCommandEx->LParam,lpTransCommandEx->SParam,lpTransCommandEx->EParam );			//½ºÅ³ È¿°úÀ½
+			StartEffect(lpTransCommandEx->LParam, lpTransCommandEx->SParam, lpTransCommandEx->EParam, EFFECT_RETURN1);
+			SkillPlaySound(SKILL_SOUND_LEARN, lpTransCommandEx->LParam, lpTransCommandEx->SParam, lpTransCommandEx->EParam);			//½ºÅ³ È¿°úÀ½
 			break;
 
 
 		case smCOMMNAD_USER_AGINGUP:
 			//ÀÚµ¿ ÇÃ·¹ÀÌ¾î¸¦ Ã£´Â´Ù
-			lpChar = FindChrPlayer( lpTransCommandEx->WxParam );
-			if ( lpChar ) {
+			lpChar = FindChrPlayer(lpTransCommandEx->WxParam);
+			if (lpChar)
+			{
 				StartEffect(lpChar->pX, lpChar->pY, lpChar->pZ, EFFECT_AGING);
-				esPlaySound( 7 , GetDistVolume( lpChar->pX, lpChar->pY, lpChar->pZ ) , 1600 );	//»ç¿îµå ¿¬ÁÖ
+				esPlaySound(7, GetDistVolume(lpChar->pX, lpChar->pY, lpChar->pZ), 1600);	//»ç¿îµå ¿¬ÁÖ
 			}
 			break;
 
 		case smCOMMNAD_USER_HOLY_INCANTATION:
-			lpChar = FindChrPlayer( lpTransCommandEx->LParam );
-			if ( lpChar ) {
-				AssaParticle_HolyIncantationPart( lpChar , lpTransCommandEx->SParam ); 
+			lpChar = FindChrPlayer(lpTransCommandEx->LParam);
+			if (lpChar)
+			{
+				AssaParticle_HolyIncantationPart(lpChar, lpTransCommandEx->SParam);
 			}
 			break;
 
 		case smCOMMNAD_USER_RESURRECTION:
-			lpChar = FindChrPlayer( lpTransCommandEx->LParam );
-			if ( lpChar ) {
-				AssaParticle_ResurrectionPart( lpChar );
+			lpChar = FindChrPlayer(lpTransCommandEx->LParam);
+			if (lpChar)
+			{
+				AssaParticle_ResurrectionPart(lpChar);
 			}
 			break;
 
 		case smCOMMNAD_USER_FORCEORB:		//Æ÷½º »ç¿ë
 			//ÀÚµ¿ ÇÃ·¹ÀÌ¾î¸¦ Ã£´Â´Ù
-			lpChar = FindChrPlayer( lpTransCommandEx->WxParam );
-			if ( lpChar ) {
-				StartSkill( lpChar->pX,lpChar->pY,lpChar->pZ, 0,0,0, SKILL_UP1 );
-				SkillPlaySound( SKILL_SOUND_LEARN , lpChar->pX,lpChar->pY,lpChar->pZ );			//½ºÅ³ È¿°úÀ½
+			lpChar = FindChrPlayer(lpTransCommandEx->WxParam);
+			if (lpChar)
+			{
+				StartSkill(lpChar->pX, lpChar->pY, lpChar->pZ, 0, 0, 0, SKILL_UP1);
+				SkillPlaySound(SKILL_SOUND_LEARN, lpChar->pX, lpChar->pY, lpChar->pZ);			//½ºÅ³ È¿°úÀ½
 			}
 			break;
 
 		case smCOMMNAD_USER_VALENTO:
 			//¹ß·»Åä ¼Ò¿ï¼­Ä¿ ÀÌÆåÆ®
-			lpChar = FindChrPlayer( lpTransCommandEx->LParam );
-			lpChar2 = FindChrPlayer( lpTransCommandEx->SParam );
-			if ( lpChar && lpChar2 ) {
-				sinSkillEffect_Soul_Sucker( lpChar , lpChar2 );
+			lpChar = FindChrPlayer(lpTransCommandEx->LParam);
+			lpChar2 = FindChrPlayer(lpTransCommandEx->SParam);
+			if (lpChar && lpChar2)
+			{
+				sinSkillEffect_Soul_Sucker(lpChar, lpChar2);
 			}
 			break;
 
 		case smCOMMNAD_USER_FIREFLOWER:
-			lpChar = FindChrPlayer( lpTransCommandEx->WxParam );
-			if ( lpChar && lpChar!=lpCurPlayer ) {
-				DWORD	dwTable = GetTableNum( lpTransCommandEx->LParam );
-				AddTimeEffect( SKILL_EFFECT_FIREFLOWER , dwPlayTime+1000 , (dwTable>>24)&0xFF,0,0, lpChar );
-				AddTimeEffect( SKILL_EFFECT_FIREFLOWER , dwPlayTime+1500 , (dwTable>>16)&0xFF,0,0, lpChar );
-				AddTimeEffect( SKILL_EFFECT_FIREFLOWER , dwPlayTime+2000 , (dwTable>>8)&0xFF,0,0, lpChar );
-				AddTimeEffect( SKILL_EFFECT_FIREFLOWER , dwPlayTime+2500 , dwTable&0xFF,0,0, lpChar );
+			lpChar = FindChrPlayer(lpTransCommandEx->WxParam);
+			if (lpChar && lpChar != lpCurPlayer)
+			{
+				DWORD	dwTable = GetTableNum(lpTransCommandEx->LParam);
+				AddTimeEffect(SKILL_EFFECT_FIREFLOWER, dwPlayTime + 1000, (dwTable >> 24) & 0xFF, 0, 0, lpChar);
+				AddTimeEffect(SKILL_EFFECT_FIREFLOWER, dwPlayTime + 1500, (dwTable >> 16) & 0xFF, 0, 0, lpChar);
+				AddTimeEffect(SKILL_EFFECT_FIREFLOWER, dwPlayTime + 2000, (dwTable >> 8) & 0xFF, 0, 0, lpChar);
+				AddTimeEffect(SKILL_EFFECT_FIREFLOWER, dwPlayTime + 2500, dwTable & 0xFF, 0, 0, lpChar);
 			}
 			break;
 
@@ -10018,69 +6191,45 @@ int RecvCommandUser( smTRANS_COMMAND_EX *lpTransCommandEx )
 }
 
 //ÁÖº¯ Ä³¸¯ÅÍ¿¡ ÀÌº¥Æ® ¸í·É ÄÚµå º¸³»±â
-int	SendCommandUser( int wParam , int lParam , int sParam , int eParam )
+int	SendCommandUser(int wParam, int lParam, int sParam, int eParam)
 {
 	smTRANS_COMMAND_EX	smTransCommandEx;
 
 	smTransCommandEx.code = smTRANSCODE_COMMAND_USER;
 	smTransCommandEx.size = sizeof(smTRANS_COMMAND_EX);
-	smTransCommandEx.WParam  = wParam;
-	smTransCommandEx.LParam  = lParam;
-	smTransCommandEx.SParam  = sParam;
-	smTransCommandEx.EParam  = eParam;
+	smTransCommandEx.WParam = wParam;
+	smTransCommandEx.LParam = lParam;
+	smTransCommandEx.SParam = sParam;
+	smTransCommandEx.EParam = eParam;
 
 	smTransCommandEx.WxParam = lpCurPlayer->dwObjectSerial;
 	smTransCommandEx.LxParam = 0;
 	smTransCommandEx.SxParam = 0;
 	smTransCommandEx.ExParam = 0;
 
-	if ( smWsockUserServer ) {
-		return smWsockUserServer->Send( (char *)&smTransCommandEx , smTransCommandEx.size , TRUE );
+	if (smWsockUserServer)
+	{
+		return smWsockUserServer->Send((char *)&smTransCommandEx, smTransCommandEx.size, TRUE);
 	}
 	return FALSE;
 }
 
 //Áö¿ª¼­¹ö¿¡ ¸í·É ÄÚµå Àü¼Û
-int	SendCommand_AreaServer( DWORD dwCode , int wParam , int lParam , int sParam , int eParam )
+int	SendCommand_AreaServer(DWORD dwCode, int wParam, int lParam, int sParam, int eParam)
 {
-	smTRANS_COMMAND	smTransCommand;
-	smWINSOCK	*lpsmSock;
-
-	smTransCommand.code = dwCode;
-	smTransCommand.size = sizeof(smTRANS_COMMAND);
-	smTransCommand.WParam  = wParam;
-	smTransCommand.LParam  = lParam;
-	smTransCommand.SParam  = sParam;
-	smTransCommand.EParam  = eParam;
-
-	lpsmSock = GetAreaServerSock();
-	if ( lpsmSock ) {
-		return lpsmSock->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
-	}
-
-	return FALSE;
+	Log::Debug("SendCommand_AreaServer : Requisitado porém foi removido.");
+	return NULL;
 }
 
 //Áö¿ª¼­¹ö¿¡ ¸í·É ÄÚµå Àü¼Û
-int	SendCommand_DataServer( DWORD dwCode , int wParam , int lParam , int sParam , int eParam )
+int	SendCommand_DataServer(DWORD dwCode, int wParam, int lParam, int sParam, int eParam)
 {
-	smTRANS_COMMAND	smTransCommand;
-
-	smTransCommand.code = dwCode;
-	smTransCommand.size = sizeof(smTRANS_COMMAND);
-	smTransCommand.WParam  = wParam;
-	smTransCommand.LParam  = lParam;
-	smTransCommand.SParam  = sParam;
-	smTransCommand.EParam  = eParam;
-
-	if ( smWsockDataServer ) {
-		return smWsockDataServer->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
-	}
-
-	return FALSE;
+	Log::Debug("SendCommand_DataServer : Requisitado porém foi removido.");
+	return NULL;
 }
 
-struct	sDAMAGE_RECORD {
+struct	sDAMAGE_RECORD
+{
 	int	Damage;
 	int	Count;
 };
@@ -10092,58 +6241,64 @@ sDAMAGE_RECORD	sSendDamage[3];
 //°ø°Ý·Â ±â·Ï ÃÊ±âÈ­
 int	Init_RecordDamage()
 {
-	ZeroMemory( sRecvDamage , sizeof(sDAMAGE_RECORD)*3 );
-	ZeroMemory( sSendDamage , sizeof(sDAMAGE_RECORD)*3 );
+	ZeroMemory(sRecvDamage, sizeof(sDAMAGE_RECORD) * 3);
+	ZeroMemory(sSendDamage, sizeof(sDAMAGE_RECORD) * 3);
 
 	return TRUE;
 }
 
 //¹ÞÀº °ø°Ý·Â ±â·Ï
-int	Record_RecvDamage( smWINSOCK *lpsmSock , int Damage )
+int	Record_RecvDamage(smWINSOCK *lpsmSock, int Damage)
 {
 	smTRANS_COMMAND	smTransCommand;
 
-	if ( smWsockServer==lpsmSock ) {
+	if (smWsockServer == lpsmSock)
+	{
 		sRecvDamage[0].Damage -= Damage;
 		sRecvDamage[0].Count--;
 
-		if ( (sRecvDamage[0].Count&0x1FF)==0 ) {
+		if ((sRecvDamage[0].Count & 0x1FF) == 0)
+		{
 			smTransCommand.code = smTRANSCODE_REC_DAMAGEDATA;
 			smTransCommand.size = sizeof(smTRANS_COMMAND);
 			smTransCommand.WParam = sRecvDamage[0].Count;
 			smTransCommand.LParam = sRecvDamage[0].Damage;
 			smTransCommand.SParam = sSendDamage[0].Count;
 			smTransCommand.EParam = sSendDamage[0].Damage;
-			if ( lpsmSock ) lpsmSock->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
+			if (lpsmSock) lpsmSock->Send2((char *)&smTransCommand, smTransCommand.size, TRUE);
 		}
 	}
-	else if ( smWsockUserServer==lpsmSock ) {
+	else if (smWsockUserServer == lpsmSock)
+	{
 		sRecvDamage[1].Damage -= Damage;
 		sRecvDamage[1].Count--;
 
-		if ( (sRecvDamage[1].Count&0x1FF)==0 ) {
+		if ((sRecvDamage[1].Count & 0x1FF) == 0)
+		{
 			smTransCommand.code = smTRANSCODE_REC_DAMAGEDATA;
 			smTransCommand.size = sizeof(smTRANS_COMMAND);
 			smTransCommand.WParam = sRecvDamage[1].Count;
 			smTransCommand.LParam = sRecvDamage[1].Damage;
 			smTransCommand.SParam = sSendDamage[1].Count;
 			smTransCommand.EParam = sSendDamage[1].Damage;
-			if ( lpsmSock ) lpsmSock->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
+			if (lpsmSock) lpsmSock->Send2((char *)&smTransCommand, smTransCommand.size, TRUE);
 		}
 
 	}
-	else if ( smWsockExtendServer==lpsmSock ) {
+	else if (smWsockExtendServer == lpsmSock)
+	{
 		sRecvDamage[2].Damage -= Damage;
 		sRecvDamage[2].Count--;
 
-		if ( (sRecvDamage[2].Count&0x1FF)==0 ) {
+		if ((sRecvDamage[2].Count & 0x1FF) == 0)
+		{
 			smTransCommand.code = smTRANSCODE_REC_DAMAGEDATA;
 			smTransCommand.size = sizeof(smTRANS_COMMAND);
 			smTransCommand.WParam = sRecvDamage[2].Count;
 			smTransCommand.LParam = sRecvDamage[2].Damage;
 			smTransCommand.SParam = sSendDamage[2].Count;
 			smTransCommand.EParam = sSendDamage[2].Damage;
-			if ( lpsmSock ) lpsmSock->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
+			if (lpsmSock) lpsmSock->Send2((char *)&smTransCommand, smTransCommand.size, TRUE);
 		}
 	}
 
@@ -10151,51 +6306,57 @@ int	Record_RecvDamage( smWINSOCK *lpsmSock , int Damage )
 }
 
 //º¸³½ °ø°Ý·Â ±â·Ï
-int	Record_SendDamage( smWINSOCK *lpsmSock , int Damage )
+int	Record_SendDamage(smWINSOCK *lpsmSock, int Damage)
 {
 	smTRANS_COMMAND	smTransCommand;
 
-	if ( smWsockServer==lpsmSock ) {
+	if (smWsockServer == lpsmSock)
+	{
 		sSendDamage[0].Damage -= Damage;
 		sSendDamage[0].Count--;
 
-		if ( (sRecvDamage[0].Count&0x1FF)==0 ) {
+		if ((sRecvDamage[0].Count & 0x1FF) == 0)
+		{
 			smTransCommand.code = smTRANSCODE_REC_DAMAGEDATA;
 			smTransCommand.size = sizeof(smTRANS_COMMAND);
 			smTransCommand.WParam = sRecvDamage[0].Count;
 			smTransCommand.LParam = sRecvDamage[0].Damage;
 			smTransCommand.SParam = sSendDamage[0].Count;
 			smTransCommand.EParam = sSendDamage[0].Damage;
-			if ( lpsmSock ) lpsmSock->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
+			if (lpsmSock) lpsmSock->Send2((char *)&smTransCommand, smTransCommand.size, TRUE);
 		}
 	}
-	else if ( smWsockUserServer==lpsmSock ) {
+	else if (smWsockUserServer == lpsmSock)
+	{
 		sSendDamage[1].Damage -= Damage;
 		sSendDamage[1].Count--;
 
-		if ( (sRecvDamage[1].Count&0x1FF)==0 ) {
+		if ((sRecvDamage[1].Count & 0x1FF) == 0)
+		{
 			smTransCommand.code = smTRANSCODE_REC_DAMAGEDATA;
 			smTransCommand.size = sizeof(smTRANS_COMMAND);
 			smTransCommand.WParam = sRecvDamage[1].Count;
 			smTransCommand.LParam = sRecvDamage[1].Damage;
 			smTransCommand.SParam = sSendDamage[1].Count;
 			smTransCommand.EParam = sSendDamage[1].Damage;
-			if ( lpsmSock ) lpsmSock->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
+			if (lpsmSock) lpsmSock->Send2((char *)&smTransCommand, smTransCommand.size, TRUE);
 		}
 
 	}
-	else if ( smWsockExtendServer==lpsmSock ) {
+	else if (smWsockExtendServer == lpsmSock)
+	{
 		sSendDamage[2].Damage -= Damage;
 		sSendDamage[2].Count--;
 
-		if ( (sRecvDamage[2].Count&0x1FF)==0 ) {
+		if ((sRecvDamage[2].Count & 0x1FF) == 0)
+		{
 			smTransCommand.code = smTRANSCODE_REC_DAMAGEDATA;
 			smTransCommand.size = sizeof(smTRANS_COMMAND);
 			smTransCommand.WParam = sRecvDamage[2].Count;
 			smTransCommand.LParam = sRecvDamage[2].Damage;
 			smTransCommand.SParam = sSendDamage[2].Count;
 			smTransCommand.EParam = sSendDamage[2].Damage;
-			if ( lpsmSock ) lpsmSock->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
+			if (lpsmSock) lpsmSock->Send2((char *)&smTransCommand, smTransCommand.size, TRUE);
 		}
 	}
 
@@ -10203,230 +6364,46 @@ int	Record_SendDamage( smWINSOCK *lpsmSock , int Damage )
 }
 
 //ÆÄÆ¼¿ø¿¡°Ô ½ºÅ³ »ç¿ë Á¤º¸ º¸³»±â
-int	SendPartySkillToServer( DWORD dwSkillCode , int SkillLevel , int Around , int wParam , int lParam , int sParam , int eParam )
+int	SendPartySkillToServer(DWORD dwSkillCode, int SkillLevel, int Around, int wParam, int lParam, int sParam, int eParam)
 {
-	int x,y,z,dist;
-	int cnt;
-	int PartyCount;
-	TRANS_PARTY_SKILL	TransPartySkill;
-	smWINSOCK	*lpsmSock;
-
-	TransPartySkill.code = smTRANSCODE_PARTY_SKILL;
-	TransPartySkill.dwSkillCode = dwSkillCode;
-	TransPartySkill.wParam = wParam;
-	TransPartySkill.lParam = lParam;
-	TransPartySkill.sParam = sParam;
-	TransPartySkill.eParam = eParam;
-
-	PartyCount = 0;
-
-	TransPartySkill.dwPartyUser[PartyCount++] = lpCurPlayer->dwObjectSerial;
-
-	for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++) {
-		if ( chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].dwObjectSerial && chrOtherPlayer[cnt].PartyFlag ) {
-			x = ( lpCurPlayer->pX - chrOtherPlayer[cnt].pX )>>FLOATNS;
-			y = ( lpCurPlayer->pY - chrOtherPlayer[cnt].pY )>>FLOATNS;
-			z = ( lpCurPlayer->pZ - chrOtherPlayer[cnt].pZ )>>FLOATNS;
-			dist = x*x+y*y+z*z;
-			if ( dist<(Around*Around) ) {
-				TransPartySkill.dwPartyUser[PartyCount++] = chrOtherPlayer[cnt].dwObjectSerial;
-			}
-		}
-	}
-
-	TransPartySkill.PartyCount = PartyCount;
-	TransPartySkill.Point = SkillLevel;
-	TransPartySkill.size = sizeof(TRANS_PARTY_SKILL) - (8-PartyCount)*4;
-
-	lpsmSock = GetAreaServerSock();
-	if ( lpsmSock ) lpsmSock->Send2( (char *)&TransPartySkill , TransPartySkill.size , TRUE );
-
-	return TRUE;
+	Log::Debug("SendPartySkillToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 //½ºÅ³ Ãë¼Ò
-int SendCancelSkillToServer( DWORD dwSkillCode , int lParam , int sParam , int eParam )
+int SendCancelSkillToServer(DWORD dwSkillCode, int lParam, int sParam, int eParam)
 {
-	smWINSOCK	*lpsmSock;
-	smTRANS_COMMAND smTransCommand;
-
-	smTransCommand.code = smTRANSCODE_CANCEL_SKILL;
-	smTransCommand.size = sizeof(smTRANS_COMMAND);
-	smTransCommand.WParam = dwSkillCode;
-	smTransCommand.LParam = lParam;
-	smTransCommand.SParam = sParam;
-	smTransCommand.EParam = eParam;
-
-	lpsmSock = GetAreaServerSock();
-	if ( lpsmSock ) lpsmSock->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
-
-	return TRUE;
+	Log::Debug("SendCancelSkillToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 //½ºÅ³ º¯°æ
-int SendUpdateSkillToServer( DWORD dwSkillCode , int lParam , int sParam , int eParam )
+int SendUpdateSkillToServer(DWORD dwSkillCode, int lParam, int sParam, int eParam)
 {
-	smWINSOCK	*lpsmSock;
-	smTRANS_COMMAND smTransCommand;
-
-	smTransCommand.code = smTRANSCODE_UPDATEL_SKILL;
-	smTransCommand.size = sizeof(smTRANS_COMMAND);
-	smTransCommand.WParam = dwSkillCode;
-	smTransCommand.LParam = lParam;
-	smTransCommand.SParam = sParam;
-	smTransCommand.EParam = eParam;
-
-	lpsmSock = GetAreaServerSock();
-	if ( lpsmSock ) lpsmSock->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
-
-	return TRUE;
+	Log::Debug("SendUpdateSkillToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 //¼­¹ö¿¡ ½ºÅ³¼öÇà º¸³¿
-int SendProcessSKillToServer( DWORD dwSkillCode , int point , int Param1, int Param2 ) 
+int SendProcessSKillToServer(DWORD dwSkillCode, int point, int Param1, int Param2)
 {
-
-	smWINSOCK	*lpsmSock;
-	smTRANS_COMMAND smTransCommand;
-
-	smTransCommand.code = smTRANSCODE_PROCESS_SKILL2;
-	smTransCommand.size = sizeof(smTRANS_COMMAND);
-	smTransCommand.WParam = dwSkillCode|(point<<8);
-	smTransCommand.LParam = lpCurPlayer->dwObjectSerial;
-	smTransCommand.SParam = Param1;
-	smTransCommand.EParam = Param2;
-
-	smTransCommand.LParam =	dm_GetCommandChkSum( &smTransCommand , lpCurPlayer->dwObjectSerial ); //ÄÚ¸Çµå Ã½Å©¼¶
-
-	if ( fnEncodeDamagePacket ) {
-		fnEncodeDamagePacket(&smTransCommand);									//ÆÐÅ¶ ¾ÏÈ£È­
-
-		lpsmSock = GetAreaServerSock();
-		if ( lpsmSock ) lpsmSock->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
-	}
-
-	return TRUE;
-
-
+	Log::Debug("SendProcessSKillToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 //ÆÄÆ¼ ½ºÅ³ ÆÐÅ¶ ¼ö½Å
-int RecvPartySkillFromServer( TRANS_PARTY_SKILL *lpTransPartySkill )
+int RecvPartySkillFromServer(TRANS_PARTY_SKILL *lpTransPartySkill)
 {
-	int cnt,cnt2,cnt3;
-	int time;
-	int flag;
-	//smCHAR *lpChar;
-
-	switch( lpTransPartySkill->dwSkillCode ) {
-		case SKILL_PLAY_HOLY_VALOR:
-			//È¦¸®¹ë·¯
-			if ( lpTransPartySkill->Point<1 || lpTransPartySkill->Point>10 ) break;
-
-			time = Holy_Valor_Time[lpTransPartySkill->Point-1];
-			for( cnt=1;cnt<lpTransPartySkill->PartyCount;cnt++ ) {
-				if ( lpCurPlayer->dwObjectSerial==lpTransPartySkill->dwPartyUser[cnt] ) {
-
-					flag = 0;
-					//if ( (lpCurPlayer->dwDispAppSkill&SKILL_APPMASK_HOLY_BODY)!=0 ) flag ++;
-					for(cnt3=0;cnt3<10;cnt3++) {
-						if ( ContinueSkill[cnt].Flag ) {
-							if ( ContinueSkill[cnt].CODE==SKILL_DRASTIC_SPIRIT || ContinueSkill[cnt].CODE==SKILL_HOLY_BODY ) {
-								flag++;
-							}
-						}
-					}
-
-					if ( flag ) {
-						//È¦¸®¹Ùµð »ç¿ëÁß ( ½ºÅ³À» Ãë¼Ò ) / ½º·¡½ºÆ½ ½ºÇÇ¸®Æ® »ç¿ëÁßÀÏ¶§µµ Ãë¼Ò
-						//- Ãß°¡»çÇ× - È¦¸® ¹ë·¯¸¦ ÀÌ¹Ì »ç¿ëÁßÀÌ¸é ÀÌÆåÆ®¿¡¼­ Áßº¹ Ç¥½ÃµÇÁö ¾Êµµ·Ï Ã³¸® 
-						//(³ªÁß¿¡ ½ÇÇàÇÑ ÀÌÆåÆ®·Î Àû¿ë )
-
-						SendCancelSkillToServer( lpTransPartySkill->dwSkillCode , 0,0,0 );
-					}
-					else {
-						//½ºÅ³ ÀÌÆåÆ® Àû¿ë
-						AssaParticle_HolyValor_Member( lpCurPlayer , time );
-						sSKILL sSkill;
-
-						ZeroMemory( &sSkill , sizeof(sSKILL) );
-						sSkill.CODE = SKILL_HOLY_VALOR;
-						sSkill.UseTime = time;
-						sSkill.Flag = TRUE;
-						sSkill.Point = lpTransPartySkill->Point;
-						sinContinueSkillSet( &sSkill );
-					}
-				}
-				else {
-					for( cnt2=0;cnt2<OTHER_PLAYER_MAX;cnt2++) {
-						if ( chrOtherPlayer[cnt2].Flag && 
-							chrOtherPlayer[cnt2].dwObjectSerial==lpTransPartySkill->dwPartyUser[cnt] ) {
-								AssaParticle_HolyValor_Member( &chrOtherPlayer[cnt2] , time );
-							}
-					}
-				}
-			}
-			break;
-/*
-		case SKILL_PLAY_TRIUMPH_OF_VALHALLA:
-			//Æ®¸®¾öÇÁ¹ßÇÒ¶ó
-			if ( lpTransPartySkill->Point<1 || lpTransPartySkill->Point>10 ) break;
-
-			time = T_Of_Valhalla_Time[lpTransPartySkill->Point-1];
-
-			lpChar = FindChrPlayer( lpTransPartySkill->dwPartyUser[0] );		//½ÃÀüÀÚ
-
-			if ( lpChar ) {
-				if ( lpChar!=lpCurPlayer ) {
-					AssaParticle_TriumphOfValhallaMember( lpChar , lpCurPlayer , time );
-				}
-
-				for( cnt=1;cnt<lpTransPartySkill->PartyCount;cnt++ ) {
-					for( cnt2=0;cnt2<OTHER_PLAYER_MAX;cnt2++) {
-						if ( chrOtherPlayer[cnt2].Flag && 
-							chrOtherPlayer[cnt2].dwObjectSerial==lpTransPartySkill->dwPartyUser[cnt] ) {
-
-								if ( lpChar!=&chrOtherPlayer[cnt2] ) {
-									AssaParticle_TriumphOfValhallaMember( lpChar , &chrOtherPlayer[cnt2] , time );
-								}
-							}
-					}
-				}
-
-			}
-			break;
-*/
-
-		case SKILL_PLAY_EXTINCTION:
-			//¼º°ø ÀÌÆåÆ® ¹ÞÀ½ ( ¸ó½ºÅÍ²¨ )
-			for( cnt=0;cnt<lpTransPartySkill->PartyCount;cnt++ ) {
-				for( cnt2=0;cnt2<OTHER_PLAYER_MAX;cnt2++) {
-					if ( chrOtherPlayer[cnt2].Flag && 
-						chrOtherPlayer[cnt2].dwObjectSerial==lpTransPartySkill->dwPartyUser[cnt] ) {
-							AssaParticle_Extinction( &chrOtherPlayer[cnt2] );
-							SkillPlaySound( SKILL_SOUND_SKILL_EXTINTION	 , chrOtherPlayer[cnt2].pX,chrOtherPlayer[cnt2].pY,chrOtherPlayer[cnt2].pZ );
-						}
-				}
-			}
-			break;
-
-	}
-
-
-	return TRUE;
+	Log::Debug("RecvPartySkillFromServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 DWORD	dwLastClanUserCode = 0;
 
 //Å¬·£ ¸Þ¼¼Áö º¸³»±â
-int SendClanJoinService( DWORD dwMsgCode , smCHAR *lpChar  )
+int SendClanJoinService(DWORD dwMsgCode, smCHAR *lpChar)
 {
 	smTRANS_CHAR_COMMAND2	smTransCharCommand;
 
 #ifdef  __CLANSUBCHIP__
-	if ( cldata.myPosition!=101 && cldata.myPosition!=104) return FALSE;
+	if (cldata.myPosition != 101 && cldata.myPosition != 104) return FALSE;
 #else
-	if ( cldata.myPosition!=101 ) return FALSE;
+	if (cldata.myPosition != 101) return FALSE;
 #endif
 
 	smTransCharCommand.code = smTRANSCODE_CLAN_SERVICE;
@@ -10434,11 +6411,11 @@ int SendClanJoinService( DWORD dwMsgCode , smCHAR *lpChar  )
 	smTransCharCommand.WParam = dwMsgCode;
 	smTransCharCommand.LParam = lpChar->dwObjectSerial;
 	smTransCharCommand.SParam = lpCurPlayer->dwObjectSerial;
-	lstrcpy( smTransCharCommand.szName , cldata.name );
-	lstrcpy( smTransCharCommand.szId , UserAccount );
+	lstrcpy(smTransCharCommand.szName, cldata.name);
+	lstrcpy(smTransCharCommand.szId, UserAccount);
 
-	if ( smWsockUserServer ) 
-		smWsockUserServer->Send2( (char *)&smTransCharCommand , smTransCharCommand.size , TRUE );
+	if (smWsockUserServer)
+		smWsockUserServer->Send2((char *)&smTransCharCommand, smTransCharCommand.size, TRUE);
 
 	return TRUE;
 }
@@ -10448,35 +6425,38 @@ int SendJoinClan()
 {
 	smTRANS_CHAR_COMMAND2	smTransCharCommand;
 
-	if ( !dwLastClanUserCode ) return FALSE;
+	if (!dwLastClanUserCode) return FALSE;
 
 	smTransCharCommand.code = smTRANSCODE_CLAN_SERVICE;
 	smTransCharCommand.size = sizeof(smTRANS_CHAR_COMMAND2);
 	smTransCharCommand.WParam = 2;
 	smTransCharCommand.LParam = dwLastClanUserCode;
 	smTransCharCommand.SParam = lpCurPlayer->dwObjectSerial;
-	lstrcpy( smTransCharCommand.szName , lpCurPlayer->smCharInfo.szName );
-	lstrcpy( smTransCharCommand.szId , UserAccount );
+	lstrcpy(smTransCharCommand.szName, lpCurPlayer->smCharInfo.szName);
+	lstrcpy(smTransCharCommand.szId, UserAccount);
 
-	if ( smWsockUserServer ) 
-		smWsockUserServer->Send2( (char *)&smTransCharCommand , smTransCharCommand.size , TRUE );
+	if (smWsockUserServer)
+		smWsockUserServer->Send2((char *)&smTransCharCommand, smTransCharCommand.size, TRUE);
 
 	return TRUE;
 }
 
 //Å¬·£ ¸Þ¼¼Áö ¹Þ±â
-int RecvClanJoinService( smTRANS_CHAR_COMMAND2 *lpTransCharCommand )
+int RecvClanJoinService(smTRANS_CHAR_COMMAND2 *lpTransCharCommand)
 {
 	smCHAR *lpChar;
 
-	switch( lpTransCharCommand->WParam ) {
+	switch (lpTransCharCommand->WParam)
+	{
 		case 1:		//°¡ÀÔ ±ÇÀ¯
-			if ( cldata.myPosition==102 || cldata.myPosition==103 ) {
+			if (cldata.myPosition == 102 || cldata.myPosition == 103)
+			{
 
-				lpChar = FindAutoPlayer( lpTransCharCommand->SParam );
-				if ( lpChar ) {
-					ClanJoin( lpTransCharCommand->szName , lpChar->smCharInfo.szName );
-					OpenEachPlayer( lpChar );
+				lpChar = FindAutoPlayer(lpTransCharCommand->SParam);
+				if (lpChar)
+				{
+					ClanJoin(lpTransCharCommand->szName, lpChar->smCharInfo.szName);
+					OpenEachPlayer(lpChar);
 					DispEachMode = TRUE;
 					dwLastClanUserCode = lpTransCharCommand->SParam;
 				}
@@ -10485,15 +6465,17 @@ int RecvClanJoinService( smTRANS_CHAR_COMMAND2 *lpTransCharCommand )
 
 		case 2:
 #ifdef  __CLANSUBCHIP__
-			if ( cldata.myPosition==101 ||  cldata.myPosition==104  ) {
+			if (cldata.myPosition == 101 || cldata.myPosition == 104)
+			{
 #else
-			if ( cldata.myPosition==101 ) {
+			if (cldata.myPosition == 101)
+			{
 #endif
-				lpChar = FindAutoPlayer( lpTransCharCommand->SParam );
-				if ( lpChar ) 
-					menu_joinOpen_Chip( 1 , lpTransCharCommand->szId , lpTransCharCommand->szName , lpChar->smCharInfo.JOB_CODE , lpChar->smCharInfo.Level );
+				lpChar = FindAutoPlayer(lpTransCharCommand->SParam);
+				if (lpChar)
+					menu_joinOpen_Chip(1, lpTransCharCommand->szId, lpTransCharCommand->szName, lpChar->smCharInfo.JOB_CODE, lpChar->smCharInfo.Level);
 				else
-					menu_joinOpen_Chip( 1 , lpTransCharCommand->szId , lpTransCharCommand->szName , 0 , 0 );
+					menu_joinOpen_Chip(1, lpTransCharCommand->szId, lpTransCharCommand->szName, 0, 0);
 			}
 			break;
 	}
@@ -10509,50 +6491,55 @@ int		DivineLightning_Target_Count = 0;
 int		DivineLightning_FindCount = 0;
 
 //µð¹ÙÀÎ ¶óÀÌÆ®´× ½ºÅ³ ¿¬Ãâ ( ÁØºñÇÔ¼ö - ÁÖÀÎ°ø¸¸ )
-int	SkillPlay_DivineLightning_Select( smCHAR *lpChar , int SkillPoint )
+int	SkillPlay_DivineLightning_Select(smCHAR *lpChar, int SkillPoint)
 {
-	int cnt,TargetCount;
-	int x,y,z,dist;
+	int cnt, TargetCount;
+	int x, y, z, dist;
 	int	LightningCount;
 	int cCount;
 	TRANS_SKIL_ATTACKDATA	TransSkilAttackData;
-	smWINSOCK *lpsmSendSock =0;
+	smWINSOCK *lpsmSendSock = 0;
 
 	//Å¬¶óÀÌ¾ðÆ® ·Î±× ÆÄÀÏ ±â·Ï
-	Record_ClinetLogFile( "±¸¹öÀü °ø°ÝÆÐÅ¶ - SkillPlay_DivineLightning_Select " );
+	Record_ClinetLogFile("±¸¹öÀü °ø°ÝÆÐÅ¶ - SkillPlay_DivineLightning_Select ");
 	quit = 1;
 	return TRUE;
 
-	if ( lpChar!=lpCurPlayer ) return FALSE;
+	if (lpChar != lpCurPlayer) return FALSE;
 
 	TargetCount = 0;
 
-	LightningCount = Divine_Lightning_Num[ SkillPoint-1 ];
+	LightningCount = Divine_Lightning_Num[SkillPoint - 1];
 
-	for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++ ) {
+	for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+	{
 
-		cCount = (DivineLightning_FindCount+cnt)&OTHER_PLAYER_MASK;
+		cCount = (DivineLightning_FindCount + cnt)&OTHER_PLAYER_MASK;
 
-		if ( chrOtherPlayer[cCount].Flag && chrOtherPlayer[cCount].dwObjectSerial && 
-			lpChar!=&chrOtherPlayer[cCount] && chrOtherPlayer[cCount].smCharInfo.State==smCHAR_STATE_ENEMY &&
-			chrOtherPlayer[cCount].smCharInfo.Brood!=smCHAR_MONSTER_USER &&
-			chrOtherPlayer[cCount].smCharInfo.Life[0]>0 ) {
+		if (chrOtherPlayer[cCount].Flag && chrOtherPlayer[cCount].dwObjectSerial &&
+			lpChar != &chrOtherPlayer[cCount] && chrOtherPlayer[cCount].smCharInfo.State == smCHAR_STATE_ENEMY &&
+			chrOtherPlayer[cCount].smCharInfo.Brood != smCHAR_MONSTER_USER &&
+			chrOtherPlayer[cCount].smCharInfo.Life[0]>0)
+		{
 
-			x = ( lpChar->pX - chrOtherPlayer[cCount].pX )>>FLOATNS;
-			y = ( lpChar->pY - chrOtherPlayer[cCount].pY )>>FLOATNS;
-			z = ( lpChar->pZ - chrOtherPlayer[cCount].pZ )>>FLOATNS;
+			x = (lpChar->pX - chrOtherPlayer[cCount].pX) >> FLOATNS;
+			y = (lpChar->pY - chrOtherPlayer[cCount].pY) >> FLOATNS;
+			z = (lpChar->pZ - chrOtherPlayer[cCount].pZ) >> FLOATNS;
 
-			dist = x*x+y*y+z*z;
+			dist = x*x + y*y + z*z;
 
-			if ( dist<(160*160) ) {
+			if (dist < (160 * 160))
+			{
 				dwSkill_DivineLightning_Target[TargetCount] = chrOtherPlayer[cCount].dwObjectSerial;
 				TransSkilAttackData.dwTarObjectSerial[TargetCount] = chrOtherPlayer[cCount].dwObjectSerial;
 				TargetCount++;
 
-				if ( chrOtherPlayer[cCount].smCharInfo.Life[1] && chrOtherPlayer[cCount].smCharInfo.Life[0]==chrOtherPlayer[cCount].smCharInfo.Life[1] ) {
+				if (chrOtherPlayer[cCount].smCharInfo.Life[1] && chrOtherPlayer[cCount].smCharInfo.Life[0] == chrOtherPlayer[cCount].smCharInfo.Life[1])
+				{
 					chrOtherPlayer[cCount].EnableStateBar = TRUE;
 				}
-				if ( TargetCount>=LightningCount ) {
+				if (TargetCount >= LightningCount)
+				{
 					DivineLightning_FindCount = cCount;
 					break;
 				}
@@ -10564,69 +6551,78 @@ int	SkillPlay_DivineLightning_Select( smCHAR *lpChar , int SkillPoint )
 	DivineLightning_Target_Count = TargetCount;
 
 	TransSkilAttackData.code = smTRANSCODE_SKIL_ATTACKDATA;
-	TransSkilAttackData.size = (sizeof(TRANS_SKIL_ATTACKDATA)-sizeof(DWORD)*SKIL_ATTACK_CHAR_MAX);
-	TransSkilAttackData.size += sizeof(DWORD)*TargetCount+16;
+	TransSkilAttackData.size = (sizeof(TRANS_SKIL_ATTACKDATA) - sizeof(DWORD)*SKIL_ATTACK_CHAR_MAX);
+	TransSkilAttackData.size += sizeof(DWORD)*TargetCount + 16;
 
 	TransSkilAttackData.x = lpChar->pX;
 	TransSkilAttackData.y = lpChar->pY;
 	TransSkilAttackData.z = lpChar->pZ;
 
 	TransSkilAttackData.AttackState = 103;			//¾ðµ¥µå °¡Áß
-	TransSkilAttackData.AttackSize  = 160*160;
-	TransSkilAttackData.Power		= GetRandomPos( Divine_Lightning_Damage[SkillPoint-1][0] , Divine_Lightning_Damage[SkillPoint-1][1] );
+	TransSkilAttackData.AttackSize = 160 * 160;
+	TransSkilAttackData.Power = GetRandomPos(Divine_Lightning_Damage[SkillPoint - 1][0], Divine_Lightning_Damage[SkillPoint - 1][1]);
 
 	lpsmSendSock = GetAreaServerSock();		//º¸³¾ ¼­¹ö±¸ÇÏ±â
 
-	if ( lpsmSendSock && TargetCount>0 ) {
+	if (lpsmSendSock && TargetCount > 0)
+	{
 		//º¸³½ °ø°Ý·Â ±â·Ï
-		Record_SendDamage( lpsmSendSock , TransSkilAttackData.Power );
+		Record_SendDamage(lpsmSendSock, TransSkilAttackData.Power);
 
-		lpsmSendSock->Send2( (char *)&TransSkilAttackData , TransSkilAttackData.size , TRUE );
+		lpsmSendSock->Send2((char *)&TransSkilAttackData, TransSkilAttackData.size, TRUE);
 	}
 
 	return TRUE;
 }
 
 //µð¹ÙÀÎ ¶óÀÌÆ®´× ½ºÅ³ ¿¬Ãâ ( ÀÌÆåÆ® ½ÇÇö )
-int SkillPlay_DivineLightning_Effect( smCHAR *lpChar , int SkillPoint )
+int SkillPlay_DivineLightning_Effect(smCHAR *lpChar, int SkillPoint)
 {
-	int cnt,TargetCount;
-	int x,y,z,dist;
+	int cnt, TargetCount;
+	int x, y, z, dist;
 	int	LightningCount;
 	int cCount;
 	smCHAR *lpTarChar;
 
 	TargetCount = 0;
 
-	if ( lpChar==lpCurPlayer ) {
-		for( cnt=0;cnt<DivineLightning_Target_Count;cnt++ ) {
-			lpTarChar = FindAutoPlayer( dwSkill_DivineLightning_Target[cnt] );
-			if ( lpTarChar ) {
-				AssaParticle_DivineLighting( lpTarChar );
+	if (lpChar == lpCurPlayer)
+	{
+		for (cnt = 0; cnt < DivineLightning_Target_Count; cnt++)
+		{
+			lpTarChar = FindAutoPlayer(dwSkill_DivineLightning_Target[cnt]);
+			if (lpTarChar)
+			{
+				AssaParticle_DivineLighting(lpTarChar);
 				TargetCount++;
 			}
 		}
 	}
-	else {
-		LightningCount = Divine_Lightning_Num[ SkillPoint-1 ];
+	else
+	{
+		LightningCount = Divine_Lightning_Num[SkillPoint - 1];
 
-		for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++ ) {
-			cCount = (DivineLightning_FindCount+cnt)&OTHER_PLAYER_MASK;
-			if ( chrOtherPlayer[cCount].Flag && chrOtherPlayer[cCount].dwObjectSerial &&
-				lpChar!=&chrOtherPlayer[cCount] && chrOtherPlayer[cCount].smCharInfo.State==smCHAR_STATE_ENEMY &&
-				chrOtherPlayer[cCount].smCharInfo.Brood!=smCHAR_MONSTER_USER &&
-				chrOtherPlayer[cCount].smCharInfo.Life[0]>0 ) {
+		for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+		{
+			cCount = (DivineLightning_FindCount + cnt)&OTHER_PLAYER_MASK;
+			if (chrOtherPlayer[cCount].Flag && chrOtherPlayer[cCount].dwObjectSerial &&
+				lpChar != &chrOtherPlayer[cCount] && chrOtherPlayer[cCount].smCharInfo.State == smCHAR_STATE_ENEMY &&
+				chrOtherPlayer[cCount].smCharInfo.Brood != smCHAR_MONSTER_USER &&
+				chrOtherPlayer[cCount].smCharInfo.Life[0]>0)
+			{
 
-				x = ( lpChar->pX - chrOtherPlayer[cCount].pX )>>FLOATNS;
-				y = ( lpChar->pY - chrOtherPlayer[cCount].pY )>>FLOATNS;
-				z = ( lpChar->pZ - chrOtherPlayer[cCount].pZ )>>FLOATNS;
+				x = (lpChar->pX - chrOtherPlayer[cCount].pX) >> FLOATNS;
+				y = (lpChar->pY - chrOtherPlayer[cCount].pY) >> FLOATNS;
+				z = (lpChar->pZ - chrOtherPlayer[cCount].pZ) >> FLOATNS;
 
-				dist = x*x+y*y+z*z;
+				dist = x*x + y*y + z*z;
 
-				if ( dist<(160*160) ) {
-					AssaParticle_DivineLighting( &chrOtherPlayer[cCount] );
+				if (dist < (160 * 160))
+				{
+					AssaParticle_DivineLighting(&chrOtherPlayer[cCount]);
 					TargetCount++;
-					if ( TargetCount>=LightningCount ) {
+					if (TargetCount >= LightningCount)
+					{
 						DivineLightning_FindCount = cCount;
 						break;
 					}
@@ -10634,15 +6630,17 @@ int SkillPlay_DivineLightning_Effect( smCHAR *lpChar , int SkillPoint )
 			}
 		}
 
-		if ( TargetCount<LightningCount && lpChar->smCharInfo.State==smCHAR_STATE_ENEMY ) {
-			x = ( lpChar->pX - lpCurPlayer->pX )>>FLOATNS;
-			y = ( lpChar->pY - lpCurPlayer->pY )>>FLOATNS;
-			z = ( lpChar->pZ - lpCurPlayer->pZ )>>FLOATNS;
+		if (TargetCount < LightningCount && lpChar->smCharInfo.State == smCHAR_STATE_ENEMY)
+		{
+			x = (lpChar->pX - lpCurPlayer->pX) >> FLOATNS;
+			y = (lpChar->pY - lpCurPlayer->pY) >> FLOATNS;
+			z = (lpChar->pZ - lpCurPlayer->pZ) >> FLOATNS;
 
-			dist = x*x+y*y+z*z;
+			dist = x*x + y*y + z*z;
 
-			if ( dist<(160*160) ) {
-				AssaParticle_DivineLighting( lpCurPlayer );
+			if (dist < (160 * 160))
+			{
+				AssaParticle_DivineLighting(lpCurPlayer);
 				TargetCount++;
 			}
 		}
@@ -10655,69 +6653,77 @@ int SkillPlay_DivineLightning_Effect( smCHAR *lpChar , int SkillPoint )
 
 
 //µð¹ÙÀÎ ¶óÀÌÆ®´× ½ºÅ³ ¿¬Ãâ ( ¸Ó¹Ì·Îµå )
-int SkillPlay_MummyLord_Effect( smCHAR *lpChar , int Range )
+int SkillPlay_MummyLord_Effect(smCHAR *lpChar, int Range)
 {
-	int cnt,TargetCount;
-	int x,y,z,dist;
+	int cnt, TargetCount;
+	int x, y, z, dist;
 	int	dRange = Range*Range;
 
 	TargetCount = 0;
 
-	if ( lpChar->smCharInfo.Brood!=smCHAR_MONSTER_USER ) {
+	if (lpChar->smCharInfo.Brood != smCHAR_MONSTER_USER)
+	{
 		//¸ó½ºÅÍ°¡ À¯Àú °ø°Ý
-		for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++ ) {
-			if ( chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].dwObjectSerial &&
-				lpChar!=&chrOtherPlayer[cnt] && chrOtherPlayer[cnt].smCharInfo.State==smCHAR_STATE_USER &&
-				chrOtherPlayer[cnt].smCharInfo.Life[0]>0 ) 
+		for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+		{
+			if (chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].dwObjectSerial &&
+				lpChar != &chrOtherPlayer[cnt] && chrOtherPlayer[cnt].smCharInfo.State == smCHAR_STATE_USER &&
+				chrOtherPlayer[cnt].smCharInfo.Life[0]>0)
 			{
 
-					x = ( lpChar->pX - chrOtherPlayer[cnt].pX )>>FLOATNS;
-					y = ( lpChar->pY - chrOtherPlayer[cnt].pY )>>FLOATNS;
-					z = ( lpChar->pZ - chrOtherPlayer[cnt].pZ )>>FLOATNS;
+				x = (lpChar->pX - chrOtherPlayer[cnt].pX) >> FLOATNS;
+				y = (lpChar->pY - chrOtherPlayer[cnt].pY) >> FLOATNS;
+				z = (lpChar->pZ - chrOtherPlayer[cnt].pZ) >> FLOATNS;
 
-					dist = x*x+y*y+z*z;
+				dist = x*x + y*y + z*z;
 
-					if ( dist<dRange ) {
-						ParkAssaParticle_DivineLighting( &chrOtherPlayer[cnt] );
-						TargetCount++;
-					}
-			
+				if (dist < dRange)
+				{
+					ParkAssaParticle_DivineLighting(&chrOtherPlayer[cnt]);
+					TargetCount++;
+				}
+
 			}
 
 		}
 
-		if ( lpChar->smCharInfo.State==smCHAR_STATE_ENEMY ) {
-			x = ( lpChar->pX - lpCurPlayer->pX )>>FLOATNS;
-			y = ( lpChar->pY - lpCurPlayer->pY )>>FLOATNS;
-			z = ( lpChar->pZ - lpCurPlayer->pZ )>>FLOATNS;
+		if (lpChar->smCharInfo.State == smCHAR_STATE_ENEMY)
+		{
+			x = (lpChar->pX - lpCurPlayer->pX) >> FLOATNS;
+			y = (lpChar->pY - lpCurPlayer->pY) >> FLOATNS;
+			z = (lpChar->pZ - lpCurPlayer->pZ) >> FLOATNS;
 
-			dist = x*x+y*y+z*z;
+			dist = x*x + y*y + z*z;
 
-			if ( dist<dRange ) {
-				ParkAssaParticle_DivineLighting( lpCurPlayer );
+			if (dist < dRange)
+			{
+				ParkAssaParticle_DivineLighting(lpCurPlayer);
 				TargetCount++;
 			}
 		}
 	}
-	else {
+	else
+	{
 		//À¯Àú¶û °°Àº Æí ( ¸ó½ºÅÍ °ø°Ý )
-		for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++ ) {
-			if ( chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].dwObjectSerial &&
-				lpChar!=&chrOtherPlayer[cnt] && chrOtherPlayer[cnt].smCharInfo.State==smCHAR_STATE_ENEMY &&
-				chrOtherPlayer[cnt].smCharInfo.Life[0]>0 ) 
+		for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+		{
+			if (chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].dwObjectSerial &&
+				lpChar != &chrOtherPlayer[cnt] && chrOtherPlayer[cnt].smCharInfo.State == smCHAR_STATE_ENEMY &&
+				chrOtherPlayer[cnt].smCharInfo.Life[0]>0)
 			{
 
-					x = ( lpChar->pX - chrOtherPlayer[cnt].pX )>>FLOATNS;
-					y = ( lpChar->pY - chrOtherPlayer[cnt].pY )>>FLOATNS;
-					z = ( lpChar->pZ - chrOtherPlayer[cnt].pZ )>>FLOATNS;
+				x = (lpChar->pX - chrOtherPlayer[cnt].pX) >> FLOATNS;
+				y = (lpChar->pY - chrOtherPlayer[cnt].pY) >> FLOATNS;
+				z = (lpChar->pZ - chrOtherPlayer[cnt].pZ) >> FLOATNS;
 
-					dist = x*x+y*y+z*z;
+				dist = x*x + y*y + z*z;
 
-					if ( dist<dRange ) {
-						ParkAssaParticle_DivineLighting( &chrOtherPlayer[cnt] );
-						TargetCount++;
-					}
-			
+				if (dist < dRange)
+				{
+					ParkAssaParticle_DivineLighting(&chrOtherPlayer[cnt]);
+					TargetCount++;
+				}
+
 			}
 		}
 	}
@@ -10728,49 +6734,57 @@ int SkillPlay_MummyLord_Effect( smCHAR *lpChar , int Range )
 
 
 //º£³ð ½ºÇÇ¾î ½ºÅ³ ¿¬Ãâ ( ÀÌÆåÆ® ½ÇÇö )
-int SkillPlay_VenomSpear_Effect( smCHAR *lpChar , int SkillPoint )
+int SkillPlay_VenomSpear_Effect(smCHAR *lpChar, int SkillPoint)
 {
-	int cnt,TargetCount;
-	int x,y,z,dist;
+	int cnt, TargetCount;
+	int x, y, z, dist;
 	int	LightningCount;
 	int cCount;
 	smCHAR *lpTarChar;
 	int range;
 
-	range = VenomSpear_Range[ SkillPoint-1 ];
+	range = VenomSpear_Range[SkillPoint - 1];
 	range *= range;
 
 	TargetCount = 0;
 
-	if ( lpChar==lpCurPlayer ) {
-		for( cnt=0;cnt<DivineLightning_Target_Count;cnt++ ) {
-			lpTarChar = FindAutoPlayer( dwSkill_DivineLightning_Target[cnt] );
-			if ( lpTarChar ) {
-				AssaParticle_VeonmSpear( lpTarChar );
+	if (lpChar == lpCurPlayer)
+	{
+		for (cnt = 0; cnt < DivineLightning_Target_Count; cnt++)
+		{
+			lpTarChar = FindAutoPlayer(dwSkill_DivineLightning_Target[cnt]);
+			if (lpTarChar)
+			{
+				AssaParticle_VeonmSpear(lpTarChar);
 				TargetCount++;
 			}
 		}
 	}
-	else {
-		LightningCount = Divine_Lightning_Num[ SkillPoint-1 ];
+	else
+	{
+		LightningCount = Divine_Lightning_Num[SkillPoint - 1];
 
-		for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++ ) {
-			cCount = (DivineLightning_FindCount+cnt)&OTHER_PLAYER_MASK;
-			if ( chrOtherPlayer[cCount].Flag && chrOtherPlayer[cCount].dwObjectSerial &&
-				lpChar!=&chrOtherPlayer[cCount] && chrOtherPlayer[cCount].smCharInfo.State==smCHAR_STATE_ENEMY &&
-				chrOtherPlayer[cCount].smCharInfo.Brood!=smCHAR_MONSTER_USER &&
-				chrOtherPlayer[cCount].smCharInfo.Life[0]>0 ) {
+		for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+		{
+			cCount = (DivineLightning_FindCount + cnt)&OTHER_PLAYER_MASK;
+			if (chrOtherPlayer[cCount].Flag && chrOtherPlayer[cCount].dwObjectSerial &&
+				lpChar != &chrOtherPlayer[cCount] && chrOtherPlayer[cCount].smCharInfo.State == smCHAR_STATE_ENEMY &&
+				chrOtherPlayer[cCount].smCharInfo.Brood != smCHAR_MONSTER_USER &&
+				chrOtherPlayer[cCount].smCharInfo.Life[0]>0)
+			{
 
-				x = ( lpChar->pX - chrOtherPlayer[cCount].pX )>>FLOATNS;
-				y = ( lpChar->pY - chrOtherPlayer[cCount].pY )>>FLOATNS;
-				z = ( lpChar->pZ - chrOtherPlayer[cCount].pZ )>>FLOATNS;
+				x = (lpChar->pX - chrOtherPlayer[cCount].pX) >> FLOATNS;
+				y = (lpChar->pY - chrOtherPlayer[cCount].pY) >> FLOATNS;
+				z = (lpChar->pZ - chrOtherPlayer[cCount].pZ) >> FLOATNS;
 
-				dist = x*x+y*y+z*z;
+				dist = x*x + y*y + z*z;
 
-				if ( dist<range ) {
-					AssaParticle_VeonmSpear( &chrOtherPlayer[cCount] );
+				if (dist < range)
+				{
+					AssaParticle_VeonmSpear(&chrOtherPlayer[cCount]);
 					TargetCount++;
-					if ( TargetCount>=LightningCount ) {
+					if (TargetCount >= LightningCount)
+					{
 						DivineLightning_FindCount = cCount;
 						break;
 					}
@@ -10784,39 +6798,42 @@ int SkillPlay_VenomSpear_Effect( smCHAR *lpChar , int SkillPoint )
 }
 
 //¸ó½ºÅÍ ½ºÅ³ ÀÌÆåÆ® ½ÇÇö ( ÀÌÆåÆ® ½ÇÇö )
-int SkillPlay_Monster_Effect( smCHAR *lpChar , int EffectKind , int Range )
+int SkillPlay_Monster_Effect(smCHAR *lpChar, int EffectKind, int Range)
 {
-	int cnt,TargetCount;
-	int x,y,z,dist;
+	int cnt, TargetCount;
+	int x, y, z, dist;
 	int dDist = Range*Range;
 
 
 	TargetCount = 0;
 
-	x = ( lpChar->pX - lpCurPlayer->pX )>>FLOATNS;
-	y = ( lpChar->pY - lpCurPlayer->pY )>>FLOATNS;
-	z = ( lpChar->pZ - lpCurPlayer->pZ )>>FLOATNS;
+	x = (lpChar->pX - lpCurPlayer->pX) >> FLOATNS;
+	y = (lpChar->pY - lpCurPlayer->pY) >> FLOATNS;
+	z = (lpChar->pZ - lpCurPlayer->pZ) >> FLOATNS;
 
-	dist = x*x+y*y+z*z;
+	dist = x*x + y*y + z*z;
 
-	if ( dist<dDist ) {
+	if (dist < dDist)
+	{
 		ParkAssaParticle_ChaosKaraSkill_User(lpCurPlayer);	// Ä«¿À½ºÄ«¶ó ¹ìÆÄÀÌ¾î¸¯ (À¯Àú)
 		TargetCount++;
 	}
 
 
-	for( cnt=0;cnt<OTHER_PLAYER_MAX;cnt++ ) {
-		if ( chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].dwObjectSerial &&
-			lpChar!=&chrOtherPlayer[cnt] && chrOtherPlayer[cnt].smCharInfo.State==smCHAR_STATE_USER &&
-			chrOtherPlayer[cnt].smCharInfo.Life[0]>0 ) 
+	for (cnt = 0; cnt < OTHER_PLAYER_MAX; cnt++)
+	{
+		if (chrOtherPlayer[cnt].Flag && chrOtherPlayer[cnt].dwObjectSerial &&
+			lpChar != &chrOtherPlayer[cnt] && chrOtherPlayer[cnt].smCharInfo.State == smCHAR_STATE_USER &&
+			chrOtherPlayer[cnt].smCharInfo.Life[0]>0)
 		{
-			x = ( lpChar->pX - chrOtherPlayer[cnt].pX )>>FLOATNS;
-			y = ( lpChar->pY - chrOtherPlayer[cnt].pY )>>FLOATNS;
-			z = ( lpChar->pZ - chrOtherPlayer[cnt].pZ )>>FLOATNS;
+			x = (lpChar->pX - chrOtherPlayer[cnt].pX) >> FLOATNS;
+			y = (lpChar->pY - chrOtherPlayer[cnt].pY) >> FLOATNS;
+			z = (lpChar->pZ - chrOtherPlayer[cnt].pZ) >> FLOATNS;
 
-			dist = x*x+y*y+z*z;
+			dist = x*x + y*y + z*z;
 
-			if ( dist<dDist ) {
+			if (dist < dDist)
+			{
 				ParkAssaParticle_ChaosKaraSkill_User(&chrOtherPlayer[cnt]);	// Ä«¿À½ºÄ«¶ó ¹ìÆÄÀÌ¾î¸¯ (À¯Àú)
 				TargetCount++;
 			}
@@ -10830,60 +6847,63 @@ int SkillPlay_Monster_Effect( smCHAR *lpChar , int EffectKind , int Range )
 
 
 //½ºÅ³ ½ÇÇà ÆÐÅ¶ ¼ö½Å
-int RecvProcessSkill( smTRANS_COMMAND *lpTransCommand )
+int RecvProcessSkill(smTRANS_COMMAND *lpTransCommand)
 {
 	int cnt;
-	int dwSkillCode , point;
+	int dwSkillCode, point;
 	smCHAR	*lpChar, *lpChar2;
-	POINT3D	Pos1,Pos2;
+	POINT3D	Pos1, Pos2;
 
-	dwSkillCode = lpTransCommand->WParam&0xFF;
-	point = (lpTransCommand->WParam>>8)&0xF;
+	dwSkillCode = lpTransCommand->WParam & 0xFF;
+	point = (lpTransCommand->WParam >> 8) & 0xF;
 
-	switch( dwSkillCode ) {
+	switch (dwSkillCode)
+	{
 		case SKILL_PLAY_HOLY_REFLECTION:
 			//È¦¸® ¸®ÇÃ·º¼Ç Å¸°Ý ÀÌÆåÆ®
-			sinSkillEffect_Holy_Reflection_Defense( lpCurPlayer );
+			sinSkillEffect_Holy_Reflection_Defense(lpCurPlayer);
 			break;
 
 		case SKILL_PLAY_ENCHANT_WEAPON:
 			//ÀÎÃ¾Æ® ¿þÆù
-			cnt = Enchant_Weapon_Time[point-1];				//lpTransCommand->LParam-1];
+			cnt = Enchant_Weapon_Time[point - 1];				//lpTransCommand->LParam-1];
 			lpCurPlayer->EnchantEffect_Point = point;		//lpTransCommand->LParam;
 
-			cSkill.SetEnchant_Weapon(cnt,point);
+			cSkill.SetEnchant_Weapon(cnt, point);
 
-			switch( lpTransCommand->EParam ) {
+			switch (lpTransCommand->EParam)
+			{
 				case 0:
-					AssaParticle_EnchantWeaponIceJang( lpCurPlayer , cnt );
-					lpCurPlayer->WeaponEffect = sITEMINFO_ICE+1;
-					lpCurPlayer->dwWeaponEffectTime = dwPlayTime + cnt*1000;
+					AssaParticle_EnchantWeaponIceJang(lpCurPlayer, cnt);
+					lpCurPlayer->WeaponEffect = sITEMINFO_ICE + 1;
+					lpCurPlayer->dwWeaponEffectTime = dwPlayTime + cnt * 1000;
 					break;
 				case 1:
-					AssaParticle_EnchantWeaponLightJang( lpCurPlayer , cnt );
-					lpCurPlayer->WeaponEffect = sITEMINFO_LIGHTING+1;
-					lpCurPlayer->dwWeaponEffectTime = dwPlayTime + cnt*1000;
+					AssaParticle_EnchantWeaponLightJang(lpCurPlayer, cnt);
+					lpCurPlayer->WeaponEffect = sITEMINFO_LIGHTING + 1;
+					lpCurPlayer->dwWeaponEffectTime = dwPlayTime + cnt * 1000;
 					break;
 				case 2:
-					AssaParticle_EnchantWeaponFireJang( lpCurPlayer , cnt );
-					lpCurPlayer->WeaponEffect = sITEMINFO_FIRE+1;
-					lpCurPlayer->dwWeaponEffectTime = dwPlayTime + cnt*1000;
+					AssaParticle_EnchantWeaponFireJang(lpCurPlayer, cnt);
+					lpCurPlayer->WeaponEffect = sITEMINFO_FIRE + 1;
+					lpCurPlayer->dwWeaponEffectTime = dwPlayTime + cnt * 1000;
 					break;
 			}
 			break;
 
 		case SKILL_PLAY_RESURRECTION:
 			//Á×ÀºÀÚ »ì¸°±â
-			if ( lpCurPlayer->MotionInfo && lpCurPlayer->MotionInfo->State==CHRMOTION_STATE_DEAD ) {
-				SendProcessSKillToServer( SKILL_PLAY_RESURRECTION , point , 0, 0 );
+			if (lpCurPlayer->MotionInfo && lpCurPlayer->MotionInfo->State == CHRMOTION_STATE_DEAD)
+			{
+				SendProcessSKillToServer(SKILL_PLAY_RESURRECTION, point, 0, 0);
 
-				lpCurPlayer->SetMotionFromCode( CHRMOTION_STATE_RESTART );		//½ÃÀÛ¸ð¼Ç
-				StartEffect( lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ, EFFECT_GAME_START1 );
-				SetDynLight( lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ, 100, 100,100,0, 200 );
-				CharPlaySound( lpCurPlayer );
+				lpCurPlayer->SetMotionFromCode(CHRMOTION_STATE_RESTART);		//½ÃÀÛ¸ð¼Ç
+				StartEffect(lpCurPlayer->pX, lpCurPlayer->pY, lpCurPlayer->pZ, EFFECT_GAME_START1);
+				SetDynLight(lpCurPlayer->pX, lpCurPlayer->pY, lpCurPlayer->pZ, 100, 100, 100, 0, 200);
+				CharPlaySound(lpCurPlayer);
 
-				sinSetLife( lpCurPlayer->smCharInfo.Life[1]/2 );
-				ResetEnergyGraph( 4 );								//¿¡³ÊÁö ±×·¡ÇÁ Ã½Å© ÃÊ±âÈ­
+				sinSetLife(lpCurPlayer->smCharInfo.Life[1] / 2);
+				ResetEnergyGraph(4);								//¿¡³ÊÁö ±×·¡ÇÁ Ã½Å© ÃÊ±âÈ­
 				lpCurPlayer->MoveFlag = FALSE;
 				RestartPlayCount = 350;								//5ÃÊ µ¿¾È ¹«Àû
 				ReStartFlag = 0;
@@ -10892,22 +6912,25 @@ int RecvProcessSkill( smTRANS_COMMAND *lpTransCommand )
 
 		case SKILL_PLAY_VIRTUAL_LIFE:
 			//¹öÃò¾ó ¶óÀÌÇÁ Àû¿ë
-			cSkill.SetVirtualLife( Virtual_Life_Time[ point-1 ] , point );
-			AssaParticle_VirtualLife( lpCurPlayer , Virtual_Life_Time[ point-1 ] );
+			cSkill.SetVirtualLife(Virtual_Life_Time[point - 1], point);
+			AssaParticle_VirtualLife(lpCurPlayer, Virtual_Life_Time[point - 1]);
 			break;
 
 		case SKILL_PLAY_LOVELY_LIFE:
 			//»ç¶ûÀÇ ÃÊÄÝ·¿
-			if ( lpTransCommand->LParam==lpCurPlayer->dwObjectSerial ) {
-				cSkill.SetVirtualLife( Virtual_Life_Time[ point-1 ] , point );
-				AssaParticle_VirtualLife( lpCurPlayer , Virtual_Life_Time[ point-1 ] );
-				SkillPlaySound( SKILL_SOUND_SKILL_VIRTUAL_LIFE	 , lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ );
+			if (lpTransCommand->LParam == lpCurPlayer->dwObjectSerial)
+			{
+				cSkill.SetVirtualLife(Virtual_Life_Time[point - 1], point);
+				AssaParticle_VirtualLife(lpCurPlayer, Virtual_Life_Time[point - 1]);
+				SkillPlaySound(SKILL_SOUND_SKILL_VIRTUAL_LIFE, lpCurPlayer->pX, lpCurPlayer->pY, lpCurPlayer->pZ);
 			}
-			else {
-				lpChar = FindChrPlayer( lpTransCommand->LParam );
-				if ( lpChar ) {
-					AssaParticle_VirtualLife( lpChar , Virtual_Life_Time[ point-1 ] );
-					SkillPlaySound( SKILL_SOUND_SKILL_VIRTUAL_LIFE	 , lpChar->pX,lpChar->pY,lpChar->pZ );
+			else
+			{
+				lpChar = FindChrPlayer(lpTransCommand->LParam);
+				if (lpChar)
+				{
+					AssaParticle_VirtualLife(lpChar, Virtual_Life_Time[point - 1]);
+					SkillPlaySound(SKILL_SOUND_SKILL_VIRTUAL_LIFE, lpChar->pX, lpChar->pY, lpChar->pZ);
 				}
 			}
 			break;
@@ -10915,34 +6938,37 @@ int RecvProcessSkill( smTRANS_COMMAND *lpTransCommand )
 		case SKILL_PLAY_VANISH:
 			//¹è´Ï½¬ ½ºÅ³ ÇØÁ¦
 			lpCurPlayer->PlayVanish = 0;
-			cSkill.CancelContinueSkill( SKILL_VANISH );
+			cSkill.CancelContinueSkill(SKILL_VANISH);
 
-			if( dwM_BlurTime ) dwM_BlurTime = dwPlayTime;
+			if (dwM_BlurTime) dwM_BlurTime = dwPlayTime;
 			break;
 
 		case SKILL_PLAY_TRIUMPH_OF_VALHALLA:
 			//Æ®¶óÀÌ¾öÇÁ
-			cSkill.SetT_Of_Valhalla( point , lpTransCommand->EParam );
-			AssaParticle_TriumphOfValhalla( lpCurPlayer , T_Of_Valhalla_Time[ point-1 ] );
+			cSkill.SetT_Of_Valhalla(point, lpTransCommand->EParam);
+			AssaParticle_TriumphOfValhalla(lpCurPlayer, T_Of_Valhalla_Time[point - 1]);
 			break;
 
 		case SKILL_PLAY_SPARK_SHIELD:
 			//½ºÆÄÅ©½¯µå ÀÌÆåÆ®
 
 			// À¯Àú¹øÈ£·Î Ã£´Â´Ù
-			lpChar = FindChrPlayer( lpTransCommand->LParam );
-			lpChar2 = FindChrPlayer( lpTransCommand->SParam );
-			if ( lpChar && lpChar2 ) {
+			lpChar = FindChrPlayer(lpTransCommand->LParam);
+			lpChar2 = FindChrPlayer(lpTransCommand->SParam);
+			if (lpChar && lpChar2)
+			{
 				//½ºÆÄÅ© ½¯µå
-				if ( lpChar->HvLeftHand.PatTool ) {
-					if ( lpChar->GetToolBipPoint( &lpChar->HvLeftHand , &Pos1.x,&Pos1.y,&Pos1.z ) ) {
+				if (lpChar->HvLeftHand.PatTool)
+				{
+					if (lpChar->GetToolBipPoint(&lpChar->HvLeftHand, &Pos1.x, &Pos1.y, &Pos1.z))
+					{
 
 						Pos2.x = lpChar2->pX;
-						Pos2.y = lpChar2->pY+24*fONE;
+						Pos2.y = lpChar2->pY + 24 * fONE;
 						Pos2.z = lpChar2->pZ;
 
-						AssaParticle_SparkShieldDefence( &Pos1 , &Pos2 );
-						SkillPlaySound( SKILL_SOUND_SKILL_SPARK2	 , lpChar->pX,lpChar->pY,lpChar->pZ );
+						AssaParticle_SparkShieldDefence(&Pos1, &Pos2);
+						SkillPlaySound(SKILL_SOUND_SKILL_SPARK2, lpChar->pX, lpChar->pY, lpChar->pZ);
 					}
 				}
 			}
@@ -10950,142 +6976,145 @@ int RecvProcessSkill( smTRANS_COMMAND *lpTransCommand )
 
 		case SKILL_PLAY_HALL_OF_VALHALLA:
 			//È¦¿Àºê¹ßÇÒ¶ó
-			cSkill.HellOfValhalla( Hall_Of_Valhalla_Time[point-1] , point , lpTransCommand->SParam , lpTransCommand->EParam , 1 );
-			SkillValhallaHallOfValhallaHandEffect( lpCurPlayer , (float)lpTransCommand->EParam );
-			lpCurPlayer->dwHallOfValhallaTime = dwPlayTime+Hall_Of_Valhalla_Time[point-1]*1000;	//È¦¿Àºê¹ßÇÒ¶ó À¯Áö½Ã°£
+			cSkill.HellOfValhalla(Hall_Of_Valhalla_Time[point - 1], point, lpTransCommand->SParam, lpTransCommand->EParam, 1);
+			SkillValhallaHallOfValhallaHandEffect(lpCurPlayer, (float)lpTransCommand->EParam);
+			lpCurPlayer->dwHallOfValhallaTime = dwPlayTime + Hall_Of_Valhalla_Time[point - 1] * 1000;	//È¦¿Àºê¹ßÇÒ¶ó À¯Áö½Ã°£
 			break;
 
 		case SKILL_PLAY_FORCE_OF_NATURE:
 			//Æ÷½º¿Àºê ³×ÀÌÃÄ
-			cSkill.ForeceOfNature( Force_Of_Nature_Time[point-1] , point , 1 );
-			SkillSagittarionForceOfNature1( lpCurPlayer , (float)Force_Of_Nature_Time[point-1] );
-			lpCurPlayer->dwForceOfNatureTime = dwPlayTime+Force_Of_Nature_Time[point-1]*1000;	//Æ÷½º¿Àºê ³×ÀÌÃÄ À¯Áö½Ã°£
+			cSkill.ForeceOfNature(Force_Of_Nature_Time[point - 1], point, 1);
+			SkillSagittarionForceOfNature1(lpCurPlayer, (float)Force_Of_Nature_Time[point - 1]);
+			lpCurPlayer->dwForceOfNatureTime = dwPlayTime + Force_Of_Nature_Time[point - 1] * 1000;	//Æ÷½º¿Àºê ³×ÀÌÃÄ À¯Áö½Ã°£
 			break;
 
 
 		case SKILL_PLAY_SOD_ITEM:
 			//SOD ±ôÂ¦ ¾ÆÀÌÅÛ ÀÌÆåÆ®
 
-			switch( lpTransCommand->SParam ) {
+			switch (lpTransCommand->SParam)
+			{
 				case 1:	//ÆøÅº
-					SetBellatraFontEffect( E_BL_QUAKE_SEAL );
-					SetBellatraFontEffect( E_BL_FONT_QUAKE_SEAL );
+					SetBellatraFontEffect(E_BL_QUAKE_SEAL);
+					SetBellatraFontEffect(E_BL_FONT_QUAKE_SEAL);
 					EffectWaveCamera(50, 3);
-					SkillPlaySound( SKILL_SOUND_SKILL_DIASTROPHISM	 , lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ );
+					SkillPlaySound(SKILL_SOUND_SKILL_DIASTROPHISM, lpCurPlayer->pX, lpCurPlayer->pY, lpCurPlayer->pZ);
 					break;
 
 				case 2:	//½Ã°£
-					SetBellatraFontEffect( E_BL_STUN_SEAL );
-					SetBellatraFontEffect( E_BL_FONT_STUN_SEAL );
+					SetBellatraFontEffect(E_BL_STUN_SEAL);
+					SetBellatraFontEffect(E_BL_FONT_STUN_SEAL);
 					EffectWaveCamera(50, 3);
-					SkillPlaySound( SKILL_SOUND_SKILL_DIASTROPHISM	 , lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ );
+					SkillPlaySound(SKILL_SOUND_SKILL_DIASTROPHISM, lpCurPlayer->pX, lpCurPlayer->pY, lpCurPlayer->pZ);
 					break;
 
 				case 3:	//¾óÀ½
-					SetBellatraFontEffect( E_BL_FREEZE_SEAL );
-					SetBellatraFontEffect( E_BL_FONT_FREEZE_SEAL );
+					SetBellatraFontEffect(E_BL_FREEZE_SEAL);
+					SetBellatraFontEffect(E_BL_FONT_FREEZE_SEAL);
 					EffectWaveCamera(50, 3);
-					SkillPlaySound( SKILL_SOUND_SKILL_DIASTROPHISM	 , lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ );
+					SkillPlaySound(SKILL_SOUND_SKILL_DIASTROPHISM, lpCurPlayer->pX, lpCurPlayer->pY, lpCurPlayer->pZ);
 					break;
 
 				case 4:	//Åä³¢
-					SetBellatraFontEffect( E_BL_RABBIE_SEAL );
-					SetBellatraFontEffect( E_BL_FONT_RABBIE_SEAL );
+					SetBellatraFontEffect(E_BL_RABBIE_SEAL);
+					SetBellatraFontEffect(E_BL_FONT_RABBIE_SEAL);
 					EffectWaveCamera(50, 3);
-					SkillPlaySound( SKILL_SOUND_SKILL_DIASTROPHISM	 , lpCurPlayer->pX,lpCurPlayer->pY,lpCurPlayer->pZ );
+					SkillPlaySound(SKILL_SOUND_SKILL_DIASTROPHISM, lpCurPlayer->pX, lpCurPlayer->pY, lpCurPlayer->pZ);
 					break;
 
 				case 5:	//´Þ¼öÁ¤
-					SetBellatraFontEffect( E_BL_STYGIAN_SEAL );
-					SetBellatraFontEffect( E_BL_FONT_STYGIAN_SEAL );
+					SetBellatraFontEffect(E_BL_STYGIAN_SEAL);
+					SetBellatraFontEffect(E_BL_FONT_STYGIAN_SEAL);
 					break;
 
 				case 6:	//ÅÂ¾ç¼öÁ¤
-					SetBellatraFontEffect( E_BL_GUARDIAN_SEAL );
-					SetBellatraFontEffect( E_BL_FONT_GUARDIAN_SEAL );
+					SetBellatraFontEffect(E_BL_GUARDIAN_SEAL);
+					SetBellatraFontEffect(E_BL_FONT_GUARDIAN_SEAL);
 					break;
 
 				case 7:	//Ãµ°ø¼öÁ¤
-					SetBellatraFontEffect( E_BL_POINT_SEAL );
-					SetBellatraFontEffect( E_BL_FONT_POINT_SEAL );
+					SetBellatraFontEffect(E_BL_POINT_SEAL);
+					SetBellatraFontEffect(E_BL_FONT_POINT_SEAL);
 					break;
 			}
-			esPlaySound( 19, 360 );		//SOD ¾ÆÀÌÅÛ ¼Ò¸®
+			esPlaySound(19, 360);		//SOD ¾ÆÀÌÅÛ ¼Ò¸®
 			break;
 
 		case SKILL_PLAY_HEALING:
 			//¸ÅÁ÷ ¸¶½ºÅÍ Èú¸µ»ç¿ë
-			lpChar = FindChrPlayer( lpTransCommand->LParam );
-			if ( lpChar ) {
-				sinEffect_Healing2( lpChar );		//Èú¸µ ÀÌÆåÆ®
-				SkillPlaySound( SKILL_SOUND_SKILL_HEALING , lpChar->pX,lpChar->pY,lpChar->pZ );		//Èú¸µ »ç¿îµå
+			lpChar = FindChrPlayer(lpTransCommand->LParam);
+			if (lpChar)
+			{
+				sinEffect_Healing2(lpChar);		//Èú¸µ ÀÌÆåÆ®
+				SkillPlaySound(SKILL_SOUND_SKILL_HEALING, lpChar->pX, lpChar->pY, lpChar->pZ);		//Èú¸µ »ç¿îµå
 			}
 			break;
 
 		case SKILL_PLAY_BLESS_SIEGE_ITEM:
 			//ºí·¡½º Ä³½½ °ø¼º ¾ÆÀÌÅÛ »ç¿ë
 
-			switch( lpTransCommand->SParam ) {
+			switch (lpTransCommand->SParam)
+			{
 
-			////////////// ºô¸µ¿ë /////////////////
-			case (sinBI1|sin05):	//¹«Àû½ºÅ©·Ñ
-				lpCurPlayer->PlayInvincible = 70*30;		//30ÃÊ
-				break;
-			case (sinBI1|sin06):	//Å©¸®Æ¼ÄÃ ½ºÅ©·Ñ
-				break;
-			case (sinBI1|sin07):	//Ãß°¡ È¸ÇÇ ½ºÅ©·Ñ
-				break;
+				////////////// ºô¸µ¿ë /////////////////
+				case (sinBI1 | sin05) :	//¹«Àû½ºÅ©·Ñ
+					lpCurPlayer->PlayInvincible = 70 * 30;		//30ÃÊ
+					break;
+				case (sinBI1 | sin06) :	//Å©¸®Æ¼ÄÃ ½ºÅ©·Ñ
+					break;
+				case (sinBI1 | sin07) :	//Ãß°¡ È¸ÇÇ ½ºÅ©·Ñ
+					break;
 
-			//////////////// °ø¼º¿ë //////////////////
+					//////////////// °ø¼º¿ë //////////////////
 
-			case (sinBC1|sin01):	//¹«Àû½ºÅ©·Ñ
-				//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_S_INVU);
-				lpCurPlayer->PlayInvincible = 70*30;		//30ÃÊ
-				break;
-			case (sinBC1|sin02):	//Å©¸®Æ¼ÄÃ ½ºÅ©·Ñ
-				//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_S_CRITICAL);
-				break;
-			case (sinBC1|sin03):	//Ãß°¡ È¸ÇÇ ½ºÅ©·Ñ
-				//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_S_EVASION);
-				break;
-		/*
-			case (sinBC1|sin04):	//ÆÄÆ¼¿ø Àü¿ø È¸º¹
-			case (sinBC1|sin05):	//ºÎÈ° ½ºÅ©·Ñ
-				return FALSE;
-		*/
-			case (sinBC1|sin06):	//ÆÄÀÌ¾î Å©¸®½ºÅ» ÀúÇ×¼®
-				//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_R_FIRE_C);
-				break;
-			case (sinBC1|sin07):	//¾ÆÀÌ½º Å©¸®½ºÅ» ÀúÇ×¼®
-				//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_R_ICE_C);
-				break;
-			case (sinBC1|sin08):	//¶óÀÌÆ®´× Å©¸®½ºÅ» ÀúÇ×¼®
-				//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_R_LIGHTING_C);
-				break;
-			case (sinBC1|sin09):	//´ë ÆÄÀÌÅÍ °ø°Ý·Â °­È­¼®
-				//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_A_FIGHTER);
-				break;
-			case (sinBC1|sin10):	//´ë ¸ÞÄ«´Ï¼Ç °ø°Ý·Â °­È­¼®
-				//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_A_MECHANICIAN);
-				break;
-			case (sinBC1|sin11):	//´ëÆÄÀÌÅ©¸Ç °ø°Ý·Â °­È­¼®
-				//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_A_PIKEMAN);
-				break;
-			case (sinBC1|sin12):	//´ë ÀÌÃÄ °ø°Ý·Â °­È­¼®
-				//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_A_ARCHER);
-				break;
-			case (sinBC1|sin13):	//´ë ³ªÀÌÆ® °ø°Ý·Â °­È­¼®
-				//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_A_KNIGHT);
-				break;
-			case (sinBC1|sin14):	//´ë ¾ÆÅ»¶õÅ¸ °ø°Ý·Â °­È­¼®
-				//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_A_ATALANTA);
-				break;
-			case (sinBC1|sin15):	//´ë ¸ÞÁö¼Ç °ø°Ý·Â °­È­¼®
-				//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_A_MAGICIAN);
-				break;
-			case (sinBC1|sin16):	//´ë ÇÁ¸®½ºÆ¼½º °ø°Ý·Â °­È­¼®
-				//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_A_PRIESTESS);
-				break;
+				case (sinBC1 | sin01) :	//¹«Àû½ºÅ©·Ñ
+					//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_S_INVU);
+					lpCurPlayer->PlayInvincible = 70 * 30;		//30ÃÊ
+					break;
+				case (sinBC1 | sin02) :	//Å©¸®Æ¼ÄÃ ½ºÅ©·Ñ
+					//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_S_CRITICAL);
+					break;
+				case (sinBC1 | sin03) :	//Ãß°¡ È¸ÇÇ ½ºÅ©·Ñ
+					//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_S_EVASION);
+					break;
+					/*
+						case (sinBC1|sin04):	//ÆÄÆ¼¿ø Àü¿ø È¸º¹
+						case (sinBC1|sin05):	//ºÎÈ° ½ºÅ©·Ñ
+							return FALSE;
+					*/
+				case (sinBC1 | sin06) :	//ÆÄÀÌ¾î Å©¸®½ºÅ» ÀúÇ×¼®
+					//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_R_FIRE_C);
+					break;
+				case (sinBC1 | sin07) :	//¾ÆÀÌ½º Å©¸®½ºÅ» ÀúÇ×¼®
+					//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_R_ICE_C);
+					break;
+				case (sinBC1 | sin08) :	//¶óÀÌÆ®´× Å©¸®½ºÅ» ÀúÇ×¼®
+					//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_R_LIGHTING_C);
+					break;
+				case (sinBC1 | sin09) :	//´ë ÆÄÀÌÅÍ °ø°Ý·Â °­È­¼®
+					//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_A_FIGHTER);
+					break;
+				case (sinBC1 | sin10) :	//´ë ¸ÞÄ«´Ï¼Ç °ø°Ý·Â °­È­¼®
+					//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_A_MECHANICIAN);
+					break;
+				case (sinBC1 | sin11) :	//´ëÆÄÀÌÅ©¸Ç °ø°Ý·Â °­È­¼®
+					//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_A_PIKEMAN);
+					break;
+				case (sinBC1 | sin12) :	//´ë ÀÌÃÄ °ø°Ý·Â °­È­¼®
+					//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_A_ARCHER);
+					break;
+				case (sinBC1 | sin13) :	//´ë ³ªÀÌÆ® °ø°Ý·Â °­È­¼®
+					//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_A_KNIGHT);
+					break;
+				case (sinBC1 | sin14) :	//´ë ¾ÆÅ»¶õÅ¸ °ø°Ý·Â °­È­¼®
+					//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_A_ATALANTA);
+					break;
+				case (sinBC1 | sin15) :	//´ë ¸ÞÁö¼Ç °ø°Ý·Â °­È­¼®
+					//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_A_MAGICIAN);
+					break;
+				case (sinBC1 | sin16) :	//´ë ÇÁ¸®½ºÆ¼½º °ø°Ý·Â °­È­¼®
+					//chaSiege.SetCastleItemSkill( SIN_CASTLEITEMSKILL_A_PRIESTESS);
+					break;
 			}
 			break;
 
@@ -11109,11 +7138,11 @@ int RecvProcessSkill( smTRANS_COMMAND *lpTransCommand )
 
 
 //Å¬·£¿ø Á¤º¸ Àü¼Û¿ë ÇÔ¼ö
-int SendClanCommandUser( smWINSOCK *lpsmSock , DWORD	dwCode , int Param1, int Param2 , CLANWONLIST *lpClanUserList , int ClanUserCount )
+int SendClanCommandUser(smWINSOCK *lpsmSock, DWORD	dwCode, int Param1, int Param2, CLANWONLIST *lpClanUserList, int ClanUserCount)
 {
 
 	TRANS_CLAN_COMMAND_USER	TransClanUser;
-	int	cnt,len;
+	int	cnt, len;
 	char *lpBuff;
 	DWORD	dwSpeedSum;
 	int	BuffSize;
@@ -11128,29 +7157,31 @@ int SendClanCommandUser( smWINSOCK *lpsmSock , DWORD	dwCode , int Param1, int Pa
 
 	lpBuff = TransClanUser.szUserBuff;
 
-	for(cnt=0;cnt<ClanUserCount;cnt++) {
-		dwSpeedSum = GetSpeedSum( lpClanUserList->clanWon[cnt] );
+	for (cnt = 0; cnt < ClanUserCount; cnt++)
+	{
+		dwSpeedSum = GetSpeedSum(lpClanUserList->clanWon[cnt]);
 		((DWORD *)lpBuff)[0] = dwSpeedSum;
-		lpBuff+=sizeof(DWORD);
-		lstrcpy( lpBuff , lpClanUserList->clanWon[cnt] );
+		lpBuff += sizeof(DWORD);
+		lstrcpy(lpBuff, lpClanUserList->clanWon[cnt]);
 		len = lstrlen(lpClanUserList->clanWon[cnt]);
-		lpBuff+=len+1;
+		lpBuff += len + 1;
 	}
 
-	BuffSize = lpBuff-TransClanUser.szUserBuff;
+	BuffSize = lpBuff - TransClanUser.szUserBuff;
 	BuffSize += 16;
 
-	TransClanUser.size = 32+BuffSize;
+	TransClanUser.size = 32 + BuffSize;
 
-	if ( lpsmSock && ClanUserCount>0 ) {
-		lpsmSock->Send2( (char *)&TransClanUser , TransClanUser.size , TRUE );
+	if (lpsmSock && ClanUserCount > 0)
+	{
+		lpsmSock->Send2((char *)&TransClanUser, TransClanUser.size, TRUE);
 	}
 
 	return TRUE;
 }
 
 //Å¬·£¿ø Á¤º¸ ÇØµ¶
-int	RecvClanCommand( TRANS_CLAN_COMMAND_USER *lpTransClanUser , _CLAN_USER_INFO *ClanUserInfo )// char **lpClanUserName , DWORD *dwUserSpeedSum )
+int	RecvClanCommand(TRANS_CLAN_COMMAND_USER *lpTransClanUser, _CLAN_USER_INFO *ClanUserInfo)// char **lpClanUserName , DWORD *dwUserSpeedSum )
 {
 	int cnt;
 	int cnt2;
@@ -11159,16 +7190,18 @@ int	RecvClanCommand( TRANS_CLAN_COMMAND_USER *lpTransClanUser , _CLAN_USER_INFO 
 
 	lpBuff = lpTransClanUser->szUserBuff;
 
-	if ( lpTransClanUser->UserCount>=CLAN_USER_MAX ) return FALSE;
+	if (lpTransClanUser->UserCount >= CLAN_USER_MAX) return FALSE;
 
-	for( cnt=0;cnt<lpTransClanUser->UserCount;cnt++ ) {
+	for (cnt = 0; cnt < lpTransClanUser->UserCount; cnt++)
+	{
 		ClanUserInfo[cnt].dwSpeedSum = ((DWORD *)lpBuff)[0];
-		lpBuff+=sizeof(DWORD);
-		for(cnt2=0;cnt2<32;cnt2++) {
+		lpBuff += sizeof(DWORD);
+		for (cnt2 = 0; cnt2 < 32; cnt2++)
+		{
 			ch = *lpBuff;
 			ClanUserInfo[cnt].szName[cnt2] = ch;
 			lpBuff++;
-			if ( !ch ) break;
+			if (!ch) break;
 		}
 		ClanUserInfo[cnt].szName[31] = 0;
 	}
@@ -11177,76 +7210,88 @@ int	RecvClanCommand( TRANS_CLAN_COMMAND_USER *lpTransClanUser , _CLAN_USER_INFO 
 }
 
 //Äù½ºÆ® ¾ÆÀÌÅÛ ÀÔ¼ö ÇÊÅÍ¸µ
-int FiltQuestItem( TRANS_ITEMINFO	*lpTransItemInfo , DWORD dwPacketCode )
+int FiltQuestItem(TRANS_ITEMINFO	*lpTransItemInfo, DWORD dwPacketCode)
 {
 	int cnt;
 
-	if ( chaQuest.sHaQuestElementary[6].CODE != HAQUEST_CODE_ELEMENTARY_G ) { 
-		
-		cnt = cInvenTory.SearchItemCode( sinQT1|sin16 );
-		if ( cnt >= 1 ){ DeleteQuestItem(sinQT1|sin16); }
-		if( lpTransItemInfo->Item.CODE==(sinQT1|sin16) ){return FALSE; }		//¼º±Ù¼öÁ¤
+	if (chaQuest.sHaQuestElementary[6].CODE != HAQUEST_CODE_ELEMENTARY_G)
+	{
+
+		cnt = cInvenTory.SearchItemCode(sinQT1 | sin16);
+		if (cnt >= 1) { DeleteQuestItem(sinQT1 | sin16); }
+		if (lpTransItemInfo->Item.CODE == (sinQT1 | sin16)) { return FALSE; }		//¼º±Ù¼öÁ¤
 
 	}
 
-	switch( sinQuest_ChangeJob2.CODE ) {
+	switch (sinQuest_ChangeJob2.CODE)
+	{
 		case SIN_QUEST_CODE_CHANGEJOB2_NPC_M:
 			//¹ú²Ü ¾ÆÀÌÅÛ (ÃÖ´ë °¹¼ö È®ÀÎ )
-			if ( lpTransItemInfo->Item.CODE==(sinMA2|sin01) ) {
-				if ( !cInvenTory.SearchItemCode( sinMA1|sin01 ) ) return FALSE;		//À¯¸®º´ ¾ø´Â°æ¿ì
-				if ( cInvenTory.SearchItemCode( sinQT1|sin04 ) ) return FALSE;		//·Î¾âÁ¦¸® ÀÖ´Â °æ¿ì
-				cnt  = cInvenTory.SearchItemCode( sinMA2|sin01 );
-				if ( cnt>=9 ) return FALSE;
+			if (lpTransItemInfo->Item.CODE == (sinMA2 | sin01))
+			{
+				if (!cInvenTory.SearchItemCode(sinMA1 | sin01)) return FALSE;		//À¯¸®º´ ¾ø´Â°æ¿ì
+				if (cInvenTory.SearchItemCode(sinQT1 | sin04)) return FALSE;		//·Î¾âÁ¦¸® ÀÖ´Â °æ¿ì
+				cnt = cInvenTory.SearchItemCode(sinMA2 | sin01);
+				if (cnt >= 9) return FALSE;
 			}
-			if ( lpTransItemInfo->Item.CODE==(sinMA2|sin02) ) return FALSE;
+			if (lpTransItemInfo->Item.CODE == (sinMA2 | sin02)) return FALSE;
 			return TRUE;
 
 		case SIN_QUEST_CODE_CHANGEJOB2_NPC_D:
 			//±â¸§ ¾ÆÀÌÅÛ (ÃÖ´ë °¹¼ö È®ÀÎ )
-			if ( lpTransItemInfo->Item.CODE==(sinMA2|sin02) ) {
-				if ( !cInvenTory.SearchItemCode( sinMA1|sin01 ) ) return FALSE;		//À¯¸®º´ ¾ø´Â°æ¿ì
-				if ( cInvenTory.SearchItemCode( sinQT1|sin05 ) ) return FALSE;		//¹ß¸ðÁ¦ ÀÖ´Â °æ¿ì
-				cnt  = cInvenTory.SearchItemCode( sinMA2|sin02 );
-				if ( cnt>=7 ) return FALSE;
+			if (lpTransItemInfo->Item.CODE == (sinMA2 | sin02))
+			{
+				if (!cInvenTory.SearchItemCode(sinMA1 | sin01)) return FALSE;		//À¯¸®º´ ¾ø´Â°æ¿ì
+				if (cInvenTory.SearchItemCode(sinQT1 | sin05)) return FALSE;		//¹ß¸ðÁ¦ ÀÖ´Â °æ¿ì
+				cnt = cInvenTory.SearchItemCode(sinMA2 | sin02);
+				if (cnt >= 7) return FALSE;
 			}
-			if ( lpTransItemInfo->Item.CODE==(sinMA2|sin01) ) return FALSE;
+			if (lpTransItemInfo->Item.CODE == (sinMA2 | sin01)) return FALSE;
 			return TRUE;
 	}
 
 	//3Â÷ ÀüÁ÷ Äù½ºÆ®
 	//¹ìÇÁ
-	if ( lpTransItemInfo->Item.CODE==(sinQT1|sin06) ) {
-		if ( sinQuest_ChangeJob3.CODE==SIN_QUEST_CODE_CHANGEJOB3 ) {
-			cnt  = cInvenTory.SearchItemCode( sinQT1|sin06 );
-			if ( cnt>=3 ) return FALSE;
+	if (lpTransItemInfo->Item.CODE == (sinQT1 | sin06))
+	{
+		if (sinQuest_ChangeJob3.CODE == SIN_QUEST_CODE_CHANGEJOB3)
+		{
+			cnt = cInvenTory.SearchItemCode(sinQT1 | sin06);
+			if (cnt >= 3) return FALSE;
 			return TRUE;
 		}
 		return FALSE;
 	}
 
 	//·¹º§ Äù½ºÆ®¿ë ¹ìÇÁ 1
-	if ( lpTransItemInfo->Item.CODE==(sinQT1|sin09) ) {
-		if ( sinQuest_Level80_2.CODE==SIN_QUEST_CODE_LEVEL80_2 ) {
-			cnt  = cInvenTory.SearchItemCode( sinQT1|sin09 );
-			if ( cnt>=1 ) return FALSE;
+	if (lpTransItemInfo->Item.CODE == (sinQT1 | sin09))
+	{
+		if (sinQuest_Level80_2.CODE == SIN_QUEST_CODE_LEVEL80_2)
+		{
+			cnt = cInvenTory.SearchItemCode(sinQT1 | sin09);
+			if (cnt >= 1) return FALSE;
 			return TRUE;
 		}
 		return FALSE;
 	}
 	//·¹º§ Äù½ºÆ®¿ë ¹ìÇÁ 2
-	if ( lpTransItemInfo->Item.CODE==(sinQT1|sin10) ) {
-		if ( sinQuest_Level80_2.CODE==SIN_QUEST_CODE_LEVEL80_2 ) {
-			cnt  = cInvenTory.SearchItemCode( sinQT1|sin10 );
-			if ( cnt>=1 ) return FALSE;
+	if (lpTransItemInfo->Item.CODE == (sinQT1 | sin10))
+	{
+		if (sinQuest_Level80_2.CODE == SIN_QUEST_CODE_LEVEL80_2)
+		{
+			cnt = cInvenTory.SearchItemCode(sinQT1 | sin10);
+			if (cnt >= 1) return FALSE;
 			return TRUE;
 		}
 		return FALSE;
 	}
 	//·¹º§ Äù½ºÆ®¿ë ¹ìÇÁ 3
-	if ( lpTransItemInfo->Item.CODE==(sinQT1|sin11) ) {
-		if ( sinQuest_Level80_2.CODE==SIN_QUEST_CODE_LEVEL80_2 ) {
-			cnt  = cInvenTory.SearchItemCode( sinQT1|sin11 );
-			if ( cnt>=1 ) return FALSE;
+	if (lpTransItemInfo->Item.CODE == (sinQT1 | sin11))
+	{
+		if (sinQuest_Level80_2.CODE == SIN_QUEST_CODE_LEVEL80_2)
+		{
+			cnt = cInvenTory.SearchItemCode(sinQT1 | sin11);
+			if (cnt >= 1) return FALSE;
 			return TRUE;
 		}
 		return FALSE;
@@ -11254,11 +7299,13 @@ int FiltQuestItem( TRANS_ITEMINFO	*lpTransItemInfo , DWORD dwPacketCode )
 
 
 	//3Â÷ Àü¾÷ Äù½ºÆ®¿ë 
-	if ( lpTransItemInfo->Item.CODE==(sinQT1|sin13) ) {
+	if (lpTransItemInfo->Item.CODE == (sinQT1 | sin13))
+	{
 
-		if ( sinQuest_ChangeJob4.CODE==SIN_QUEST_CODE_CHANGEJOB4 && sinQuest_ChangeJob4.State==5 ) {
-			cnt  = cInvenTory.SearchItemCode( sinQT1|sin13 );
-			if ( cnt>=1 || CheckAttMonsterCode( sinQuest_ChangeJob4.Kind )==FALSE ) 
+		if (sinQuest_ChangeJob4.CODE == SIN_QUEST_CODE_CHANGEJOB4 && sinQuest_ChangeJob4.State == 5)
+		{
+			cnt = cInvenTory.SearchItemCode(sinQT1 | sin13);
+			if (cnt >= 1 || CheckAttMonsterCode(sinQuest_ChangeJob4.Kind) == FALSE)
 				return FALSE;
 
 			return TRUE;
@@ -11269,18 +7316,21 @@ int FiltQuestItem( TRANS_ITEMINFO	*lpTransItemInfo , DWORD dwPacketCode )
 
 
 	//¾öÇÁÀÇ ¸ÁÄ¡ Äù½ºÆ® 
-	if ( lpTransItemInfo->Item.CODE==(sinQT1|sin16) ) {
+	if (lpTransItemInfo->Item.CODE == (sinQT1 | sin16))
+	{
 
-		if ( chaQuest.sHaQuestElementary[6].CODE==HAQUEST_CODE_ELEMENTARY_G ) {
-			cnt  = cInvenTory.SearchItemCode( sinQT1|sin16 );
-			if ( cnt>=1 ) 
+		if (chaQuest.sHaQuestElementary[6].CODE == HAQUEST_CODE_ELEMENTARY_G)
+		{
+			cnt = cInvenTory.SearchItemCode(sinQT1 | sin16);
+			if (cnt >= 1)
 				return FALSE;
 
-			if ( dwPacketCode==smTRANSCODE_GETITEM ) {
+			if (dwPacketCode == smTRANSCODE_GETITEM)
+			{
 				//¾ÆÀÌÅÛ È¹µæ ¸Þ¼¼Áö
 				char szBuff[256];
 				//wsprintf( szBuff, mgGetQuestItem , lpTransItemInfo->Item.ItemName );//_ignore_//ÇØ¿Ü
-				AddChatBuff( szBuff , 6 );
+				AddChatBuff(szBuff, 6);
 			}
 			return TRUE;
 		}
@@ -11288,17 +7338,18 @@ int FiltQuestItem( TRANS_ITEMINFO	*lpTransItemInfo , DWORD dwPacketCode )
 	}
 
 
-	if ( (lpTransItemInfo->Item.CODE&sinITEM_MASK2)==sinMA1 ||
-		(lpTransItemInfo->Item.CODE&sinITEM_MASK2)==sinMA2 ) {
-			//Äù½ºÆ®°¡ ¾ø´Â°æ¿ì Äù½ºÆ® ¾ÆÀÌÅÛ µé¾î¿Â °æ¿ì
+	if ((lpTransItemInfo->Item.CODE&sinITEM_MASK2) == sinMA1 ||
+		(lpTransItemInfo->Item.CODE&sinITEM_MASK2) == sinMA2)
+	{
+		//Äù½ºÆ®°¡ ¾ø´Â°æ¿ì Äù½ºÆ® ¾ÆÀÌÅÛ µé¾î¿Â °æ¿ì
 
-			return FALSE;
-		}
+		return FALSE;
+	}
 
 	return TRUE;
 }
 
-POINT GetProcessModule() ;
+POINT GetProcessModule();
 
 //¸ðµâ°Ë»ç ÇÏ¿© ¼­¹ö·Î º¸³»±â
 int CheckProcessModule()
@@ -11312,68 +7363,71 @@ int CheckProcessModule()
 	return TRUE;
 
 	VersionInfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-	ZeroMemory( &smTransCommand , sizeof(smTRANS_COMMAND) );
+	ZeroMemory(&smTransCommand, sizeof(smTRANS_COMMAND));
 	smTransCommand.size = sizeof(smTRANS_COMMAND);
 	smTransCommand.code = smTRANSCODE_CLIENTINFO;
 
 	Result = GetVersionEx(&VersionInfo);
 	p = GetProcessModule();
 
-	if (Result != FALSE) {
+	if (Result != FALSE)
+	{
 		smTransCommand.WParam = VersionInfo.dwPlatformId;
-		smTransCommand.LParam = (VersionInfo.dwMajorVersion*100)+ VersionInfo.dwMinorVersion;
-		smTransCommand.LParam = (smTransCommand.LParam<<16)|(VersionInfo.dwBuildNumber&0xFFFF);
+		smTransCommand.LParam = (VersionInfo.dwMajorVersion * 100) + VersionInfo.dwMinorVersion;
+		smTransCommand.LParam = (smTransCommand.LParam << 16) | (VersionInfo.dwBuildNumber & 0xFFFF);
 		smTransCommand.SParam = p.x;
 		smTransCommand.EParam = p.y;
 
-		smTransCommand.WParam ^= ((DWORD *)(UserAccount+0))[0];
-		smTransCommand.LParam ^= ((DWORD *)(UserAccount+1))[0];
-		smTransCommand.SParam ^= ((DWORD *)(UserAccount+2))[0];
-		smTransCommand.EParam ^= ((DWORD *)(UserAccount+3))[0];
+		smTransCommand.WParam ^= ((DWORD *)(UserAccount + 0))[0];
+		smTransCommand.LParam ^= ((DWORD *)(UserAccount + 1))[0];
+		smTransCommand.SParam ^= ((DWORD *)(UserAccount + 2))[0];
+		smTransCommand.EParam ^= ((DWORD *)(UserAccount + 3))[0];
 
-		if ( smWsockDataServer ) smWsockDataServer->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
+		if (smWsockDataServer) smWsockDataServer->Send2((char *)&smTransCommand, smTransCommand.size, TRUE);
 	}
 
 	return TRUE;
 }
 
 //ÆÈ°ï µ¥¹ÌÁö º¸³»±â
-int SendFalconDamage( smCHAR *lpChar )
+int SendFalconDamage(smCHAR *lpChar)
 {
 	DWORD point;
 	int cnt;
 
-	if ( lpChar==lpCurPlayer && lpChar->chrAttackTarget ) {
-		point = ((SkillFalconPoint^((DWORD)chrOtherPlayer^lpCurPlayer->dwObjectSerial))+1)<<8;
+	if (lpChar == lpCurPlayer && lpChar->chrAttackTarget)
+	{
+		point = ((SkillFalconPoint ^ ((DWORD)chrOtherPlayer^lpCurPlayer->dwObjectSerial)) + 1) << 8;
 		point |= SKILL_PLAY_FALCON;
-		cnt = dm_SendTransDamage( lpChar->chrAttackTarget  , 0,0 , 0, 0, point , FALSE );
-		DamageExp( lpChar->chrAttackTarget , cnt );
+		cnt = dm_SendTransDamage(lpChar->chrAttackTarget, 0, 0, 0, 0, point, FALSE);
+		DamageExp(lpChar->chrAttackTarget, cnt);
 		return cnt;
 	}
 	return NULL;
 }
 
 //´í½Ì¼Òµå µ¥¹ÌÁö º¸³»±â
-int SendDancingSwordDamage( smCHAR *lpChar )
+int SendDancingSwordDamage(smCHAR *lpChar)
 {
 	DWORD point;
 	int cnt;
 	int wpDamage[2];
 
-	if ( lpChar ) {
+	if (lpChar)
+	{
 
-		wpDamage[0] = cInvenTory.InvenItem[ sInven[0].ItemIndex-1 ].sItemInfo.Damage[0];
-		wpDamage[1] = cInvenTory.InvenItem[ sInven[0].ItemIndex-1 ].sItemInfo.Damage[1];
+		wpDamage[0] = cInvenTory.InvenItem[sInven[0].ItemIndex - 1].sItemInfo.Damage[0];
+		wpDamage[1] = cInvenTory.InvenItem[sInven[0].ItemIndex - 1].sItemInfo.Damage[1];
 
-		point = 1<<8;
+		point = 1 << 8;
 		point |= SKILL_PLAY_DANCING_SWORD;
-		cnt = dm_SendTransDamage( lpChar  , wpDamage[0],wpDamage[1] , 0, 0, point , FALSE );
-		DamageExp( lpChar , cnt );
+		cnt = dm_SendTransDamage(lpChar, wpDamage[0], wpDamage[1], 0, 0, point, FALSE);
+		DamageExp(lpChar, cnt);
 
-		if ( (rand()%2)==0 ) 
-			SkillPlaySound( SKILL_SOUND_SKILL_DANCING_SWORD_ATK1 , lpChar->pX,lpChar->pY,lpChar->pZ );
+		if ((rand() % 2) == 0)
+			SkillPlaySound(SKILL_SOUND_SKILL_DANCING_SWORD_ATK1, lpChar->pX, lpChar->pY, lpChar->pZ);
 		else
-			SkillPlaySound( SKILL_SOUND_SKILL_DANCING_SWORD_ATK2 , lpChar->pX,lpChar->pY,lpChar->pZ );
+			SkillPlaySound(SKILL_SOUND_SKILL_DANCING_SWORD_ATK2, lpChar->pX, lpChar->pY, lpChar->pZ);
 
 		return cnt;
 	}
@@ -11382,26 +7436,27 @@ int SendDancingSwordDamage( smCHAR *lpChar )
 
 
 //¸Þ±×³×Æ½ ½ºÇÇ¾î µ¥¹ÌÁö º¸³»±â
-int SendMegneticSphereDamage( smCHAR *lpChar )
+int SendMegneticSphereDamage(smCHAR *lpChar)
 {
 	DWORD point;
 	int cnt;
 	int wpDamage[2];
 
-	if ( lpChar ) {
+	if (lpChar)
+	{
 
-		wpDamage[0] = cInvenTory.InvenItem[ sInven[0].ItemIndex-1 ].sItemInfo.Damage[0];
-		wpDamage[1] = cInvenTory.InvenItem[ sInven[0].ItemIndex-1 ].sItemInfo.Damage[1];
+		wpDamage[0] = cInvenTory.InvenItem[sInven[0].ItemIndex - 1].sItemInfo.Damage[0];
+		wpDamage[1] = cInvenTory.InvenItem[sInven[0].ItemIndex - 1].sItemInfo.Damage[1];
 
-		point = 1<<8;
+		point = 1 << 8;
 		point |= SKILL_PLAY_MAGNETIC_SPHERE;
-		cnt = dm_SendTransDamage( lpChar  , wpDamage[0],wpDamage[1] , 0, 0, point , FALSE );
-		DamageExp( lpChar , cnt );
+		cnt = dm_SendTransDamage(lpChar, wpDamage[0], wpDamage[1], 0, 0, point, FALSE);
+		DamageExp(lpChar, cnt);
 
-		if ( (rand()%2)==0 ) 
-			SkillPlaySound( SKILL_SOUND_SKILL_DANCING_SWORD_ATK1 , lpChar->pX,lpChar->pY,lpChar->pZ );
+		if ((rand() % 2) == 0)
+			SkillPlaySound(SKILL_SOUND_SKILL_DANCING_SWORD_ATK1, lpChar->pX, lpChar->pY, lpChar->pZ);
 		else
-			SkillPlaySound( SKILL_SOUND_SKILL_DANCING_SWORD_ATK2 , lpChar->pX,lpChar->pY,lpChar->pZ );
+			SkillPlaySound(SKILL_SOUND_SKILL_DANCING_SWORD_ATK2, lpChar->pX, lpChar->pY, lpChar->pZ);
 
 		return cnt;
 	}
@@ -11409,26 +7464,27 @@ int SendMegneticSphereDamage( smCHAR *lpChar )
 }
 
 //¸Ó½ºÆç µ¥¹ÌÁö º¸³»±â
-int SendMuspellDamage( smCHAR *lpChar )
+int SendMuspellDamage(smCHAR *lpChar)
 {
 	DWORD point;
 	int cnt;
 	int wpDamage[2];
 
-	if ( lpChar ) {
+	if (lpChar)
+	{
 
-		wpDamage[0] = cInvenTory.InvenItem[ sInven[0].ItemIndex-1 ].sItemInfo.Damage[0];
-		wpDamage[1] = cInvenTory.InvenItem[ sInven[0].ItemIndex-1 ].sItemInfo.Damage[1];
+		wpDamage[0] = cInvenTory.InvenItem[sInven[0].ItemIndex - 1].sItemInfo.Damage[0];
+		wpDamage[1] = cInvenTory.InvenItem[sInven[0].ItemIndex - 1].sItemInfo.Damage[1];
 
-		point = 1<<8;
+		point = 1 << 8;
 		point |= SKILL_PLAY_SUMMON_MUSPELL;
-		cnt = dm_SendTransDamage( lpChar  , wpDamage[0],wpDamage[1] , 0, 0, point , FALSE );
-		DamageExp( lpChar , cnt );
+		cnt = dm_SendTransDamage(lpChar, wpDamage[0], wpDamage[1], 0, 0, point, FALSE);
+		DamageExp(lpChar, cnt);
 
-		if ( (rand()%2)==0 ) 
-			SkillPlaySound( SKILL_SOUND_SKILL_DANCING_SWORD_ATK1 , lpChar->pX,lpChar->pY,lpChar->pZ );
+		if ((rand() % 2) == 0)
+			SkillPlaySound(SKILL_SOUND_SKILL_DANCING_SWORD_ATK1, lpChar->pX, lpChar->pY, lpChar->pZ);
 		else
-			SkillPlaySound( SKILL_SOUND_SKILL_DANCING_SWORD_ATK2 , lpChar->pX,lpChar->pY,lpChar->pZ );
+			SkillPlaySound(SKILL_SOUND_SKILL_DANCING_SWORD_ATK2, lpChar->pX, lpChar->pY, lpChar->pZ);
 
 		return cnt;
 	}
@@ -11438,22 +7494,23 @@ int SendMuspellDamage( smCHAR *lpChar )
 
 
 //Àú·¦¿ë Æê µ¥¹ÌÁö
-int SendLowLevelPetDamage( smCHAR *lpChar , int petType )
+int SendLowLevelPetDamage(smCHAR *lpChar, int petType)
 {
-    DWORD point;
+	DWORD point;
 	int cnt;
 	int wpDamage[2];
 
-	if ( lpChar ) {
+	if (lpChar)
+	{
 
-		wpDamage[0] = cInvenTory.InvenItem[ sInven[0].ItemIndex-1 ].sItemInfo.Damage[0];
-		wpDamage[1] = cInvenTory.InvenItem[ sInven[0].ItemIndex-1 ].sItemInfo.Damage[1];
+		wpDamage[0] = cInvenTory.InvenItem[sInven[0].ItemIndex - 1].sItemInfo.Damage[0];
+		wpDamage[1] = cInvenTory.InvenItem[sInven[0].ItemIndex - 1].sItemInfo.Damage[1];
 
-		point = (1+petType)<<8;
+		point = (1 + petType) << 8;
 		point |= SKILL_PLAY_PET_ATTACK;
-		cnt = dm_SendTransDamage( lpChar  , wpDamage[0],wpDamage[1] , 0, 0, point , FALSE );
-		DamageExp( lpChar , cnt );
-		
+		cnt = dm_SendTransDamage(lpChar, wpDamage[0], wpDamage[1], 0, 0, point, FALSE);
+		DamageExp(lpChar, cnt);
+
 		return cnt;
 	}
 	return FALSE;
@@ -11461,22 +7518,23 @@ int SendLowLevelPetDamage( smCHAR *lpChar , int petType )
 
 
 //PC¹æ¿ë Æê µ¥¹ÌÁö
-int SendPCBangPetDamage( smCHAR *lpChar , int petType )
+int SendPCBangPetDamage(smCHAR *lpChar, int petType)
 {
-    DWORD point;
+	DWORD point;
 	int cnt;
 	int wpDamage[2];
 
-	if ( lpChar ) {
+	if (lpChar)
+	{
 
-		wpDamage[0] = cInvenTory.InvenItem[ sInven[0].ItemIndex-1 ].sItemInfo.Damage[0];
-		wpDamage[1] = cInvenTory.InvenItem[ sInven[0].ItemIndex-1 ].sItemInfo.Damage[1];
+		wpDamage[0] = cInvenTory.InvenItem[sInven[0].ItemIndex - 1].sItemInfo.Damage[0];
+		wpDamage[1] = cInvenTory.InvenItem[sInven[0].ItemIndex - 1].sItemInfo.Damage[1];
 
-		point = (1+petType)<<8;
+		point = (1 + petType) << 8;
 		point |= SKILL_PLAY_PET_ATTACK2;
-		cnt = dm_SendTransDamage( lpChar  , wpDamage[0],wpDamage[1] , 0, 0, point , FALSE );
-		DamageExp( lpChar , cnt );
-		
+		cnt = dm_SendTransDamage(lpChar, wpDamage[0], wpDamage[1], 0, 0, point, FALSE);
+		DamageExp(lpChar, cnt);
+
 		return cnt;
 	}
 	return FALSE;
@@ -11485,28 +7543,28 @@ int SendPCBangPetDamage( smCHAR *lpChar , int petType )
 
 
 //¾ÆÀÌÅÛ ÅÃ¹è ¼­ºñ½º ¼ö½Å ¿ä±¸
-int	SendItemExpress( DWORD	dwItemCode , char *szPassCode )
+int	SendItemExpress(DWORD	dwItemCode, char *szPassCode)
 {
 	smTRANS_COMMAND	smTransCommand;
 
-	ZeroMemory( (char *)&smTransCommand , sizeof( smTRANS_COMMAND ) );
+	ZeroMemory((char *)&smTransCommand, sizeof(smTRANS_COMMAND));
 	smTransCommand.code = smTRANSCODE_ITEM_EXPRESS;
-	smTransCommand.size = sizeof( smTRANS_COMMAND );
+	smTransCommand.size = sizeof(smTRANS_COMMAND);
 	smTransCommand.WParam = dwItemCode;
 
-	if ( szPassCode )
-		smTransCommand.LParam = GetSpeedSum( szPassCode );
+	if (szPassCode)
+		smTransCommand.LParam = GetSpeedSum(szPassCode);
 
-	if ( smWsockDataServer ) 
-		return smWsockDataServer->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
+	if (smWsockDataServer)
+		return smWsockDataServer->Send2((char *)&smTransCommand, smTransCommand.size, TRUE);
 
 	return FALSE;
 }
 
 //¾ÆÀÌÅÛ ÅÃ¹è ¼­ºñ½º ¼ö½Å ¿ä±¸
-int	SendItemExpress( DWORD	dwItemCode )
+int	SendItemExpress(DWORD	dwItemCode)
 {
-	return	SendItemExpress( dwItemCode , 0 );
+	return	SendItemExpress(dwItemCode, 0);
 }
 
 
@@ -11516,7 +7574,8 @@ int SendClanYahooMotion()
 	smTRANS_COMMAND	smTransCommand;
 	smWINSOCK *lpsmSock;
 
-	if ( lpCurPlayer->smCharInfo.ClassClan ) {
+	if (lpCurPlayer->smCharInfo.ClassClan)
+	{
 		smTransCommand.size = sizeof(smTRANS_COMMAND);
 		smTransCommand.code = smTRANSCODE_YAHOO_MOTION;
 		smTransCommand.WParam = dwPlayTime;
@@ -11525,8 +7584,8 @@ int SendClanYahooMotion()
 		smTransCommand.EParam = 0;
 
 		lpsmSock = GetAreaServerSock();		//Áö¿ª¼­¹ö ¼ÒÄÏÀ» Ã£À½
-		if ( lpsmSock )
-			lpsmSock->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
+		if (lpsmSock)
+			lpsmSock->Send2((char *)&smTransCommand, smTransCommand.size, TRUE);
 
 		return TRUE;
 
@@ -11535,82 +7594,34 @@ int SendClanYahooMotion()
 }
 
 //º° Æ÷ÀÎÆ® Á¤º¸¸¦ ¼­¹ö¿¡ º¸³½´Ù
-int	SendStarPointToServer( int Price , int Cash )
+int	SendStarPointToServer(int Price, int Cash)
 {
-	smTRANS_COMMAND	smTransCommand;
-
-	smTransCommand.size = sizeof(smTRANS_COMMAND);
-	smTransCommand.code = smTRANSCODE_STARPOINT;
-	smTransCommand.WParam = Price;
-	smTransCommand.LParam = Cash;
-	smTransCommand.SParam = 0;
-	smTransCommand.EParam = 0;
-
-	if ( smWsockDataServer )
-		return smWsockDataServer->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
-
-	return FALSE;
+	Log::Debug("SendStarPointToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 //±âºÎÇÑµ·À» ¼­¹ö¿¡ º¸³½´Ù
-int	SendGiveMoneyToServer( int Money )
+int	SendGiveMoneyToServer(int Money)
 {
-	smTRANS_COMMAND	smTransCommand;
-
-	smTransCommand.size = sizeof(smTRANS_COMMAND);
-	smTransCommand.code = smTRANSCODE_GIVEMONEY;
-	smTransCommand.WParam = Money;
-	smTransCommand.LParam = 0;
-	smTransCommand.SParam = 0;
-	smTransCommand.EParam = 0;
-
-	if ( smWsockDataServer )
-		return smWsockDataServer->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
-
-	return FALSE;
+	Log::Debug("SendGiveMoneyToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 //Å¬·£¸Ó´Ï Á¤º¸¸¦ ¼­¹ö¿¡ º¸³½´Ù
-int	SendClanMoneyToServer( int Money , int Flag , int Kind )
+int	SendClanMoneyToServer(int Money, int Flag, int Kind)
 {
-	smTRANS_COMMAND	smTransCommand;
-
-	smTransCommand.size = sizeof(smTRANS_COMMAND);
-	smTransCommand.code = smTRANSCODE_CLANMONEY;
-	smTransCommand.WParam = Money;
-	smTransCommand.LParam = Flag;
-	smTransCommand.SParam = Kind;
-	smTransCommand.EParam = 0;
-
-	if ( smWsockDataServer )
-		return smWsockDataServer->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
-
-	return FALSE;
+	Log::Debug("SendClanMoneyToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
-int	SendClanMoneyToServer( int Money , int Flag )
+int	SendClanMoneyToServer(int Money, int Flag)
 {
-	return	SendClanMoneyToServer( Money,Flag,0 );
+	Log::Debug("SendClanMoneyToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 //ÀÌ¿ë¿ä±Ý Á¤º¸¸¦ ¼­¹ö¿¡ º¸³½´Ù
-int	SendPaymentMoneyToServer( int Money , int Flag )
+int	SendPaymentMoneyToServer(int Money, int Flag)
 {
-	smTRANS_COMMAND	smTransCommand;
-
-	smTransCommand.size = sizeof(smTRANS_COMMAND);
-	smTransCommand.code = smTRANSCODE_PAYMENT_MONEY;
-	smTransCommand.WParam = Flag;
-	smTransCommand.LParam = Money;
-	smTransCommand.SParam = 0;
-	smTransCommand.EParam = 0;
-
-	if ( smWsockDataServer )
-		return smWsockDataServer->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
-
-	return FALSE;
+	Log::Debug("SendPaymentMoneyToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 
 
 /*
@@ -11628,7 +7639,7 @@ int	Recv_MyShopItemList( TRANS_TRADEITEMS *lpTransTradeItems );		//°³ÀÎ»óÁ¡ ¾ÆÀÌ
 
 
 //°³ÀÎ»óÁ¡ ¾ÆÀÌÅÛ ³»¿ë ¿ä±¸
-int	Send_ShowMyShopItem( smCHAR *lpChar )
+int	Send_ShowMyShopItem(smCHAR *lpChar)
 {
 	smTRANS_COMMAND	smTransCommand;
 	int	result;
@@ -11642,14 +7653,14 @@ int	Send_ShowMyShopItem( smCHAR *lpChar )
 	smTransCommand.EParam = 0;
 
 	lpsmSock = GetAreaServerSock();
-	if ( lpsmSock ) 
-		result = lpsmSock->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
+	if (lpsmSock)
+		result = lpsmSock->Send2((char *)&smTransCommand, smTransCommand.size, TRUE);
 
 	return result;
 }
 
 //°³ÀÎ»óÁ¡ ¾ÆÀÌÅÛ ³»¿ë »ó´ë¹æ¿¡ º¸³»±â
-int	Send_MyShopItemList( smTRANS_COMMAND	*lpTransCommand )
+int	Send_MyShopItemList(smTRANS_COMMAND	*lpTransCommand)
 {
 	int	result;
 	smWINSOCK	*lpsmSock;
@@ -11657,30 +7668,31 @@ int	Send_MyShopItemList( smTRANS_COMMAND	*lpTransCommand )
 	TransTradeItems_MyShop.dwRecver = lpTransCommand->SParam;
 
 	lpsmSock = GetAreaServerSock();
-	if ( lpsmSock ) 
-		result = lpsmSock->Send2( (char *)&TransTradeItems_MyShop , TransTradeItems_MyShop.size , TRUE );
+	if (lpsmSock)
+		result = lpsmSock->Send2((char *)&TransTradeItems_MyShop, TransTradeItems_MyShop.size, TRUE);
 
 	return result;
 }
 
 
 //°³ÀÎ»óÁ¡ ¾ÆÀÌÅÛ ³»¿ë ¹ÞÀ½
-int	Recv_MyShopItemList( TRANS_TRADEITEMS *lpTransTradeItems )
+int	Recv_MyShopItemList(TRANS_TRADEITEMS *lpTransTradeItems)
 {
 	sMYSHOP MyShopItem;
 	smCHAR	*lpChar;
 
 	//¾ÐÃà µ¥ÀÌÅ¸ ÇØµ¶ ( Z/NZ ¹æ½Ä )
-	DecodeCompress( lpTransTradeItems->TradeBuff , (BYTE *)&MyShopItem );
+	DecodeCompress(lpTransTradeItems->TradeBuff, (BYTE *)&MyShopItem);
 
 	//»ó·Ä¾¾ ÇÔ¼ö È£Ãâ ¿¹Á¤
-	cCharShop.RecvShopItem( &MyShopItem );
+	cCharShop.RecvShopItem(&MyShopItem);
 
 
-	lpChar = FindAutoPlayer( lpTransTradeItems->dwSender );
+	lpChar = FindAutoPlayer(lpTransTradeItems->dwSender);
 
-	if ( lpChar && lpChar->DisplayFlag && lpChar->smCharInfo.szName[0] ) {
-		OpenEachPlayer( lpChar );
+	if (lpChar && lpChar->DisplayFlag && lpChar->smCharInfo.szName[0])
+	{
+		OpenEachPlayer(lpChar);
 		DispEachMode = TRUE;
 	}
 
@@ -11689,41 +7701,41 @@ int	Recv_MyShopItemList( TRANS_TRADEITEMS *lpTransTradeItems )
 
 
 //°³ÀÎ »óÁ¡ ¹°°Ç ±¸ÀÔ
-int	Send_PersonalShopItem( DWORD dwCharCode , void *lpShopItem )
+int	Send_PersonalShopItem(DWORD dwCharCode, void *lpShopItem)
 {
 	smTRANS_COMMAND_BUFF	smtBuff;
 
 
 	smtBuff.smTransCommand.code = smTRANSCODE_MYSHOP_TRADE;
-	smtBuff.smTransCommand.size = sizeof(smTRANS_COMMAND)+sizeof(sMYSHOP_ITEM_SERVER);
+	smtBuff.smTransCommand.size = sizeof(smTRANS_COMMAND) + sizeof(sMYSHOP_ITEM_SERVER);
 	smtBuff.smTransCommand.WParam = 0;
 	smtBuff.smTransCommand.LParam = dwCharCode;
 	smtBuff.smTransCommand.SParam = lpCurPlayer->dwObjectSerial;
 	smtBuff.smTransCommand.EParam = 0;
 
-	memcpy( smtBuff.Buff , lpShopItem , sizeof(sMYSHOP_ITEM_SERVER) );
+	memcpy(smtBuff.Buff, lpShopItem, sizeof(sMYSHOP_ITEM_SERVER));
 
-	if ( smWsockDataServer )
-		return smWsockDataServer->Send2( (char *)&smtBuff , smtBuff.smTransCommand.size , TRUE );
+	if (smWsockDataServer)
+		return smWsockDataServer->Send2((char *)&smtBuff, smtBuff.smTransCommand.size, TRUE);
 
 	return FALSE;
 }
 
 //°³ÀÎ »óÁ¡ ¾ÆÀÌÅÛ Á¤º¸ ¾÷µ¥ÀÌÆ®
-int	UpdateMyShopList( void *lpMyShop )
+int	UpdateMyShopList(void *lpMyShop)
 {
-	sMYSHOP *lpMyShopItem=(sMYSHOP *)lpMyShop;
+	sMYSHOP *lpMyShopItem = (sMYSHOP *)lpMyShop;
 	int	result = 0;
 	int		len;
 
-	ZeroMemory( &TransTradeItems_MyShop , sizeof( TRANS_TRADEITEMS ) );
+	ZeroMemory(&TransTradeItems_MyShop, sizeof(TRANS_TRADEITEMS));
 
 	//µ¥ÀÌÅ¸ ¾ÐÃà ( Z/NZ ¹æ½Ä )
-	len = EecodeCompress( (BYTE *)lpMyShopItem , TransTradeItems_MyShop.TradeBuff , sizeof(sMYSHOP) );
-	if ( len>TRANS_TRADE_BUFF_SIZE ) return FALSE;
+	len = EecodeCompress((BYTE *)lpMyShopItem, TransTradeItems_MyShop.TradeBuff, sizeof(sMYSHOP));
+	if (len > TRANS_TRADE_BUFF_SIZE) return FALSE;
 
 	TransTradeItems_MyShop.code = smTRANSCODE_MYSHOP_ITEM;
-	TransTradeItems_MyShop.size = len+48;
+	TransTradeItems_MyShop.size = len + 48;
 	TransTradeItems_MyShop.dwSum = 0;
 	TransTradeItems_MyShop.dwSender = lpCurPlayer->dwObjectSerial;
 	TransTradeItems_MyShop.dwRecver = 0;
@@ -11736,29 +7748,29 @@ int	UpdateMyShopList( void *lpMyShop )
 }
 
 //°³ÀÎ »óÁ¡ ¿ÀÇÂ
-int SendOpenPersonalTrade( char *szTradeMsg , void *lpPersTrade )
+int SendOpenPersonalTrade(char *szTradeMsg, void *lpPersTrade)
 {
 	TRANS_CHATMESSAGE	TransChatMessage;
 	smWINSOCK	*lpsmSock;
 	int	result = 0;
 	DWORD	dwCode;
-	sMYSHOP *lpMyShopItem=(sMYSHOP *)lpPersTrade;
+	sMYSHOP *lpMyShopItem = (sMYSHOP *)lpPersTrade;
 	int		len;
 
 	//smTRANSCODE_OPEN_PERTRADE
 	//lpMyShopItem->
 
-	ZeroMemory( &TransTradeItems_MyShop , sizeof( TRANS_TRADEITEMS ) );
+	ZeroMemory(&TransTradeItems_MyShop, sizeof(TRANS_TRADEITEMS));
 	//memcpy( &TransMyShop.sMyShop , lpMyShopItem , sizeof(sMYSHOP) );
 
-	ZeroMemory( &TransChatMessage , sizeof(TRANS_CHATMESSAGE) );
+	ZeroMemory(&TransChatMessage, sizeof(TRANS_CHATMESSAGE));
 
 	//µ¥ÀÌÅ¸ ¾ÐÃà ( Z/NZ ¹æ½Ä )
-	len = EecodeCompress( (BYTE *)lpMyShopItem , TransTradeItems_MyShop.TradeBuff , sizeof(sMYSHOP) );
-	if ( len>TRANS_TRADE_BUFF_SIZE ) return FALSE;
+	len = EecodeCompress((BYTE *)lpMyShopItem, TransTradeItems_MyShop.TradeBuff, sizeof(sMYSHOP));
+	if (len > TRANS_TRADE_BUFF_SIZE) return FALSE;
 
 	TransTradeItems_MyShop.code = smTRANSCODE_MYSHOP_ITEM;
-	TransTradeItems_MyShop.size = len+48;
+	TransTradeItems_MyShop.size = len + 48;
 	TransTradeItems_MyShop.dwSum = 0;
 	TransTradeItems_MyShop.dwSender = lpCurPlayer->dwObjectSerial;
 	TransTradeItems_MyShop.dwRecver = 0;
@@ -11770,27 +7782,28 @@ int SendOpenPersonalTrade( char *szTradeMsg , void *lpPersTrade )
 
 	TransChatMessage.code = smTRANSCODE_OPEN_MYSHOP;
 	TransChatMessage.size = sizeof(TRANS_CHATMESSAGE);
-	lstrcpy( TransChatMessage.szMessage , szTradeMsg );
+	lstrcpy(TransChatMessage.szMessage, szTradeMsg);
 
 	dwCode = GetSpeedSum(szTradeMsg);
 	TransChatMessage.dwIP = dwCode;
 
 	lpsmSock = GetAreaServerSock();
-	if ( lpsmSock ) 
-//ÇØ¿Ü Áß±¹(°³ÀÎ»óÁ¡ÀÌ¸§°ü·Ã)
-//#ifdef _LANGUAGE_CHINESE
-//		ConvertStringTHAI((char *)&TransChatMessage, lstrlen((char *)&TransChatMessage)+16);
-//#endif
-		result = lpsmSock->Send2( (char *)&TransChatMessage , TransChatMessage.size , TRUE );
+	if (lpsmSock)
+		//ÇØ¿Ü Áß±¹(°³ÀÎ»óÁ¡ÀÌ¸§°ü·Ã)
+		//#ifdef _LANGUAGE_CHINESE
+		//		ConvertStringTHAI((char *)&TransChatMessage, lstrlen((char *)&TransChatMessage)+16);
+		//#endif
+		result = lpsmSock->Send2((char *)&TransChatMessage, TransChatMessage.size, TRUE);
 
-	if ( result ) {
-/*
-//ÇØ¿Ü Áß±¹(°³ÀÎ»óÁ¡ÀÌ¸§°ü·Ã)
-#ifdef _LANGUAGE_CHINESE
-		ConvertStringTHAI(szTradeMsg, lstrlen(szTradeMsg)+16);
-#endif
-*/
-		wsprintf( lpCurPlayer->szTradeMessage , "%s: %s" , lpCurPlayer->smCharInfo.szName , szTradeMsg );
+	if (result)
+	{
+		/*
+		//ÇØ¿Ü Áß±¹(°³ÀÎ»óÁ¡ÀÌ¸§°ü·Ã)
+		#ifdef _LANGUAGE_CHINESE
+				ConvertStringTHAI(szTradeMsg, lstrlen(szTradeMsg)+16);
+		#endif
+		*/
+		wsprintf(lpCurPlayer->szTradeMessage, "%s: %s", lpCurPlayer->smCharInfo.szName, szTradeMsg);
 		lpCurPlayer->dwTradeMsgCode = dwCode;
 	}
 
@@ -11804,13 +7817,13 @@ int SendClosePersonalTrade()
 	smWINSOCK	*lpsmSock;
 	int	result = 0;
 
-	ZeroMemory( &TransChatMessage , sizeof(TRANS_CHATMESSAGE) );
+	ZeroMemory(&TransChatMessage, sizeof(TRANS_CHATMESSAGE));
 
 	TransChatMessage.code = smTRANSCODE_OPEN_MYSHOP;
 	TransChatMessage.size = sizeof(TRANS_CHATMESSAGE);
 	lpsmSock = GetAreaServerSock();
-	if ( lpsmSock ) 
-		result = lpsmSock->Send2( (char *)&TransChatMessage , TransChatMessage.size , TRUE );
+	if (lpsmSock)
+		result = lpsmSock->Send2((char *)&TransChatMessage, TransChatMessage.size, TRUE);
 
 	lpCurPlayer->dwTradeMsgCode = 0;
 	lpCurPlayer->szTradeMessage[0] = 0;
@@ -11819,52 +7832,52 @@ int SendClosePersonalTrade()
 }
 
 // Àåº° - ÀÔ·ÂÃ¢
-int SendsServerDoc( char *szTradeMsg )
+int SendsServerDoc(char *szTradeMsg)
 {
 	TRANS_CHATMESSAGE	TransChatMessage;
 	smWINSOCK	*lpsmSock;
 	int	result = 0;
 
 
-	ZeroMemory( &TransChatMessage , sizeof(TRANS_CHATMESSAGE) );
+	ZeroMemory(&TransChatMessage, sizeof(TRANS_CHATMESSAGE));
 
 	TransChatMessage.code = smTRANSCODE_ITEMDOC;
 	TransChatMessage.size = sizeof(TRANS_CHATMESSAGE);
-	lstrcpy( TransChatMessage.szMessage , szTradeMsg );
+	lstrcpy(TransChatMessage.szMessage, szTradeMsg);
 
 	lpsmSock = GetAreaServerSock();
-	if ( lpsmSock ) 
-		result = lpsmSock->Send2( (char *)&TransChatMessage , TransChatMessage.size , TRUE );
+	if (lpsmSock)
+		result = lpsmSock->Send2((char *)&TransChatMessage, TransChatMessage.size, TRUE);
 
 	return result;
 }
 
 
 //³¯Â¥ È®ÀÎ Á¦°Å ¾ÆÀÌÅÛ 
-int DeleteEventItem_TimeOut( sITEMINFO	*lpsItem )
+int DeleteEventItem_TimeOut(sITEMINFO	*lpsItem)
 {
 	// ¹ÚÀç¿ø - ¿¡ÀÌÂ¡ ¸¶½ºÅÍ, ½ºÅ³ ¸¶½ºÅÍ Ãß°¡
-	if( lpsItem->CODE == (sinBI1|sin32) || lpsItem->CODE == (sinBI1|sin33) || lpsItem->CODE == (sinBI1|sin34) || lpsItem->CODE == (sinBI1|sin51) ||// pluto Æê(ÇØ¿Ü)
+	if (lpsItem->CODE == (sinBI1 | sin32) || lpsItem->CODE == (sinBI1 | sin33) || lpsItem->CODE == (sinBI1 | sin34) || lpsItem->CODE == (sinBI1 | sin51) ||// pluto Æê(ÇØ¿Ü)
 	//	lpsItem->CODE == (sinBI1|sin35) || lpsItem->CODE == (sinBI1|sin36) || lpsItem->CODE == (sinBI1|sin37) || lpsItem->CODE == (sinBI1|sin38) )	//¼öÇ¥
-		lpsItem->CODE == (sinBI1|sin36) || lpsItem->CODE == (sinBI1|sin37) ||
-		lpsItem->CODE == (sinBI1|sin38) || lpsItem->CODE == (sinBI1|sin39) ||
-		lpsItem->CODE == (sinBI1|sin40) || lpsItem->CODE == (sinBI1|sin41) ||
-		lpsItem->CODE == (sinBI1|sin42) || lpsItem->CODE == (sinBI1|sin43) ||
-		lpsItem->CODE == (sinBI1|sin44) || lpsItem->CODE == (sinBI1|sin45) ||
-		lpsItem->CODE == (sinBI1|sin46) || lpsItem->CODE == (sinBI1|sin47) ||
-		lpsItem->CODE == (sinBI1|sin48) || lpsItem->CODE == (sinBI1|sin49) ||
-		lpsItem->CODE == (sinBI1|sin50) || lpsItem->CODE == (sinBI1|sin52) || // ¹ÚÀç¿ø - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡
-		lpsItem->CODE == (sinBI1|sin53) || lpsItem->CODE == (sinBI1|sin54) ||
+		lpsItem->CODE == (sinBI1 | sin36) || lpsItem->CODE == (sinBI1 | sin37) ||
+		lpsItem->CODE == (sinBI1 | sin38) || lpsItem->CODE == (sinBI1 | sin39) ||
+		lpsItem->CODE == (sinBI1 | sin40) || lpsItem->CODE == (sinBI1 | sin41) ||
+		lpsItem->CODE == (sinBI1 | sin42) || lpsItem->CODE == (sinBI1 | sin43) ||
+		lpsItem->CODE == (sinBI1 | sin44) || lpsItem->CODE == (sinBI1 | sin45) ||
+		lpsItem->CODE == (sinBI1 | sin46) || lpsItem->CODE == (sinBI1 | sin47) ||
+		lpsItem->CODE == (sinBI1 | sin48) || lpsItem->CODE == (sinBI1 | sin49) ||
+		lpsItem->CODE == (sinBI1 | sin50) || lpsItem->CODE == (sinBI1 | sin52) || // ¹ÚÀç¿ø - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡
+		lpsItem->CODE == (sinBI1 | sin53) || lpsItem->CODE == (sinBI1 | sin54) ||
 
-		lpsItem->CODE == (sinBI1|sin65) || lpsItem->CODE == (sinBI1|sin66) || // Àåº° - ºô¸µ µµ¿ì¹Ì Æê (7ÀÏ, 1ÀÏ)
-		lpsItem->CODE == (sinBI1|sin67) || lpsItem->CODE == (sinBI1|sin68) ||
-		lpsItem->CODE == (sinBI1|sin69) || lpsItem->CODE == (sinBI1|sin70) ||
-		lpsItem->CODE == (sinBI1|sin71) || lpsItem->CODE == (sinBI1|sin72) ||
-		lpsItem->CODE == (sinBI1|sin55) || lpsItem->CODE == (sinBI1|sin77) ||	// Àåº° - ÇÇ´Ð½ºÆê(1½Ã°£)
-		lpsItem->CODE == (sinBI1|sin62) || lpsItem->CODE == (sinBI1|sin63) ||	// ¹ÚÀç¿ø - ¿¡ÀÌÂ¡ ¸¶½ºÅÍ(2Â÷) ¾ÆÀÌÅÛ Ãß°¡ D, E
-		lpsItem->CODE == (sinBI1|sin64) ||										// ¹ÚÀç¿ø - ¿¡ÀÌÂ¡ ¸¶½ºÅÍ(2Â÷) ¾ÆÀÌÅÛ Ãß°¡ F
-		lpsItem->CODE == (sinBI1|sin73) || lpsItem->CODE == (sinBI1|sin74) || // Àåº° - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡(Å×¸® 1½Ã°£ ¿Ü 4Á¾)
-		lpsItem->CODE == (sinBI1|sin75) || lpsItem->CODE == (sinBI1|sin76) ) // Àåº° - ºô¸µ µµ¿ì¹Ì Æê (1½Ã°£)
+		lpsItem->CODE == (sinBI1 | sin65) || lpsItem->CODE == (sinBI1 | sin66) || // Àåº° - ºô¸µ µµ¿ì¹Ì Æê (7ÀÏ, 1ÀÏ)
+		lpsItem->CODE == (sinBI1 | sin67) || lpsItem->CODE == (sinBI1 | sin68) ||
+		lpsItem->CODE == (sinBI1 | sin69) || lpsItem->CODE == (sinBI1 | sin70) ||
+		lpsItem->CODE == (sinBI1 | sin71) || lpsItem->CODE == (sinBI1 | sin72) ||
+		lpsItem->CODE == (sinBI1 | sin55) || lpsItem->CODE == (sinBI1 | sin77) ||	// Àåº° - ÇÇ´Ð½ºÆê(1½Ã°£)
+		lpsItem->CODE == (sinBI1 | sin62) || lpsItem->CODE == (sinBI1 | sin63) ||	// ¹ÚÀç¿ø - ¿¡ÀÌÂ¡ ¸¶½ºÅÍ(2Â÷) ¾ÆÀÌÅÛ Ãß°¡ D, E
+		lpsItem->CODE == (sinBI1 | sin64) ||										// ¹ÚÀç¿ø - ¿¡ÀÌÂ¡ ¸¶½ºÅÍ(2Â÷) ¾ÆÀÌÅÛ Ãß°¡ F
+		lpsItem->CODE == (sinBI1 | sin73) || lpsItem->CODE == (sinBI1 | sin74) || // Àåº° - ºô¸µ µµ¿ì¹Ì Æê Ãß°¡(Å×¸® 1½Ã°£ ¿Ü 4Á¾)
+		lpsItem->CODE == (sinBI1 | sin75) || lpsItem->CODE == (sinBI1 | sin76)) // Àåº° - ºô¸µ µµ¿ì¹Ì Æê (1½Ã°£)
 	{
 		return FALSE;
 	}
@@ -11880,294 +7893,304 @@ int DeleteEventItem_TimeOut( sITEMINFO	*lpsItem )
 	DWORD NowTime = GetPlayTime_T(); // ÇöÀç ½Ã°£(second´ÜÀ§)
 
 	//ÇÑº¹ 14ÀÏ
-	if( lpsItem->CODE == (sinDA1|sin48) || lpsItem->CODE == (sinDA2|sin48) )
+	if (lpsItem->CODE == (sinDA1 | sin48) || lpsItem->CODE == (sinDA2 | sin48))
 	{
-		if( lpsItem->dwCreateTime+(60*60*24*14) < NowTime )
+		if (lpsItem->dwCreateTime + (60 * 60 * 24 * 14) < NowTime)
 			return true;
 	}
 	//ÄÚ½ºÆ¬ 7ÀÏ
-	if(  lpsItem->CODE == (sinDA1|sin31) || lpsItem->CODE == (sinDA1|sin33) ||
-		 lpsItem->CODE == (sinDA1|sin35) || lpsItem->CODE == (sinDA1|sin37) ||
-		 lpsItem->CODE == (sinDA1|sin39) || lpsItem->CODE == (sinDA1|sin41) ||
-		 lpsItem->CODE == (sinDA1|sin43) || lpsItem->CODE == (sinDA1|sin45) ||
-		 lpsItem->CODE == (sinDA2|sin31) || lpsItem->CODE == (sinDA2|sin33) ||
-		 lpsItem->CODE == (sinDA2|sin35) || lpsItem->CODE == (sinDA2|sin37) ||
-		 lpsItem->CODE == (sinDA2|sin39) || lpsItem->CODE == (sinDA2|sin41) ||
-		 lpsItem->CODE == (sinDA2|sin43) || lpsItem->CODE == (sinDA2|sin45) ||
-		 lpsItem->CODE == (sinDB1|sin31) || // ¹ÚÀç¿ø - ½ºÇÇµå ºÎÃ÷(7ÀÏ) Ãß°¡
-		 lpsItem->CODE == (sinOA2|sin31) || // ¹ÚÀç¿ø - ½´ÆÛ ¾Ï¸´(7ÀÏ) Ãß°¡
-		 lpsItem->CODE == (sinOR2|sin31) || // ¹ÚÀç¿ø - º¸½º ¸ó½ºÅÍ ¸µ Ãß°¡(¹Ùº§)
-		 lpsItem->CODE == (sinOR2|sin32) )  // ¹ÚÀç¿ø - º¸½º ¸ó½ºÅÍ ¸µ Ãß°¡(Ç»¸®)
+	if (lpsItem->CODE == (sinDA1 | sin31) || lpsItem->CODE == (sinDA1 | sin33) ||
+		lpsItem->CODE == (sinDA1 | sin35) || lpsItem->CODE == (sinDA1 | sin37) ||
+		lpsItem->CODE == (sinDA1 | sin39) || lpsItem->CODE == (sinDA1 | sin41) ||
+		lpsItem->CODE == (sinDA1 | sin43) || lpsItem->CODE == (sinDA1 | sin45) ||
+		lpsItem->CODE == (sinDA2 | sin31) || lpsItem->CODE == (sinDA2 | sin33) ||
+		lpsItem->CODE == (sinDA2 | sin35) || lpsItem->CODE == (sinDA2 | sin37) ||
+		lpsItem->CODE == (sinDA2 | sin39) || lpsItem->CODE == (sinDA2 | sin41) ||
+		lpsItem->CODE == (sinDA2 | sin43) || lpsItem->CODE == (sinDA2 | sin45) ||
+		lpsItem->CODE == (sinDB1 | sin31) || // ¹ÚÀç¿ø - ½ºÇÇµå ºÎÃ÷(7ÀÏ) Ãß°¡
+		lpsItem->CODE == (sinOA2 | sin31) || // ¹ÚÀç¿ø - ½´ÆÛ ¾Ï¸´(7ÀÏ) Ãß°¡
+		lpsItem->CODE == (sinOR2 | sin31) || // ¹ÚÀç¿ø - º¸½º ¸ó½ºÅÍ ¸µ Ãß°¡(¹Ùº§)
+		lpsItem->CODE == (sinOR2 | sin32))  // ¹ÚÀç¿ø - º¸½º ¸ó½ºÅÍ ¸µ Ãß°¡(Ç»¸®)
 	{
-		if( lpsItem->dwCreateTime+(60*60*24*7) < NowTime )
+		if (lpsItem->dwCreateTime + (60 * 60 * 24 * 7) < NowTime)
 			return true;
 	}
 	//ÄÚ½ºÆ¬ 30ÀÏ
-	if(  lpsItem->CODE == (sinDA1|sin32) || lpsItem->CODE == (sinDA1|sin34) ||
-		 lpsItem->CODE == (sinDA1|sin36) || lpsItem->CODE == (sinDA1|sin38) ||
-		 lpsItem->CODE == (sinDA1|sin40) || lpsItem->CODE == (sinDA1|sin42) || 
-		 lpsItem->CODE == (sinDA1|sin44) || lpsItem->CODE == (sinDA1|sin46) || 
-		 lpsItem->CODE == (sinDA1|sin54) || lpsItem->CODE == (sinDA1|sin55) || // ¹ÚÀç¿ø - ¼ö¿µº¹ º¹Àå Ãß°¡
-		 lpsItem->CODE == (sinDA2|sin32) || lpsItem->CODE == (sinDA2|sin34) ||
-		 lpsItem->CODE == (sinDA2|sin36) || lpsItem->CODE == (sinDA2|sin38) ||
-		 lpsItem->CODE == (sinDA2|sin40) || lpsItem->CODE == (sinDA2|sin42) ||
-		 lpsItem->CODE == (sinDA2|sin44) || lpsItem->CODE == (sinDA2|sin46) ||
-		 lpsItem->CODE == (sinDA2|sin54) || lpsItem->CODE == (sinDA2|sin55) || // ¹ÚÀç¿ø - ¼ö¿µº¹ º¹Àå Ãß°¡
-		 lpsItem->CODE == (sinDB1|sin32) || // ¹ÚÀç¿ø - ½ºÇÇµå ºÎÃ÷(30ÀÏ) Ãß°¡
-		 lpsItem->CODE == (sinOA2|sin32) || // ¹ÚÀç¿ø - ½´ÆÛ ¾Ï¸´(30ÀÏ) Ãß°¡
-		 lpsItem->CODE == (sinSP1|sin34) )  // ¹ÚÀç¿ø - È£¶ûÀÌ Ä¸½¶(30ÀÏ) Ãß°¡
+	if (lpsItem->CODE == (sinDA1 | sin32) || lpsItem->CODE == (sinDA1 | sin34) ||
+		lpsItem->CODE == (sinDA1 | sin36) || lpsItem->CODE == (sinDA1 | sin38) ||
+		lpsItem->CODE == (sinDA1 | sin40) || lpsItem->CODE == (sinDA1 | sin42) ||
+		lpsItem->CODE == (sinDA1 | sin44) || lpsItem->CODE == (sinDA1 | sin46) ||
+		lpsItem->CODE == (sinDA1 | sin54) || lpsItem->CODE == (sinDA1 | sin55) || // ¹ÚÀç¿ø - ¼ö¿µº¹ º¹Àå Ãß°¡
+		lpsItem->CODE == (sinDA2 | sin32) || lpsItem->CODE == (sinDA2 | sin34) ||
+		lpsItem->CODE == (sinDA2 | sin36) || lpsItem->CODE == (sinDA2 | sin38) ||
+		lpsItem->CODE == (sinDA2 | sin40) || lpsItem->CODE == (sinDA2 | sin42) ||
+		lpsItem->CODE == (sinDA2 | sin44) || lpsItem->CODE == (sinDA2 | sin46) ||
+		lpsItem->CODE == (sinDA2 | sin54) || lpsItem->CODE == (sinDA2 | sin55) || // ¹ÚÀç¿ø - ¼ö¿µº¹ º¹Àå Ãß°¡
+		lpsItem->CODE == (sinDB1 | sin32) || // ¹ÚÀç¿ø - ½ºÇÇµå ºÎÃ÷(30ÀÏ) Ãß°¡
+		lpsItem->CODE == (sinOA2 | sin32) || // ¹ÚÀç¿ø - ½´ÆÛ ¾Ï¸´(30ÀÏ) Ãß°¡
+		lpsItem->CODE == (sinSP1 | sin34))  // ¹ÚÀç¿ø - È£¶ûÀÌ Ä¸½¶(30ÀÏ) Ãß°¡
 
 	{
-		if( lpsItem->dwCreateTime+(60*60*24*30) < NowTime )
+		if (lpsItem->dwCreateTime + (60 * 60 * 24 * 30) < NowTime)
 			return true;
 	}
 
 	// 1ÀÏ
-	if(	lpsItem->CODE == ( sinDB1|sin33 ) || lpsItem->CODE == ( sinOA2|sin33 )) // Àåº° - ½ºÇÇµå ºÎÃ÷(1ÀÏ) Ãß°¡ // Àåº° - ½´ÆÛ ¾Ï¸´(1ÀÏ)
+	if (lpsItem->CODE == (sinDB1 | sin33) || lpsItem->CODE == (sinOA2 | sin33)) // Àåº° - ½ºÇÇµå ºÎÃ÷(1ÀÏ) Ãß°¡ // Àåº° - ½´ÆÛ ¾Ï¸´(1ÀÏ)
 	{
-		if( lpsItem->dwCreateTime+(60*60*24*1) < NowTime )
+		if (lpsItem->dwCreateTime + (60 * 60 * 24 * 1) < NowTime)
 			return true;
 	}
 
 	// 1½Ã°£
-	if(	lpsItem->CODE == ( sinDB1|sin34) || lpsItem->CODE == ( sinOA2|sin34 )) // Àåº° - ½ºÇÇµå ºÎÃ÷(1½Ã°£) Ãß°¡ // Àåº° - ½´ÆÛ ¾Ï¸´(1½Ã°£)
+	if (lpsItem->CODE == (sinDB1 | sin34) || lpsItem->CODE == (sinOA2 | sin34)) // Àåº° - ½ºÇÇµå ºÎÃ÷(1½Ã°£) Ãß°¡ // Àåº° - ½´ÆÛ ¾Ï¸´(1½Ã°£)
 	{
-		if( lpsItem->dwCreateTime+(60*60) < NowTime )
+		if (lpsItem->dwCreateTime + (60 * 60) < NowTime)
 			return true;
 	}
 
 	//ÀÛ¼ºÀÚ : ¹ÚÀç¿ø, ÀÛ¼ºÀÏ : 08.04.07
 	//³»  ¿ë : Å¬·£Ä¡ÇÁ ¸µ »ý¼ºÈÄ 5ÀÏÈÄ¿¡ »èÁ¦
-	if(lpsItem->CODE == (sinOR2|sin06) || lpsItem->CODE == (sinOR2|sin07) ||
-	   lpsItem->CODE == (sinOR2|sin08) || lpsItem->CODE == (sinOR2|sin09) ||
-	   lpsItem->CODE == (sinOR2|sin10) || lpsItem->CODE == (sinOR2|sin11) ||
-	   lpsItem->CODE == (sinOR2|sin12) || lpsItem->CODE == (sinOR2|sin13) ||
-	   lpsItem->CODE == (sinOR2|sin14) || lpsItem->CODE == (sinOR2|sin15) ||
-	   lpsItem->CODE == (sinOR2|sin16) || lpsItem->CODE == (sinOR2|sin17) ||
-	   lpsItem->CODE == (sinOR2|sin18) || lpsItem->CODE == (sinOR2|sin19) ||
-	   lpsItem->CODE == (sinOR2|sin20) || lpsItem->CODE == (sinOR2|sin21) ||
-	   lpsItem->CODE == (sinOR2|sin22) || lpsItem->CODE == (sinOR2|sin23) ||
-	   lpsItem->CODE == (sinOR2|sin24) || lpsItem->CODE == (sinOR2|sin25))
+	if (lpsItem->CODE == (sinOR2 | sin06) || lpsItem->CODE == (sinOR2 | sin07) ||
+		lpsItem->CODE == (sinOR2 | sin08) || lpsItem->CODE == (sinOR2 | sin09) ||
+		lpsItem->CODE == (sinOR2 | sin10) || lpsItem->CODE == (sinOR2 | sin11) ||
+		lpsItem->CODE == (sinOR2 | sin12) || lpsItem->CODE == (sinOR2 | sin13) ||
+		lpsItem->CODE == (sinOR2 | sin14) || lpsItem->CODE == (sinOR2 | sin15) ||
+		lpsItem->CODE == (sinOR2 | sin16) || lpsItem->CODE == (sinOR2 | sin17) ||
+		lpsItem->CODE == (sinOR2 | sin18) || lpsItem->CODE == (sinOR2 | sin19) ||
+		lpsItem->CODE == (sinOR2 | sin20) || lpsItem->CODE == (sinOR2 | sin21) ||
+		lpsItem->CODE == (sinOR2 | sin22) || lpsItem->CODE == (sinOR2 | sin23) ||
+		lpsItem->CODE == (sinOR2 | sin24) || lpsItem->CODE == (sinOR2 | sin25))
 	{
 		// »ý¼º½Ã°£ + 5ÀÏ < ÇöÀç½Ã°£
-		if( lpsItem->dwCreateTime+(60*60*24*5) < NowTime )
+		if (lpsItem->dwCreateTime + (60 * 60 * 24 * 5) < NowTime)
 			return TRUE;
 	}
 
 	//ÀÛ¼ºÀÚ : ¹ÚÀç¿ø, ÀÛ¼ºÀÏ : 09.12.08
 	//³»  ¿ë : »êÅ¸ ¸µ, »êÅ¸ ¾Æ¹Ä·¿ »ý¼ºÈÄ 3ÀÏ ÈÄ¿¡ »èÁ¦
-	if( lpsItem->CODE == (sinOR2|sin27) || lpsItem->CODE == (sinOA1|sin32) )  // »êÅ¸ ¸µ, »êÅ¸ ¾Æ¹Ä·¿ Ãß°¡
+	if (lpsItem->CODE == (sinOR2 | sin27) || lpsItem->CODE == (sinOA1 | sin32))  // »êÅ¸ ¸µ, »êÅ¸ ¾Æ¹Ä·¿ Ãß°¡
 	{
-	//	if( lpsItem->dwCreateTime+0 < NowTime ) // ¹ÚÀç¿ø : »êÅ¸¸µ, »êÅ¸¾Æ¹Ä·¿ÀÌ ¹Í½ºÃÄµÇ¸é¼­ ½Ã°£ÀÌ ÃÊ±âÈ­ µÇ¾î °­Á¦·Î »èÁ¦½ÃÅ°±â À§ÇÔ.
-		// »ý¼º½Ã°£ + 3ÀÏ < ÇöÀç½Ã°£
-		if( lpsItem->dwCreateTime+(60*60*24*3) < NowTime ) 
+		//	if( lpsItem->dwCreateTime+0 < NowTime ) // ¹ÚÀç¿ø : »êÅ¸¸µ, »êÅ¸¾Æ¹Ä·¿ÀÌ ¹Í½ºÃÄµÇ¸é¼­ ½Ã°£ÀÌ ÃÊ±âÈ­ µÇ¾î °­Á¦·Î »èÁ¦½ÃÅ°±â À§ÇÔ.
+			// »ý¼º½Ã°£ + 3ÀÏ < ÇöÀç½Ã°£
+		if (lpsItem->dwCreateTime + (60 * 60 * 24 * 3) < NowTime)
 			return TRUE;
 	}
 
 	//ÀÛ¼ºÀÚ : ¹ÚÀç¿ø, ÀÛ¼ºÀÏ : 09.07.31
 	//³»  ¿ë : ÀÌº¥Æ® ¸µ, ÀÌº¥Æ® ¾Æ¹Ä·¿ »ý¼ºÈÄ 7ÀÏ ÈÄ¿¡ »èÁ¦
-	if( lpsItem->CODE == (sinOR2|sin28) || lpsItem->CODE == (sinOA1|sin33) )  // ÀÌº¥Æ® ¸µ, ÀÌº¥Æ® ¾Æ¹Ä·¿ Ãß°¡
+	if (lpsItem->CODE == (sinOR2 | sin28) || lpsItem->CODE == (sinOA1 | sin33))  // ÀÌº¥Æ® ¸µ, ÀÌº¥Æ® ¾Æ¹Ä·¿ Ãß°¡
 	{
 		// »ý¼º½Ã°£ + 7ÀÏ < ÇöÀç½Ã°£
-		if( lpsItem->dwCreateTime+(60*60*24*7) < NowTime ) 
+		if (lpsItem->dwCreateTime + (60 * 60 * 24 * 7) < NowTime)
 			return TRUE;
 	}
 
 	//ÀÛ¼ºÀÚ : ¹ÚÀç¿ø, ÀÛ¼ºÀÏ : 09.12.17
 	//³»  ¿ë : ÀÌº¥Æ® ¸µ, ÀÌº¥Æ® ¾Æ¹Ä·¿ »ý¼ºÈÄ 1½Ã°£ ÈÄ¿¡ »èÁ¦
-	if( lpsItem->CODE == (sinOR2|sin29) || lpsItem->CODE == (sinOA1|sin34) )  // ÀÌº¥Æ® ¸µ, ÀÌº¥Æ® ¾Æ¹Ä·¿ Ãß°¡
+	if (lpsItem->CODE == (sinOR2 | sin29) || lpsItem->CODE == (sinOA1 | sin34))  // ÀÌº¥Æ® ¸µ, ÀÌº¥Æ® ¾Æ¹Ä·¿ Ãß°¡
 	{
 		//	if( lpsItem->dwCreateTime+0 < NowTime ) // ¹ÚÀç¿ø - ÀÌº¥Æ®¸µ, ÀÌº¥Æ®¾Æ¹Ä·¿ °­Á¦·Î »èÁ¦½ÃÅ°±â À§ÇÔ.
 		//		return TRUE;
 		// »ý¼º½Ã°£ + 1½Ã°£ < ÇöÀç½Ã°£
-		if( lpsItem->dwCreateTime+(60*60) < NowTime ) 
+		if (lpsItem->dwCreateTime + (60 * 60) < NowTime)
 			return TRUE;
 	}
 
 	//ÀÛ¼ºÀÚ : ¹ÚÀç¿ø, ÀÛ¼ºÀÏ : 09.12.17
 	//³»  ¿ë : ÀÌº¥Æ® ¸µ, ÀÌº¥Æ® ¾Æ¹Ä·¿ »ý¼ºÈÄ 1ÀÏ ÈÄ¿¡ »èÁ¦
-	if( lpsItem->CODE == (sinOR2|sin30) || lpsItem->CODE == (sinOA1|sin35) )  // ÀÌº¥Æ® ¸µ, ÀÌº¥Æ® ¾Æ¹Ä·¿ Ãß°¡
+	if (lpsItem->CODE == (sinOR2 | sin30) || lpsItem->CODE == (sinOA1 | sin35))  // ÀÌº¥Æ® ¸µ, ÀÌº¥Æ® ¾Æ¹Ä·¿ Ãß°¡
 	{
 		//	if( lpsItem->dwCreateTime+0 < NowTime ) // ¹ÚÀç¿ø - ÀÌº¥Æ®¸µ, ÀÌº¥Æ®¾Æ¹Ä·¿ °­Á¦·Î »èÁ¦½ÃÅ°±â À§ÇÔ.
 		//		return TRUE;
 		// »ý¼º½Ã°£ + 1ÀÏ < ÇöÀç½Ã°£
-		if( lpsItem->dwCreateTime+(60*60*24) < NowTime ) 
+		if (lpsItem->dwCreateTime + (60 * 60 * 24) < NowTime)
 			return TRUE;
 	}
 
 	//ÀÛ¼ºÀÚ : Àåº°, ÀÛ¼ºÀÏ : 10.02.02
 	//³»  ¿ë : ÇÏÆ®¸µ »ý¼ºÈÄ 7ÀÏ ÈÄ¿¡ »èÁ¦
-	if( lpsItem->CODE == (sinOR2|sin33) )  // ÇÏÆ®¸µ Ãß°¡
+	if (lpsItem->CODE == (sinOR2 | sin33))  // ÇÏÆ®¸µ Ãß°¡
 	{
 		//	if( lpsItem->dwCreateTime+0 < NowTime ) // ¹ÚÀç¿ø - ÀÌº¥Æ®¸µ, ÀÌº¥Æ®¾Æ¹Ä·¿ °­Á¦·Î »èÁ¦½ÃÅ°±â À§ÇÔ.
 		//		return TRUE;
 		// »ý¼º½Ã°£ + 7ÀÏ < ÇöÀç½Ã°£
-		if( lpsItem->dwCreateTime+(60*60*24*7) < NowTime ) 
+		if (lpsItem->dwCreateTime + (60 * 60 * 24 * 7) < NowTime)
 			return TRUE;
 	}
 
 
 	// 7ÀÏ
-	if(	lpsItem->CODE == ( sinOA1|sin36 ) || lpsItem->CODE == ( sinOA1|sin37) || // Àåº° - ´«²É ¾Æ¹Ä·¿, ÇÏÆ® ¾Æ¹Ä·¿
-		lpsItem->CODE == ( sinOR2|sin36 ) || lpsItem->CODE == ( sinOR2|sin37) || // Àåº° - ¼Ò¿ï½ºÅæ
-		lpsItem->CODE == ( sinOR2|sin38 ) || lpsItem->CODE == ( sinOR2|sin39) ||
-		lpsItem->CODE == ( sinOR2|sin40 ) )
+	if (lpsItem->CODE == (sinOA1 | sin36) || lpsItem->CODE == (sinOA1 | sin37) || // Àåº° - ´«²É ¾Æ¹Ä·¿, ÇÏÆ® ¾Æ¹Ä·¿
+		lpsItem->CODE == (sinOR2 | sin36) || lpsItem->CODE == (sinOR2 | sin37) || // Àåº° - ¼Ò¿ï½ºÅæ
+		lpsItem->CODE == (sinOR2 | sin38) || lpsItem->CODE == (sinOR2 | sin39) ||
+		lpsItem->CODE == (sinOR2 | sin40))
 	{
-		if( lpsItem->dwCreateTime+(60*60*24*7) < NowTime )
+		if (lpsItem->dwCreateTime + (60 * 60 * 24 * 7) < NowTime)
 			return TRUE;
 	}
 
 	// Àåº° - ¼Ò¿ï½ºÅæ 14ÀÏ // Àåº° - º¹³¯ ÀÌº¥Æ® ¾Æ¹Ä·¿, ¸µ
-	if(	lpsItem->CODE == ( sinOA1|sin39) ||
-		lpsItem->CODE == ( sinOA1|sin40 ) || lpsItem->CODE == ( sinOA1|sin41) ||
-		lpsItem->CODE == ( sinOA1|sin42 ) || 
-		lpsItem->CODE == ( sinOA1|sin38 ) || lpsItem->CODE == ( sinOR2|sin34) || lpsItem->CODE == ( sinOR2|sin35 ) )
+	if (lpsItem->CODE == (sinOA1 | sin39) ||
+		lpsItem->CODE == (sinOA1 | sin40) || lpsItem->CODE == (sinOA1 | sin41) ||
+		lpsItem->CODE == (sinOA1 | sin42) ||
+		lpsItem->CODE == (sinOA1 | sin38) || lpsItem->CODE == (sinOR2 | sin34) || lpsItem->CODE == (sinOR2 | sin35))
 	{
-		if( lpsItem->dwCreateTime+(60*60*24*14) < NowTime )
+		if (lpsItem->dwCreateTime + (60 * 60 * 24 * 14) < NowTime)
 			return TRUE;
 	}
 
-	
+
 
 	//(ÁöÁ¸¹ÝÁö , ÆÛÁñµîÀº ³¯Â¥ È®ÀÎÇÏ¿© Á¦°Å)
-	if ( lpsItem->CODE!=(sinOR2|sin01) &&
-		dwItemCode!=sinPZ1 && dwItemCode!=sinPZ2 ) 
+	if (lpsItem->CODE != (sinOR2 | sin01) &&
+		dwItemCode != sinPZ1 && dwItemCode != sinPZ2)
 		return FALSE;
 
 #ifdef _LANGUAGE_THAI_DELETE_RING
-		if(lpsItem->CODE==(sinOR2|sin01)) return TRUE;
+	if (lpsItem->CODE == (sinOR2 | sin01)) return TRUE;
 #endif
 
 	tm.tm_year = 2004 - 1900;	// 2004³â
-	tm.tm_mon = 4-1;			// 4¿ù
+	tm.tm_mon = 4 - 1;			// 4¿ù
 	tm.tm_mday = 1;			// 1ÀÏ
 	tm.tm_hour = 15;			// 15½Ã
 	tm.tm_min = 30;				// 30ºÐ
 	tm.tm_sec = 0;				// 0ÃÊ
-	ttm = mktime( &tm );		//Á¦ÇÑ ½Ã°£
+	ttm = mktime(&tm);		//Á¦ÇÑ ½Ã°£
 
 	dwCreateTime = (DWORD)ttm;
 
-	if ( lpsItem->dwCreateTime<dwCreateTime ) return TRUE;
+	if (lpsItem->dwCreateTime < dwCreateTime) return TRUE;
 
 	return FALSE;
 }
 
-int RecvSodGameInfomation( void *Info )
+int RecvSodGameInfomation(void *Info)
 {
 	smTRANS_COMMAND_SOD	*lpTransCommand = (smTRANS_COMMAND_SOD *)Info;
 
-	if ( !BellatraEffectInitFlag ) {
+	if (!BellatraEffectInitFlag)
+	{
 		CreateBellatraFontEffect();
 		BellatraEffectInitFlag = TRUE;
 	}
 
-	switch( lpTransCommand->smTransCommand.WParam ) {
+	switch (lpTransCommand->smTransCommand.WParam)
+	{
 		case 1:
-			if ( SoD_SetFontEffect.eBL_Type==E_BL_LODING ) {
-				CheckBellatraFontEffect( &SoD_SetFontEffect , TRUE );	//·Îµù Á¾·á
+			if (SoD_SetFontEffect.eBL_Type == E_BL_LODING)
+			{
+				CheckBellatraFontEffect(&SoD_SetFontEffect, TRUE);	//·Îµù Á¾·á
 			}
 
-			if ( lpTransCommand->smTransCommand.SParam<0 ) {
+			if (lpTransCommand->smTransCommand.SParam < 0)
+			{
 				//SoD ¶ó¿îµå ÀÌÆåÆ®
 				//Sod_SodEffect( lpTransCommand->smTransCommand.LParam+1 );
-				sSodScore.EffectStartCount = 70*3;
-				sSodScore.EffectCode = lpTransCommand->smTransCommand.LParam+1;
+				sSodScore.EffectStartCount = 70 * 3;
+				sSodScore.EffectCode = lpTransCommand->smTransCommand.LParam + 1;
 			}
-			else {
-				if ( lpCurPlayer->MotionInfo->State==CHRMOTION_STATE_DEAD ) break;		//Á×Àº°æ¿ì ¹«½Ã
+			else
+			{
+				if (lpCurPlayer->MotionInfo->State == CHRMOTION_STATE_DEAD) break;		//Á×Àº°æ¿ì ¹«½Ã
 
 				sSodScore.SodNextStageNum = lpTransCommand->smTransCommand.SParam;
-				sSodScore.dwSoD_NextStageTime = dwPlayTime+9000;
-				sSodScore.dwSoD_CloseStageTime = dwPlayTime+5000;
-				sSodScore.NextRound = lpTransCommand->smTransCommand.LParam+1;
+				sSodScore.dwSoD_NextStageTime = dwPlayTime + 9000;
+				sSodScore.dwSoD_CloseStageTime = dwPlayTime + 5000;
+				sSodScore.NextRound = lpTransCommand->smTransCommand.LParam + 1;
 
 				StopBGM();
-				esPlayContSound( 14 );
+				esPlayContSound(14);
 				lpCurPlayer->SetMotionFromCode(CHRMOTION_STATE_YAHOO);
 
-				SetBellatraFontEffect( E_BL_FONT_STAGE );
-				SetBellatraFontEffect( E_BL_FONT_COMPLETE );
+				SetBellatraFontEffect(E_BL_FONT_STAGE);
+				SetBellatraFontEffect(E_BL_FONT_COMPLETE);
 				SoDGateFlag = TRUE;
 			}
 			break;
 
 		case 3:
 			//½ÇÆÐ µ¹¾Æ°¡±â
-			if ( lpCurPlayer->MotionInfo->State==CHRMOTION_STATE_DEAD ) break;		//Á×Àº°æ¿ì ¹«½Ã
+			if (lpCurPlayer->MotionInfo->State == CHRMOTION_STATE_DEAD) break;		//Á×Àº°æ¿ì ¹«½Ã
 
 			sSodScore.SodNextStageNum = -1;
-			sSodScore.dwSoD_NextStageTime = dwPlayTime+8000;
-			sSodScore.dwSoD_CloseStageTime = dwPlayTime+6000;
+			sSodScore.dwSoD_NextStageTime = dwPlayTime + 8000;
+			sSodScore.dwSoD_CloseStageTime = dwPlayTime + 6000;
 			sSodScore.NextRound = -1;
 
 			StopBGM();
-			esPlayContSound( 15 );
+			esPlayContSound(15);
 
-			SetBellatraFontEffect( E_BL_FONT_STAGE );
-			SetBellatraFontEffect( E_BL_FONT_FAIL );
+			SetBellatraFontEffect(E_BL_FONT_STAGE);
+			SetBellatraFontEffect(E_BL_FONT_FAIL);
 			SoDGateFlag = TRUE;
 			break;
 
 		case 4:
 			//¸ðµÎ Å¬¸®¾î
-			if ( lpCurPlayer->MotionInfo->State==CHRMOTION_STATE_DEAD ) break;		//Á×Àº°æ¿ì ¹«½Ã
+			if (lpCurPlayer->MotionInfo->State == CHRMOTION_STATE_DEAD) break;		//Á×Àº°æ¿ì ¹«½Ã
 
 			sSodScore.SodNextStageNum = lpTransCommand->smTransCommand.SParam;
-			sSodScore.dwSoD_NextStageTime = dwPlayTime+7000;
-			sSodScore.NextRound = lpTransCommand->smTransCommand.LParam+1;
+			sSodScore.dwSoD_NextStageTime = dwPlayTime + 7000;
+			sSodScore.NextRound = lpTransCommand->smTransCommand.LParam + 1;
 
 			StopBGM();
-			esPlayContSound( 16 );
+			esPlayContSound(16);
 			lpCurPlayer->SetMotionFromCode(CHRMOTION_STATE_YAHOO);
 
 			//SetBellatraFontEffect( E_BL_FONT_STAGE );
-			SetBellatraFontEffect( E_BL_FONT_CON );
+			SetBellatraFontEffect(E_BL_FONT_CON);
 			SoDGateFlag = FALSE;
 
 			//È¹µæÇÑ ±Ý¾× Ãâ·Â
 			char szBuff[128];
-			wsprintf( szBuff , mgSOD_Clear , lpTransCommand->smTransCommand.EParam );
+			wsprintf(szBuff, mgSOD_Clear, lpTransCommand->smTransCommand.EParam);
 			cMessageBox.ShowMessageEvent(szBuff);
 
 			break;
 
 		case 2:
 			//Á¡¼ö ¸ñ·Ï ¹ÞÀ½
-			if ( lpTransCommand->smTransCommand.LParam ) {
+			if (lpTransCommand->smTransCommand.LParam)
+			{
 				//³»Á¡¼ö È¹µæ¿¡ ÀÇÇÑ Á¡¼ö ¹ÞÀ½
 				sSodScore.ScoreEffectCount = 255;
 
 			}
-			else {
+			else
+			{
 				//ÁÖ±âÀûÀ¸·Î º¸³»Áö´Â ÀüÃ¼ Á¡¼ö
 
 
 			}
 
-			if ( !sSodScore.dwSoD_NextStageTime ) {
-				if ( sSodScore.Round!=lpTransCommand->smTransCommand.SParam ) {
-					switch( lpTransCommand->smTransCommand.SParam ) {
-					case 1:		//1¶ó¿îµå ½ÃÀÛ
-						sSodScore.dwPlayTime = dwPlayTime;
-						PlayBGM_Direct( BGM_CODE_SOD1 );
-						break;
+			if (!sSodScore.dwSoD_NextStageTime)
+			{
+				if (sSodScore.Round != lpTransCommand->smTransCommand.SParam)
+				{
+					switch (lpTransCommand->smTransCommand.SParam)
+					{
+						case 1:		//1¶ó¿îµå ½ÃÀÛ
+							sSodScore.dwPlayTime = dwPlayTime;
+							PlayBGM_Direct(BGM_CODE_SOD1);
+							break;
 
-					case 4:
-						PlayBGM_Direct( BGM_CODE_SOD2 );
-						break;
+						case 4:
+							PlayBGM_Direct(BGM_CODE_SOD2);
+							break;
 
-					case 7:
-						PlayBGM_Direct( BGM_CODE_SOD3 );
-						break;
+						case 7:
+							PlayBGM_Direct(BGM_CODE_SOD3);
+							break;
 					}
 				}
-				sSodScore.Round  = lpTransCommand->smTransCommand.SParam;
+				sSodScore.Round = lpTransCommand->smTransCommand.SParam;
 			}
 
-			sSodScore.dwDispTime = dwPlayTime+10*1000;
+			sSodScore.dwDispTime = dwPlayTime + 10 * 1000;
 			sSodScore.MyTeam = lpTransCommand->MyTeam;
-			sSodScore.Score  = lpTransCommand->MyScore;
+			sSodScore.Score = lpTransCommand->MyScore;
 			sSodScore.TeamScore[0] = lpTransCommand->TeamScore[0];
 			sSodScore.TeamScore[1] = lpTransCommand->TeamScore[1];
 			sSodScore.TeamScore[2] = lpTransCommand->TeamScore[2];
@@ -12176,7 +8199,8 @@ int RecvSodGameInfomation( void *Info )
 			break;
 
 		case smCODE_SOD_EFFECT:					//ÁÖ¹® ½Ã½ºÅÛ Ãß°¡ - SOD ÀÌÆåÆ® Àç»ç¿ë
-			if ( !BellatraEffectInitFlag ) {
+			if (!BellatraEffectInitFlag)
+			{
 				CreateBellatraFontEffect();
 				BellatraEffectInitFlag = TRUE;
 			}
@@ -12189,56 +8213,31 @@ int RecvSodGameInfomation( void *Info )
 }
 
 //Æ÷½º¿Àºê ¾ÆÀÌÅÛ ÀÔ¼ö
-int RecvForceOrbItem( TRANS_ITEMINFO_GROUP2 *lpTransItemGroup2 )
+int RecvForceOrbItem(TRANS_ITEMINFO_GROUP2 *lpTransItemGroup2)
 {
 	TRANS_ITEMINFO_GROUP	TransItemGroup;
 
-	ZeroMemory( &TransItemGroup , sizeof(TRANS_ITEMINFO_GROUP) );
-	memcpy( &TransItemGroup , lpTransItemGroup2 , TRANS_GROUPITEM_HEADER_SIZE );
+	ZeroMemory(&TransItemGroup, sizeof(TRANS_ITEMINFO_GROUP));
+	memcpy(&TransItemGroup, lpTransItemGroup2, TRANS_GROUPITEM_HEADER_SIZE);
 
-	DecodeCompress( (BYTE *)lpTransItemGroup2->szBuff , (BYTE *)TransItemGroup.sItemInfo , sizeof(sITEMINFO)*TRANS_GROUPITEM_MAX );
+	DecodeCompress((BYTE *)lpTransItemGroup2->szBuff, (BYTE *)TransItemGroup.sItemInfo, sizeof(sITEMINFO)*TRANS_GROUPITEM_MAX);
 
 	//¹Ú»ó·Ä ÇÔ¼ö È£Ãâ
 	//Æ÷½º ¾ÆÀÌÅÛÀ» ¹Þ´Â´Ù
-	sinRecvForceOrb(TransItemGroup.sItemInfo , TransItemGroup.ItemCount);
+	sinRecvForceOrb(TransItemGroup.sItemInfo, TransItemGroup.ItemCount);
 
 
 	return TRUE;
 }
 
 //Äù½ºÆ® ¸í·É º¸³»±â
-int SendQuestCommandToServer( DWORD dwQuestCode , int Param1, int Param2, int Param3 )
+int SendQuestCommandToServer(DWORD dwQuestCode, int Param1, int Param2, int Param3)
 {
-
-	smTRANS_COMMAND	smTransCommand;
-	int	result = 0;
-	smWINSOCK *lpsmSock;
-
-	smTransCommand.size = sizeof(smTRANS_COMMAND);
-	smTransCommand.code = 	smTRANSCODE_QUEST_COMMAND;
-	smTransCommand.WParam = dwQuestCode;
-	smTransCommand.LParam = Param1;
-	smTransCommand.SParam = Param2;
-	smTransCommand.EParam = Param3;
-
-	if ( dwQuestCode>=HAQUEST_CODE_ELEMENTARY_A && dwQuestCode<=HAQUEST_CODE_FURYOFPHANTOM ) {
-		lpsmSock = smWsockDataServer;
-		if ( lpsmSock ) 
-			result = lpsmSock->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
-
-		return result;
-	}
-
-	lpsmSock = smWsockServer;
-	if ( lpsmSock ) 
-		result = lpsmSock->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
-
-
-	return result;
+	Log::Debug("SendQuestCommandToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 //´ëÀü Äù½ºÆ® ½ÇÇà
-int Start_QuestArena( DWORD dwQuestCode , int Param1, int Param2 )
+int Start_QuestArena(DWORD dwQuestCode, int Param1, int Param2)
 {
 	smTRANS_COMMAND	smTransCommand;
 	int	result = 0;
@@ -12246,19 +8245,19 @@ int Start_QuestArena( DWORD dwQuestCode , int Param1, int Param2 )
 
 	//if ( dwQuestCode==SIN_QUEST_CODE_CHANGEJOB4 ) {
 
-		smTransCommand.size = sizeof(smTRANS_COMMAND);
-		smTransCommand.code = 	smTRANSCODE_QUEST_COMMAND;
-		smTransCommand.WParam = dwQuestCode;
-		smTransCommand.LParam = QUEST_ARENA_FIELD;
-		smTransCommand.SParam = Param1;
-		smTransCommand.EParam = Param2;
+	smTransCommand.size = sizeof(smTRANS_COMMAND);
+	smTransCommand.code = smTRANSCODE_QUEST_COMMAND;
+	smTransCommand.WParam = dwQuestCode;
+	smTransCommand.LParam = QUEST_ARENA_FIELD;
+	smTransCommand.SParam = Param1;
+	smTransCommand.EParam = Param2;
 
-		lpsmSock = GetAreaServerSock();
-		if ( lpsmSock ) 
-			result = lpsmSock->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
+	lpsmSock = GetAreaServerSock();
+	if (lpsmSock)
+		result = lpsmSock->Send2((char *)&smTransCommand, smTransCommand.size, TRUE);
 
-		if ( result )
-			WarpField2( QUEST_ARENA_FIELD ); 
+	if (result)
+		WarpField2(QUEST_ARENA_FIELD);
 
 	//}
 
@@ -12266,55 +8265,42 @@ int Start_QuestArena( DWORD dwQuestCode , int Param1, int Param2 )
 }
 
 //ºí·¡½ºÄ³½½ ¼³Á¤Á¤º¸ ¼­¹ö¿¡ º¸³¿
-int	SendBlessCastleToServer( smTRANS_BLESSCASTLE *lpBlessCastleSetup , int Mode )
+int	SendBlessCastleToServer(smTRANS_BLESSCASTLE *lpBlessCastleSetup, int Mode)
 {
-	smWINSOCK *lpsmSock;
-
-	lpBlessCastleSetup->smTransCommand.size = sizeof(smTRANS_BLESSCASTLE);
-	lpBlessCastleSetup->smTransCommand.code = smTRANSCODE_BLESSCASTLE_INFO;
-	lpBlessCastleSetup->smTransCommand.WParam = 1;
-	lpBlessCastleSetup->smTransCommand.LParam = Mode;
-	lpBlessCastleSetup->smTransCommand.SParam = 0;
-	lpBlessCastleSetup->smTransCommand.EParam = 0;
-
-	lpsmSock = GetAreaServerSock();
-	if ( lpsmSock ) 
-		return lpsmSock->Send2( (char *)lpBlessCastleSetup , lpBlessCastleSetup->smTransCommand.size , TRUE );
-
-	return FALSE;
+	Log::Debug("SendBlessCastleToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
-//ºí·¡½ºÄ³½½ ¼¼À² Á¤º¸ ¼­¹ö¿¡ ¿ä±¸
 int	Send_GetBlessCastleTax()
 {
 	smTRANS_COMMAND	smTransCommand;
 
-	ZeroMemory( &smTransCommand , sizeof(smTRANS_COMMAND) );
+	ZeroMemory(&smTransCommand, sizeof(smTRANS_COMMAND));
 
 	smTransCommand.code = smTRANSCODE_BLESSCASTLE_INFO;
 	smTransCommand.size = sizeof(smTRANS_COMMAND);
 	smTransCommand.SParam = cSinSiege.GetTaxRate();
 
-	if ( smWsockDataServer )
-		return smWsockDataServer->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
+	if (smWsockDataServer)
+		return smWsockDataServer->Send2((char *)&smTransCommand, smTransCommand.size, TRUE);
 
 	return FALSE;
 }
 //ºí·¡½ºÄ³½½ ¼³Á¤Á¤º¸ ¼ö½Å
-int RecvBlessCastInfo( void *lpPacket )
+int RecvBlessCastInfo(void *lpPacket)
 {
-	smTRANS_BLESSCASTLE *lpBlessCastleSetup=(smTRANS_BLESSCASTLE *)lpPacket;
+	smTRANS_BLESSCASTLE *lpBlessCastleSetup = (smTRANS_BLESSCASTLE *)lpPacket;
 	rsUSER_LIST_TOP10	*lpClanListTop10;
 
-	switch( lpBlessCastleSetup->smTransCommand.WParam ) {
+	switch (lpBlessCastleSetup->smTransCommand.WParam)
+	{
 		case 1:		//¼³Á¤Á¤º¸ ¼ö½Å
-			chaSiege.ShowSiegeMenu( lpBlessCastleSetup );
+			chaSiege.ShowSiegeMenu(lpBlessCastleSetup);
 			break;
 
 		case 2:		//¼øÀ§ Á¤º¸ ¼ö½Å
 			lpClanListTop10 = (rsUSER_LIST_TOP10 *)lpPacket;
 			//¼øÀ§ Ãâ·Â ÇÔ¼ö È£Ãâ
-			chaSiege.ShowSiegeScore( lpClanListTop10 );
+			chaSiege.ShowSiegeScore(lpClanListTop10);
 			break;
 	}
 
@@ -12322,16 +8308,19 @@ int RecvBlessCastInfo( void *lpPacket )
 }
 
 //ºí·¹½º Ä³½½ ¸¶½ºÅÍ Å¬·£ ¼³Á¤
-int SetBlessCastleMaster( DWORD dwClanCode , int Mode )
+int SetBlessCastleMaster(DWORD dwClanCode, int Mode)
 {
 
-	if ( !Mode && lpCurPlayer->OnStageField>=0 && StageField[lpCurPlayer->OnStageField]->FieldCode==rsCASTLE_FIELD ) {
+	if (!Mode && lpCurPlayer->OnStageField >= 0 && StageField[lpCurPlayer->OnStageField]->FieldCode == rsCASTLE_FIELD)
+	{
 
 	}
-	else  {
-		if ( rsBlessCastle.dwMasterClan!=dwClanCode) {
+	else
+	{
+		if (rsBlessCastle.dwMasterClan != dwClanCode)
+		{
 			//Ä³½½ ¸¶½ºÅÍ ¾÷µ¥ÀÌÆ®
-			UpdateCastleMasterClan( rsBlessCastle.dwMasterClan );
+			UpdateCastleMasterClan(rsBlessCastle.dwMasterClan);
 		}
 
 		rsBlessCastle.dwMasterClan = dwClanCode;
@@ -12343,385 +8332,48 @@ int SetBlessCastleMaster( DWORD dwClanCode , int Mode )
 //¼Ó¼ºÁ¤º¸ ¼­¹ö·Î Àü¼Û
 int	SendResistanceToServer()
 {
-	smTRANS_RESISTANCE	smTransResistance;
-	smWINSOCK *lpsmSock;
-
-	dwResistance_SendingTime = dwPlayTime;
-
-	smTransResistance.code = smTRANSCODE_RESISTANCE;
-	smTransResistance.size = sizeof(smTRANS_RESISTANCE);
-	smTransResistance.Param = 0;
-	memcpy( smTransResistance.Resistance , lpCurPlayer->smCharInfo.Resistance , sizeof(short)*8 );
-	smTransResistance.Absorb = lpCurPlayer->smCharInfo.Absorption;
-
-	lpsmSock = GetAreaServerSock();
-	if ( lpsmSock ) 
-		return lpsmSock->Send2( (char *)&smTransResistance , smTransResistance.size , TRUE );
-
-	return FALSE;
+	Log::Debug("SendResistanceToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
 //¼³¹®Á¶»ç °á°ú ¼­¹ö¿¡ º¸³»±â
-int	SendPublicPollingToServer( int PollCode , int PollCnt , BYTE *bPollingData )
+int	SendPublicPollingToServer(int PollCode, int PollCnt, BYTE *bPollingData)
 {
-	smTRANS_COMMAND_POLLING	smTransPolling;
-
-	ZeroMemory( &smTransPolling , sizeof(smTRANS_COMMAND_POLLING) );
-
-	smTransPolling.smTransCommand.code = smTRANSCODE_PUBLIC_POLLING;
-	smTransPolling.smTransCommand.size = sizeof( smTRANS_COMMAND_POLLING );
-	smTransPolling.smTransCommand.WParam = PollCode;
-	smTransPolling.smTransCommand.LParam = PollCnt;
-	memcpy( smTransPolling.bPolling , bPollingData , PollCnt ); 
-
-	if ( smWsockDataServer )
-		smWsockDataServer->Send2( (char *)&smTransPolling , smTransPolling.smTransCommand.size , TRUE );
-
-
+	Log::Debug("SendPublicPollingToServer : Requisitado porém foi removido.");
+	return NULL;
+}
+int XTrap_Recv(smTRANS_COMMAND *lpPacket, smWINSOCK *lpsmSock)
+{
 	return TRUE;
 }
-
-
-#ifdef _xTrap_GUARD
-	#include "XTrapSrc\\XTrap.h"
-	//¿¢½ºÆ®·¦ ÆÐÅ¶¼ö½Å
-	int XTrap_Recv( smTRANS_COMMAND *lpPacket , smWINSOCK *lpsmSock )
-	{
-		smTRANS_XTRAP_ADDR		*lpTransXTrapAddr;
-		smTRANS_XTRAP_SECURITY	*lpTransXTrapSecurity;
-		UCHAR KFBuf[CREATEKF_OUT_SIZE*2] = {0,};
-
-		//FILE *fp;
-		//char szBuff[256];
-
-
-		switch( lpPacket->WParam ) 
-		{
-		case smXTRAP_COMMAND_LOGIN:
-			lpTransXTrapAddr = (smTRANS_XTRAP_ADDR *)lpPacket;
-			lpTransXTrapSecurity = (smTRANS_XTRAP_SECURITY *)lpPacket;
-
-			CreateKFEx(NULL, (PUCHAR)lpTransXTrapAddr->Addr, 2, KFBuf);
-
-			lpTransXTrapSecurity->smTransCommand.size = sizeof(smTRANS_XTRAP_SECURITY);
-			lpTransXTrapSecurity->smTransCommand.code = smTRANSCODE_XTRAP_PACKET;
-			lpTransXTrapSecurity->smTransCommand.WParam = smXTRAP_COMMAND_SECURITY;
-			memcpy( &lpTransXTrapSecurity->serialkey, KFBuf, CREATEKF_OUT_SIZE*2);
-			lpsmSock->Send2( (char *)lpTransXTrapSecurity , lpTransXTrapSecurity->smTransCommand.size , TRUE );
-
-			break;
-
-		case smXTRAP_COMMAND_SECURITY:
-			if ( lpPacket->LParam==0 ) SendLogToMgr();
-			DisconnectServerCode = 4;
-			DisconnectFlag = GetCurrentTime();
-			break;
-
-		}
-		return TRUE;
-	};
-#else
-	#ifdef _XTRAP_GUARD_4_CLIENT
-		#include "XTrapSrcD5\Client\XTrap4Client.h"	//XTrapD5
-//		#include "XTrapSrc4\XTrap.h"
-		//¿¢½ºÆ®·¦ ÆÐÅ¶¼ö½Å
-		int XTrap_Recv( smTRANS_COMMAND *lpPacket , smWINSOCK *lpsmSock )
-		{
-			char debug[512];
-			smTRANS_XTRAP_ADDR		*lpTransXTrapAddr = (smTRANS_XTRAP_ADDR *)lpPacket;
-			
-			sprintf_s(debug,"XTrap_Recv");
-			OutputDebugString(debug);
-
-			if(lpPacket->WParam == XTRAP_CMD_SEEDKEY)
-			{//¼­¹ö¿¡¼­ ÆÐÅ¶À» ¹ÞÀ¸¸é
-				sprintf_s(debug,"CMD_SEEDKEY");
-				OutputDebugString(debug);
-			
-				sprintf_s( debug, "before : Packet Buf: %02X %02X %02X %02X %02X %02X", 
-					lpTransXTrapAddr->PacketBuf[0],
-					lpTransXTrapAddr->PacketBuf[1],
-					lpTransXTrapAddr->PacketBuf[2],
-					lpTransXTrapAddr->PacketBuf[3],
-					lpTransXTrapAddr->PacketBuf[4],
-					lpTransXTrapAddr->PacketBuf[5] );
-				OutputDebugString( debug );
-				
-				//----[ 1. ¼­¹ö·Î ºÎÅÍ ¹ÞÀº Á¤º¸ °Ë»ç ]
-				smTRANS_XTRAP_ADDR	smTransXTrapAddr;
-				memset(&smTransXTrapAddr,0,sizeof(smTransXTrapAddr));
-
-				unsigned int usResult = 1;
-				//usResult = XTrapCC_STEP2( (PUCHAR)lpTransXTrapAddr->PacketBuf, (PUCHAR)smTransXTrapAddr.PacketBuf, XTRAP_PROTECT_PE|XTRAP_PROTECT_TEXT);
-				usResult = XTrap_CS_Step2( (PUCHAR)lpTransXTrapAddr->PacketBuf, (PUCHAR)smTransXTrapAddr.PacketBuf,
-					XTRAP_PROTECT_PE|XTRAP_PROTECT_TEXT|XTRAP_PROTECT_EXCEPT_VIRUS);
-				
-				//----[ 2. °á°ú Á¤º¸ ¼­¹ö·Î º¸³»±â ]
-				smTransXTrapAddr.smTransCommand.size = sizeof(smTRANS_XTRAP_ADDR);
-				smTransXTrapAddr.smTransCommand.code = smTRANSCODE_XTRAP_PACKET;
-				smTransXTrapAddr.smTransCommand.WParam = XTRAP_CMD_UNIQKEY;
-
-				if ( smWsockDataServer ) smWsockDataServer->Send( (char *)&smTransXTrapAddr , smTransXTrapAddr.smTransCommand.size , TRUE );		
-
-				//----[ 3. ÇÔ¼ö ¸®ÅÏ°ª °Ë»ç ]
-				if( usResult == 0 )
-				{//Á¤»ó
-				}
-				else
-				{//ºñÁ¤»ó
-					DisconnectServerCode = 4;
-					DisconnectFlag = GetCurrentTime();
-				}
-
-				sprintf_s( debug, "after : Packet Buf: %02X %02X %02X %02X %02X %02X", 
-					lpTransXTrapAddr->PacketBuf[0],
-					lpTransXTrapAddr->PacketBuf[1],
-					lpTransXTrapAddr->PacketBuf[2],
-					lpTransXTrapAddr->PacketBuf[3],
-					lpTransXTrapAddr->PacketBuf[4],
-					lpTransXTrapAddr->PacketBuf[5] );
-				OutputDebugString( debug );
-
-			}
-
-			return TRUE;
-		};
-
-		VOID __stdcall XTrapCS_SendUniqKey	(PUCHAR pUniqKey)
-		{}
-
-	#else
-		//¿¢½ºÆ®·¦ ÆÐÅ¶¼ö½Å
-		int XTrap_Recv( smTRANS_COMMAND *lpPacket , smWINSOCK *lpsmSock )
-		{
-			return TRUE;
-		}
-
-	#endif
-#endif
-
-
 
 int	HackTrap_OpenFlagMask = 0;
 
-//ÇÙÅø Ã½Å©¿ë NPC±â´É ±¸Çö½Ã ¼­¹ö¿¡ °Ë»çÅëº¸
 int HackTrap_CheckOpenFlag()
 {
-	int ChkCnt = 0;
-	
-	// ¹ÚÀç¿ø - À¯Àú¸ðµå¿¡¼­ ÀÌµ¿ »óÁ¡ ¾ÆÀÌÅÛ »ç¿ë½Ã¿¡´Â ÇØÅ· ·Î±×¸¦ ¾È³²±ä´Ù. cShop.UseItemFlag==0
-	if ( cShop.OpenFlag && cShop.UseItemFlag==0) {								//»óÁ¡ 
-		if ( (HackTrap_OpenFlagMask&sinNPC_SHOP)==0 ) {
-			HackTrap_OpenFlagMask|=sinNPC_SHOP;
-			SendHackTrapToServer(100,sinNPC_SHOP);
-		}
-		ChkCnt++;
-	}
-
-	if (  cWareHouse.OpenFlag  ) {						//Ã¢°í 
-		if ( (HackTrap_OpenFlagMask&sinNPC_WARE)==0 ) {
-			HackTrap_OpenFlagMask|=sinNPC_WARE;
-			SendHackTrapToServer(100,sinNPC_WARE);
-		}
-		ChkCnt++;
-	}
-	if ( cCraftItem.OpenFlag ){							// Á¶ÇÕ 
-		if( cCraftItem.ForceFlag )return false;
-
-		if ( (HackTrap_OpenFlagMask&sinNPC_MIX)==0 ) {
-		HackTrap_OpenFlagMask|=sinNPC_MIX;
-		SendHackTrapToServer(100,sinNPC_MIX);
-		}
-	
-		ChkCnt++;
-	}													//Æ÷½º Á¶ÇÕ 
-	if( cCraftItem.ForceFlag ) {
-		if(  cCraftItem.OpenFlag )return false;
-
-		if ( (HackTrap_OpenFlagMask&sinNPC_FORCE)==0 ) {
-			HackTrap_OpenFlagMask|=sinNPC_FORCE;
-			SendHackTrapToServer(100,sinNPC_FORCE);
-		} 
-		ChkCnt++;
-	}
-	if (   cAging.OpenFlag ) {							//¿¡ÀÌÂ¡
-		if ( (HackTrap_OpenFlagMask&sinNPC_AGING)==0 ) {
-			HackTrap_OpenFlagMask|=sinNPC_AGING;
-			SendHackTrapToServer(100,sinNPC_AGING);
-		}
-		ChkCnt++;
-	}
-
-	// pluto Á¦·Ã
-	if( SmeltingItem.OpenFlag ) // pluto NPC Ãß°¡ ÇÒ¶§ HackTrap.h ¿ä±âµµ Ãß°¡ÇØ¶ó (ÇÊµåNPC±â´É °æ°í)
-	{
-		if( (HackTrap_OpenFlagMask&sinNPC_SMELTING)==0 )
-		{
-			HackTrap_OpenFlagMask|=sinNPC_SMELTING;
-			SendHackTrapToServer(100,sinNPC_SMELTING);
-		}
-		ChkCnt++;
-	}
-	// pluto Á¦ÀÛ
-	if( ManufactureItem.m_OpenFlag )
-	{
-		if( (HackTrap_OpenFlagMask&sinNPC_MANUFACTURE)==0 )
-		{
-			HackTrap_OpenFlagMask|=sinNPC_MANUFACTURE;
-			SendHackTrapToServer(100,sinNPC_MANUFACTURE);
-		}
-		ChkCnt++;
-	}
-
-	// ¼®Áö¿ë - ¹Í½ºÃÄ ¸®¼Â 
-	if( cMixtureReset.OpenFlag )
-	{
-		if( ( HackTrap_OpenFlagMask & sinNPC_MIXTURE_RESET ) == 0 )
-		{
-			HackTrap_OpenFlagMask |= sinNPC_MIXTURE_RESET;
-			SendHackTrapToServer( 100, sinNPC_MIXTURE_RESET );
-		}
-
-		ChkCnt++;
-	}
-
-	if (  SkillMasterFlag ) {							//½ºÅ³¸¶½ºÅÍ
-		if ( (HackTrap_OpenFlagMask&sinNPC_SKILL)==0 ) {
-			HackTrap_OpenFlagMask|=sinNPC_SKILL;
-			SendHackTrapToServer(100,sinNPC_SKILL);
-		}
-		ChkCnt++;
-	}
-   
-	if ( !ChkCnt )
-		HackTrap_OpenFlagMask = 0;
-
-	return	TRUE;
+	Log::Debug("HackTrap_CheckOpenFlag : Requisitado porém foi removido.");
+	return NULL;
 }
 
-
-//ÇÙÅø Ã½Å©¿ë ÇÔÁ¤
-int	SendHackTrapToServer( DWORD dwTrapCode , int Param )
+int	SendHackTrapToServer(DWORD dwTrapCode, int Param)
 {
-	smTRANS_COMMAND	smTransCommand;
-
-	ZeroMemory( &smTransCommand , sizeof(smTRANS_COMMAND) );
-
-	smTransCommand.code = smTRANSCODE_HACKTRAP;
-	smTransCommand.size = sizeof( smTRANS_COMMAND );
-	smTransCommand.WParam = dwTrapCode;
-	smTransCommand.LParam = Param;
-
-	if ( dwTrapCode==100 ) {
-		//NPC ±â´É±¸Çö½Ã È£Ãâ
-		if ( lpCurPlayer->OnStageField>=0 ) {
-			smTransCommand.SParam = StageField[lpCurPlayer->OnStageField]->FieldCode;
-		}
-		else
-			return FALSE;
-	}
-
-	if ( smWsockDataServer )
-		smWsockDataServer->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
-
-
-	return TRUE;
+	Log::Debug("SendHackTrapToServer : Requisitado porém foi removido.");
+	return NULL;
 }
 
-// pluto Á¦·Ã µ¥ÀÌÅ¸¸¦ ¼­¹ö·Î º¸³¿
-int SendSmeltingItemToServer( void *lpsSmeltingItem_Send )
+int SendSmeltingItemToServer(void *lpsSmeltingItem_Send)
 {
-	sSMELTINGITEM_SERVER	*lpSmeltingItem_Send = ( sSMELTINGITEM_SERVER *)lpsSmeltingItem_Send;
-
-	lpSmeltingItem_Send->size = sizeof( sSMELTINGITEM_SERVER);
-	lpSmeltingItem_Send->code = smTRANSCODE_SMELTINGITEM;
-
-	if( smWsockDataServer )
-	{
-		return smWsockDataServer->Send2( (char *)lpSmeltingItem_Send, lpSmeltingItem_Send->size, TRUE );
-	}
-
-	return FALSE;
+	Log::Debug("SendSmeltingItemToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-// pluto Á¦ÀÛ µ¥ÀÌÅ¸¸¦ ¼­¹ö·Î º¸³¿
-int SendManufactureItemToServer( void *lpsManufactureItem_Send )
+
+int SendManufactureItemToServer(void *lpsManufactureItem_Send)
 {
-	SManufactureItem_Server *lpManufactureItem_Send = ( SManufactureItem_Server *)lpsManufactureItem_Send;
-
-	lpManufactureItem_Send->size = sizeof( SManufactureItem_Server );
-	lpManufactureItem_Send->code = smTRANSCODE_MANUFACTURE;
-
-	if( smWsockDataServer )
-	{
-		return smWsockDataServer->Send2( (char *)lpManufactureItem_Send, lpManufactureItem_Send->size, TRUE );
-	}
-
-	return FALSE;
+	Log::Debug("SendManufactureItemToServer : Requisitado porém foi removido.");
+	return NULL;
 }
 
-// ¼®Áö¿ë - ¹Í½ºÃÄ ¸®¼Â ¾ÆÀÌÅÛÀ» ¼­¹ö·Î Àü¼ÛÇÑ´Ù.
-int SendMixtureResetItemToServer( void *lpsMixtureResetItem_Send )
+int SendMixtureResetItemToServer(void *lpsMixtureResetItem_Send)
 {
-	// ¾ÆÀÌÅÛÀÇ Á¤º¸¸¦ ÀúÀå
-	sMIXTURE_RESET_ITEM_SERVER *lpMixtureResetItem_Send = (sMIXTURE_RESET_ITEM_SERVER *)lpsMixtureResetItem_Send;
-
-	// »çÀÌÁî¿Í ¹Í½ºÃÄ ¸®¼ÂÀÌ ¼öÇàµÉ ÄÚµå¸¦ ¼³Á¤
-	lpMixtureResetItem_Send->size	= sizeof( sMIXTURE_RESET_ITEM_SERVER );
-	lpMixtureResetItem_Send->code	= smTRANSCODE_MIXTURE_RESET_ITEM;
-
-	// µ¥ÀÌÅÍ ¼­¹ö·Î º¸³»¶ó!!!
-	if( smWsockDataServer )
-	{
-		return smWsockDataServer->Send2( (char *)lpMixtureResetItem_Send, lpMixtureResetItem_Send->size, TRUE );
-	}
-
-	return FALSE;
+	Log::Debug("SendMixtureResetItemToServer : Requisitado porém foi removido.");
+	return NULL;
 }
-
-#ifdef _XIGNCODE_CLIENT
-// ¹ÚÀç¿ø - XignCode
-
-int Xigncode_Client_Start()
-{
-	smTRANS_COMMAND	smTransCommand;
-
-	ZeroMemory( &smTransCommand , sizeof(smTRANS_COMMAND) );
-
-	smTransCommand.code = smTRANSCODE_XIGNCODE_START;
-	smTransCommand.size = sizeof( smTRANS_COMMAND );
-	smTransCommand.WParam = TRUE;
-
-	if ( smWsockDataServer )
-		smWsockDataServer->Send2( (char *)&smTransCommand , smTransCommand.size , TRUE );
-
-	return TRUE;
-}
-
-
-XIGNCODE_PACKET return_packet;
-
-int Xigncode_Client_Recv(smWINSOCK *lpsmSock, XIGNCODE_PACKET *pack)
-{
-//	XIGNCODE_PACKET return_packet;
-	memset(&return_packet, 0, sizeof(return_packet));
-
-	if( ZCWAVE_Probe((char *)pack->data, (char *)return_packet.data, sizeof(return_packet.data)))
-	{
-		return_packet.size = sizeof(return_packet);
-		return_packet.code = smTRANSCODE_XIGNCODE_PACKET;
-		lpsmSock->Send2( (char *)&return_packet, return_packet.size, TRUE);
-	}
-	
-	return TRUE;
-}
-#endif
-/*
-struct smTRANS_COMMAND_POLLING {
-	smTRANS_COMMAND		smTransCommand;
-	BYTE	bPolling[10];
-};
-//¼³¹®Á¶»ç
-#define	smTRANSCODE_PUBLIC_POLLING		0x50320A70
-//¼³¸í°øÁö ¹Ú½º
-#define	smTRANSCODE_NOTICE_BOX			0x50320A80
-*/

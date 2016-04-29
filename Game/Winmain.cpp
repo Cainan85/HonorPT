@@ -4503,6 +4503,12 @@ int DrawGameState()
 		SetTextColor(hdc, RGB(255, 255, 255));
 		dsTextLineOut(hdc, 10, 30, strBuff, lstrlen(strBuff));
 
+		wsprintf(strBuff, "Mouse Position( X: %d, Y: %d )", MouseX, MouseY);
+		SetTextColor(hdc, RGB(0, 0, 0));
+		dsTextLineOut(hdc, 11, 100, strBuff, lstrlen(strBuff));
+		SetTextColor(hdc, RGB(255, 255, 255));
+		dsTextLineOut(hdc, 10, 99, strBuff, lstrlen(strBuff));
+
 		wsprintf(strBuff, "World Time (%d:%d)", dwGameHour, dwGameMin);
 		SetTextColor(hdc, RGB(0, 0, 0));
 		dsTextLineOut(hdc, (WinSizeX >> 1) + 1, 31, strBuff, lstrlen(strBuff));

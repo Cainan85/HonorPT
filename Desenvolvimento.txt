@@ -1,10 +1,10 @@
 - Remover proteção DC(4) por excesso de Exp; OK
 - Desbloqueio do botão "-" dos status, para corrigir status mal distribuidos; OK
 - Adicionar resoluções "widescreen";
-- Hookar "mod vormav" na source;
+- Hookar "mod vormav" na source;OK
 - Fazer cristais seguirem o personagem;
-- Botar quanto de exp está ganhando no chat alert;
-- Refazer a formula de distribuição de exp em party;
+- Botar quanto de exp está ganhando no chat alert;OK
+- Refazer a formula de distribuição de exp em party;OK
 - Liberar venda de itens premiuns em loja pessoal;
 - Liberar para poder dropar no chão os itens da quest(40);
 - Tirar erro do item sumir da loja ao comprar e o mouse ficar por cima;
@@ -19,20 +19,20 @@
 	°+1 - +2 = 0%
 	°+2 - +3 = 0%
 	°+3 - +4 = 0%
-	°+4 - +5 = 0%
-	°+5 - +6 = 0%
-	°+6 - +7 = 0%
-	°+7 - +8 = 0%
-	°+8 - +9 = 0%
-	°+9 - +10 = 10%
-	°+10 - +11 = 20%
-	°+11 - +12 = 30%
-	°+12 - +13 = 40%
-	°+13 - +14 = 50%
-	°+14 - +15 = 60%
-	°+15 - +16 = 70%
-	°+16 - +17 = 80%
-	°+17 - +18 = 90%
+	°+4 - +5 = 6%
+	°+5 - +6 = 12%
+	°+6 - +7 = 18%
+	°+7 - +8 = 24%
+	°+8 - +9 = 30%
+	°+9 - +10 = 36%
+	°+10 - +11 = 42%
+	°+11 - +12 = 48%
+	°+12 - +13 = 54%
+	°+13 - +14 = 60%
+	°+14 - +15 = 66%
+	°+15 - +16 = 72%
+	°+16 - +17 = 78%
+	°+17 - +18 = 84%
 - Adicionar Battle point e Death Point;
 - Adicionar rei do PvP com adicional;
 - Alterar o local de nascimento dos Morions para Ricartem;

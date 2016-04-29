@@ -1245,6 +1245,9 @@ sITEM sItem[MAX_ITEM] = {
 	{sinBI1 | sin93 ,"필드 코어(1일)"		,"BI193",ITEMSIZE * 2,ITEMSIZE * 1,"Premium",ITEM_CLASS_ECORE,"BI193",0,SIN_SOUND_SHELTOM},
 	{sinBI1 | sin94 ,"필드 코어(7일)"		,"BI194",ITEMSIZE * 2,ITEMSIZE * 1,"Premium",ITEM_CLASS_ECORE,"BI194",0,SIN_SOUND_SHELTOM},
 
+	// po寤es do humor
+	{ sinBI1 | sin95 ,"pocao da alegria" ,"BI195",ITEMSIZE * 1,ITEMSIZE * 1,"Premium",ITEM_CLASS_ECORE,"BI195",0,SIN_SOUND_POTION },
+
 
 	//========= 패키지 캐쉬 아이템============성근추가060515=====================================================================
 
@@ -4335,7 +4338,7 @@ int cITEM::CheckItemTable()
 
 		}
 	}
-	const DWORD CheckSumItemData = 2285641345;
+	const DWORD CheckSumItemData = 1082240970;
 
 
 	//아이템 추가시 체크섬 에러값  //kyle

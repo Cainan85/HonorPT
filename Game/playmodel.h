@@ -1,5 +1,5 @@
 #define	FACE_MODEL_MAX		7	// 전업전[0], 1차전업[1], 2차전업[2],3차전업[3], 얼큰버젼 2가지[4],[5] // 박재원 - 2010 월드컵 이벤트(축구공 포션 추가[6]) - 총 7가지
-#define	HEAREPOTION_MAX		13	//헤어틴트포션 최대치  < 060809 헤어틴트포션  성근 수정  >
+#define	HEAREPOTION_MAX		14	//헤어틴트포션 최대치  < 060809 헤어틴트포션  성근 수정  >
 
 ////////////////////////// 모델 이미지 정리 /////////////////////////////
 char *szModel_FighterFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {				//파이터
@@ -18,7 +18,8 @@ char *szModel_FighterFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {				//파이터
 		"char\\tmABCD\\tmh-b10.inf",
 		"char\\tmABCD\\tmh-b11.inf",
 		"char\\tmABCD\\tmh-b12.inf",
-		"char\\tmABCD\\tmh-b13.inf"	
+		"char\\tmABCD\\tmh-b13.inf",
+		"char\\tmABCD\\tmh-b14.inf"	
 
 	},
 	{
@@ -36,7 +37,8 @@ char *szModel_FighterFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {				//파이터
 		"char\\tmABCD\\tmh-b10a.inf",
 		"char\\tmABCD\\tmh-b11a.inf",
 		"char\\tmABCD\\tmh-b12a.inf",
-		"char\\tmABCD\\tmh-b13a.inf"
+		"char\\tmABCD\\tmh-b13a.inf",
+		"char\\tmABCD\\tmh-b14t.inf"
 	
 	},
 	{
@@ -54,7 +56,8 @@ char *szModel_FighterFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {				//파이터
 		"char\\tmABCD\\tmh_b10b.inf",
 		"char\\tmABCD\\tmh_b11b.inf",
 		"char\\tmABCD\\tmh_b12b.inf",
-		"char\\tmABCD\\tmh_b13b.inf"
+		"char\\tmABCD\\tmh_b13b.inf",
+		"char\\tmABCD\\tmh_b14t.inf"
 	
 	},
 	{
@@ -72,7 +75,8 @@ char *szModel_FighterFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {				//파이터
 		"char\\tmABCD\\tmh-b10c.inf",
 		"char\\tmABCD\\tmh-b11c.inf",
 		"char\\tmABCD\\tmh-b12c.inf",
-		"char\\tmABCD\\tmh-b13c.inf"
+		"char\\tmABCD\\tmh-b13c.inf",
+		"char\\tmABCD\\tmh-b14t.inf"
 	
 	},
 
@@ -92,7 +96,8 @@ char *szModel_FighterFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {				//파이터
 		"char\\tmABCD\\tmh-b01b.inf",
 		"char\\tmABCD\\tmh-b02b.inf",
 		"char\\tmABCD\\tmh-b03b.inf",
-		"char\\tmABCD\\tmh-b01b.inf"	
+		"char\\tmABCD\\tmh-b01b.inf",
+		"char\\tmABCD\\tmh-b02b.inf"	
 
 	},
 
@@ -112,7 +117,8 @@ char *szModel_FighterFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {				//파이터
 		"char\\tmABCD\\tmh-b02t.inf",
 		"char\\tmABCD\\tmh-b03t.inf",
 		"char\\tmABCD\\tmh-b01t.inf",
-		"char\\tmABCD\\tmh-b02t.inf"	
+		"char\\tmABCD\\tmh-b02t.inf",
+		"char\\tmABCD\\tmh-b03t.inf"	
 	},
 
 	// 박재원 - 2010 월드컵 이벤트 - 축구공 포션 추가(축구공 모델 이미지 추가 - 머리)
@@ -127,6 +133,7 @@ char *szModel_FighterFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {				//파이터
 		"char\\tmABCD\\TmhB-18t.inf",
 		"char\\tmABCD\\TmhB-18t.inf",
 
+		"char\\tmABCD\\TmhB-18t.inf",
 		"char\\tmABCD\\TmhB-18t.inf",
 		"char\\tmABCD\\TmhB-18t.inf",
 		"char\\tmABCD\\TmhB-18t.inf",
@@ -149,6 +156,7 @@ char *szModel_MechFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//메카니션
 		"char\\tmABCD\\tmh-a10.inf",
 		"char\\tmABCD\\tmh-a11.inf",
 		"char\\tmABCD\\tmh-a12.inf",
+		"char\\tmABCD\\tmh-a12.inf",
 		"char\\tmABCD\\tmh-a13.inf"
 	},
 	{
@@ -163,6 +171,7 @@ char *szModel_MechFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//메카니션
 		"char\\tmABCD\\tmh-a09a.inf",
 		"char\\tmABCD\\tmh-a10a.inf",
 		"char\\tmABCD\\tmh-a11a.inf",
+		"char\\tmABCD\\tmh-a12a.inf",
 		"char\\tmABCD\\tmh-a12a.inf",
 		"char\\tmABCD\\tmh-a13a.inf"
 	},
@@ -179,6 +188,7 @@ char *szModel_MechFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//메카니션
 		"char\\tmABCD\\tmh_a10b.inf",
 		"char\\tmABCD\\tmh_a11b.inf",
 		"char\\tmABCD\\tmh_a12b.inf",
+		"char\\tmABCD\\tmh_a12b.inf",
 		"char\\tmABCD\\tmh_a13b.inf"
 	},
 	{
@@ -193,6 +203,7 @@ char *szModel_MechFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//메카니션
 		"char\\tmABCD\\tmh-a09c.inf",
 		"char\\tmABCD\\tmh-a10c.inf",
 		"char\\tmABCD\\tmh-a11c.inf",
+		"char\\tmABCD\\tmh-a12c.inf",
 		"char\\tmABCD\\tmh-a12c.inf",
 		"char\\tmABCD\\tmh-a13c.inf"
 	},
@@ -212,6 +223,7 @@ char *szModel_MechFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//메카니션
 		"char\\tmABCD\\tmh-a01b.inf",
 		"char\\tmABCD\\tmh-a02b.inf",
 		"char\\tmABCD\\tmh-a03b.inf",
+		"char\\tmABCD\\tmh-a03b.inf",
 		"char\\tmABCD\\tmh-a01b.inf"
 		
 	},
@@ -230,6 +242,7 @@ char *szModel_MechFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//메카니션
 		"char\\tmABCD\\tmh-a02t.inf",
 		"char\\tmABCD\\tmh-a03t.inf",
 		"char\\tmABCD\\tmh-a01t.inf",
+		"char\\tmABCD\\tmh-a01t.inf",
 		"char\\tmABCD\\tmh-a02t.inf"
 	},
 	
@@ -245,6 +258,7 @@ char *szModel_MechFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//메카니션
 		"char\\tmABCD\\TmhA-18t.inf",
 		"char\\tmABCD\\TmhA-18t.inf",
 
+		"char\\tmABCD\\TmhA-18t.inf",
 		"char\\tmABCD\\TmhA-18t.inf",
 		"char\\tmABCD\\TmhA-18t.inf",
 		"char\\tmABCD\\TmhA-18t.inf",
@@ -267,6 +281,7 @@ char *szModel_ArcherFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {		//아쳐
 		"char\\tmABCD\\tfh-d10.inf",
 		"char\\tmABCD\\tfh-d11.inf",
 		"char\\tmABCD\\tfh-d12.inf",
+		"char\\tmABCD\\tfh-d12.inf",
 		"char\\tmABCD\\tfh-d13.inf"
 	},
 	{
@@ -281,6 +296,7 @@ char *szModel_ArcherFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {		//아쳐
 		"char\\tmABCD\\tfh-d09a.inf",
 		"char\\tmABCD\\tfh-d10a.inf",
 		"char\\tmABCD\\tfh-d11a.inf",
+		"char\\tmABCD\\tfh-d12a.inf",
 		"char\\tmABCD\\tfh-d12a.inf",
 		"char\\tmABCD\\tfh-d13a.inf"
 	},
@@ -297,6 +313,7 @@ char *szModel_ArcherFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {		//아쳐
 		"char\\tmABCD\\tfh_d10b.inf",
 		"char\\tmABCD\\tfh_d11b.inf",
 		"char\\tmABCD\\tfh_d12b.inf",
+		"char\\tmABCD\\tfh_d12b.inf",
 		"char\\tmABCD\\tfh_d13b.inf"
 	},
 	{
@@ -311,6 +328,7 @@ char *szModel_ArcherFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {		//아쳐
 		"char\\tmABCD\\tfh-d09c.inf",
 		"char\\tmABCD\\tfh-d10c.inf",
 		"char\\tmABCD\\tfh-d11c.inf",
+		"char\\tmABCD\\tfh-d12c.inf",
 		"char\\tmABCD\\tfh-d12c.inf",
 		"char\\tmABCD\\tfh-d13c.inf"
 	},
@@ -331,6 +349,7 @@ char *szModel_ArcherFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {		//아쳐
 		"char\\tmABCD\\tfh-d02t.inf",
 		"char\\tmABCD\\tfh-d03t.inf",
 		"char\\tmABCD\\tfh-D01t.inf",
+		"char\\tmABCD\\tfh-D01t.inf",
 		"char\\tmABCD\\tfh-d02t.inf"
 
 	},
@@ -348,6 +367,7 @@ char *szModel_ArcherFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {		//아쳐
 		"char\\tmABCD\\tfh-D01t.inf",
 		"char\\tmABCD\\tfh-d02t.inf",
 		"char\\tmABCD\\tfh-d03t.inf",
+		"char\\tmABCD\\tfh-D01t.inf",
 		"char\\tmABCD\\tfh-D01t.inf",
 		"char\\tmABCD\\tfh-d02t.inf"
 	},
@@ -364,6 +384,7 @@ char *szModel_ArcherFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {		//아쳐
 		"char\\tmABCD\\TfhD-18t.inf",
 		"char\\tmABCD\\TfhD-18t.inf",
 
+		"char\\tmABCD\\TfhD-18t.inf",
 		"char\\tmABCD\\TfhD-18t.inf",
 		"char\\tmABCD\\TfhD-18t.inf",
 		"char\\tmABCD\\TfhD-18t.inf",
@@ -385,7 +406,8 @@ char *szModel_PikeFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {		//파이크맨
 		"char\\tmABCD\\tmh-c09.inf",		
 		"char\\tmABCD\\tmh-c10.inf",		
 		"char\\tmABCD\\tmh-c11.inf",		
-		"char\\tmABCD\\tmh-c12.inf",		
+		"char\\tmABCD\\tmh-c12.inf",
+		"char\\tmABCD\\tmh-c12.inf",
 		"char\\tmABCD\\tmh-c13.inf"			
 
 	},
@@ -402,6 +424,7 @@ char *szModel_PikeFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {		//파이크맨
 		"char\\tmABCD\\tmh-c10a.inf",
 		"char\\tmABCD\\tmh-c11a.inf",
 		"char\\tmABCD\\tmh-c12a.inf",
+		"char\\tmABCD\\tmh-c12a.inf",
 		"char\\tmABCD\\tmh-c13a.inf"
 
 	},
@@ -417,6 +440,7 @@ char *szModel_PikeFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {		//파이크맨
 		"char\\tmABCD\\tmh_c09b.inf",
 		"char\\tmABCD\\tmh_c10b.inf",
 		"char\\tmABCD\\tmh_c11b.inf",
+		"char\\tmABCD\\tmh_c12b.inf",
 		"char\\tmABCD\\tmh_c12b.inf",
 		"char\\tmABCD\\tmh_c13b.inf"
 	},
@@ -440,6 +464,7 @@ char *szModel_PikeFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {		//파이크맨
 		"char\\tmABCD\\tmhC-10c.inf",
 		"char\\tmABCD\\tmhC-11c.inf",
 		"char\\tmABCD\\tmhC-12c.inf",
+		"char\\tmABCD\\tmhC-12c.inf",
 		"char\\tmABCD\\tmhC-13c.inf"
 
 	},
@@ -459,6 +484,7 @@ char *szModel_PikeFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {		//파이크맨
 		"char\\tmABCD\\tmh-c01b.inf",
 		"char\\tmABCD\\tmh-c02b.inf",
 		"char\\tmABCD\\tmh-c03b.inf",
+		"char\\tmABCD\\tmh-c03b.inf",
 		"char\\tmABCD\\tmh-c01b.inf"
 	},
 	{
@@ -476,6 +502,7 @@ char *szModel_PikeFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {		//파이크맨
 		"char\\tmABCD\\tmh-c02t.inf",
 		"char\\tmABCD\\tmh-c03t.inf",
 		"char\\tmABCD\\tmh-c01t.inf",
+		"char\\tmABCD\\tmh-c01t.inf",
 		"char\\tmABCD\\tmh-c02t.inf"
 	},
 
@@ -491,6 +518,7 @@ char *szModel_PikeFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {		//파이크맨
 		"char\\tmABCD\\TmhC-18t.inf",
 		"char\\tmABCD\\TmhC-18t.inf",
 
+		"char\\tmABCD\\TmhC-18t.inf",
 		"char\\tmABCD\\TmhC-18t.inf",
 		"char\\tmABCD\\TmhC-18t.inf",
 		"char\\tmABCD\\TmhC-18t.inf",
@@ -514,6 +542,7 @@ char *szModel_KnightFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {	//
 		"char\\tmABCD\\Mmh-A10.inf",
 		"char\\tmABCD\\Mmh-A11.inf",
 		"char\\tmABCD\\Mmh-A12.inf",
+		"char\\tmABCD\\Mmh-A12.inf",
 		"char\\tmABCD\\Mmh-A13.inf"
 	},
 	{
@@ -528,6 +557,7 @@ char *szModel_KnightFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {	//
 		"char\\tmABCD\\Mmh-A09a.inf",
 		"char\\tmABCD\\Mmh-A10a.inf",
 		"char\\tmABCD\\Mmh-A11a.inf",
+		"char\\tmABCD\\Mmh-A12a.inf",
 		"char\\tmABCD\\Mmh-A12a.inf",
 		"char\\tmABCD\\Mmh-A13a.inf"
 	},
@@ -544,6 +574,7 @@ char *szModel_KnightFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {	//
 		"char\\tmABCD\\Mmh_A10b.inf",
 		"char\\tmABCD\\Mmh_A11b.inf",
 		"char\\tmABCD\\Mmh_A12b.inf",
+		"char\\tmABCD\\Mmh_A12b.inf",
 		"char\\tmABCD\\Mmh_A13b.inf"
 	},
 	{
@@ -559,6 +590,7 @@ char *szModel_KnightFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {	//
 		"char\\tmABCD\\Mmh-A09c.inf",
 		"char\\tmABCD\\Mmh-A10c.inf",
 		"char\\tmABCD\\Mmh-A11c.inf",
+		"char\\tmABCD\\Mmh-A12c.inf",
 		"char\\tmABCD\\Mmh-A12c.inf",
 		"char\\tmABCD\\Mmh-A13c.inf"
 	},
@@ -578,6 +610,7 @@ char *szModel_KnightFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {	//
 		"char\\tmABCD\\Mmh-A01b.inf",
 		"char\\tmABCD\\Mmh-A02b.inf",
 		"char\\tmABCD\\Mmh-A03b.inf",
+		"char\\tmABCD\\Mmh-A03b.inf",
 		"char\\tmABCD\\Mmh-A01b.inf"
 
 	},
@@ -596,6 +629,7 @@ char *szModel_KnightFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {	//
 		"char\\tmABCD\\Mmh-A02t.inf",
 		"char\\tmABCD\\Mmh-A03t.inf",
 		"char\\tmABCD\\Mmh-A01t.inf",
+		"char\\tmABCD\\Mmh-A01t.inf",
 		"char\\tmABCD\\Mmh-A02t.inf"		
 	},
 	
@@ -611,6 +645,7 @@ char *szModel_KnightFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {	//
 		"char\\tmABCD\\MmhA-18t.inf",
 		"char\\tmABCD\\MmhA-18t.inf",
 
+		"char\\tmABCD\\MmhA-18t.inf",
 		"char\\tmABCD\\MmhA-18t.inf",
 		"char\\tmABCD\\MmhA-18t.inf",
 		"char\\tmABCD\\MmhA-18t.inf",
@@ -634,6 +669,7 @@ char *szModel_AtalantaFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//아탈란타
 		"char\\tmABCD\\Mfh-B10.inf",
 		"char\\tmABCD\\Mfh-B11.inf",
 		"char\\tmABCD\\Mfh-B12.inf",
+		"char\\tmABCD\\Mfh-B12.inf",
 		"char\\tmABCD\\Mfh-B13.inf"
 	},
 	{
@@ -649,6 +685,7 @@ char *szModel_AtalantaFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//아탈란타
 		"char\\tmABCD\\Mfh-B09a.inf",
 		"char\\tmABCD\\Mfh-B10a.inf",
 		"char\\tmABCD\\Mfh-B11a.inf",
+		"char\\tmABCD\\Mfh-B12a.inf",
 		"char\\tmABCD\\Mfh-B12a.inf",
 		"char\\tmABCD\\Mfh-B13a.inf"
 	},
@@ -666,6 +703,7 @@ char *szModel_AtalantaFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//아탈란타
 		"char\\tmABCD\\Mfh_B10b.inf",
 		"char\\tmABCD\\Mfh_B11b.inf",
 		"char\\tmABCD\\Mfh_B12b.inf",
+		"char\\tmABCD\\Mfh_B12b.inf",
 		"char\\tmABCD\\Mfh_B13b.inf"
 	},
 	{
@@ -681,6 +719,7 @@ char *szModel_AtalantaFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//아탈란타
 		"char\\tmABCD\\Mfh-B09c.inf",
 		"char\\tmABCD\\Mfh-B10c.inf",
 		"char\\tmABCD\\Mfh-B11c.inf",
+		"char\\tmABCD\\Mfh-B12c.inf",
 		"char\\tmABCD\\Mfh-B12c.inf",
 		"char\\tmABCD\\Mfh-B13c.inf"
 	
@@ -701,6 +740,7 @@ char *szModel_AtalantaFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//아탈란타
 		"char\\tmABCD\\Mfh-B02t.inf",
 		"char\\tmABCD\\Mfh-B03t.inf",
 		"char\\tmABCD\\Mfh-B01t.inf",
+		"char\\tmABCD\\Mfh-B01t.inf",
 		"char\\tmABCD\\Mfh-B02t.inf"
 	},
 	{
@@ -718,6 +758,7 @@ char *szModel_AtalantaFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//아탈란타
 		"char\\tmABCD\\Mfh-B02t.inf",
 		"char\\tmABCD\\Mfh-B03t.inf",
 		"char\\tmABCD\\Mfh-B01t.inf",
+		"char\\tmABCD\\Mfh-B01t.inf",
 		"char\\tmABCD\\Mfh-B02t.inf",	
 	},
 
@@ -733,6 +774,7 @@ char *szModel_AtalantaFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//아탈란타
 		"char\\tmABCD\\MfhB-18t.inf",
 		"char\\tmABCD\\MfhB-18t.inf",
 
+		"char\\tmABCD\\MfhB-18t.inf",
 		"char\\tmABCD\\MfhB-18t.inf",
 		"char\\tmABCD\\MfhB-18t.inf",
 		"char\\tmABCD\\MfhB-18t.inf",
@@ -757,6 +799,7 @@ char *szModel_PristessFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {				//프리스�
 		"char\\tmABCD\\Mfh-C10.inf",
 		"char\\tmABCD\\Mfh-C11.inf",
 		"char\\tmABCD\\Mfh-C12.inf",
+		"char\\tmABCD\\Mfh-C12.inf",
 		"char\\tmABCD\\Mfh-C13.inf"
 	},
 	{
@@ -772,6 +815,7 @@ char *szModel_PristessFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {				//프리스�
 		"char\\tmABCD\\Mfh-C09a.inf",
 		"char\\tmABCD\\Mfh-C10a.inf",
 		"char\\tmABCD\\Mfh-C11a.inf",
+		"char\\tmABCD\\Mfh-C12a.inf",
 		"char\\tmABCD\\Mfh-C12a.inf",
 		"char\\tmABCD\\Mfh-C13a.inf"
 	},
@@ -789,6 +833,7 @@ char *szModel_PristessFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {				//프리스�
 		"char\\tmABCD\\Mfh_C10b.inf",
 		"char\\tmABCD\\Mfh_C11b.inf",
 		"char\\tmABCD\\Mfh_C12b.inf",
+		"char\\tmABCD\\Mfh_C12b.inf",
 		"char\\tmABCD\\Mfh_C13b.inf"
 	},
 	{
@@ -804,6 +849,7 @@ char *szModel_PristessFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {				//프리스�
 		"char\\tmABCD\\Mfh-C09c.inf",
 		"char\\tmABCD\\Mfh-C10c.inf",
 		"char\\tmABCD\\Mfh-C11c.inf",
+		"char\\tmABCD\\Mfh-C12c.inf",
 		"char\\tmABCD\\Mfh-C12c.inf",
 		"char\\tmABCD\\Mfh-C13c.inf"
 
@@ -824,6 +870,7 @@ char *szModel_PristessFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {				//프리스�
 		"char\\tmABCD\\Mfh-C02t.inf",
 		"char\\tmABCD\\Mfh-C03t.inf",
 		"char\\tmABCD\\Mfh-C01t.inf",
+		"char\\tmABCD\\Mfh-C01t.inf",
 		"char\\tmABCD\\Mfh-C02t.inf"
 		
 	},
@@ -842,6 +889,7 @@ char *szModel_PristessFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {				//프리스�
 		"char\\tmABCD\\Mfh-C02t.inf",
 		"char\\tmABCD\\Mfh-C03t.inf",
 		"char\\tmABCD\\Mfh-C01t.inf",
+		"char\\tmABCD\\Mfh-C01t.inf",
 		"char\\tmABCD\\Mfh-C02t.inf"
 	},
 
@@ -857,6 +905,7 @@ char *szModel_PristessFaceName[FACE_MODEL_MAX][HEAREPOTION_MAX] = {				//프리스�
 		"char\\tmABCD\\MfhC-18t.inf",
 		"char\\tmABCD\\MfhC-18t.inf",
 
+		"char\\tmABCD\\MfhC-18t.inf",
 		"char\\tmABCD\\MfhC-18t.inf",
 		"char\\tmABCD\\MfhC-18t.inf",
 		"char\\tmABCD\\MfhC-18t.inf",
@@ -880,6 +929,7 @@ char *szModel_Magican[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//메지션
 		"char\\tmABCD\\Mmh-D10.inf",
 		"char\\tmABCD\\Mmh-D11.inf",
 		"char\\tmABCD\\Mmh-D12.inf",
+		"char\\tmABCD\\Mmh-D12.inf",
 		"char\\tmABCD\\Mmh-D13.inf"
 	},
 	{
@@ -895,6 +945,7 @@ char *szModel_Magican[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//메지션
 		"char\\tmABCD\\Mmh-D09a.inf",
 		"char\\tmABCD\\Mmh-D10a.inf",
 		"char\\tmABCD\\Mmh-D11a.inf",
+		"char\\tmABCD\\Mmh-D12a.inf",
 		"char\\tmABCD\\Mmh-D12a.inf",
 		"char\\tmABCD\\Mmh-D13a.inf"
 	},
@@ -912,6 +963,7 @@ char *szModel_Magican[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//메지션
 		"char\\tmABCD\\Mmh_D10b.inf",
 		"char\\tmABCD\\Mmh_D11b.inf",
 		"char\\tmABCD\\Mmh_D12b.inf",
+		"char\\tmABCD\\Mmh_D12b.inf",
 		"char\\tmABCD\\Mmh_D13b.inf"
 	},
 	{
@@ -927,6 +979,7 @@ char *szModel_Magican[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//메지션
 		"char\\tmABCD\\Mmh-D09c.inf",
 		"char\\tmABCD\\Mmh-D10c.inf",
 		"char\\tmABCD\\Mmh-D11c.inf",
+		"char\\tmABCD\\Mmh-D12c.inf",
 		"char\\tmABCD\\Mmh-D12c.inf",
 		"char\\tmABCD\\Mmh-D13c.inf"
 	},
@@ -946,6 +999,7 @@ char *szModel_Magican[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//메지션
 		"char\\tmABCD\\Mmh-D01b.inf",
 		"char\\tmABCD\\Mmh-D02b.inf",
 		"char\\tmABCD\\Mmh-D03b.inf",
+		"char\\tmABCD\\Mmh-D03b.inf",
 		"char\\tmABCD\\Mmh-D01b.inf"
 
 	},
@@ -964,6 +1018,7 @@ char *szModel_Magican[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//메지션
 		"char\\tmABCD\\Mmh-D02t.inf",
 		"char\\tmABCD\\Mmh-D03t.inf",
 		"char\\tmABCD\\Mmh-D01t.inf",
+		"char\\tmABCD\\Mmh-D01t.inf",
 		"char\\tmABCD\\Mmh-D02t.inf"
 	},
 
@@ -979,6 +1034,7 @@ char *szModel_Magican[FACE_MODEL_MAX][HEAREPOTION_MAX] = {			//메지션
 		"char\\tmABCD\\MmhD-18t.inf",
 		"char\\tmABCD\\MmhD-18t.inf",
 
+		"char\\tmABCD\\MmhD-18t.inf",
 		"char\\tmABCD\\MmhD-18t.inf",
 		"char\\tmABCD\\MmhD-18t.inf",
 		"char\\tmABCD\\MmhD-18t.inf",

@@ -1882,6 +1882,9 @@ void cINVENTORY::RButtonDown(int x, int y)
 			//헤어틴트 포션(M)
 			if (InvenItem[SelectInvenItemIndex - 1].sItemInfo.CODE == (sinBI2 | sin22))
 				chaPremiumitem.UsePremiumItem(45);
+			//pocao da alegria
+			if (InvenItem[SelectInvenItemIndex - 1].sItemInfo.CODE == (sinBI1 | sin95))
+				chaPremiumitem.UsePremiumItem(134);
 
 			//***********************베트남요청 경치 50%============================			
 			// 1일 

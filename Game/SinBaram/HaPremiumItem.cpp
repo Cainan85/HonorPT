@@ -1333,6 +1333,10 @@ int cHaPremiumItem::UsePremiumItem(int kind)
 			haCastleSkillUseFlag = 1;
 			SetUpKeepItem( nsPremiumItem::STAMINA_REDUCE_P, SINITEM_TIME_SEVENDAY, true, UpKeepItemName[12], 30 ); //SINITEM_TIME_SEVENDAY
 			break;
+		case 134:   //헤어틴트 M형
+			if (UseHairtintPotion(14))
+				haCastleSkillUseFlag = 1;
+			break;
 	}
 	return TRUE;
 }
@@ -1730,6 +1734,10 @@ int cHaPremiumItem::UseHairtintPotion(int ItemKind)
 			if( ChangeHairModel(12) )
 				return TRUE;
 		break;
+		case 14:  //M형
+			if (ChangeHairModel(13))
+				return TRUE;
+			break;
 		
 
 	}	

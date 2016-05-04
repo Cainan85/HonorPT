@@ -12,6 +12,8 @@
 #include "SrcServer\\gamesql.h"
 #include "SrcServer\\onserver.h"
 
+#include "Ini.h"
+
 // 석지용 - 믹스쳐 리셋 (무특화 아이템을 위해 전역을 하나 만든다 ㅠ_ㅠ)
 int	NotItemSpecial = 0;
 

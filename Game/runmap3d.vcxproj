@@ -473,6 +473,9 @@
     <ResourceCompile Include="Script1.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.vcxproj">
+      <Project>{2bf4b6ed-0642-417f-b810-95332c555914}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Utils\Utils.vcxproj">
       <Project>{70f5c2dc-9439-4bf9-a1fb-5ba10d41fd14}</Project>
     </ProjectReference>
